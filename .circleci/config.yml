@@ -1,0 +1,30 @@
+# This file is a Circle-CI configuration.
+
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: "circleci/node:latest"
+    parallelism: 4
+    steps:
+      - checkout
+      - run:
+          name: Creating .npmrc
+          command: |
+            echo "@fortawesome:registry=https://npm.fontawesome.com/" >> ~/.npmrc
+            echo "//npm.fontawesome.com/:_authToken=$FONTAWESOME_NPM_AUTH_TOKEN" >> ~/.npmrc
+      - run:
+          name: NPM Install
+          command: npm install
+      - run:
+          name: NPM Clean
+          command: npm run clean
+      - run:
+          name: NPM build
+          command: npm run build
+
+workflows:
+  build:
+    jobs:
+      - build

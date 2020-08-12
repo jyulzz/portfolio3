@@ -1,0 +1,214 @@
+@charset "utf-8";
+// Base
+@import "../base";
+//Templates
+body {
+  section#project {
+    figure.thumbnail {
+      .card {
+        @include breakpointFromTo("xs", "s") {
+          padding-bottom: 24px;
+        }
+        @include breakpointOnly("m") {
+          padding-bottom: 28px;
+        }
+        @include breakpointOnly("l") {
+          max-width: 88%;
+          padding-bottom: 32px;
+        }
+        @include breakpointUp("xl") {
+          max-width: 88%;
+          padding-bottom: 36px;
+        }
+
+        h1 {
+          display: flex;
+          flex-direction: column-reverse;
+
+          .title {
+            @include getFontResponsive("XXXL");
+            font-weight: map-get($Foundations_Fontweights, "Semibold");
+          }
+
+          .subtitle {
+            color: map-get($UI_Named_Colors, "text-dim");
+
+            font-weight: map-get($Foundations_Fontweights, "Light");
+            @include getFontResponsive("XL");
+          }
+        }
+
+        h2 {
+          @include getFontResponsive("XXL");
+          font-weight: map-get($Foundations_Fontweights, "Normal") !important;
+          @include breakpointUp("xs") {
+            padding-bottom: 8px;
+          }
+        }
+
+        .inProgress {
+          svg {
+            display: inline-block;
+            margin-right: 12px;
+            @include getFontResponsive("M");
+          }
+          @include getFontResponsive("M");
+
+          color: rgba(map-get($Foundations_Colors_Primary, "success"), 1);
+          background: rgba(
+            map-get($Foundations_Colors_Primary, "success"),
+            0.1
+          );
+          margin-top: 8px !important;
+          padding: 8px 16px;
+          border-radius: 4px;
+          font-weight: map-get($Foundations_Fontweights, "Medium");
+
+          width: max-content;
+        }
+      }
+
+      .image {
+        width: 100%;
+        overflow: hidden;
+
+        video {
+          width: 100%;
+          object-fit: scale-down;
+        }
+        @include breakpointFromTo("xs", "s") {
+          margin-bottom: 32px;
+        }
+        @include breakpointOnly("m") {
+          margin-bottom: 36px;
+        }
+        @include breakpointUp("l") {
+          margin-bottom: 40px;
+        }
+        @include breakpointUp("xl") {
+          margin-bottom: 44px;
+        }
+      }
+    }
+
+    h3 {
+      @include breakpointFromTo("xs", "s") {
+        margin-top: 44px;
+      }
+      @include breakpointOnly("m") {
+        margin-top: 48px;
+      }
+      @include breakpointUp("l") {
+        margin-top: 52px;
+      }
+      @include breakpointUp("xl") {
+        margin-top: 56px;
+      }
+    }
+
+    iframe {
+      width: 100%;
+      @include breakpointFromTo("xs", "s") {
+        height: 320px;
+      }
+      @include breakpointOnly("m") {
+        height: 480px;
+      }
+      @include breakpointUp("l") {
+        height: 520px;
+      }
+      @include breakpointUp("xl") {
+        height: 600px;
+      }
+    }
+
+    section#pagination {
+      border-top: thin dotted
+        map-get($Foundations_Colors_Neutral, "grey-medium");
+
+      @include breakpointFromTo("xs", "s") {
+        margin-top: 32px;
+        padding-top: 32px;
+      }
+      @include breakpointOnly("m") {
+        margin-top: 36px;
+        padding-top: 36px;
+      }
+      @include breakpointUp("l") {
+        margin-top: 40px;
+        padding-top: 40px;
+      }
+      @include breakpointUp("xl") {
+        margin-top: 44px;
+        padding-top: 44px;
+      }
+      display: flex;
+      @include getFontResponsive("XL");
+
+      a {
+        @include getFontResponsive("L");
+        @include breakpointOnly("xs") {
+        }
+        @include breakpointOnly("s") {
+        }
+        @include breakpointOnly("m") {
+        }
+        @include breakpointUp("l") {
+        }
+        @include breakpointUp("xl") {
+        }
+      }
+
+      .project {
+        font-weight: map-get($Foundations_Fontweights, "Semibold");
+      }
+      @include breakpointDown("xs") {
+        flex-direction: column;
+      }
+      @include breakpointUp("s") {
+        flex-direction: row;
+
+        .project {
+          flex: 50%;
+
+          &:last-of-type {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  &.dark {
+    section#project {
+      figure.thumbnail {
+        .card {
+          h1 {
+            .subtitle {
+              color: map-get($UI_Named_Colors--dark, "text-dim");
+            }
+          }
+
+          .inProgress {
+            color: rgba(
+              map-get($Foundations_Colors_Primary--dark, "success"),
+              1
+            );
+            background: rgba(
+              map-get($Foundations_Colors_Primary--dark, "success"),
+              0.1
+            );
+          }
+        }
+      }
+
+      section#pagination {
+        border-top: thin dotted
+          map-get($Foundations_Colors_Neutral--dark, "grey-medium");
+      }
+    }
+  }
+}
+
+//FOUC Prevention
+@import "../utils/nofouc";

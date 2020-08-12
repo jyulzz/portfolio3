@@ -1,0 +1,9 @@
+body {
+  &.dark {
+    .image,
+    [role="img"],
+    img {
+      filter: brightness(0.925);
+    }
+  }
+}

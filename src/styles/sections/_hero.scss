@@ -1,0 +1,53 @@
+$fa-font-path: "../../../node_modules/@fortawesome/fontawesome-pro/webfonts";
+@import "node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-pro/scss/regular.scss";
+
+section#hero {
+  @include gridPlacementPreset("standard");
+  white-space: pre-line;
+
+  h1 {
+    @include getFontScaled("XXL", "XXL", "XXL", "XXXL", "XXXL");
+    font-weight: map-get($Foundations_Fontweights, "Medium");
+    @include breakpointFromTo("xs", "m") {
+      margin-top: 12px;
+
+      margin-bottom: 8px;
+    }
+    @include breakpointOnly("l") {
+      margin-top: 20px;
+      margin-bottom: 12px;
+    }
+    @include breakpointUp("xl") {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+  }
+
+  h2 {
+    @include getFontScaled("XL", "XL", "XL", "XXL", "XXL");
+    font-weight: map-get($Foundations_Fontweights, "Normal");
+    @include breakpointFromTo("xs", "m") {
+      margin-bottom: 8px;
+    }
+    @include breakpointOnly("l") {
+      margin-bottom: 12px;
+    }
+    @include breakpointUp("xl") {
+      margin-bottom: 16px;
+    }
+
+    a {
+      &:after {
+        @extend %fa-icon;
+        @extend .far;
+        margin-left: 8px;
+        content: fa-content($fa-var-long-arrow-right);
+      }
+    }
+  }
+
+  a {
+    @extend .link;
+  }
+}

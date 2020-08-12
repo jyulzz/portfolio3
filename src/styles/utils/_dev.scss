@@ -1,0 +1,29 @@
+.dev,
+.dev * {
+  outline: thin solid rgba(map-get($UI_Named_Colors, "mark"), 0.25) !important;
+  background-color: rgba(map-get($UI_Named_Colors, "mark"), 0.015) !important;
+  color: rgba(map-get($Foundations_Colors_Neutral, "black"), 1) !important;
+  border-color: rgba(
+    map-get($Foundations_Colors_Neutral, "black"),
+    0.5
+  ) !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+
+  *[role="img"],
+  img {
+    opacity: 0.75;
+    filter: grayscale(1);
+  }
+  transition: none !important;
+}
+
+.mark,
+.mark * {
+  outline: thin dashed rgba(map-get($Foundations_Colors_Primary, "accent"), 0.5) !important;
+  background-color: rgba(
+    map-get($Foundations_Colors_Primary, "accent"),
+    0.025
+  ) !important;
+  color: rgba(map-get($Foundations_Colors_Primary, "accent"), 1) !important;
+}

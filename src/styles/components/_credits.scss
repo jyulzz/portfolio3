@@ -1,0 +1,11 @@
+#credits {
+  a {
+    border: none;
+    display: inline-flex;
+
+    .gem {
+      background-size: cover;
+      @extend .image;
+    }
+  }
+}

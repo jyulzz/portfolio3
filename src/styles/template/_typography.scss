@@ -1,0 +1,287 @@
+body {
+  font-family: "IBM Plex Sans", Helvetica, sans-serif;
+  @include getFontResponsive("M");
+
+  .contentful-rich-text-types {
+    .link {
+      word-break: normal !important;
+      white-space: normal !important;
+    }
+
+    h1 {
+      @include getFontResponsive("XXXL");
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "XXL");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "XXL");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "XXL");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "XXL");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "XXL");
+      }
+    }
+
+    h2 {
+      @include getFontResponsive("XXL");
+      margin-bottom: 16px;
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "XL");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "XL");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "XL");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "XL");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "XL");
+      }
+    }
+
+    h3 {
+      @include getFontResponsive("XL");
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "M");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "M");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "M");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "M");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "M");
+      }
+    }
+
+    h4 {
+      @include getFontResponsive("L");
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "M");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "M");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "M");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "M");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "M");
+      }
+    }
+
+    h5 {
+      @include getFontResponsive("M");
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "S");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "S");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "S");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "S");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "S");
+      }
+    }
+
+    h6 {
+      @include getFontResponsive("S");
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "XS");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "XS");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "XS");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "XS");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "XS");
+      }
+    }
+
+    p {
+      @include getFontResponsive("M");
+      @include breakpointOnly("xs") {
+        margin-bottom: getPHeight("xs", "L");
+      }
+      @include breakpointOnly("s") {
+        margin-bottom: getPHeight("s", "L");
+      }
+      @include breakpointOnly("m") {
+        margin-bottom: getPHeight("m", "L");
+      }
+      @include breakpointOnly("l") {
+        margin-bottom: getPHeight("l", "L");
+      }
+      @include breakpointUp("xl") {
+        margin-bottom: getPHeight("xl", "L");
+      }
+    }
+
+    ul li {
+      list-style-type: disc;
+      list-style-position: inside;
+      @include breakpointOnly("xs") {
+        margin-left: getPHeight("xs", "XXL");
+      }
+      @include breakpointOnly("s") {
+        margin-left: getPHeight("s", "XXL");
+      }
+      @include breakpointOnly("m") {
+        margin-left: getPHeight("m", "XXL");
+      }
+      @include breakpointOnly("l") {
+        margin-left: getPHeight("l", "XXL");
+      }
+      @include breakpointUp("xl") {
+        margin-left: getPHeight("xl", "XXL");
+      }
+
+      &:last-of-type {
+        @include breakpointOnly("xs") {
+          margin-bottom: getPHeight("xs", "M");
+        }
+        @include breakpointOnly("s") {
+          margin-bottom: getPHeight("s", "M");
+        }
+        @include breakpointOnly("m") {
+          margin-bottom: getPHeight("m", "M");
+        }
+        @include breakpointOnly("l") {
+          margin-bottom: getPHeight("l", "M");
+        }
+        @include breakpointUp("xl") {
+          margin-bottom: getPHeight("xl", "M");
+        }
+      }
+
+      p {
+        display: inline;
+      }
+    }
+
+    b {
+      font-weight: map-get($Foundations_Fontweights, "Semibold");
+    }
+
+    i {
+      font-style: italic;
+    }
+
+    u {
+      text-decoration: underline;
+    }
+
+    code {
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    figure {
+      box-shadow: 0 16px 32px
+        rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
+      background: map-get($Foundations_Colors_Neutral, "card-background");
+      border: thin solid transparent;
+
+      width: 100%;
+      box-sizing: border-box;
+      @include breakpointOnly("xs") {
+        margin-top: getPHeight("xs", "XXXL");
+        padding: getPHeight("xs", "XXXL");
+        margin-bottom: getPHeight("xs", "XXXL");
+      }
+      @include breakpointOnly("s") {
+        margin-top: getPHeight("s", "XXXL");
+        padding: getPHeight("s", "XXXL");
+        margin-bottom: getPHeight("s", "XXXL");
+      }
+      @include breakpointOnly("m") {
+        margin-top: getPHeight("m", "XXXL");
+        padding: getPHeight("m", "XXXL");
+        margin-bottom: getPHeight("m", "XXXL");
+      }
+      @include breakpointOnly("l") {
+        margin-top: getPHeight("l", "XXXL");
+        padding: getPHeight("l", "XXXL");
+        margin-bottom: getPHeight("l", "XXXL");
+      }
+      @include breakpointUp("xl") {
+        margin-top: getPHeight("xl", "XXXL");
+        padding: getPHeight("xl", "XXXL");
+        margin-bottom: getPHeight("xl", "XXXL");
+      }
+
+      figcaption {
+        background: gba(map-get($Foundations_Colors_Neutral, "white"), 1);
+
+        .description {
+          margin-right: 8px;
+        }
+
+        a.link {
+          word-break: keep-all;
+          white-space: nowrap;
+          display: inline-block;
+        }
+        @include getFontResponsive("S");
+        @include breakpointOnly("xs") {
+          padding-top: getPHeight("xs", "XXL");
+          min-height: getPHeight("xs", "M");
+          line-height: 160%;
+        }
+        @include breakpointOnly("s") {
+          padding-top: getPHeight("s", "XXL");
+          min-height: getPHeight("s", "M");
+          line-height: 160%;
+        }
+        @include breakpointOnly("m") {
+          padding-top: getPHeight("m", "XXL");
+          min-height: getPHeight("m", "M");
+          line-height: 160%;
+        }
+        @include breakpointOnly("l") {
+          padding-top: getPHeight("l", "XXL");
+          min-height: getPHeight("l", "M");
+          line-height: 160%;
+        }
+        @include breakpointUp("xl") {
+          padding-top: getPHeight("xl", "XXL");
+          min-height: getPHeight("xl", "M");
+          line-height: 160%;
+        }
+      }
+    }
+  }
+
+  &.dark {
+    figure:not(.thumbnail) {
+      box-shadow: 0 16px 32px
+        rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32);
+      background: map-get($UI_Named_Colors--dark, "card-background");
+      border: thin solid map-get($UI_Named_Colors--dark, "border");
+    }
+  }
+}

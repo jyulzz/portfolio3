@@ -1,0 +1,22 @@
+body {
+  .gems {
+    margin-top: 0px;
+    .gem {
+      box-sizing: border-box;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(map-get($Foundations_Colors_Neutral, "white"), 1);
+      border-radius: 40px;
+      background: map-get($UI_Named_Colors, "card-background");
+      margin-top: 6px;
+      margin-bottom: 6px;
+      margin-right: 12px;
+    }
+  }
+
+  &.dark {
+    .gem {
+    }
+  }
+}

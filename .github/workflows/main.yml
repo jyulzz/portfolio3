@@ -1,0 +1,38 @@
+# This file is a GitHub workflow.
+
+name: "Auto Tag + Release"
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        id: "checkout"
+        uses: actions/checkout@v2
+      - name: "Auto Tag"
+        # This step checks whether package.json's version is ahead of the latest repo tag.
+        # If it is, it creates a new tag using the package.json version field.
+        id: "auto-tag"
+        uses: Klemensas/action-autotag@stable
+        with:
+          changelog_structure: "• **{{message}}** ({{author}}, {{sha}})\n
+            "
+      - name: "Create Release"
+        # This step creates a new release using outputs from the previous step.
+        # If no new tag was created by previous step, this step will not run.
+        if: steps.auto-tag.outputs.tagname
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.auto-tag.outputs.version }}
+          release_name: ${{ steps.auto-tag.outputs.version }}
+          body: ${{ steps.auto-tag.outputs.tagmessage }}

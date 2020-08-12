@@ -1,0 +1,41 @@
+$breakpoints: (
+  "xs": (
+    min: 0px,
+    max: 479px,
+  ),
+  "s": (
+    min: 480px,
+    max: 767px,
+  ),
+  "m": (
+    min: 768px,
+    max: 1023px,
+  ),
+  "l": (
+    min: 1024px,
+    max: 1439px,
+  ),
+  "xl": (
+    min: 1440px,
+  ),
+);
+@mixin breakpointOnly($breakpoint) {
+  @media (min-width: map-get(map-get($breakpoints, $breakpoint), min)) and (max-width: map-get(map-get($breakpoints, $breakpoint), max)) {
+    @content;
+  }
+}
+@mixin breakpointFromTo($lower, $upper) {
+  @media (min-width: map-get(map-get($breakpoints, $lower), min)) and (max-width: map-get(map-get($breakpoints, $upper), max)) {
+    @content;
+  }
+}
+@mixin breakpointDown($upper) {
+  @media (max-width: map-get(map-get($breakpoints, $upper), max)) {
+    @content;
+  }
+}
+@mixin breakpointUp($lower) {
+  @media (min-width: map-get(map-get($breakpoints, $lower),min)) {
+    @content;
+  }
+}

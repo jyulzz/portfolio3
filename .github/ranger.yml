@@ -1,0 +1,5 @@
+# This file is configuration for Repo Ranger (https://reporanger.com).
+
+labels:
+  # All PRs labeled merge get automatically merged
+  merge: merge

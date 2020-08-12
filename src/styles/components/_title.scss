@@ -1,0 +1,22 @@
+.title {
+  font-weight: map-get($Foundations_Fontweights, "Medium");
+
+  &.level1 {
+    @include getFontResponsive("XL");
+    @include breakpointFromTo("xs", "s") {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    @include breakpointUp("m") {
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &.level2 {
+    @include getFontResponsive("L");
+    @include breakpointUp("xs") {
+      margin-bottom: 4px;
+    }
+  }
+}

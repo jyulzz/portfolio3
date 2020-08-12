@@ -1,0 +1,17 @@
+# This  is a Travis-CI configuration.
+
+language: node_js
+
+node_js:
+  - "stable"
+
+branches:
+  only:
+    - master
+
+before_script:
+  - "npm i -g gatsby-cli"
+  - "npm install"
+
+script:
+  - gatsby build

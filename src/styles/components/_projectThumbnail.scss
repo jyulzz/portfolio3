@@ -1,0 +1,149 @@
+body {
+  div.projectThumbnail {
+    display: grid;
+
+    background: map-get($UI_Named_Colors, "card-background");
+
+    box-shadow: 0 16px 32px
+      rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
+
+    .information {
+      .description,
+      .organization-date {
+        margin-bottom: 4px;
+      }
+
+      .description {
+        font-weight: map-get($Foundations_Fontweights, "Medium");
+      }
+
+      .organization-date {
+        color: map-get($UI_Named_Colors, "text-dim");
+
+        .organization {
+        }
+
+        .date {
+        }
+      }
+
+      .inProgress {
+        svg {
+          display: inline-block;
+          margin-right: 8px;
+        }
+
+        color: rgba(map-get($Foundations_Colors_Primary, "success"), 1);
+        background: rgba(map-get($Foundations_Colors_Primary, "success"), 0.1);
+        margin-top: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        font-weight: map-get($Foundations_Fontweights, "Medium");
+        display: inline;
+        width: max-content;
+      }
+
+      .link {
+        svg {
+          margin-right: 0;
+          margin-left: 0.25rem;
+        }
+
+        &.inactive {
+          svg {
+            margin-right: 8px;
+          }
+          transition: all 0s;
+          display: inline-block;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-weight: map-get($Foundations_Fontweights, "Medium");
+          @include getFontResponsive("S");
+          color: map-get($UI_Named_Colors, "text-dim");
+          background: rgba(
+            map-get($Foundations_Colors_Neutral, "grey-light"),
+            0.4
+          );
+        }
+      }
+    }
+    @include breakpointFromTo("xs", "s") {
+      grid-template-columns: repeat(6, 1fr);
+      grid-column-gap: 16px;
+      margin-bottom: 48px;
+
+      .information,
+      .thumbnail {
+        grid-column-start: 1;
+        grid-column-end: 7;
+      }
+
+      .information {
+        padding: 24px;
+      }
+
+      .thumbnail {
+        height: 48vw;
+      }
+    }
+    @include breakpointUp("m") {
+      grid-template-columns: repeat(10, 1fr);
+      grid-column-gap: 16px;
+      grid-template-rows: 1fr;
+      grid-row-gap: 0;
+      margin-bottom: 54px;
+      align-items: center;
+      justify-content: center;
+
+      .information {
+        grid-area: 1 / 1 / 2 / 5;
+        padding: 24px 8px 24px 24px;
+      }
+
+      .thumbnail {
+        height: 40vw;
+        max-height: 400px;
+        grid-area: 1 / 5 / 2 / 11;
+      }
+    }
+    @include breakpointOnly("l") {
+      margin-bottom: 60px;
+    }
+    @include breakpointOnly("xl") {
+      margin-bottom: 68px;
+    }
+  }
+
+  &.dark {
+    div.projectThumbnail {
+      background: map-get($UI_Named_Colors--dark, "card-background");
+      box-shadow: 0 16px 32px
+          rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32),
+        0 0 1px rgba(map-get($UI_Named_Colors--dark, "text-dim"), 1);
+
+      .information {
+        .organization-date {
+          color: map-get($UI_Named_Colors--dark, "text-dim");
+        }
+
+        .inProgress {
+          color: rgba(map-get($Foundations_Colors_Primary--dark, "success"), 1);
+          background: rgba(
+            map-get($Foundations_Colors_Primary--dark, "success"),
+            0.1
+          );
+        }
+
+        .link {
+          &.inactive {
+            color: map-get($UI_Named_Colors--dark, "text");
+            background: rgba(
+              map-get($Foundations_Colors_Neutral--dark, "grey-medium-dark"),
+              1
+            );
+          }
+        }
+      }
+    }
+  }
+}

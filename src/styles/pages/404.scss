@@ -1,0 +1,35 @@
+@charset "utf-8";
+// Base
+@import "../base";
+//Templates
+main.notfound {
+  h1 {
+    @include getFontResponsive("XXXL");
+    font-weight: map-get($Foundations_Fontweights, "Medium");
+    @include breakpointFromTo("xs", "m") {
+      margin-bottom: 8px;
+    }
+    @include breakpointOnly("l") {
+      margin-bottom: 12px;
+    }
+    @include breakpointUp("xl") {
+      margin-bottom: 16px;
+    }
+  }
+
+  h2 {
+    @include getFontResponsive("XL");
+    font-weight: map-get($Foundations_Fontweights, "Normal");
+    @include breakpointFromTo("xs", "m") {
+      margin-bottom: 8px;
+    }
+    @include breakpointOnly("l") {
+      margin-bottom: 12px;
+    }
+    @include breakpointUp("xl") {
+      margin-bottom: 16px;
+    }
+  }
+}
+//FOUC Prevention
+@import "../utils/nofouc";
