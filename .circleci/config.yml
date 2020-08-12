@@ -21,7 +21,7 @@ jobs:
           name: NPM Clean
           command: npm run clean
       - run:
-          name: NPM build
+          name: NPM Build
           command: npm run build
 
 workflows:
