@@ -158,6 +158,39 @@ const options = {
 
 /* ProjectPage builds the page for a Project item received from Contentful */
 class ProjectPage extends React.Component {
+  card() {
+    return (
+      <div className="card">
+        <h1>
+          <span className="title">{this.props.pageContext.title}</span>
+          <span className="subtitle">{this.props.pageContext.subtitle}</span>
+        </h1>
+        <h2>{this.props.pageContext.description}</h2>
+        {this.props.pageContext.inProgress === true ? (
+          <div className="inProgress">
+            <FontAwesomeIcon icon={faTrafficCone} />
+            This project is a work in progress
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+    );
+  }
+  thumbnail() {
+    return (
+      <figure className="thumbnail">
+        {this.card()}
+        <div className="image">
+          <img
+            src={this.props.pageContext.imagePreview}
+            alt={this.props.pageContext.title}
+            style={{ height: "100%", width: "100%", objectFit: "cover" }}
+          />
+        </div>
+      </figure>
+    );
+  }
   render() {
     return (
       <>
@@ -166,34 +199,7 @@ class ProjectPage extends React.Component {
 
         <Main type="default" className="project">
           <section id="project">
-            <figure className="thumbnail">
-              <div className="card">
-                <h1>
-                  <span className="title">{this.props.pageContext.title}</span>
-                  <span className="subtitle">
-                    {this.props.pageContext.subtitle}
-                  </span>
-                </h1>
-                <h2>{this.props.pageContext.description}</h2>
-                {this.props.pageContext.inProgress === true ? (
-                  <div className="inProgress">
-                    <FontAwesomeIcon icon={faTrafficCone} />
-                    This project is a work in progress
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
-
-              <div className="image">
-                <img
-                  src={this.props.pageContext.imagePreview}
-                  alt={this.props.pageContext.title}
-                  style={{ height: "100%", width: "100%", objectFit: "cover" }}
-                />
-              </div>
-            </figure>
-
+            {this.thumbnail()}
             {/* This is the Rich Text rendering section */}
             <section className="contentful-rich-text-types">
               {documentToReactComponents(
@@ -201,7 +207,6 @@ class ProjectPage extends React.Component {
                 options
               )}
             </section>
-
             <Pagination
               previousProjectSlug={this.props.pageContext.previousProjectSlug}
               previousProjectTitle={this.props.pageContext.previousProjectTitle}
