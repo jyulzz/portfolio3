@@ -15,13 +15,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: "Wait for Checks"
+        id: "wait_check"
+        uses: jitterbit/await-check-suites@v1
       - name: "Checkout"
         id: "checkout"
         uses: actions/checkout@v2
       - name: "Auto Tag"
         # This step checks whether package.json's version is ahead of the latest repo tag.
         # If it is, it creates a new tag using the package.json version field.
-        id: "auto-tag"
+        id: "auto_tag"
         uses: Klemensas/action-autotag@stable
         with:
           changelog_structure: "• **{{message}}** ({{author}}, {{sha}})\n
