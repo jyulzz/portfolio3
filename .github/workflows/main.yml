@@ -29,10 +29,10 @@ jobs:
       - name: "Create Release"
         # This step creates a new release using outputs from the previous step.
         # If no new tag was created by previous step, this step will not run.
-        if: steps.auto-tag.outputs.tagname
+        if: steps.auto_tag.outputs.tagname
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ steps.auto-tag.outputs.version }}
-          release_name: ${{ steps.auto-tag.outputs.version }}
-          body: ${{ steps.auto-tag.outputs.tagmessage }}
+          tag_name: ${{ steps.auto_tag.outputs.version }}
+          release_name: ${{ steps.auto_tag.outputs.version }}
+          body: ${{ steps.auto_tag.outputs.tagmessage }}
