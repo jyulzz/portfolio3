@@ -67,7 +67,7 @@ const Versions = () => {
   contentfulData.versions.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     versions.push(
-      <div key={node.node.id} className="versionThumbnail" id={node.node.slug}>
+      <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>
         <a
           href={node.node.url}
           className="thumbnail"
