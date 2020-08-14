@@ -21,6 +21,7 @@ import Footer from "../template/footer";
 import FooterContent from "../template/content-footer";
 import Link from "../components/link";
 import Conf from "../data/conf.yaml";
+import Pagination from "./pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
@@ -157,57 +158,6 @@ const options = {
 
 /* ProjectPage builds the page for a Project item received from Contentful */
 class ProjectPage extends React.Component {
-  paginationRender() {
-    return (
-      <>
-        {/* This section item will receive classes reflecting the presence of absence of projects before and after it. */}
-        <section
-          id="pagination"
-          className={`
-        ${
-          this.props.pageContext.previousProjectSlug == null
-            ? "null"
-            : "previous"
-        }
-        ${this.props.pageContext.nextProjectSlug == null ? "null" : "next"}`}
-        >
-          <div className="project previous">
-            {/* If there is a previous project, display a link to it */}
-            {this.props.pageContext.previousProjectSlug == null ? (
-              ""
-            ) : (
-              <>
-                <div>{this.props.pageContext.previousProjectTitle}</div>
-                <Link
-                  href={"/work/" + this.props.pageContext.previousProjectSlug}
-                >
-                  <FontAwesomeIcon icon={faLongArrowLeft} />
-                  {"View previous project"}
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="project next">
-            {/* If there is a next project, display a link to it */}
-            {this.props.pageContext.nextProjectSlug == null ? (
-              ""
-            ) : (
-              <>
-                <div>{this.props.pageContext.nextProjectTitle}</div>
-                <Link
-                  href={"/work/" + this.props.pageContext.nextProjectSlug}
-                  className="inverted"
-                >
-                  {"View next project"}
-                  <FontAwesomeIcon icon={faLongArrowRight} />
-                </Link>
-              </>
-            )}
-          </div>
-        </section>
-      </>
-    );
-  }
   render() {
     return (
       <>
@@ -252,7 +202,12 @@ class ProjectPage extends React.Component {
               )}
             </section>
 
-            {this.paginationRender()}
+            <Pagination
+              previousProjectSlug={this.props.pageContext.previousProjectSlug}
+              previousProjectTitle={this.props.pageContext.previousProjectTitle}
+              nextProjectSlug={this.props.pageContext.nextProjectSlug}
+              nextProjectTitle={this.props.pageContext.nextProjectTitle}
+            />
           </section>
         </Main>
         <Footer>
