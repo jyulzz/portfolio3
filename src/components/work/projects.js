@@ -108,7 +108,7 @@ const Projects = () => {
   contentfulData.released.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     projects.push(
-      <div key={node.node.id} className="projectThumbnail" id={node.node.slug}>
+      <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
         <a
           href={"/work/" + node.node.slug}
           className="thumbnail"
@@ -161,7 +161,7 @@ const Projects = () => {
   contentfulData.unreleased.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     projects.push(
-      <div key={node.node.id} className="projectThumbnail" id={node.node.slug}>
+      <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
         <span className="thumbnail" style={style}>
           <img
             src={node.node.imagePreview.file.url}

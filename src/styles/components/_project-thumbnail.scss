@@ -1,5 +1,5 @@
 body {
-  div.projectThumbnail {
+  div.project-thumbnail {
     display: grid;
 
     background: map-get($UI_Named_Colors, "card-background");
@@ -115,7 +115,7 @@ body {
   }
 
   &.dark {
-    div.projectThumbnail {
+    div.project-thumbnail {
       background: map-get($UI_Named_Colors--dark, "card-background");
       box-shadow: 0 16px 32px
           rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32),

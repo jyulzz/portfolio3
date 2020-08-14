@@ -18,7 +18,7 @@ import SEO from "../components/seo";
 import Header from "../template/header";
 import Main from "../template/main";
 import Footer from "../template/footer";
-import FooterContent from "../template/content.footer";
+import FooterContent from "../template/content-footer";
 import Link from "../components/link";
 import Conf from "../data/conf.yaml";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ import {
   faLongArrowRight,
 } from "@fortawesome/pro-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/pages/project.template.scss";
+import "../styles/pages/project-template.scss";
 library.add(faTrafficCone, faLongArrowLeft, faLongArrowRight);
 config.autoAddCss = false;
 
