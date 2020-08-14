@@ -39,6 +39,44 @@ class Pagination extends React.Component {
     this.nextProjectTitle = this.props.nextProjectTitle;
   }
 
+  previousProject() {
+    return (
+      <div className="project previous">
+        {/* If there is a previous project, display a link to it */}
+        {this.previousProjectSlug == null ? (
+          ""
+        ) : (
+          <>
+            <div>{this.previousProjectTitle}</div>
+            <Link href={"/work/" + this.previousProjectSlug}>
+              <FontAwesomeIcon icon={faLongArrowLeft} />
+              {"View previous project"}
+            </Link>
+          </>
+        )}
+      </div>
+    );
+  }
+
+  nextProject() {
+    return (
+      <div className="project next">
+        {/* If there is a next project, display a link to it */}
+        {this.nextProjectSlug == null ? (
+          ""
+        ) : (
+          <>
+            <div>{this.nextProjectTitle}</div>
+            <Link href={"/work/" + this.nextProjectSlug} className="inverted">
+              {"View next project"}
+              <FontAwesomeIcon icon={faLongArrowRight} />
+            </Link>
+          </>
+        )}
+      </div>
+    );
+  }
+
   render() {
     return (
       <>
@@ -49,37 +87,8 @@ class Pagination extends React.Component {
         ${this.previousProjectSlug == null ? "null" : "previous"}
         ${this.nextProjectSlug == null ? "null" : "next"}`}
         >
-          <div className="project previous">
-            {/* If there is a previous project, display a link to it */}
-            {this.previousProjectSlug == null ? (
-              ""
-            ) : (
-              <>
-                <div>{this.previousProjectTitle}</div>
-                <Link href={"/work/" + this.previousProjectSlug}>
-                  <FontAwesomeIcon icon={faLongArrowLeft} />
-                  {"View previous project"}
-                </Link>
-              </>
-            )}
-          </div>
-          <div className="project next">
-            {/* If there is a next project, display a link to it */}
-            {this.nextProjectSlug == null ? (
-              ""
-            ) : (
-              <>
-                <div>{this.nextProjectTitle}</div>
-                <Link
-                  href={"/work/" + this.nextProjectSlug}
-                  className="inverted"
-                >
-                  {"View next project"}
-                  <FontAwesomeIcon icon={faLongArrowRight} />
-                </Link>
-              </>
-            )}
-          </div>
+          {this.previousProject()}
+          {this.nextProject()}
         </section>
       </>
     );
