@@ -58,49 +58,31 @@ function MenuItems() {
 
   /* Depending on the type of item returned from Contentful (out-of-site link with a url, link to a site page with slug, or anchor link within the page, add the correctly formatted <li/> tag to the menuItems array)*/
   contenfulData.allContentfulMenu.edges["0"].node.Items.forEach((item) => {
+    var itemHref;
+    var itemTarget;
     if ("url" in item) {
-      menuItems.push(
-        <li
-          key={item.id}
-          onClick={() => {
-            document.querySelector("#menuToggle").click();
-          }}
-          role="presentation"
-        >
-          <Link href={item.url} target={item.target}>
-            <span>{item.title}</span>
-          </Link>
-        </li>
-      );
+      itemHref = item.url;
+      itemTarget = item.target;
     } else if ("slug" in item) {
-      menuItems.push(
-        <li
-          key={item.id}
-          onClick={() => {
-            document.querySelector("#menuToggle").click();
-          }}
-          role="presentation"
-        >
-          <Link href={item.slug} target={item.target}>
-            <span>{item.title}</span>
-          </Link>
-        </li>
-      );
-    } else if ("anchor" in item) {
-      menuItems.push(
-        <li
-          key={item.id}
-          onClick={() => {
-            document.querySelector("#menuToggle").click();
-          }}
-          role="presentation"
-        >
-          <Link href={"" + item.anchor}>
-            <span>{item.title}</span>
-          </Link>
-        </li>
-      );
+      itemHref = item.slug;
+      itemTarget = item.target;
+    } else if ("anchor") {
+      itemHref = "" + item.anchor;
+      itemTarget = "_self";
     }
+    menuItems.push(
+      <li
+        key={item.id}
+        onClick={() => {
+          document.querySelector("#menuToggle").click();
+        }}
+        role="presentation"
+      >
+        <Link href={itemHref} target={itemTarget}>
+          <span>{item.title}</span>
+        </Link>
+      </li>
+    );
   });
   return menuItems;
 }

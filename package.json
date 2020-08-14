@@ -1,7 +1,7 @@
 {
   "name": "@jyulzz/portfolio3",
   "description": "Jules Thivent - Product and UX Designer – Portfolio",
-  "version": "3.0.18",
+  "version": "3.0.19",
   "author": "Jules Thivent",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
