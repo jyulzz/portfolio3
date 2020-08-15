@@ -31,7 +31,7 @@ For each Project entry found in Contentful, create a project page using
 '/src/templates/project.js' as a template.
 */
 exports.createPages = ({ graphql, actions }) => {
-  const createPage = actions;
+  const { createPage } = actions;
   return graphql(
     `
       {
