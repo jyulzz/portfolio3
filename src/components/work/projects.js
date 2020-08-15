@@ -176,7 +176,7 @@ const Projects = () => {
         <div className="information">
           <Title level="2">{node.node.title}</Title>
           <div className="organization-date">
-            {node.node.organization == null ? (
+            {node.node.organization === null ? (
               ""
             ) : (
               <span className="organization">{node.node.organization}</span>

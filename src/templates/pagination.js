@@ -43,7 +43,7 @@ class Pagination extends React.Component {
     return (
       <div className="project previous">
         {/* If there is a previous project, display a link to it */}
-        {this.previousProjectSlug == null ? (
+        {this.previousProjectSlug === null ? (
           ""
         ) : (
           <>
@@ -62,7 +62,7 @@ class Pagination extends React.Component {
     return (
       <div className="project next">
         {/* If there is a next project, display a link to it */}
-        {this.nextProjectSlug == null ? (
+        {this.nextProjectSlug === null ? (
           ""
         ) : (
           <>
@@ -84,8 +84,8 @@ class Pagination extends React.Component {
         <section
           id="pagination"
           className={`
-        ${this.previousProjectSlug == null ? "null" : "previous"}
-        ${this.nextProjectSlug == null ? "null" : "next"}`}
+        ${this.previousProjectSlug === null ? "null" : "previous"}
+        ${this.nextProjectSlug === null ? "null" : "next"}`}
         >
           {this.previousProject()}
           {this.nextProject()}
