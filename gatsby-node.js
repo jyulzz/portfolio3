@@ -31,7 +31,7 @@ For each Project entry found in Contentful, create a project page using
 '/src/templates/project.js' as a template.
 */
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const createPage = actions;
   return graphql(
     `
       {
@@ -68,56 +68,49 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `
-  )
-    .then((result) => {
-      if (result.errors) {
-        console.log("Error retrieving data from Contentful", result.errors);
-      }
-      const projectTemplate = path.resolve("./src/templates/project.js");
-      result.data.allContentfulProject.edges.forEach((edge) => {
-        /*
+  ).then((result) => {
+    const projectTemplate = path.resolve("./src/templates/project.js");
+    result.data.allContentfulProject.edges.forEach((edge) => {
+      /*
         If a Project node has no 'previous' or 'next', create an artificial
         'next' or 'previous' to make sure the previous... and next... properties
         in 'createPage({...,context:'' will not be undefined.
         */
-        if (edge.previous === null) {
-          edge.previous = {
-            title: null,
-            slug: null,
-          };
-        }
-        if (edge.next === null) {
-          edge.next = {
-            title: null,
-            slug: null,
-          };
-        }
+      if (edge.previous === null) {
+        edge.previous = {
+          title: null,
+          slug: null,
+        };
+      }
+      if (edge.next === null) {
+        edge.next = {
+          title: null,
+          slug: null,
+        };
+      }
 
-        /*
+      /*
         Page creation function. All data used in 'projectTemplate' is passsed
         throught 'context'.
         */
-        createPage({
-          path: `/work/${edge.node.slug}/`,
-          component: slash(projectTemplate),
-          context: {
-            slug: edge.node.slug,
-            id: edge.node.id,
-            title: edge.node.title,
-            subtitle: edge.node.subtitle,
-            imagePreview: edge.node.imagePreview.file.url,
-            content: edge.node.content.json,
-            description: edge.node.description.description,
-            previousProjectSlug: edge.previous.slug,
-            previousProjectTitle: edge.previous.title,
-            nextProjectSlug: edge.next.slug,
-            nextProjectTitle: edge.next.title,
-            inProgress: edge.node.inProgress,
-          },
-        });
+      createPage({
+        path: `/work/${edge.node.slug}/`,
+        component: slash(projectTemplate),
+        context: {
+          slug: edge.node.slug,
+          id: edge.node.id,
+          title: edge.node.title,
+          subtitle: edge.node.subtitle,
+          imagePreview: edge.node.imagePreview.file.url,
+          content: edge.node.content.json,
+          description: edge.node.description.description,
+          previousProjectSlug: edge.previous.slug,
+          previousProjectTitle: edge.previous.title,
+          nextProjectSlug: edge.next.slug,
+          nextProjectTitle: edge.next.title,
+          inProgress: edge.node.inProgress,
+        },
       });
-    })
-    .catch((error) => {
-      console.log("Error retrieving data from Contentful", error);
     });
+  });
 };
