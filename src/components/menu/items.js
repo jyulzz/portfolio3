@@ -66,7 +66,7 @@ function MenuItems() {
     } else if ("slug" in item) {
       itemHref = item.slug;
       itemTarget = item.target;
-    } else if ("anchor") {
+    } else if ("anchor" in item) {
       itemHref = "" + item.anchor;
       itemTarget = "_self";
     }

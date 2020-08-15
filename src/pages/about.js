@@ -85,7 +85,7 @@ const options = {
 if (typeof window !== "undefined") {
   // Make scroll behavior of internal links smooth
   // eslint-disable-next-line global-require
-  require("smooth-scroll")('nav#main a[href*="#"]', {
+  require("smooth-scroll")("nav#main a[href*='#']", {
     header: "[data-scroll-header]",
     offset: 80,
     speed: 500,
