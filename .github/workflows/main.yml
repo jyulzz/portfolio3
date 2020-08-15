@@ -1,6 +1,7 @@
 # This file is a GitHub workflow.
 
 name: "Auto Tag + Release"
+id: "autotag-release"
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
