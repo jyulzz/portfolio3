@@ -1,6 +1,6 @@
 # ZSH Script to run 'gatsby develop' process on project
 #!/bin/zsh
-clear
+sudo clear
 echo "\n\033[1;32mdevelop.zsh: a ZSH Script to run 'gatsby develop' on this project.\033[0m"
 echo "\n\033[1;35m1. Install:\033[0m\n"
 npm install
