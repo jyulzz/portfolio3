@@ -1,6 +1,6 @@
 body {
   .gems {
-    margin-top: 0px;
+    margin-top: 0;
     .gem {
       box-sizing: border-box;
       display: inline-block;
@@ -12,11 +12,6 @@ body {
       margin-top: 6px;
       margin-bottom: 6px;
       margin-right: 12px;
-    }
-  }
-
-  &.dark {
-    .gem {
     }
   }
 }

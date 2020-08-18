@@ -147,16 +147,6 @@ body {
 
       a {
         @include getFontResponsive("L");
-        @include breakpointOnly("xs") {
-        }
-        @include breakpointOnly("s") {
-        }
-        @include breakpointOnly("m") {
-        }
-        @include breakpointUp("l") {
-        }
-        @include breakpointUp("xl") {
-        }
       }
 
       .project {

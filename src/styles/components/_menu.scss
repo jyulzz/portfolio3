@@ -94,9 +94,6 @@ body {
         width: 20px;
         height: 20px;
       }
-
-      &.close {
-      }
     }
     @include breakpointFromTo("xs", "s") {
       li {
