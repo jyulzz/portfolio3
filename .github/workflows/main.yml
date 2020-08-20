@@ -24,7 +24,7 @@ jobs:
         id: "auto_tag"
         uses: Klemensas/action-autotag@stable
         with:
-          changelog_structure: "• **{{message}}** ({{author}}, {{sha}})\n
+          changelog_structure: "• {{message}} ({{author}}, {{sha}})\n
             "
       - name: "Create Release"
         # This step creates a new release using outputs from the previous step.
