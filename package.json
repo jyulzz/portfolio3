@@ -45,7 +45,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11"
   },
   "devDependencies": {
-    "prettier": "^2.1.0",
+    "prettier": "^2.1.1",
     "@fortawesome/fontawesome-pro": "^5.14.0"
   },
   "keywords": [
