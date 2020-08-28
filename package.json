@@ -20,7 +20,7 @@
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.30",
     "gatsby-plugin-sri": "^1.1.0",
-    "gatsby-source-contentful": "^2.3.39",
+    "gatsby-source-contentful": "^2.3.40",
     "gatsby-source-filesystem": "^2.3.27",
     "gatsby-transformer-remark": "^2.8.31",
     "gatsby-transformer-sharp": "^2.5.13",
