@@ -72,15 +72,11 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-75777892-2",
-        head: false,
+        head: true,
         anonymize: true,
         respectDNT: true,
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
         pageTransitionDelay: 0,
         defer: false,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "julesthivent.com",
       },
     },
     {
