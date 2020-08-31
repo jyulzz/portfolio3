@@ -46,7 +46,7 @@ module.exports = {
           "style-src-elem":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
           "img-src":
-            "data: 'self' *.google-analytics.com *.ctfassets.net *.cloudfront.net",
+            "data: 'self' *.google-analytics.com  *.doubleclick.net *.ctfassets.net *.cloudfront.net",
           "frame-src": "'self' *.google.com *.figma.com",
         },
       },
