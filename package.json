@@ -28,7 +28,7 @@
     "gatsby-plugin-offline": "^3.2.26",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sass": "^2.3.12",
-    "gatsby-plugin-sharp": "^2.6.30",
+    "gatsby-plugin-sharp": "^2.6.31",
     "gatsby-plugin-sri": "^1.1.0",
     "gatsby-source-contentful": "^2.3.40",
     "gatsby-source-filesystem": "^2.3.27",
