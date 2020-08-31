@@ -36,13 +36,17 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          "script-src": "'self' *.google-analytics.com *.cloudfront.net",
+          "script-src":
+            "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
+          "script-src-elem":
+            "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
           "font-src": "data: 'self' fonts.gstatic.com *.cloudfront.net",
           "style-src":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net",
           "style-src-elem":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
-          "img-src": "data: 'self' *.ctfassets.net *.cloudfront.net",
+          "img-src":
+            "data: 'self' *.google-analytics.com  *.doubleclick.net *.ctfassets.net *.cloudfront.net",
           "frame-src": "'self' *.google.com *.figma.com",
         },
       },
@@ -67,6 +71,17 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-netlify",
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-75777892-2",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        defer: false,
+      },
     },
     {
       resolve: `gatsby-source-contentful`,
