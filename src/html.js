@@ -24,11 +24,12 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta charSet="utf-8" key="charset" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" key="httpEquiv" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          key="viewport"
         />
         {props.headComponents}
       </head>
