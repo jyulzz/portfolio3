@@ -28,13 +28,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-sri",
-      options: {
-        hash: "sha256",
-        crossorigin: false,
-      },
-    },
-    {
       resolve: `gatsby-plugin-csp`,
       options: {
         disableOnDev: false,
