@@ -1,7 +1,7 @@
 {
   "name": "@jyulzz/portfolio3",
   "description": "Jules Thivent - Product and UX Designer – Portfolio",
-  "version": "3.0.56",
+  "version": "3.0.64",
   "author": "Jules Thivent",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
@@ -29,7 +29,6 @@
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.31",
-    "gatsby-plugin-sri": "^1.1.0",
     "gatsby-source-contentful": "^2.3.41",
     "gatsby-source-filesystem": "^2.3.27",
     "gatsby-transformer-remark": "^2.8.32",
@@ -62,8 +61,9 @@
   "scripts": {
     "build": "gatsby build",
     "b": "./.build.zsh",
-    "develop.": "gatsby develop",
+    "s": "./.serve.zsh",
     "d": "./.develop.zsh",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md,scss,yml}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
