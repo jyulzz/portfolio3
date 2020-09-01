@@ -28,13 +28,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-sri",
-      options: {
-        hash: "sha256",
-        crossorigin: false,
-      },
-    },
-    {
       resolve: `gatsby-plugin-csp`,
       options: {
         disableOnDev: false,
@@ -43,7 +36,8 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          "script-src": "'self' data: *.google-analytics.com *.cloudfront.net",
+          "script-src":
+            "'self' 'unsafe-inline' data: *.google-analytics.com *.cloudfront.net",
           "script-src-elem":
             "'self' 'unsafe-inline' data: *.google-analytics.com *.cloudfront.net",
           "font-src": "data: 'self' fonts.gstatic.com *.cloudfront.net",
