@@ -28,18 +28,24 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-sri",
+      options: {
+        hash: "sha256",
+        crossorigin: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-csp`,
       options: {
-        disableOnDev: true,
+        disableOnDev: false,
         reportOnly: false,
         mergeScriptHashes: true,
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          "script-src":
-            "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
+          "script-src": "'self' data: *.google-analytics.com *.cloudfront.net",
           "script-src-elem":
-            "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
+            "'self' 'unsafe-inline' data: *.google-analytics.com *.cloudfront.net",
           "font-src": "data: 'self' fonts.gstatic.com *.cloudfront.net",
           "style-src":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net",
