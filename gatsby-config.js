@@ -19,6 +19,17 @@ module.exports = {
     author: `Jules Thivent`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-75777892-3",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        defer: false,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -36,13 +47,17 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          "script-src":
-            "'self' 'unsafe-inline' data: *.google-analytics.com *.cloudfront.net",
+          "base-uri": "'none'",
+          "manifest-src": "'self'",
+          "default-src": "'none'",
+          "object-src": "'none'",
+          "connect-src": "'self' https:",
+          "script-src": "'self' data: *.google-analytics.com *.cloudfront.net",
           "script-src-elem":
-            "'self' 'unsafe-inline' data: *.google-analytics.com *.cloudfront.net",
+            "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
           "font-src": "data: 'self' fonts.gstatic.com *.cloudfront.net",
           "style-src":
-            "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net",
+            "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
           "style-src-elem":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
           "img-src":
@@ -71,17 +86,6 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-netlify",
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-75777892-3",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0,
-        defer: false,
-      },
     },
     {
       resolve: `gatsby-source-contentful`,

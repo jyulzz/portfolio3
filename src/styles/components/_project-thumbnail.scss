@@ -6,7 +6,17 @@ body {
 
     box-shadow: 0 16px 32px
       rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
-
+    .thumbnail {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
     .information {
       .description,
       .organization-date {
