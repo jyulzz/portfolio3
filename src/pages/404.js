@@ -13,10 +13,10 @@ Page template for the 404 page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import SEO from "../components/seo";
-import Header from "../template/header";
-import Main from "../template/main";
-import Footer from "../template/footer";
-import FooterContent from "../template/content-footer";
+import Header from "./template/header";
+import Main from "./template/main";
+import Footer from "./template/footer";
+import FooterContent from "./template/content-footer";
 import { Container } from "../components/grid";
 import "../styles/pages/404.scss";
 

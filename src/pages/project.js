@@ -15,13 +15,13 @@ import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import SEO from "../components/seo";
-import Header from "../template/header";
-import Main from "../template/main";
-import Footer from "../template/footer";
-import FooterContent from "../template/content-footer";
+import Header from "./template/header";
+import Main from "./template/main";
+import Footer from "./template/footer";
+import FooterContent from "./template/content-footer";
 import Link from "../components/link";
-import Conf from "../data/conf.yaml";
-import Pagination from "./pagination";
+import Conf from "../../conf.yaml";
+import Pagination from "../components/pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
@@ -30,7 +30,7 @@ import {
   faLongArrowRight,
 } from "@fortawesome/pro-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/pages/project-template.scss";
+import "../styles/pages/project.scss";
 library.add(faTrafficCone, faLongArrowLeft, faLongArrowRight);
 config.autoAddCss = false;
 

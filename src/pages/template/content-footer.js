@@ -13,10 +13,10 @@ Page template for the About page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Container } from "../components/grid";
-import Title from "../components/title";
-import Section from "../components/section";
-import Link from "../components/link";
+import { Container } from "../../components/grid";
+import Title from "../../components/title";
+import Section from "../../components/section";
+import Link from "../../components/link";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
