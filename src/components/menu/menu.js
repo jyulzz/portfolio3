@@ -66,8 +66,7 @@ class Menu extends React.Component {
           {({ theme, toggleTheme }) => (
             <button
               id="themeToggler"
-              aria-label="
-          Theme Toggler"
+              aria-label="Theme Toggler"
               title="Switch Theme"
               onClick={(e) => toggleTheme(this.whichTheme())}
             >
