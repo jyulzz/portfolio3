@@ -53,16 +53,15 @@ const Credits = () => {
   contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
     credits.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <span
-          className="gem"
-          role="img"
-          style={{
-            backgroundImage: `url(${
-              "https://" + item.photo.file.url + "?fm=jpg&fl=progressive&q=80"
-            })`,
-          }}
-          title={item.name}
-        ></span>
+        <style jsx>{`
+          .gem {
+            background-image: url("
+                ${"https://" +
+            item.photo.file.url +
+            "?fm=jpg&fl=progressive&q=80"}") !important;
+          }
+        `}</style>
+        <span className="gem" role="img" title={item.name}></span>
       </Link>
     );
   });

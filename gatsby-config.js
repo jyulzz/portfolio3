@@ -30,6 +30,14 @@ module.exports = {
         defer: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-styled-jsx`,
+      options: {
+        optimizeForSpeed: true,
+        sourceMaps: false,
+        vendorPrefixes: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -38,6 +46,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    /*
+    2020.09.04 Deactivating CSP plugin
+    CSP is not implemented consistently enough across browsers to be used with sufficiently strict directives.
     {
       resolve: `gatsby-plugin-csp`,
       options: {
@@ -47,15 +58,9 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          "base-uri": "'none'",
-          "manifest-src": "'self'",
-          "default-src": "'none'",
-          "object-src": "'none'",
-          "connect-src": "'self' https:",
           "script-src": "'self' data: *.google-analytics.com *.cloudfront.net",
           "script-src-elem":
             "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
-          "font-src": "data: 'self' fonts.gstatic.com *.cloudfront.net",
           "style-src":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
           "style-src-elem":
@@ -65,7 +70,7 @@ module.exports = {
           "frame-src": "'self' *.google.com *.figma.com",
         },
       },
-    },
+    },*/
     `gatsby-plugin-dark-mode`,
     `gatsby-transformer-sharp`,
     {
