@@ -47,11 +47,6 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: true,
         directives: {
-          "base-uri": "'none'",
-          "manifest-src": "'self'",
-          "default-src": "'none'",
-          "object-src": "'none'",
-          "connect-src": "'self' https:",
           "script-src": "'self' data: *.google-analytics.com *.cloudfront.net",
           "script-src-elem":
             "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
