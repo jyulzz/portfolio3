@@ -55,30 +55,13 @@ const Versions = () => {
     }
   `);
 
-  /* Create style array with background image and size information */
-  const style = {
-    overflow: "hidden",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
   /* For each Project found in Contentful response */
   contentfulData.versions.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     versions.push(
       <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>
-        <a
-          href={node.node.url}
-          className="thumbnail"
-          style={style}
-          name={node.node.name}
-        >
-          <img
-            src={node.node.imagePreview.file.url}
-            alt={node.node.name}
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
-          />
+        <a href={node.node.url} className="thumbnail" name={node.node.name}>
+          <img src={node.node.imagePreview.file.url} alt={node.node.name} />
         </a>
         <div className="information">
           <Title level="2">Portfolio Version {node.node.name}</Title>

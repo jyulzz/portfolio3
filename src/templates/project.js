@@ -185,7 +185,6 @@ class ProjectPage extends React.Component {
           <img
             src={this.props.pageContext.imagePreview}
             alt={this.props.pageContext.title}
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
           />
         </div>
       </figure>

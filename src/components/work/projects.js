@@ -96,14 +96,6 @@ const Projects = () => {
     }
   `);
 
-  /* Create style array with background image and size information */
-  const style = {
-    overflow: "hidden",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
   /* For each Project found in Contentful response */
   contentfulData.released.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
@@ -112,18 +104,9 @@ const Projects = () => {
         <a
           href={"/work/" + node.node.slug}
           className="thumbnail"
-          style={style}
           name={node.node.title}
         >
-          <img
-            src={node.node.imagePreview.file.url}
-            alt={node.node.title}
-            style={{
-              height: "100%",
-              width: "100%",
-              objectFit: "cover",
-            }}
-          />
+          <img src={node.node.imagePreview.file.url} alt={node.node.title} />
         </a>
         <div className="information">
           <Title level="2">{node.node.title}</Title>
@@ -162,16 +145,8 @@ const Projects = () => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     projects.push(
       <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
-        <span className="thumbnail" style={style}>
-          <img
-            src={node.node.imagePreview.file.url}
-            alt={node.node.title}
-            style={{
-              height: "100%",
-              width: "100%",
-              objectFit: "cover",
-            }}
-          />
+        <span className="thumbnail">
+          <img src={node.node.imagePreview.file.url} alt={node.node.title} />
         </span>
         <div className="information">
           <Title level="2">{node.node.title}</Title>
