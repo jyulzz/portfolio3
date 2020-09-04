@@ -30,6 +30,14 @@ module.exports = {
         defer: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-styled-jsx`,
+      options: {
+        optimizeForSpeed: true,
+        sourceMaps: false,
+        vendorPrefixes: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
