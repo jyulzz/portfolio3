@@ -5,6 +5,11 @@
 body {
   section#project {
     figure.thumbnail {
+      .image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
       .card {
         @include breakpointFromTo("xs", "s") {
           padding-bottom: 24px;
