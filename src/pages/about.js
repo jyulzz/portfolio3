@@ -17,10 +17,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types";
 import Conf from "../data/conf.yaml";
 import SEO from "../components/seo";
-import Header from "../template/header";
-import Main from "../template/main";
-import Footer from "../template/footer";
-import FooterContent from "../template/content-footer";
+import Header from "./template/header";
+import Main from "./template/main";
+import Footer from "./template/footer";
+import FooterContent from "./template/content-footer";
 import Image from "../components/image";
 import Link from "../components/link";
 import "../styles/pages/about.scss";

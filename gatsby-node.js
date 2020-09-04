@@ -69,7 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `
   ).then((result) => {
-    const projectTemplate = path.resolve("./src/templates/project.js");
+    const projectTemplate = path.resolve("./src/pages/project.js");
     result.data.allContentfulProject.edges.forEach((edge) => {
       /*
         If a Project node has no 'previous' or 'next', create an artificial

@@ -12,11 +12,11 @@
 @import "foundations/typescales";
 
 //Template
-@import "template/typography";
-@import "template/spacing";
-@import "template/html";
-@import "template/header";
-@import "template/footer";
+@import "pages/template/typography";
+@import "pages/template/spacing";
+@import "pages/template/html";
+@import "pages/template/header";
+@import "pages/template/footer";
 
 //Components
 @import "components/link";
