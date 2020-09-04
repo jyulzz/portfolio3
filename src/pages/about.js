@@ -15,7 +15,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import Conf from "../data/conf.yaml";
+import Conf from "../../conf.yaml";
 import SEO from "../components/seo";
 import Header from "./template/header";
 import Main from "./template/main";
