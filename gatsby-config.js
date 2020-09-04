@@ -38,6 +38,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    /*
+    2020.09.04 Deactivating CSP plugin
+    CSP is not implemented consistently enough across browsers to be used with sufficiently strict directives.
     {
       resolve: `gatsby-plugin-csp`,
       options: {
@@ -59,7 +62,7 @@ module.exports = {
           "frame-src": "'self' *.google.com *.figma.com",
         },
       },
-    },
+    },*/
     `gatsby-plugin-dark-mode`,
     `gatsby-transformer-sharp`,
     {
