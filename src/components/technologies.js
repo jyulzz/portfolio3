@@ -53,12 +53,14 @@ const Technologies = () => {
   contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
     technologies.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <span
-          className="gem"
-          role="img"
-          style={{ backgroundImage: `url(${"https://" + item.icon.file.url})` }}
-          title={item.name}
-        ></span>
+        <style jsx>{`
+          .gem {
+            background-image: url("
+                ${"https://" +
+            item.icon.file.url}") !important;
+          }
+        `}</style>
+        <span className="gem" role="img" title={item.name}></span>
       </Link>
     );
   });
