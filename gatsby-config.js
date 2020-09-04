@@ -56,7 +56,7 @@ module.exports = {
           "script-src-elem":
             "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
           "font-src":
-            "data: 'self' *.julesthivent.com fonts.gstatic.com *.cloudfront.net",
+            "data: https: 'self' *.julesthivent.com fonts.gstatic.com *.cloudfront.net",
           "style-src":
             "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
           "style-src-elem":
