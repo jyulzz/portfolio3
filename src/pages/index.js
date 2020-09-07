@@ -224,7 +224,7 @@ const IndexPage = () => {
           </Section>
           <Section>
             <Title level="2">Stack</Title>
-            <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I built this
+            <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I build this
             with
             <div id="technologies" className="gems">
               <Technologies />
