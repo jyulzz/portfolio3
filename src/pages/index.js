@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-pages/index.js
+src/pages/index.js
 
 DESCRIPTION
 Page template for the Index page.
@@ -23,8 +23,9 @@ import Title from "../components/title";
 import Section from "../components/section";
 import Hero from "../components/hero";
 import Work from "../components/work/work";
-import History from "../components/history/history";
+import Versions from "../components/versions/versions";
 import Link from "../components/link";
+import { Gems } from "../components/gems";
 import Credits from "../components/credits";
 import Technologies from "../components/technologies";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -115,7 +116,7 @@ const IndexPage = () => {
       <Main className="index">
         <Hero />
         <Work />
-        <History />
+        <Versions />
         <Container id="about-and-contact">
           <Section id="about">
             <Title level="1">About</Title>
@@ -218,17 +219,17 @@ const IndexPage = () => {
             <Title level="2">Inspiration</Title>
             <Emoji symbol="🙏" label="Person With Folded Hands Emoji" /> Many
             thanks
-            <div id="credits" className="gems">
+            <Gems id="credits">
               <Credits />
-            </div>
+            </Gems>
           </Section>
           <Section>
             <Title level="2">Stack</Title>
             <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I build this
             with
-            <div id="technologies" className="gems">
+            <Gems id="technologies">
               <Technologies />
-            </div>
+            </Gems>
           </Section>
         </Container>
       </Footer>

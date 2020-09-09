@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/menu/toggle.js
+src/components/menu/toggle.js
 
 DESCRIPTION
 Builds the toggle that triggers the overlaid navigation menu on small screens.

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-pages/404.js
+src/pages/404.js
 
 DESCRIPTION
 Page template for the 404 page.

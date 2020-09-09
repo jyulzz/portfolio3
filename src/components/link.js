@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/link.js
+src/components/link.js
 
 DESCRIPTION
-<Link/> tag. Links can have an icon or no icon, and can have a level of importance such as 'primary' for which specific CSS classes are applied for specific appearances.
+Link component. Links can have an icon or no icon, and can have a level of importance such as 'primary' for which specific CSS classes are applied for specific appearances.
 
 *-----------------------------------------------------------------------------*/
 

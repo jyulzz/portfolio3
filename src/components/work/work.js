@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/work/work.js
+src/components/work/work.js
 
 DESCRIPTION
 Builds the Work section used on the Index page.
@@ -15,7 +15,7 @@ import React from "react";
 import { Container } from "../../components/grid";
 import Title from "../../components/title";
 import Section from "../../components/section";
-import Projects from "./projects";
+import Items from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -30,7 +30,7 @@ const Work = () => {
         <Title level="1">
           <div>Work</div>
         </Title>
-        <Projects />
+        <Items />
       </Section>
     </Container>
   );

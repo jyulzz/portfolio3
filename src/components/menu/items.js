@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/menu/items.js
+src/components/menu/items.js
 
 DESCRIPTION
 Builds a menuItems array with menu items based on Contentful data.

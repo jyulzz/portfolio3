@@ -1,15 +1,11 @@
 # /*-----------------------------------------------------------------------------*
 
 # FILE
-# .gitignore
+# .conf.yaml
 
 # DESCRIPTION
-# Git ignore configuration
+# Local configuration.
 
 # *-----------------------------------------------------------------------------*/
 
-node_modules
-.cache
-.git
-public
-*DS_Store*
+ContentfulDefaultLocale: "en-US"

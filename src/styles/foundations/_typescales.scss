@@ -1,3 +1,13 @@
+/*-----------------------------------------------------------------------------*
+
+FILE
+src/styles/foundations/_typescales.scss
+
+DESCRIPTION
+Typescales (part of Foundations).
+
+*-----------------------------------------------------------------------------*/
+
 @function pxToRem($size) {
   $remSize: $size / 16;
   @return #{$remSize}rem;

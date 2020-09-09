@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/work/projects.js
+src/components/history/versions.js
 
 DESCRIPTION
-Builds a block showing previews of Projects pulled from Contentful.
+Builds a block showing previews of Versions pulled from Contentful.
 
 *-----------------------------------------------------------------------------*/
 
@@ -28,7 +28,7 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
 COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Versions = () => {
+const Items = () => {
   const versions = [];
 
   /* Pull the list of Projects on Contentful*/
@@ -86,7 +86,7 @@ const Versions = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
   *-----------------------------------------------------------------------------*/
-export default Versions;
+export default Items;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
   *-----------------------------------------------------------------------------*/

@@ -1,4 +1,12 @@
-# This file is a GitHub workflow.
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .github/workflows/main.yml
+
+# DESCRIPTION
+# Configuration file for AutoTag + Release Github workflow.
+
+# *-----------------------------------------------------------------------------*/
 
 name: "Auto Tag + Release"
 
