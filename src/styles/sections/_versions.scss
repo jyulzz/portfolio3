@@ -1,13 +1,17 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/styles/utils/_nofouc.scss
+src/styles/sections/_versions.scss
 
 DESCRIPTION
-FOUC prevention styles.
+Versions section styles.
 
 *-----------------------------------------------------------------------------*/
 
-.no-js {
-  visibility: hidden;
+section#versions {
+  @include gridPlacementPreset("standard");
+
+  .version-thumbnail {
+    @extend .project-thumbnail;
+  }
 }

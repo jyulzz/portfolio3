@@ -1,3 +1,13 @@
+/*-----------------------------------------------------------------------------*
+
+FILE
+src/styles/sections/_about-and-contact.scss
+
+DESCRIPTION
+About and Contact section styles.
+
+*-----------------------------------------------------------------------------*/
+
 .container#about-and-contact {
   display: grid;
   @include breakpointFromTo("xs", "s") {

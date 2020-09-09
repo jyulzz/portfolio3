@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/credits.js
+src/components/credits.js
 
 DESCRIPTION
 Displays photos linked to profiles of people who inspired the author.
@@ -14,6 +14,7 @@ Displays photos linked to profiles of people who inspired the author.
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
+import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -53,15 +54,7 @@ const Credits = () => {
   contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
     credits.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <style jsx>{`
-          .gem {
-            background-image: url("
-                ${"https://" +
-            item.photo.file.url +
-            "?fm=jpg&fl=progressive&q=80"}") !important;
-          }
-        `}</style>
-        <span className="gem" role="img" title={item.name}></span>
+        <Gem title={item.name} image={item.photo.file.url} vector="false" />
       </Link>
     );
   });

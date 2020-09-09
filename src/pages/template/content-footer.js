@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-pages/about.js
+src/pages/template/about.js
 
 DESCRIPTION
 Page template for the About page.

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-blocks/header.js
+src/pages/template/header.js
 
 DESCRIPTION
 Contains the base setup for setting the <header/> tag and its contents within the general grid system.

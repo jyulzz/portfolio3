@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-blocks/main.js
+src/pages/template/main.js
 
 DESCRIPTION
 Contains the base setup for setting the <main/> tag and its contents within the general grid system.

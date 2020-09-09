@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/title.js
+src/components/title.js
 
 DESCRIPTION
 Title component with 'level' property allowing titles to be styled differently for each level defined in CSS.

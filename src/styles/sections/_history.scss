@@ -1,7 +1,0 @@
-section#history {
-  @include gridPlacementPreset("standard");
-
-  .version-thumbnail {
-    @extend .project-thumbnail;
-  }
-}

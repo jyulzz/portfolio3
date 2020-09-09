@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/work/work.js
+src/components/history/history.js
 
 DESCRIPTION
-Builds the Work section used on the Index page.
+Builds the Versions section used on the Index page.
 
 *-----------------------------------------------------------------------------*/
 
@@ -15,7 +15,7 @@ import React from "react";
 import { Container } from "../../components/grid";
 import Title from "../../components/title";
 import Section from "../../components/section";
-import Versions from "./versions";
+import Items from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -26,11 +26,11 @@ import Versions from "./versions";
 const History = () => {
   return (
     <Container>
-      <Section id="history">
+      <Section id="versions">
         <Title level="1">
           <div>Versions</div>
         </Title>
-        <Versions />
+        <Items />
       </Section>
     </Container>
   );

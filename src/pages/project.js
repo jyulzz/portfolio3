@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-templates/project.js
+src/pages/project.js
 
 DESCRIPTION
 Template for the Project pages created through code in /gatsby-node.js
@@ -20,7 +20,7 @@ import Main from "./template/main";
 import Footer from "./template/footer";
 import FooterContent from "./template/content-footer";
 import Link from "../components/link";
-import Conf from "../../conf.yaml";
+import Conf from "../../conf.yml";
 import Pagination from "../components/pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";

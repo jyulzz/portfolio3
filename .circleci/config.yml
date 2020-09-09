@@ -1,4 +1,12 @@
-# This file is a Circle-CI configuration.
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .circleci/config.yml
+
+# DESCRIPTION
+# Configuration file for Circle CI.
+
+# *-----------------------------------------------------------------------------*/
 
 version: 2.1
 
