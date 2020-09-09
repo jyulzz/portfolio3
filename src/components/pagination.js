@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-templates/pagination.js
+src/components/pagination.js
 
 DESCRIPTION
-Template for the Pagination component used in the Project template
+Template for the Pagination component used in the Project template.
 
 *-----------------------------------------------------------------------------*/
 

@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/logo.js
+src/components/logo.js
 
 DESCRIPTION
-<Logo/> tag used in the main navigation header.
+Logo component used in the main navigation header.
 
 *-----------------------------------------------------------------------------*/
 

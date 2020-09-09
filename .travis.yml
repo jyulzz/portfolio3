@@ -1,4 +1,12 @@
-# This  is a Travis-CI configuration.
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .travis.yml
+
+# DESCRIPTION
+# Travis CI configuration.
+
+# *-----------------------------------------------------------------------------*/
 
 language: node_js
 

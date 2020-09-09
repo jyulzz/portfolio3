@@ -1,3 +1,13 @@
+/*-----------------------------------------------------------------------------*
+
+FILE
+src/styles/utils/_dev.scss
+
+DESCRIPTION
+Development styles.
+
+*-----------------------------------------------------------------------------*/
+
 .dev,
 .dev * {
   outline: thin solid rgba(map-get($UI_Named_Colors, "mark"), 0.25) !important;

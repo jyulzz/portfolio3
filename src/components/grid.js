@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/components/grid.js
+src/components/grid.js
 
 DESCRIPTION
-Contains the View, Grid and Container tags that are used to build the grid system used throughout this portfolio.
+Contains the View, Grid and Container components that are used to build the grid system used throughout this portfolio.
 
 *-----------------------------------------------------------------------------*/
 

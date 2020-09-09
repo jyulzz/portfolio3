@@ -1,3 +1,13 @@
+/*-----------------------------------------------------------------------------*
+
+FILE
+src/styles/pages/template/_typography.scss
+
+DESCRIPTION
+Typography styles.
+
+*-----------------------------------------------------------------------------*/
+
 body {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   @include getFontResponsive("M");

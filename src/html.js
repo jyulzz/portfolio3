@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-/html.js
+src/html.js
 
 DESCRIPTION
 Root HTML template file containing all HTML content excluding body content.

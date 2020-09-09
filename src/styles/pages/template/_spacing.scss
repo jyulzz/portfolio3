@@ -1,3 +1,13 @@
+/*-----------------------------------------------------------------------------*
+
+FILE
+src/styles/pages/template/_spacing.scss
+
+DESCRIPTION
+Root level spacing styles.
+
+*-----------------------------------------------------------------------------*/
+
 header {
   @include breakpointFromTo("xs", "s") {
     padding-top: 64px;

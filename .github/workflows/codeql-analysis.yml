@@ -1,3 +1,13 @@
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .github/workflows/codeql-analysis.yml
+
+# DESCRIPTION
+# Configuration file for CodeQL Github workflow.
+
+# *-----------------------------------------------------------------------------*/
+
 name: "CodeQL"
 
 on:

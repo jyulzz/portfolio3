@@ -1,4 +1,13 @@
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .build.zsh
+
+# DESCRIPTION
 # ZSH Script to run 'gatsby build' process on project
+
+# *-----------------------------------------------------------------------------*/
+
 #!/bin/zsh
 sudo clear
 echo "\n\033[1;32mbuild.zsh: a ZSH Script to run 'gatsby build' on this project.\033[0m"

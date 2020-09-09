@@ -1,4 +1,12 @@
-# This file is configuration for Repo Ranger (https://reporanger.com).
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .github/ranger.yml
+
+# DESCRIPTION
+# Configuration file for Repo Ranger.
+
+# *-----------------------------------------------------------------------------*/
 
 labels:
   # All PRs labeled merge get automatically merged

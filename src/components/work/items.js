@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------*
 
 FILE
-/components/work/projects.js
+sc /components/work/projects.js
 
 DESCRIPTION
 Builds a block showing previews of Projects pulled from Contentful.
@@ -29,7 +29,7 @@ config.autoAddCss = false;
 /* -----------------------------------------------------------------------------*
 COMPONENTS
 *----------------------------------------------------------------------------- */
-const Projects = () => {
+const Items = () => {
   const projects = [];
 
   /* Pull the list of Projects on Contentful */
@@ -192,7 +192,7 @@ const Projects = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
   *-----------------------------------------------------------------------------*/
-export default Projects;
+export default Items;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
   *-----------------------------------------------------------------------------*/

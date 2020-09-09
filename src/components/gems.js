@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/pages/template/footer.js
+src/components/gems.js
 
 DESCRIPTION
-Contains the base setup for setting the <footer/> tag and its contents within the general grid system.
+Gems and Gem components
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,7 +12,7 @@ Contains the base setup for setting the <footer/> tag and its contents within th
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { View, Grid } from "../../components/grid";
+import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -20,13 +20,33 @@ import { View, Grid } from "../../components/grid";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Footer = ({ children }) => {
+const Gems = ({ id, children }) => {
   return (
-    <footer>
-      <View>
-        <Grid>{children}</Grid>
-      </View>
-    </footer>
+    <div className={"gems "} id={id}>
+      {children}
+    </div>
+  );
+};
+
+const Gem = ({ id, title, image, vector }) => {
+  var format;
+  if (vector === true) {
+    format = "?fm=jpg&fl=progressive&q=80";
+  } else {
+    format = "";
+  }
+  return (
+    <>
+      <style jsx>{`
+        .gem {
+          background-image: url("
+          ${"https://" +
+          image +
+          format}") !important;
+        }
+      `}</style>
+      <span className={"gem"} role="img" title={title} />
+    </>
   );
 };
 /*-----------------------------------------------------------------------------*
@@ -34,9 +54,31 @@ const Footer = ({ children }) => {
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Gems.propTypes = {
+  id: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Gems.defaultProps = {
+  id: "",
+};
+Gem.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.node.isRequired,
+};
+Gem.defaultProps = {
+  id: "",
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Footer;
+export { Gems, Gem };
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/
