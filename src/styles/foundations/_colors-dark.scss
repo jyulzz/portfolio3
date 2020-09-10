@@ -21,6 +21,8 @@ $Foundations_Colors_Neutral--dark: (
 $Foundations_Colors_Primary--dark: (
   "primary": rgba(0, 175, 255, 1),
   "success": rgba(0, 224, 60, 1),
+  "accent": lighten(saturate(rgba(102, 51, 153, 1), 40), 20),
+  "error": rgba(255, 0, 0, 1),
 );
 $UI_Named_Colors--dark: (
   "text": map-get($Foundations_Colors_Neutral--dark, "grey-light"),
@@ -37,4 +39,5 @@ $UI_Named_Colors--dark: (
     rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.9),
   "card-background":
     rgba(map-get($Foundations_Colors_Neutral--dark, "black-light"), 0.48),
+  "mark": map-get($Foundations_Colors_Primary--dark, "error"),
 );
