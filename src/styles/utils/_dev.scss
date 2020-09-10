@@ -7,33 +7,149 @@ DESCRIPTION
 Development styles.
 
 *-----------------------------------------------------------------------------*/
-
-.dev,
-.dev * {
-  outline: thin solid rgba(map-get($UI_Named_Colors, "mark"), 0.25) !important;
-  background-color: rgba(map-get($UI_Named_Colors, "mark"), 0.015) !important;
-  color: rgba(map-get($Foundations_Colors_Neutral, "black"), 1) !important;
-  border-color: rgba(
-    map-get($Foundations_Colors_Neutral, "black"),
-    0.5
-  ) !important;
-  backdrop-filter: none !important;
-  box-shadow: none !important;
-
-  *[role="img"],
-  img {
-    opacity: 0.75;
-    filter: grayscale(1);
+body.light {
+  .dev,
+  .dev * {
+    outline: thin solid rgba(map-get($UI_Named_Colors, "mark"), 0.25) !important;
+    background-color: rgba(map-get($UI_Named_Colors, "mark"), 0.015) !important;
+    color: rgba(map-get($Foundations_Colors_Neutral, "black"), 1) !important;
+    border-color: rgba(
+      map-get($Foundations_Colors_Neutral, "black"),
+      1
+    ) !important;
+    &:hover {
+      border-color: rgba(
+        map-get($Foundations_Colors_Neutral, "black"),
+        0.75
+      ) !important;
+      color: rgba(map-get($Foundations_Colors_Neutral, "black"), 1) !important;
+    }
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    svg {
+      path {
+        fill: map-get($Foundations_Colors_Neutral, "black") !important;
+      }
+    }
+    *[role="img"],
+    img {
+      opacity: 0.75 !important;
+    }
   }
-  transition: none !important;
+
+  .mark,
+  .mark * {
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    outline: thin dashed
+      rgba(map-get($Foundations_Colors_Primary, "accent"), 0.5) !important;
+    background-color: rgba(
+      map-get($Foundations_Colors_Primary, "accent"),
+      0.025
+    ) !important;
+    color: rgba(map-get($Foundations_Colors_Primary, "accent"), 1) !important;
+    border-color: rgba(
+      map-get($Foundations_Colors_Primary, "accent"),
+      1
+    ) !important;
+    *[role="img"],
+    img {
+      opacity: 0.75 !important;
+    }
+    svg {
+      path {
+        fill: map-get($Foundations_Colors_Primary, "accent") !important;
+      }
+    }
+    &:hover {
+      color: rgba(map-get($Foundations_Colors_Primary, "accent"), 1) !important;
+      border-color: rgba(
+        map-get($Foundations_Colors_Primary, "accent"),
+        1
+      ) !important;
+    }
+  }
 }
 
-.mark,
-.mark * {
-  outline: thin dashed rgba(map-get($Foundations_Colors_Primary, "accent"), 0.5) !important;
-  background-color: rgba(
-    map-get($Foundations_Colors_Primary, "accent"),
-    0.025
-  ) !important;
-  color: rgba(map-get($Foundations_Colors_Primary, "accent"), 1) !important;
+body.dark {
+  .dev,
+  .dev * {
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    outline: thin solid rgba(map-get($UI_Named_Colors--dark, "mark"), 0.25) !important;
+    background-color: rgba(
+      map-get($UI_Named_Colors--dark, "mark"),
+      0.015
+    ) !important;
+    color: rgba(
+      map-get($Foundations_Colors_Neutral--dark, "white"),
+      1
+    ) !important;
+    border-color: rgba(
+      map-get($Foundations_Colors_Neutral--dark, "white"),
+      1
+    ) !important;
+    &:hover {
+      border-color: rgba(
+        map-get($Foundations_Colors_Neutral--dark, "white"),
+        0.5
+      ) !important;
+      color: rgba(
+        map-get($Foundations_Colors_Neutral--dark, "white"),
+        1
+      ) !important;
+    }
+    *[role="img"],
+    img {
+      opacity: 0.75 !important;
+    }
+    svg {
+      path {
+        fill: map-get($Foundations_Colors_Neutral--dark, "white") !important;
+      }
+    }
+  }
+
+  .mark,
+  .mark * {
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    outline: thin dashed
+      rgba(map-get($Foundations_Colors_Primary--dark, "accent"), 1) !important;
+    background-color: rgba(
+      map-get($Foundations_Colors_Primary--dark, "accent"),
+      0.025
+    ) !important;
+    border-color: rgba(
+      map-get($Foundations_Colors_Primary--dark, "accent"),
+      1
+    ) !important;
+    color: rgba(
+      map-get($Foundations_Colors_Primary--dark, "accent"),
+      1
+    ) !important;
+    *[role="img"],
+    img {
+      opacity: 0.75 !important;
+    }
+    svg {
+      path {
+        fill: map-get($Foundations_Colors_Primary--dark, "accent") !important;
+      }
+    }
+    &:hover {
+      border-color: rgba(
+        map-get($Foundations_Colors_Primary--dark, "accent"),
+        1
+      ) !important;
+      color: rgba(
+        map-get($Foundations_Colors_Primary--dark, "accent"),
+        1
+      ) !important;
+    }
+  }
 }
