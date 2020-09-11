@@ -24,7 +24,7 @@ const Animation = ({ src }) => {
   React.useEffect(() => {
     lottie.loadAnimation({
       container: document.querySelector("#scene"),
-      animationData: require("../images/" + src),
+      animationData: require("../images/animations/" + src),
     });
   }, []);
 
