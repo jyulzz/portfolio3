@@ -1,7 +1,7 @@
 {
   "name": "@jyulzz/portfolio3",
   "description": "Jules Thivent - Product and UX Designer – Portfolio",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "author": "Jules Thivent",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
@@ -33,6 +33,7 @@
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-transformer-remark": "^2.8.34",
     "gatsby-transformer-sharp": "^2.5.14",
+    "lottie-web": "^5.7.3",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
