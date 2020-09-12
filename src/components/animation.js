@@ -8,36 +8,38 @@ Animation component, based on lottie-web.
 
 *-----------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------*
-  IMPORTS
-*-----------------------------------------------------------------------------*/
 import React from "react";
+import axios from "axios";
 import lottie from "lottie-web";
-/*-----------------------------------------------------------------------------*
-  /IMPORTS
-*-----------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------*
-  COMPONENTS
-*-----------------------------------------------------------------------------*/
-const Animation = ({ src }) => {
-  React.useEffect(() => {
-    lottie.loadAnimation({
-      container: document.querySelector("#scene"),
-      animationData: require("../images/animations/" + src),
-    });
+const Animation = ({ id, src }) => {
+  let [responseData, setResponseData] = React.useState("");
+
+  const fetchData = React.useCallback(() => {
+    axios({
+      method: "GET",
+      url: src,
+    })
+      .then((response) => {
+        lottie.loadAnimation({
+          container: document.querySelector("#scene-" + id),
+          animationData: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
-  return <div id="scene" className="animation" />;
-};
-/*-----------------------------------------------------------------------------*
-  /COMPONENTS
-*-----------------------------------------------------------------------------*/
+  React.useEffect(() => {
+    fetchData();
+  });
 
-/*-----------------------------------------------------------------------------*
-  EXPORTS
-*-----------------------------------------------------------------------------*/
+  return (
+    <>
+      <div id={"scene-" + id} className="animation" />
+    </>
+  );
+};
+
 export default Animation;
-/*-----------------------------------------------------------------------------*
-  /EXPORTS
-*-----------------------------------------------------------------------------*/
