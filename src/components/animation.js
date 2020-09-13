@@ -22,12 +22,17 @@ const Animation = ({ id, src }) => {
         lottie.loadAnimation({
           container: document.querySelector("#scene-" + id),
           animationData: response.data,
+          rendererSettings: {
+            viewBoxOnly: true,
+            id: "lottieAnimation-" + id,
+            className: "lottieAnimation",
+            preserveAspectRatio: "xMidYMid slice",
+          },
         });
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
   }, [id, src]);
 
   React.useEffect(() => {
