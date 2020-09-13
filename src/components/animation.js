@@ -27,6 +27,12 @@ const Animation = ({ id, src }) => {
             id: "lottieAnimation-" + id,
             className: "lottieAnimation",
             preserveAspectRatio: "xMidYMid slice",
+            filterSize: {
+              width: "200%",
+              height: "200%",
+              x: "-50%",
+              y: "-50%",
+            },
           },
         });
       })
