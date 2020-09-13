@@ -28,6 +28,7 @@ const Animation = ({ id, src }) => {
         console.log(error);
       });
   }, []);
+  }, [id, src]);
 
   React.useEffect(() => {
     fetchData();
