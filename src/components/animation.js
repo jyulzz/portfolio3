@@ -13,8 +13,6 @@ import axios from "axios";
 import lottie from "lottie-web";
 
 const Animation = ({ id, src }) => {
-  let [responseData, setResponseData] = React.useState("");
-
   const fetchData = React.useCallback(() => {
     axios({
       method: "GET",
