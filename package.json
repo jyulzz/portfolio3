@@ -30,7 +30,7 @@
     "gatsby-plugin-sass": "^2.3.13",
     "gatsby-plugin-sharp": "^2.6.36",
     "gatsby-plugin-styled-jsx": "^3.3.11",
-    "gatsby-source-contentful": "^2.3.45",
+    "gatsby-source-contentful": "^2.3.46",
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-transformer-remark": "^2.8.34",
     "gatsby-transformer-sharp": "^2.5.14",
