@@ -12,7 +12,7 @@ import React from "react";
 import axios from "axios";
 import lottie from "lottie-web";
 
-const Animation = ({ id, src }) => {
+const Animation = ({ id, src, bg }) => {
   const fetchData = React.useCallback(() => {
     axios({
       method: "GET",
@@ -20,7 +20,7 @@ const Animation = ({ id, src }) => {
     })
       .then((response) => {
         lottie.loadAnimation({
-          container: document.querySelector("#scene-" + id),
+          container: document.querySelector("#animation-" + id + " .scene"),
           animationData: response.data,
           rendererSettings: {
             viewBoxOnly: true,
@@ -47,7 +47,17 @@ const Animation = ({ id, src }) => {
 
   return (
     <>
-      <div id={"scene-" + id} className="animation" />
+      <style jsx>{`
+        .animation {
+          background-image: url("
+        ${"https://" +
+          bg +
+          "?fm=png&q=100&w=1600&h=1200"}") !important;
+        }
+      `}</style>
+      <div id={"animation-" + id} className="animation">
+        <div className="scene"></div>
+      </div>
     </>
   );
 };
