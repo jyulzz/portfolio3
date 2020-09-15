@@ -7,6 +7,7 @@ DESCRIPTION
 Styles for Project Thumbnail component.
 
 *-----------------------------------------------------------------------------*/
+@import "../blobs/inProgressCone";
 
 body {
   div.project-thumbnail {
@@ -44,42 +45,9 @@ body {
 
       .inProgress {
         svg {
-          @keyframes wiggle {
-            100%,
-            34%,
-            66%,
-            0% {
-              transform: rotate(0deg) translateY(0px) translateX(0px);
-            }
-
-            35% {
-              transform: rotate(5deg) translateY(1px) translateX(-1px);
-            }
-            40% {
-              transform: rotate(-5deg) translateY(0px) translateX(3px);
-            }
-            45% {
-              transform: rotate(5deg) translateY(1px) translateX(-1px);
-            }
-            50% {
-              transform: rotate(-5deg) translateY(0px) translateX(3px);
-            }
-            55% {
-              transform: rotate(5deg) translateY(1px) translateX(-1px);
-            }
-            60% {
-              transform: rotate(-5deg) translateY(0px) translateX(3px);
-            }
-            65% {
-              transform: rotate(0deg) translateY(1px) translateX(-1px);
-            }
-          }
+          @include inProgressCone;
           display: inline-block;
           margin-right: 8px;
-          animation-name: wiggle;
-          animation-duration: 1500ms;
-          animation-timing-function: cubic-bezier(0.15, 0.9, 0.68, 0.13);
-          animation-iteration-count: infinite;
         }
 
         color: rgba(map-get($Foundations_Colors_Primary, "success"), 1);
