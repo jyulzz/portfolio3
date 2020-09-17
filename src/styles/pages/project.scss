@@ -12,14 +12,13 @@ Project Page styles.
 // Base
 @import "../base";
 @import "../blobs/inProgressCone";
+@import "../blobs/animation";
 //Templates
 body {
   section#project {
     figure.thumbnail {
-      .image img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
+      .image {
+        @include animation;
       }
       .card {
         @include breakpointFromTo("xs", "s") {

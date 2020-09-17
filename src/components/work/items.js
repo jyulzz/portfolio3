@@ -19,6 +19,7 @@ import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
 import Title from "../../components/title";
 import Link from "../../components/link";
+import Animation from "../../components/animation";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 library.add(faLongArrowRight, faTrafficCone);
 config.autoAddCss = false;
@@ -55,6 +56,16 @@ const Items = () => {
                 url
               }
             }
+            animation {
+              file {
+                url
+              }
+            }
+            animationBackground {
+              file {
+                url
+              }
+            }
             description {
               description
             }
@@ -84,6 +95,16 @@ const Items = () => {
                 url
               }
             }
+            animation {
+              file {
+                url
+              }
+            }
+            animationBackground {
+              file {
+                url
+              }
+            }
             description {
               description
             }
@@ -106,7 +127,16 @@ const Items = () => {
           className="thumbnail"
           name={node.node.title}
         >
-          <img src={node.node.imagePreview.file.url} alt={node.node.title} />
+          {node.node.animation !== null &&
+          node.node.animationBackground !== null ? (
+            <Animation
+              id={node.node.id}
+              src={node.node.animation.file.url}
+              bg={node.node.animationBackground.file.url}
+            />
+          ) : (
+            <img src={node.node.imagePreview.file.url} alt={node.node.name} />
+          )}
         </a>
         <div className="information">
           <Title level="2">{node.node.title}</Title>
@@ -146,7 +176,16 @@ const Items = () => {
     projects.push(
       <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
         <span className="thumbnail">
-          <img src={node.node.imagePreview.file.url} alt={node.node.title} />
+          {node.node.animation !== null &&
+          node.node.animationBackground !== null ? (
+            <Animation
+              id={node.node.id}
+              src={node.node.animation.file.url}
+              bg={node.node.animationBackground.file.url}
+            />
+          ) : (
+            <img src={node.node.imagePreview.file.url} alt={node.node.name} />
+          )}
         </span>
         <div className="information">
           <Title level="2">{node.node.title}</Title>
