@@ -153,3 +153,9 @@ body.dark {
     }
   }
 }
+
+.freeze {
+  .lottieAnimation {
+    visibility: hidden !important;
+  }
+}

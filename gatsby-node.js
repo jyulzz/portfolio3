@@ -55,6 +55,16 @@ exports.createPages = ({ graphql, actions }) => {
                   url
                 }
               }
+              animation {
+                file {
+                  url
+                }
+              }
+              animationBackground {
+                file {
+                  url
+                }
+              }
               content {
                 json
               }
@@ -88,6 +98,16 @@ exports.createPages = ({ graphql, actions }) => {
           slug: null,
         };
       }
+      if (edge.node.animation === null) {
+        edge.node.animation = {
+          file: "",
+        };
+      }
+      if (edge.node.animationBackground === null) {
+        edge.node.animationBackground = {
+          file: "",
+        };
+      }
 
       /*
         Page creation function. All data used in 'projectTemplate' is passsed
@@ -102,6 +122,8 @@ exports.createPages = ({ graphql, actions }) => {
           title: edge.node.title,
           subtitle: edge.node.subtitle,
           imagePreview: edge.node.imagePreview.file.url,
+          animation: edge.node.animation.file.url,
+          animationBackground: edge.node.animationBackground.file.url,
           content: edge.node.content.json,
           description: edge.node.description.description,
           previousProjectSlug: edge.previous.slug,

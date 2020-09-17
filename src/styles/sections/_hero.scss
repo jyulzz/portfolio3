@@ -59,5 +59,6 @@ section#hero {
 
   a {
     @extend .link;
+    border-bottom-width: 4px !important;
   }
 }

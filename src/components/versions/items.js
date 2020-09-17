@@ -15,6 +15,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Title from "../../components/title";
 import Link from "../../components/link";
+import Animation from "../../components/animation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
@@ -48,6 +49,16 @@ const Items = () => {
                 url
               }
             }
+            animation {
+              file {
+                url
+              }
+            }
+            animationBackground {
+              file {
+                url
+              }
+            }
             url
           }
         }
@@ -61,7 +72,16 @@ const Items = () => {
     versions.push(
       <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>
         <a href={node.node.url} className="thumbnail" name={node.node.name}>
-          <img src={node.node.imagePreview.file.url} alt={node.node.name} />
+          {node.node.animation !== null &&
+          node.node.animationBackground !== null ? (
+            <Animation
+              id={node.node.id}
+              src={node.node.animation.file.url}
+              bg={node.node.animationBackground.file.url}
+            />
+          ) : (
+            <img src={node.node.imagePreview.file.url} alt={node.node.name} />
+          )}
         </a>
         <div className="information">
           <Title level="2">Portfolio Version {node.node.name}</Title>
