@@ -22,6 +22,7 @@ import FooterContent from "./template/content-footer";
 import Link from "../components/link";
 import Conf from "../../conf.yml";
 import Pagination from "../components/pagination";
+import Animation from "../components/animation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
@@ -182,9 +183,10 @@ class ProjectPage extends React.Component {
       <figure className="thumbnail">
         {this.card()}
         <div className="image">
-          <img
-            src={this.props.pageContext.imagePreview}
-            alt={this.props.pageContext.title}
+          <Animation
+            id={this.props.pageContext.id}
+            src={this.props.pageContext.animation}
+            bg={this.props.pageContext.animationBackground}
           />
         </div>
       </figure>

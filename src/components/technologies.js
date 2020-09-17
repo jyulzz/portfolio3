@@ -54,7 +54,13 @@ const Technologies = () => {
   contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
     technologies.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <Gem title={item.name} image={item.icon.file.url} vector="true" />
+        <Gem
+          title={item.name}
+          image={item.icon.file.url}
+          vector="true"
+          width="80"
+          height="80"
+        />
       </Link>
     );
   });

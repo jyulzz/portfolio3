@@ -13,6 +13,7 @@ Hero section used on the Index page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import Emoji from "a11y-react-emoji";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { Container } from "../components/grid";
@@ -32,7 +33,14 @@ const options = {
       return <p>{children}</p>;
     },
     [BLOCKS.HEADING_1]: (node, children) => {
-      return <h1>{children}</h1>;
+      return (
+        <h1>
+          {" "}
+          <Emoji symbol="👋" label="Waiving Hand Emoji" />
+          {" "}
+          {children}
+        </h1>
+      );
     },
     [BLOCKS.HEADING_2]: (node, children) => {
       return <h2>{children}</h2>;

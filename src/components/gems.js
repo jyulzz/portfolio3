@@ -28,12 +28,12 @@ const Gems = ({ id, children }) => {
   );
 };
 
-const Gem = ({ id, title, image, vector }) => {
+const Gem = ({ id, title, image, vector, width, height }) => {
   var format;
   if (vector === true) {
-    format = "?fm=jpg&fl=progressive&q=80";
+    format = "?fm=jpg&fl=progressive&q=80&w=" + width + "&h=" + height;
   } else {
-    format = "";
+    format = "?&w=" + width + "&h=" + height;
   }
   return (
     <>
