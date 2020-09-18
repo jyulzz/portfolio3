@@ -42,6 +42,7 @@ const options = {
         <figure>
           <img
             src={
+              "https://" +
               file[Conf.ContentfulDefaultLocale].url +
               "?fm=jpg&fl=progressive&q=80"
             }
