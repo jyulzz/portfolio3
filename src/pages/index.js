@@ -220,9 +220,9 @@ const IndexPage = () => {
         <Container>
           <Title level="1">Credits</Title>
           <Section>
-            <Title level="2">Licence</Title>
-            <Emoji symbol="🇪🇺" label="Flag: European Union" /> Published under
-            EUPL v1.2
+            <Title level="2">License</Title>
+            <Emoji symbol="🇪🇺" label="Flag: European Union" />
+            Published under EUPL v1.2
           </Section>
           <Section>
             <Title level="2">Design &amp; Code</Title>
