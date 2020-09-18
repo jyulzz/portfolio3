@@ -46,7 +46,7 @@ const NotFoundPage = () => {
         description="The page or element you are looking for cannot be found."
         openGraph={{
           type: "website",
-          title: "About",
+          title: "About | Jules Thivent - Product and UX Designer – Portfolio",
           locale: "enUS",
           description:
             "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",

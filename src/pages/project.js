@@ -211,7 +211,9 @@ class ProjectPage extends React.Component {
           description={this.props.pageContext.description}
           openGraph={{
             type: "website",
-            title: this.props.pageContext.title,
+            title:
+              this.props.pageContext.title +
+              " | Jules Thivent - Product and UX Designer – Portfolio",
             locale: "enUS",
             description: this.props.pageContext.description,
             images: [
