@@ -38,12 +38,25 @@ module.exports = {
         vendorPrefixes: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-next-seo",
+      options: {
+        language: "en",
+        titleTemplate:
+          "%s | Jules Thivent - Product and UX Designer – Portfolio",
+        openGraph: {
+          type: "website",
+          locale: "en_US",
+          url: "https://www.julesthivent.com/",
+          site_name: "Jules Thivent - Product and UX Designer – Portfolio",
+        },
       },
     },
     /*
