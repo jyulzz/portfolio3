@@ -183,11 +183,22 @@ class ProjectPage extends React.Component {
       <figure className="thumbnail">
         {this.card()}
         <div className="image">
-          <Animation
-            id={this.props.pageContext.id}
-            src={this.props.pageContext.animation}
-            bg={this.props.pageContext.animationBackground}
-          />
+          {this.props.pageContext.animation !== null &&
+          this.props.pageContext.animationBackground !== null ? (
+            <Animation
+              id={this.props.pageContext.id}
+              src={this.props.pageContext.animation}
+              bg={this.props.pageContext.animationBackground}
+            />
+          ) : (
+            <img
+              src={
+                this.props.pageContext.imagePreview +
+                "?fm=png&w=800&h=600?q=100"
+              }
+              alt={this.props.pageContext.title}
+            />
+          )}
         </div>
       </figure>
     );
@@ -215,7 +226,7 @@ class ProjectPage extends React.Component {
             ],
           }}
         />
-        
+
         <Header />
 
         <Main type="default" className="project">
