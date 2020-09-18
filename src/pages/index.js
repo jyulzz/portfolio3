@@ -126,9 +126,7 @@ const IndexPage = () => {
           images: [
             {
               url:
-                "https://" +
-                data.indexOGImage.file.url +
-                "?fm=png&w=800&h=600?q=100",
+                "https://" + data.indexOGImage.file.url + "?fm=png&w=800&h=600",
               width: 800,
               height: 600,
               alt: "Jules Thivent - Product and UX Designer – Portfolio",

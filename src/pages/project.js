@@ -220,7 +220,7 @@ class ProjectPage extends React.Component {
               url:
                 "https://" +
                 this.props.pageContext.imagePreview +
-                "?fm=png&w=800&h=600?q=100",
+                "?fm=png&w=800&h=600",
               width: 800,
               height: 600,
               alt: this.props.pageContext.description,
