@@ -40,9 +40,7 @@ const Gem = ({ id, title, image, vector, width, height }) => {
       <style jsx>{`
         .gem {
           background-image: url("
-          ${"https://" +
-          image +
-          format}") !important;
+          ${"https://" + image + format}") !important;
         }
       `}</style>
       <span className={"gem"} role="img" title={title} />
