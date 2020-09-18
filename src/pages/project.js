@@ -203,30 +203,37 @@ class ProjectPage extends React.Component {
       </figure>
     );
   }
+  SEO() {
+    return (
+      <GatsbySeo
+        title={this.props.pageContext.title}
+        description={this.props.pageContext.description}
+        openGraph={{
+          type: "website",
+          title:
+            this.props.pageContext.title +
+            " | Jules Thivent - Product and UX Designer – Portfolio",
+          locale: "enUS",
+          description: this.props.pageContext.description,
+          images: [
+            {
+              url:
+                "https://" +
+                this.props.pageContext.imagePreview +
+                "?fm=png&w=800&h=600?q=100",
+              width: 800,
+              height: 600,
+              alt: this.props.pageContext.description,
+            },
+          ],
+        }}
+      />
+    );
+  }
   render() {
     return (
       <>
-        <GatsbySeo
-          title={this.props.pageContext.title}
-          description={this.props.pageContext.description}
-          openGraph={{
-            type: "website",
-            title: this.props.pageContext.title,
-            locale: "enUS",
-            description: this.props.pageContext.description,
-            images: [
-              {
-                url:
-                  this.props.pageContext.imagePreview +
-                  "?fm=png&w=800&h=600?q=100",
-                width: 800,
-                height: 600,
-                alt: this.props.pageContext.description,
-              },
-            ],
-          }}
-        />
-
+        {this.SEO()}
         <Header />
 
         <Main type="default" className="project">

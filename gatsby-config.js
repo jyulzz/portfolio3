@@ -13,11 +13,6 @@ https://www.gatsbyjs.org/docs/api-files-gatsby-config/
 *----------------------------------------------------------------------------- */
 
 module.exports = {
-  siteMetadata: {
-    title: `Jules Thivent - Product and UX Designer – Portfolio`,
-    description: `Jules Thivent - Product and UX Designer – Portfolio`,
-    author: `Jules Thivent`,
-  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,
