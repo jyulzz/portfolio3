@@ -1,13 +1,11 @@
 @mixin animation {
   .animation {
     background-size: cover;
-    box-sizing: content-box;
     object-fit: cover;
     width: 100%;
     height: 100%;
     background-position: center center;
     .scene {
-      box-sizing: content-box;
       object-fit: cover;
       width: 100%;
       height: 100%;
