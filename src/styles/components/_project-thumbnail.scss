@@ -123,7 +123,6 @@ body {
         height: 40vw;
         max-height: 400px;
         grid-area: 1 / 5 / 2 / 11;
-        //background: red;
       }
     }
     @include breakpointOnly("l") {
