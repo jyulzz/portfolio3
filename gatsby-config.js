@@ -13,11 +13,6 @@ https://www.gatsbyjs.org/docs/api-files-gatsby-config/
 *----------------------------------------------------------------------------- */
 
 module.exports = {
-  siteMetadata: {
-    title: `Jules Thivent - Product and UX Designer – Portfolio`,
-    description: `Jules Thivent - Product and UX Designer – Portfolio`,
-    author: `Jules Thivent`,
-  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -38,12 +33,25 @@ module.exports = {
         vendorPrefixes: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-next-seo",
+      options: {
+        language: "en",
+        titleTemplate:
+          "%s | Jules Thivent - Product and UX Designer – Portfolio",
+        openGraph: {
+          type: "website",
+          locale: "en_US",
+          url: "https://www.julesthivent.com/",
+          site_name: "Jules Thivent - Product and UX Designer – Portfolio",
+        },
       },
     },
     /*

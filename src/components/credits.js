@@ -58,8 +58,8 @@ const Credits = () => {
           title={item.name}
           image={item.photo.file.url}
           vector="false"
-          width="80"
-          height="80"
+          width="240"
+          height="240"
         />
       </Link>
     );

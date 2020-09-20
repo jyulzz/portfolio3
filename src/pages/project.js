@@ -14,7 +14,7 @@ Template for the Project pages created through code in /gatsby-node.js
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import SEO from "../components/seo";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -183,19 +183,57 @@ class ProjectPage extends React.Component {
       <figure className="thumbnail">
         {this.card()}
         <div className="image">
-          <Animation
-            id={this.props.pageContext.id}
-            src={this.props.pageContext.animation}
-            bg={this.props.pageContext.animationBackground}
-          />
+          {this.props.pageContext.animation !== null &&
+          this.props.pageContext.animationBackground !== null ? (
+            <Animation
+              id={this.props.pageContext.id}
+              src={this.props.pageContext.animation}
+              bg={this.props.pageContext.animationBackground}
+            />
+          ) : (
+            <img
+              src={
+                this.props.pageContext.imagePreview +
+                "?fm=png&w=800&h=600?q=100"
+              }
+              alt={this.props.pageContext.title}
+            />
+          )}
         </div>
       </figure>
+    );
+  }
+  SEO() {
+    return (
+      <GatsbySeo
+        title={this.props.pageContext.title}
+        description={this.props.pageContext.description}
+        openGraph={{
+          type: "website",
+          title:
+            this.props.pageContext.title +
+            " | Jules Thivent - Product and UX Designer – Portfolio",
+          locale: "enUS",
+          description: this.props.pageContext.description,
+          images: [
+            {
+              url:
+                "https://" +
+                this.props.pageContext.imagePreview +
+                "?fm=png&w=800&h=600",
+              width: 800,
+              height: 600,
+              alt: this.props.pageContext.description,
+            },
+          ],
+        }}
+      />
     );
   }
   render() {
     return (
       <>
-        <SEO title={this.props.pageContext.title} />
+        {this.SEO()}
         <Header />
 
         <Main type="default" className="project">

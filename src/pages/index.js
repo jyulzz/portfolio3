@@ -14,7 +14,7 @@ Page template for the Index page.
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Emoji from "a11y-react-emoji";
-import SEO from "../components/seo";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -69,6 +69,11 @@ if (typeof window !== "undefined") {
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     {
+      indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {
+        file {
+          url
+        }
+      }
       aboutLink: contentfulLink(shortname: { eq: "about" }) {
         id
         url
@@ -109,7 +114,26 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title="Home" />
+      <GatsbySeo
+        title="Home"
+        description="Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006."
+        openGraph={{
+          type: "website",
+          title: "Home | Jules Thivent - Product and UX Designer – Portfolio",
+          locale: "enUS",
+          description:
+            "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",
+          images: [
+            {
+              url:
+                "https://" + data.indexOGImage.file.url + "?fm=png&w=800&h=600",
+              width: 800,
+              height: 600,
+              alt: "Jules Thivent - Product and UX Designer – Portfolio",
+            },
+          ],
+        }}
+      />
 
       <Header />
 
@@ -196,9 +220,9 @@ const IndexPage = () => {
         <Container>
           <Title level="1">Credits</Title>
           <Section>
-            <Title level="2">Licence</Title>
-            <Emoji symbol="🇪🇺" label="Flag: European Union" /> Published under
-            EUPL v1.2
+            <Title level="2">License</Title>
+            <Emoji symbol="🇪🇺" label="Flag: European Union" />
+            Published under EUPL v1.2
           </Section>
           <Section>
             <Title level="2">Design &amp; Code</Title>

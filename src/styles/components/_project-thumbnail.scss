@@ -17,14 +17,13 @@ body {
     background: map-get($UI_Named_Colors, "card-background");
     box-shadow: 0 16px 32px
       rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
+
     .thumbnail {
-      overflow: hidden;
       object-fit: cover;
       width: 100%;
       height: 100%;
     }
     img {
-      box-sizing: content-box;
       object-fit: cover;
       width: 100%;
       height: 100%;
@@ -124,6 +123,7 @@ body {
         height: 40vw;
         max-height: 400px;
         grid-area: 1 / 5 / 2 / 11;
+        //background: red;
       }
     }
     @include breakpointOnly("l") {

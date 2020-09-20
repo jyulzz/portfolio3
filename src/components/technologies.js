@@ -58,8 +58,8 @@ const Technologies = () => {
           title={item.name}
           image={item.icon.file.url}
           vector="true"
-          width="80"
-          height="80"
+          width="240"
+          height="240"
         />
       </Link>
     );
