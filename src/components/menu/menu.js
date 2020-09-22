@@ -58,9 +58,9 @@ class Menu extends React.Component {
       <nav id="main">
         <MenuToggle isToggleOn={false} action={this.toggleOverlaidMenu} />
 
-        <ul>
+        <div className="list">
           <MenuItems />
-        </ul>
+        </div>
 
         <ThemeToggler>
           {({ theme, toggleTheme }) => (

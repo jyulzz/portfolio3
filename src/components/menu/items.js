@@ -71,7 +71,8 @@ function MenuItems() {
       itemTarget = "_self";
     }
     menuItems.push(
-      <li
+      <div
+        className="item"
         key={item.id}
         onClick={() => {
           document.querySelector("#menuToggle").click();
@@ -81,7 +82,7 @@ function MenuItems() {
         <Link href={itemHref} target={itemTarget}>
           <span>{item.title}</span>
         </Link>
-      </li>
+      </div>
     );
   });
   return menuItems;
