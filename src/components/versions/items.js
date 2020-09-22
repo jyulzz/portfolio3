@@ -74,7 +74,7 @@ const Items = () => {
         <a
           href={node.node.url}
           className="thumbnail"
-          name={"View " + node.node.title}
+          name={"View " + node.node.name}
         >
           {node.node.animation !== null &&
           node.node.animationBackground !== null ? (

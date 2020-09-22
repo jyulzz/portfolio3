@@ -17,8 +17,8 @@ body {
     align-items: center;
     justify-content: flex-end;
 
-    ul {
-      li {
+    .list {
+      .item {
         a {
           text-decoration: none;
           @include getFontResponsive("M");
@@ -106,12 +106,12 @@ body {
       }
     }
     @include breakpointFromTo("xs", "s") {
-      li {
+      .item {
         display: none;
       }
     }
     @include breakpointUp("m") {
-      li {
+      .item {
         display: inline-flex;
         margin-left: 24px;
       }
@@ -140,8 +140,8 @@ body {
 
   &.dark {
     nav#main {
-      ul {
-        li {
+      .list {
+        .item {
           a {
             color: map-get($UI_Named_Colors--dark, "link-text");
           }
