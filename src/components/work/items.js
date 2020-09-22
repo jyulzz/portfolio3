@@ -135,7 +135,10 @@ const Items = () => {
               bg={node.node.animationBackground.file.url}
             />
           ) : (
-            <img src={node.node.imagePreview.file.url} alt={node.node.title} />
+            <img
+              src={node.node.imagePreview.file.url + "?w=800&h=600"}
+              alt={node.node.title}
+            />
           )}
         </a>
         <div className="information">
@@ -184,7 +187,10 @@ const Items = () => {
               bg={node.node.animationBackground.file.url}
             />
           ) : (
-            <img src={node.node.imagePreview.file.url} alt={node.node.title} />
+            <img
+              src={node.node.imagePreview.file.url + "?w=800&h=600"}
+              alt={node.node.title}
+            />
           )}
         </span>
         <div className="information">
