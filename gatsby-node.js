@@ -82,9 +82,7 @@ exports.createPages = ({ graphql, actions }) => {
     const projectTemplate = path.resolve("./src/pages/project.js");
     result.data.allContentfulProject.edges.forEach((edge) => {
       /*
-        If a Project node has no 'previous' or 'next', create an artificial
-        'next' or 'previous' to make sure the previous... and next... properties
-        in 'createPage({...,context:'' will not be undefined.
+        If a Project node has non-mandatory values that are missing, create dummy empty values to avoid issues in the next step.
         */
       if (edge.previous === null) {
         edge.previous = {
