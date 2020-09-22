@@ -50,7 +50,7 @@ const Animation = ({ id, src, bg }) => {
       <style jsx>{`
         .animation {
           background-image: url("
-        ${"https://" + bg + "?fm=png&q=100&w=1600&h=1200"}") !important;
+        ${"https://" + bg + "?fm=png&q=100&w=800&h=600"}") !important;
         }
       `}</style>
       <div id={"animation-" + id} className="animation">
