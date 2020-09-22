@@ -54,31 +54,6 @@ module.exports = {
         },
       },
     },
-    /*
-    2020.09.04 Deactivating CSP plugin
-    CSP is not implemented consistently enough across browsers to be used with sufficiently strict directives.
-    {
-      resolve: `gatsby-plugin-csp`,
-      options: {
-        disableOnDev: false,
-        reportOnly: false,
-        mergeScriptHashes: true,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: true,
-        directives: {
-          "script-src": "'self' data: *.google-analytics.com *.cloudfront.net",
-          "script-src-elem":
-            "'self' data: 'unsafe-inline' *.google-analytics.com *.cloudfront.net",
-          "style-src":
-            "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
-          "style-src-elem":
-            "data: 'unsafe-inline' 'self' *.googleapis.com *.cloudfront.net blob:",
-          "img-src":
-            "data: 'self' *.google-analytics.com  *.doubleclick.net *.ctfassets.net *.cloudfront.net",
-          "frame-src": "'self' *.google.com *.figma.com",
-        },
-      },
-    },*/
     `gatsby-plugin-dark-mode`,
     `gatsby-transformer-sharp`,
     {
