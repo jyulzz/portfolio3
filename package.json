@@ -41,7 +41,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet-async": "^1.0.7",
-    "react-obfuscate": "^3.6.7",
+    "react-obfuscate": "^3.6.8",
     "react-refresh": "^0.8.3",
     "react-viewport-utils": "^1.12.1",
     "reset-css": "^5.0.1",
