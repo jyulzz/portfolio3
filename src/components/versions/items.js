@@ -48,6 +48,9 @@ const Items = () => {
               file {
                 url
               }
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid_withWebp
+              }
             }
             animation {
               file {
@@ -55,8 +58,8 @@ const Items = () => {
               }
             }
             animationBackground {
-              file {
-                url
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             url
@@ -81,7 +84,7 @@ const Items = () => {
             <Animation
               id={node.node.id}
               src={node.node.animation.file.url}
-              bg={node.node.animationBackground.file.url}
+              bg={node.node.animationBackground.fluid}
             />
           ) : (
             <img src={node.node.imagePreview.file.url} alt={node.node.name} />

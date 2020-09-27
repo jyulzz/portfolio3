@@ -39,8 +39,9 @@ const Credits = () => {
                 name
                 link
                 photo {
-                  file {
-                    url
+                  id
+                  fluid(maxWidth: 80) {
+                    ...GatsbyContentfulFluid_withWebp
                   }
                 }
               }
