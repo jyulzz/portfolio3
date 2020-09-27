@@ -28,22 +28,18 @@ const Gems = ({ id, children }) => {
   );
 };
 
-const Gem = ({ id, title, image, vector, width, height }) => {
-  var format;
-  if (vector === true) {
-    format = "?fm=jpg&fl=progressive&q=80&w=" + width + "&h=" + height;
-  } else {
-    format = "?&w=" + width + "&h=" + height;
-  }
+const Diamond = ({ children, title }) => {
   return (
     <>
+      {" "}
       <style jsx>{`
         .gem {
-          background-image: url("
-          ${"https://" + image + format}") !important;
+          overflow: hidden;
         }
       `}</style>
-      <span className={"gem"} role="img" title={title} />
+      <span className={"gem"} role="img" title={title}>
+        {children}
+      </span>
     </>
   );
 };
@@ -58,16 +54,14 @@ Gems.propTypes = {
   id: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
-
 Gems.defaultProps = {
   id: "",
 };
-Gem.propTypes = {
-  id: PropTypes.string,
+Diamond.propTypes = {
   title: PropTypes.node.isRequired,
 };
-Gem.defaultProps = {
-  id: "",
+Diamond.defaultProps = {
+  title: "",
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -76,7 +70,7 @@ Gem.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Gem };
+export { Gems, Diamond };
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

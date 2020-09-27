@@ -11,7 +11,10 @@ Template for the Project pages created through code in /gatsby-node.js
 /*-----------------------------------------------------------------------------*
   IMPORTS
 *-----------------------------------------------------------------------------*/
+
 import React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
@@ -153,122 +156,129 @@ const options = {
   /OPTIONS
 *-----------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------*
-  COMPONENTS
-*-----------------------------------------------------------------------------*/
+export const query = graphql`
+  query($slug: String) {
+    project: allContentfulProject(filter: { slug: { eq: $slug } }) {
+      nodes {
+        id
+        slug
+        title
+        description {
+          description
+        }
+        subtitle
+        imagePreview {
+          id
+          file {
+            url
+          }
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+        animation {
+          file {
+            url
+          }
+        }
+        animationBackground {
+          file {
+            url
+          }
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+        content {
+          json
+        }
+        inProgress
+      }
+    }
+  }
+`;
 
-/* ProjectPage builds the page for a Project item received from Contentful */
-class ProjectPage extends React.Component {
-  card() {
-    return (
-      <div className="card">
-        <h1>
-          <span className="title">{this.props.pageContext.title}</span>
-          <span className="subtitle">{this.props.pageContext.subtitle}</span>
-        </h1>
-        <h2>{this.props.pageContext.description}</h2>
-        {this.props.pageContext.inProgress === true ? (
-          <div className="inProgress">
-            <FontAwesomeIcon icon={faTrafficCone} />
-            This project is a work in progress
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
-    );
-  }
-  thumbnail() {
-    return (
-      <figure className="thumbnail">
-        {this.card()}
-        <div className="image">
-          {this.props.pageContext.animation !== null &&
-          this.props.pageContext.animationBackground !== null ? (
-            <Animation
-              id={this.props.pageContext.id}
-              src={this.props.pageContext.animation}
-              bg={this.props.pageContext.animationBackground}
-            />
-          ) : (
-            <img
-              src={
-                this.props.pageContext.imagePreview +
-                "?fm=png&w=800&h=600?q=100"
-              }
-              alt={this.props.pageContext.title}
-            />
-          )}
-        </div>
-      </figure>
-    );
-  }
-  SEO() {
-    return (
+const ProjectPage = ({ data, pageContext }) => {
+  const projectData = data.project.nodes[0];
+  return (
+    <>
       <GatsbySeo
-        title={this.props.pageContext.title}
-        description={this.props.pageContext.description}
+        title={projectData.title}
+        description={projectData.description}
         openGraph={{
           type: "website",
           title:
-            this.props.pageContext.title +
+            projectData.title +
             " | Jules Thivent - Product and UX Designer – Portfolio",
           locale: "enUS",
-          description: this.props.pageContext.description,
+          description: projectData.description.description,
           images: [
             {
               url:
-                "https://" +
-                this.props.pageContext.imagePreview +
-                "?fm=png&w=800&h=600",
+                "https://" + projectData.imagePreview + "?fm=png&w=800&h=600",
               width: 800,
               height: 600,
-              alt: this.props.pageContext.description,
+              alt: projectData.description,
             },
           ],
         }}
       />
-    );
-  }
-  render() {
-    return (
-      <>
-        {this.SEO()}
-        <Header />
+      <Header />
 
-        <Main type="default" className="project">
-          <section id="project">
-            {this.thumbnail()}
-            {/* This is the Rich Text rendering section */}
-            <section className="contentful-rich-text-types">
-              {documentToReactComponents(
-                this.props.pageContext.content,
-                options
+      <Main type="default" className="project">
+        <section id="project">
+          <figure className="thumbnail">
+            <div className="card">
+              <h1>
+                <span className="title">{projectData.title}</span>
+                <span className="subtitle">{projectData.subtitle}</span>
+              </h1>
+              <h2>{projectData.description.description}</h2>
+              {projectData.inProgress === true ? (
+                <div className="inProgress">
+                  <FontAwesomeIcon icon={faTrafficCone} />
+                  This project is a work in progress
+                </div>
+              ) : (
+                <></>
               )}
-            </section>
-            <Pagination
-              previousProjectSlug={this.props.pageContext.previousProjectSlug}
-              previousProjectTitle={this.props.pageContext.previousProjectTitle}
-              nextProjectSlug={this.props.pageContext.nextProjectSlug}
-              nextProjectTitle={this.props.pageContext.nextProjectTitle}
-            />
+            </div>
+            <div className="image">
+              {projectData.animation !== null &&
+              projectData.animationBackground !== null ? (
+                <Animation
+                  id={projectData.id}
+                  src={projectData.animation.file.url}
+                  bg={projectData.animationBackground.fluid}
+                />
+              ) : (
+                <Img
+                  fluid={projectData.imagePreview.fluid}
+                  objectFit="cover"
+                  objectPosition="50% 50%"
+                  alt={projectData.title}
+                  style={{ height: "100%" }}
+                />
+              )}
+            </div>
+          </figure>
+          {/* This is the Rich Text rendering section */}
+          <section className="contentful-rich-text-types">
+            {documentToReactComponents(projectData.content.json, options)}
           </section>
-        </Main>
-        <Footer>
-          <FooterContent />
-        </Footer>
-      </>
-    );
-  }
-}
-/*-----------------------------------------------------------------------------*
-  /COMPONENTS
-*-----------------------------------------------------------------------------*/
+          <Pagination
+            previousProjectSlug={pageContext.previousProjectSlug}
+            previousProjectTitle={pageContext.previousProjectTitle}
+            nextProjectSlug={pageContext.nextProjectSlug}
+            nextProjectTitle={pageContext.nextProjectTitle}
+          />
+        </section>
+      </Main>
+      <Footer>
+        <FooterContent />
+      </Footer>
+    </>
+  );
+};
 
-/*-----------------------------------------------------------------------------*
-  EXPORTS
-*-----------------------------------------------------------------------------*/
 export default ProjectPage;
-/*-----------------------------------------------------------------------------*
-  /EXPORTS
-*-----------------------------------------------------------------------------*/

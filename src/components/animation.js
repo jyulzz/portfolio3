@@ -4,13 +4,14 @@ FILE
 src/components/animation.js
 
 DESCRIPTION
-Animation component, based on lottie-web.
+Animation component based on lottie-web.
 
 *-----------------------------------------------------------------------------*/
 
 import React from "react";
 import axios from "axios";
 import lottie from "lottie-web";
+import Img from "gatsby-image/withIEPolyfill";
 
 const Animation = ({ id, src, bg }) => {
   const fetchData = React.useCallback(() => {
@@ -47,14 +48,15 @@ const Animation = ({ id, src, bg }) => {
 
   return (
     <>
-      <style jsx>{`
-        .animation {
-          background-image: url("
-        ${"https://" + bg + "?fm=png&q=100&w=800&h=600"}") !important;
-        }
-      `}</style>
       <div id={"animation-" + id} className="animation">
         <div className="scene"></div>
+        <Img
+          fluid={bg}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          style={{ height: "100%", width: "100%" }}
+          className="background"
+        ></Img>
       </div>
     </>
   );

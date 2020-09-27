@@ -14,7 +14,8 @@ Displays photos linked to profiles of people who inspired the author.
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
-import { Gem } from "./gems";
+import Img from "gatsby-image/withIEPolyfill";
+import { Diamond } from "./gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -38,8 +39,9 @@ const Credits = () => {
                 name
                 link
                 photo {
-                  file {
-                    url
+                  id
+                  fluid(maxWidth: 80) {
+                    ...GatsbyContentfulFluid_withWebp
                   }
                 }
               }
@@ -54,13 +56,13 @@ const Credits = () => {
   contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
     credits.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <Gem
-          title={item.name}
-          image={item.photo.file.url}
-          vector="false"
-          width="240"
-          height="240"
-        />
+        <Diamond title={item.name}>
+          <Img
+            fluid={item.photo.fluid}
+            objectFit="cover"
+            objectPosition="50% 50%"
+          />
+        </Diamond>
       </Link>
     );
   });

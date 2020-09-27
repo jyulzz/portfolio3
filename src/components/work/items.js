@@ -13,6 +13,7 @@ IMPORTS
 *----------------------------------------------------------------------------- */
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image/withIEPolyfill";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
@@ -52,8 +53,8 @@ const Items = () => {
               name
             }
             imagePreview {
-              file {
-                url
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             animation {
@@ -62,8 +63,8 @@ const Items = () => {
               }
             }
             animationBackground {
-              file {
-                url
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             description {
@@ -91,8 +92,8 @@ const Items = () => {
               name
             }
             imagePreview {
-              file {
-                url
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             animation {
@@ -101,8 +102,8 @@ const Items = () => {
               }
             }
             animationBackground {
-              file {
-                url
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             description {
@@ -132,12 +133,15 @@ const Items = () => {
             <Animation
               id={node.node.id}
               src={node.node.animation.file.url}
-              bg={node.node.animationBackground.file.url}
+              bg={node.node.animationBackground.fluid}
             />
           ) : (
-            <img
-              src={node.node.imagePreview.file.url + "?w=800&h=600"}
+            <Img
+              fluid={node.node.imagePreview.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
               alt={node.node.title}
+              style={{ height: "100%" }}
             />
           )}
         </a>
@@ -184,12 +188,15 @@ const Items = () => {
             <Animation
               id={node.node.id}
               src={node.node.animation.file.url}
-              bg={node.node.animationBackground.file.url}
+              bg={node.node.animationBackground.fluid}
             />
           ) : (
-            <img
-              src={node.node.imagePreview.file.url + "?w=800&h=600"}
+            <Img
+              fluid={node.node.imagePreview.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
               alt={node.node.title}
+              style={{ height: "100%" }}
             />
           )}
         </span>
