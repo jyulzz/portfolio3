@@ -14,7 +14,7 @@ Displays icons linked to sites of technologies used in this project.
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
-import { Gem } from "./gems";
+import { Diamond } from "./gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -54,13 +54,14 @@ const Technologies = () => {
   contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
     technologies.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <Gem
-          title={item.name}
-          image={item.icon.file.url}
-          vector="true"
-          width="240"
-          height="240"
-        />
+        <Diamond title={item.name}>
+          <img
+            src={"https://" + item.icon.file.url}
+            alt={item.name}
+            height="100%"
+            width="100%"
+          />
+        </Diamond>
       </Link>
     );
   });
