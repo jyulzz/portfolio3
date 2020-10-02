@@ -19,11 +19,13 @@ body {
     box-shadow: 0 16px 32px
       rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
 
-    .thumbnail {
-      object-fit: cover;
-    }
-
     @include animation;
+
+    .thumbnail {
+      .animation {
+        height: 100%;
+      }
+    }
 
     .information {
       .description,
