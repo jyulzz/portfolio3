@@ -13,6 +13,7 @@ Page template for the About page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Conf from "../../conf.yml";
@@ -21,7 +22,6 @@ import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
 import FooterContent from "./template/content-footer";
-import Image from "../components/image";
 import Link from "../components/link";
 import "../styles/pages/about.scss";
 
@@ -131,6 +131,9 @@ const AboutPage = () => {
         name
         function
         photo {
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
           file {
             url
           }
@@ -197,13 +200,16 @@ const AboutPage = () => {
       <Main className="about">
         <div className="contentful-rich-text-types">
           <div className="portrait">
-            <Image
-              src={
-                "https://" +
-                data.contentfulPerson.photo.file.url +
-                "?fm=jpg&fl=progressive&q=80"
-              }
-            />
+            <figure className="image">
+              <Img
+                fluid={data.contentfulPerson.photo.fluid}
+                objectFit="cover"
+                objectPosition="50% 50%"
+                alt={data.contentfulPerson.name}
+                style={{ height: "100%" }}
+              />
+              <figcaption>{data.contentfulPerson.name}}</figcaption>
+            </figure>
           </div>
 
           <div className="text">

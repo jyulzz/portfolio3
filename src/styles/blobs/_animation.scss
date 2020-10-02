@@ -10,8 +10,6 @@ Blob for .animation.
 @mixin animation {
   .animation {
     position: relative;
-    width: 100%;
-    height: 100%;
     .background,
     .scene {
       position: absolute;

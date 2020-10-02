@@ -13,6 +13,7 @@ IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image/withIEPolyfill";
 import Title from "../../components/title";
 import Link from "../../components/link";
 import Animation from "../../components/animation";
@@ -87,7 +88,13 @@ const Items = () => {
               bg={node.node.animationBackground.fluid}
             />
           ) : (
-            <img src={node.node.imagePreview.file.url} alt={node.node.name} />
+            <Img
+              fluid={node.node.imagePreview.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+              alt={node.node.name}
+              style={{ height: "100%" }}
+            />
           )}
         </a>
         <div className="information">
