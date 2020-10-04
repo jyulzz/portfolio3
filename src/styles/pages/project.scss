@@ -11,8 +11,7 @@ Project Page styles.
 @charset "utf-8";
 // Base
 @import "../base";
-@import "../blobs/inProgressCone";
-@import "../blobs/animation";
+@import "../components/animation";
 //Templates
 body {
   section#project {
@@ -63,7 +62,6 @@ body {
 
         .inProgress {
           svg {
-            @include inProgressCone;
             display: inline-block;
             margin-right: 12px;
             @include getFontResponsive("M");

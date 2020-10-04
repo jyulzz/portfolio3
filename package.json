@@ -1,7 +1,7 @@
 {
   "name": "@jyulzz/portfolio3",
   "description": "Jules Thivent - Product and UX Designer – Portfolio",
-  "version": "3.3.33",
+  "version": "3.3.36",
   "author": "Jules Thivent",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
@@ -15,7 +15,7 @@
     "@fortawesome/pro-solid-svg-icons": "^5.15.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "a11y-react-emoji": "^1.1.2",
-    "acorn": "^8.0.2",
+    "acorn": "^8.0.3",
     "acorn-dynamic-import": "^4.0.0",
     "axios": "^0.20.0",
     "chokidar": "^3.4.2",

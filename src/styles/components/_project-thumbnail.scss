@@ -7,8 +7,7 @@ DESCRIPTION
 Styles for Project Thumbnail component.
 
 *-----------------------------------------------------------------------------*/
-@import "../blobs/inProgressCone";
-@import "../blobs/animation";
+@import "../components/animation";
 
 body {
   div.project-thumbnail {
@@ -43,7 +42,6 @@ body {
 
       .inProgress {
         svg {
-          @include inProgressCone;
           display: inline-block;
           margin-right: 8px;
         }
