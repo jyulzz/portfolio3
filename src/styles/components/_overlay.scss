@@ -54,7 +54,7 @@ body {
           padding-right: 84px;
         }
 
-        ul {
+        .list {
           transition-property: all;
           transition-duration: 320ms;
           transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
@@ -62,7 +62,7 @@ body {
           margin-top: 94px;
         }
 
-        li {
+        .item {
           transition-property: all;
           transition-duration: 320ms;
           transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
@@ -117,10 +117,10 @@ body {
     &.scrolled {
       .overlay {
         .pane {
-          ul {
+          .list {
             margin-top: 76px;
 
-            li:first-of-type {
+            .item:first-of-type {
               margin-top: 0;
             }
           }
@@ -139,7 +139,7 @@ body {
         background: map-get($Foundations_Colors_Neutral--dark, "black-light");
         border-left: thin solid map-get($UI_Named_Colors--dark, "border");
 
-        li {
+        .item {
           a {
             border: none;
           }
