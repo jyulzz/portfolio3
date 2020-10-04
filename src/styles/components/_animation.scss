@@ -1,0 +1,33 @@
+/*-----------------------------------------------------------------------------*
+
+FILE
+src/styles/components/_animation.scss
+
+DESCRIPTION
+Style for Animation component
+
+*-----------------------------------------------------------------------------*/
+@mixin animation {
+  .animation {
+    position: relative;
+    .background,
+    .scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    .background {
+      z-index: 1;
+    }
+    .scene {
+      z-index: 2;
+
+      .lottieAnimation {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
