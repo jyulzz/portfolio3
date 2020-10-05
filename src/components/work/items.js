@@ -119,6 +119,64 @@ const Items = () => {
   `);
 
   /* For each Project found in Contentful response */
+  contentfulData.unreleased.edges.forEach((node) => {
+    /* Add an HTML item to the projects array with information from the Contentful Project item */
+    projects.push(
+      <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
+        <span className="thumbnail">
+          {node.node.animation !== null &&
+          node.node.animationBackground !== null ? (
+            <Animation
+              id={node.node.id}
+              src={node.node.animation.file.url}
+              bg={node.node.animationBackground.fluid}
+            />
+          ) : (
+            <Img
+              fluid={node.node.imagePreview.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+              alt={node.node.title}
+              style={{ height: "100%" }}
+            />
+          )}
+        </span>
+        <div className="information">
+          <Title level="2">{node.node.title}</Title>
+          <div className="organization-date">
+            {node.node.organization === null ? (
+              ""
+            ) : (
+              <span className="organization">{node.node.organization}</span>
+            )}
+            <></>
+            {node.node.inProgress === true ? (
+              <div className="inProgress">
+                <FontAwesomeIcon icon={faTrafficCone} />
+                Work in Progress
+              </div>
+            ) : (
+              <span className="date">
+                <>
+                  {" "}
+                  •{" "}
+                  {node.node.releaseDate.substring(
+                    node.node.releaseDate.length - 4
+                  )}
+                </>
+              </span>
+            )}
+          </div>
+          <div className="description">{node.node.description.description}</div>
+          <Link level="inactive" icon={["fas", "clock"]}>
+            Coming {node.node.releaseDate}
+          </Link>
+        </div>
+      </div>
+    );
+  });
+
+  /* For each Project found in Contentful response */
   contentfulData.released.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     projects.push(
@@ -171,64 +229,6 @@ const Items = () => {
           <Link href={"/work/" + node.node.slug} level="primary">
             View Project<> </>
             <FontAwesomeIcon icon={faLongArrowRight} />
-          </Link>
-        </div>
-      </div>
-    );
-  });
-
-  /* For each Project found in Contentful response */
-  contentfulData.unreleased.edges.forEach((node) => {
-    /* Add an HTML item to the projects array with information from the Contentful Project item */
-    projects.push(
-      <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
-        <span className="thumbnail">
-          {node.node.animation !== null &&
-          node.node.animationBackground !== null ? (
-            <Animation
-              id={node.node.id}
-              src={node.node.animation.file.url}
-              bg={node.node.animationBackground.fluid}
-            />
-          ) : (
-            <Img
-              fluid={node.node.imagePreview.fluid}
-              objectFit="cover"
-              objectPosition="50% 50%"
-              alt={node.node.title}
-              style={{ height: "100%" }}
-            />
-          )}
-        </span>
-        <div className="information">
-          <Title level="2">{node.node.title}</Title>
-          <div className="organization-date">
-            {node.node.organization === null ? (
-              ""
-            ) : (
-              <span className="organization">{node.node.organization}</span>
-            )}
-            <></>
-            {node.node.inProgress === true ? (
-              <div className="inProgress">
-                <FontAwesomeIcon icon={faTrafficCone} />
-                Work in Progress
-              </div>
-            ) : (
-              <span className="date">
-                <>
-                  {" "}
-                  •{" "}
-                  {node.node.releaseDate.substring(
-                    node.node.releaseDate.length - 4
-                  )}
-                </>
-              </span>
-            )}
-          </div>
-          <div className="description">{node.node.description.description}</div>
-          <Link level="inactive" icon={["fas", "clock"]}>
-            Coming {node.node.releaseDate}
           </Link>
         </div>
       </div>
