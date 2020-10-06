@@ -36,6 +36,7 @@ const Animation = ({ id, src, bg }) => {
             },
           },
         });
+        lottie.setQuality("low");
       })
       .catch((error) => {
         console.log(error);
