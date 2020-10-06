@@ -1,21 +1,21 @@
 {
   "name": "@jyulzz/portfolio3",
   "description": "Jules Thivent - Product and UX Designer – Portfolio",
-  "version": "3.3.37",
+  "version": "3.3.39",
   "author": "Jules Thivent",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
     "@contentful/rich-text-types": "^14.1.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.31",
-    "@fortawesome/free-brands-svg-icons": "^5.15.0",
-    "@fortawesome/free-solid-svg-icons": "^5.15.0",
-    "@fortawesome/pro-duotone-svg-icons": "^5.15.0",
-    "@fortawesome/pro-light-svg-icons": "^5.15.0",
-    "@fortawesome/pro-regular-svg-icons": "^5.15.0",
-    "@fortawesome/pro-solid-svg-icons": "^5.15.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/pro-duotone-svg-icons": "^5.15.1",
+    "@fortawesome/pro-light-svg-icons": "^5.15.1",
+    "@fortawesome/pro-regular-svg-icons": "^5.15.1",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "a11y-react-emoji": "^1.1.2",
-    "acorn": "^8.0.3",
+    "acorn": "^8.0.4",
     "acorn-dynamic-import": "^4.0.0",
     "axios": "^0.20.0",
     "chokidar": "^3.4.2",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "prettier": "^2.1.2",
-    "@fortawesome/fontawesome-pro": "^5.15.0"
+    "@fortawesome/fontawesome-pro": "^5.15.1"
   },
   "keywords": [
     "jules",

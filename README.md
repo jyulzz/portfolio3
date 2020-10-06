@@ -12,7 +12,7 @@ My portfolio is currently in [![version](https://img.shields.io/github/package-j
 
 ### Design
 
-[Figma](https://www.figma.com/).
+[Figma](https://www.figma.com/), [Sketch](https://www.sketch.com/), [AEUX](https://aeux.io/), [After Effects](https://www.adobe.com/products/aftereffects.html), [Bodymovin](https://aescripts.com/bodymovin/), [Lottie](https://airbnb.io/lottie/).
 
 ### Content
 
@@ -20,15 +20,15 @@ My portfolio is currently in [![version](https://img.shields.io/github/package-j
 
 ### Code
 
-[Atom](https://atom.io/), [Node.js](https://nodejs.org/), [React](https://www.reactjs.org/), [Gatsby](https://www.gatsbyjs.org/), [GitHub](https://www.github.com).
+[Atom](https://atom.io/), [Node.js](https://nodejs.org/), [React](https://www.reactjs.org/), [HTML 5](https://html.spec.whatwg.org/), [SASS](https://sass-lang.com/), [CSS 3](https://www.w3.org/TR/css3-roadmap/), [Webpack](https://webpack.js.org/), [GraphQL](https://graphql.org/), [Gatsby](https://www.gatsbyjs.org/), [GitHub](https://www.github.com).
 
 ### Continuous Integration
 
-[DeepScan](https://deepscan.io), [Circle-CI](https://circleci.com), [Travis](https://travis-ci.com/), [Dependabot](https://dependabot.com/), [Depfu](https://depfu.com/), [Scrutinizer](https://scrutinizer-ci.com/), [LGTM](https://lgtm.com/).
+[Circle-CI](https://circleci.com), [Travis](https://travis-ci.com/), [DeepScan](https://deepscan.io), [Dependabot](https://dependabot.com/), [Depfu](https://depfu.com/), [Scrutinizer](https://scrutinizer-ci.com/), [LGTM](https://lgtm.com/).
 
 ### Delivery
 
-[Google Domains](https://domains.google), [Netlify](https://netlify.com/), [Cloudflare](https://www.cloudflare.com/).
+[Netlify](https://netlify.com/), [Cloudflare](https://www.cloudflare.com/), [Google Domains](https://domains.google).
 
 ## 🚦Statuses
 
