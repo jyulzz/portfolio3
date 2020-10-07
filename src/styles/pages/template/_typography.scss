@@ -16,6 +16,7 @@ body {
     .link {
       word-break: normal !important;
       white-space: normal !important;
+      overflow-wrap: break-word !important;
     }
 
     h1 {
