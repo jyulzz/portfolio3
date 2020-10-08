@@ -141,19 +141,19 @@ body {
         map-get($Foundations_Colors_Neutral, "grey-medium");
 
       @include breakpointFromTo("xs", "s") {
-        margin-top: 32px;
+        margin-top: 48px;
         padding-top: 32px;
       }
       @include breakpointOnly("m") {
-        margin-top: 36px;
+        margin-top: 68px;
         padding-top: 36px;
       }
       @include breakpointUp("l") {
-        margin-top: 40px;
+        margin-top: 68px;
         padding-top: 40px;
       }
       @include breakpointUp("xl") {
-        margin-top: 44px;
+        margin-top: 72px;
         padding-top: 44px;
       }
       display: flex;
