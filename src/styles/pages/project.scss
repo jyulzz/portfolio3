@@ -156,7 +156,6 @@ body {
         margin-top: 72px;
         padding-top: 44px;
       }
-      display: flex;
       @include getFontResponsive("XL");
 
       a {
@@ -166,8 +165,7 @@ body {
       .project {
         font-weight: map-get($Foundations_Fontweights, "Semibold");
       }
-      @include breakpointDown("xs") {
-        flex-direction: column;
+      @include breakpointDown("s") {
         .project:first-of-type {
           margin-bottom: 20px;
         }
@@ -176,23 +174,29 @@ body {
         }
       }
 
-      @include breakpointDown("s") {
+      @include breakpointUp("m") {
+        display: flex;
         flex-direction: row;
         .project {
-          width: 50%;
+          &.previous {
+            text-align: left;
+            .preview {
+              display: inline-block;
+            }
+          }
           &.next {
             text-align: right;
+            .preview {
+              display: inline-block;
+            }
           }
-        }
-        .preview {
-          display: none;
-        }
-      }
-
-      @include breakpointUp("m") {
-        flex-direction: row;
-
-        .project {
+          &:last-of-type {
+            text-align: right;
+          }
+          .preview {
+            width: 100%;
+            height: 200px;
+          }
           margin-top: 32px;
           flex: 50%;
           .card {
@@ -215,26 +219,6 @@ body {
                 @include getFontResponsive("M");
               }
             }
-          }
-
-          &.previous {
-            text-align: left;
-            .preview {
-              display: inline-block;
-            }
-          }
-          &.next {
-            text-align: right;
-            .preview {
-              display: inline-block;
-            }
-          }
-          &:last-of-type {
-            text-align: right;
-          }
-          .preview {
-            width: 100%;
-            height: 200px;
           }
         }
       }
