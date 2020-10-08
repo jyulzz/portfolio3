@@ -237,6 +237,30 @@ body {
           }
         }
       }
+      @include breakpointOnly("l") {
+        .project {
+          .card {
+            width: 340px !important;
+          }
+
+          .preview {
+            width: 100%;
+            height: 256px;
+          }
+        }
+      }
+      @include breakpointUp("xl") {
+        .project {
+          .card {
+            width: 420px !important;
+          }
+
+          .preview {
+            width: 100%;
+            height: 316px;
+          }
+        }
+      }
     }
   }
 
