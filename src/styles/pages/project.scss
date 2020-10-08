@@ -211,7 +211,7 @@ body {
               }
               .link {
                 font-weight: map-get($Foundations_Fontweights, "Semibold");
-                @include getFontResponsive("L");
+                @include getFontResponsive("M");
               }
             }
           }
