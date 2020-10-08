@@ -32,14 +32,14 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allContentfulProject(filter: { released: { eq: true } }) {
         edges {
-          next {
+          previous {
             slug
             title
           }
           node {
             slug
           }
-          previous {
+          next {
             slug
             title
           }

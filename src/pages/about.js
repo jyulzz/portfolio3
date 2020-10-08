@@ -21,7 +21,7 @@ import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import FooterContent from "./template/content-footer";
+import AboutAndContact from "./template/about-and-contact";
 import Link from "../components/link";
 import "../styles/pages/about.scss";
 
@@ -252,7 +252,7 @@ const AboutPage = () => {
       </Main>
 
       <Footer>
-        <FooterContent />
+        <AboutAndContact />
       </Footer>
     </>
   );
