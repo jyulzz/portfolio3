@@ -168,15 +168,72 @@ body {
       }
       @include breakpointDown("xs") {
         flex-direction: column;
+        .project:first-of-type {
+          margin-bottom: 20px;
+        }
+        .preview {
+          display: none;
+        }
       }
-      @include breakpointUp("s") {
+
+      @include breakpointDown("s") {
+        flex-direction: row;
+        .project {
+          width: 50%;
+          &.next {
+            text-align: right;
+          }
+        }
+        .preview {
+          display: none;
+        }
+      }
+
+      @include breakpointUp("m") {
         flex-direction: row;
 
         .project {
+          margin-top: 32px;
           flex: 50%;
+          .card {
+            width: 288px !important;
+            display: inline-block;
+            background: white;
+            box-shadow: 0 16px 32px
+              rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
+            .information {
+              padding-top: 4px;
+              padding-left: 20px;
+              padding-right: 20px;
+              padding-bottom: 12px;
+              .title {
+                font-weight: map-get($Foundations_Fontweights, "Semibold");
+              }
+              .link {
+                font-weight: map-get($Foundations_Fontweights, "Semibold");
+                @include getFontResponsive("L");
+              }
+            }
+          }
 
+          &.previous {
+            text-align: left;
+            .preview {
+              display: inline-block;
+            }
+          }
+          &.next {
+            text-align: right;
+            .preview {
+              display: inline-block;
+            }
+          }
           &:last-of-type {
             text-align: right;
+          }
+          .preview {
+            width: 100%;
+            height: 200px;
           }
         }
       }

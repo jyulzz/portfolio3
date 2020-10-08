@@ -14,15 +14,22 @@ Template for the Project pages created through code in /gatsby-node.js
 
 import React from "react";
 import { graphql } from "gatsby";
+import Emoji from "a11y-react-emoji";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
+import { Container } from "../components/grid";
+import Title from "../components/title";
+import Section from "../components/section";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import FooterContent from "./template/content-footer";
+import AboutAndContact from "./template/about-and-contact";
 import Link from "../components/link";
+import { Gems } from "../components/gems";
+import Credits from "../components/credits";
+import Technologies from "../components/technologies";
 import Conf from "../../conf.yml";
 import Pagination from "../components/pagination";
 import Animation from "../components/animation";
@@ -157,7 +164,29 @@ const options = {
 *-----------------------------------------------------------------------------*/
 
 export const query = graphql`
-  query($slug: String) {
+  query($slug: String, $previousProjectSlug: String, $nextProjectSlug: String) {
+    previousProject: allContentfulProject(
+      filter: { slug: { eq: $previousProjectSlug } }
+    ) {
+      nodes {
+        imagePreview {
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
+    }
+    nextProject: allContentfulProject(
+      filter: { slug: { eq: $nextProjectSlug } }
+    ) {
+      nodes {
+        imagePreview {
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
+    }
     project: allContentfulProject(filter: { slug: { eq: $slug } }) {
       nodes {
         id
@@ -199,7 +228,19 @@ export const query = graphql`
 `;
 
 const ProjectPage = ({ data, pageContext }) => {
-  const projectData = data.project.nodes[0];
+  let previousProjectImagePreviewFluid;
+  let nextProjectImagePreviewFluid;
+
+  let projectData = data.project.nodes[0];
+
+  if (data.previousProject.nodes[0]) {
+    previousProjectImagePreviewFluid =
+      data.previousProject.nodes[0].imagePreview.fluid;
+  }
+  if (data.nextProject.nodes[0]) {
+    nextProjectImagePreviewFluid = data.nextProject.nodes[0].imagePreview.fluid;
+  }
+
   return (
     <>
       <GatsbySeo
@@ -266,16 +307,58 @@ const ProjectPage = ({ data, pageContext }) => {
           <section className="contentful-rich-text-types">
             {documentToReactComponents(projectData.content.json, options)}
           </section>
+
           <Pagination
             previousProjectSlug={pageContext.previousProjectSlug}
             previousProjectTitle={pageContext.previousProjectTitle}
+            previousProjectImagePreview={previousProjectImagePreviewFluid}
             nextProjectSlug={pageContext.nextProjectSlug}
             nextProjectTitle={pageContext.nextProjectTitle}
+            nextProjectImagePreview={nextProjectImagePreviewFluid}
           />
         </section>
       </Main>
       <Footer>
-        <FooterContent />
+        <AboutAndContact />
+        <Container>
+          <Title level="1">Credits</Title>
+          <Section>
+            <Title level="2">License</Title>
+            <Emoji symbol="🇪🇺" label="Flag: European Union" />
+            Published under EUPL v1.2
+          </Section>
+          <Section>
+            <Title level="2">Design &amp; Code</Title>
+            <Emoji symbol="✌️" label="Victory Hand Emoji" />
+            {""}100% by me{" | "}
+            <Link
+              className="inverted"
+              href="https://github.com/jyulzz/portfolio3"
+              target="_blank"
+              level=""
+              title="View on GitHub"
+            >
+              View on GitHub <FontAwesomeIcon icon={faLongArrowRight} />
+            </Link>
+          </Section>
+
+          <Section>
+            <Title level="2">Inspiration</Title>
+            <Emoji symbol="🙏" label="Person With Folded Hands Emoji" /> Many
+            thanks
+            <Gems id="credits">
+              <Credits />
+            </Gems>
+          </Section>
+          <Section>
+            <Title level="2">Stack</Title>
+            <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I build this
+            with
+            <Gems id="technologies">
+              <Technologies />
+            </Gems>
+          </Section>
+        </Container>
       </Footer>
     </>
   );

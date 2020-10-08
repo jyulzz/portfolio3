@@ -12,6 +12,7 @@ Template for the Pagination component used in the Project template.
   IMPORTS
 *----------------------------------------------------------------------------- */
 import React from "react";
+import Img from "gatsby-image/withIEPolyfill";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -30,13 +31,16 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
+
 class Pagination extends React.Component {
   constructor(props) {
     super(props);
     this.previousProjectSlug = this.props.previousProjectSlug;
     this.previousProjectTitle = this.props.previousProjectTitle;
+    this.previousProjectImagePreview = this.props.previousProjectImagePreview;
     this.nextProjectSlug = this.props.nextProjectSlug;
     this.nextProjectTitle = this.props.nextProjectTitle;
+    this.nextProjectImagePreview = this.props.nextProjectImagePreview;
   }
 
   previousProject() {
@@ -47,11 +51,25 @@ class Pagination extends React.Component {
           ""
         ) : (
           <>
-            <div>{this.previousProjectTitle}</div>
-            <Link href={"/work/" + this.previousProjectSlug}>
-              <FontAwesomeIcon icon={faLongArrowLeft} />
-              {"View previous project"}
-            </Link>
+            <div className="card">
+              <div className="preview">
+                <Img
+                  fluid={this.previousProjectImagePreview}
+                  objectFit="cover"
+                  objectPosition="50% 50%"
+                  alt={this.previousProjectTitle}
+                  style={{ height: "100%" }}
+                  className="previousProjectImagePreview"
+                />
+              </div>
+              <div className="information">
+                <div className="title">{this.previousProjectTitle}</div>
+                <Link href={"/work/" + this.previousProjectSlug}>
+                  <FontAwesomeIcon icon={faLongArrowLeft} />
+                  {"View previous project"}
+                </Link>
+              </div>
+            </div>
           </>
         )}
       </div>
@@ -66,11 +84,29 @@ class Pagination extends React.Component {
           ""
         ) : (
           <>
-            <div>{this.nextProjectTitle}</div>
-            <Link href={"/work/" + this.nextProjectSlug} className="inverted">
-              {"View next project"}
-              <FontAwesomeIcon icon={faLongArrowRight} />
-            </Link>
+            <div className="card">
+              <div className="preview">
+                <Img
+                  fluid={this.nextProjectImagePreview}
+                  objectFit="cover"
+                  objectPosition="50% 50%"
+                  alt={this.nextProjectTitle}
+                  style={{ height: "100%" }}
+                  className="nextProjectImagePreview"
+                />{" "}
+              </div>
+              <div className="information">
+                <div className="title">{this.nextProjectTitle}</div>
+
+                <Link
+                  href={"/work/" + this.nextProjectSlug}
+                  className="inverted"
+                >
+                  {"View next project"}
+                  <FontAwesomeIcon icon={faLongArrowRight} />
+                </Link>
+              </div>
+            </div>
           </>
         )}
       </div>
