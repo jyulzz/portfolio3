@@ -165,6 +165,34 @@ const options = {
 
 export const query = graphql`
   query($slug: String, $previousProjectSlug: String, $nextProjectSlug: String) {
+    firstProject: allContentfulProject(
+      limit: 1
+      sort: { fields: updatedAt, order: DESC }
+    ) {
+      nodes {
+        slug
+        title
+        imagePreview {
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
+    }
+    lastProject: allContentfulProject(
+      limit: 1
+      sort: { fields: updatedAt, order: ASC }
+    ) {
+      nodes {
+        slug
+        title
+        imagePreview {
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
+          }
+        }
+      }
+    }
     previousProject: allContentfulProject(
       filter: { slug: { eq: $previousProjectSlug } }
     ) {
@@ -228,7 +256,11 @@ export const query = graphql`
 `;
 
 const ProjectPage = ({ data, pageContext }) => {
+  let previousProjectSlug;
+  let previousProjectTitle;
   let previousProjectImagePreviewFluid;
+  let nextProjectSlug;
+  let nextProjectTitle;
   let nextProjectImagePreviewFluid;
 
   let projectData = data.project.nodes[0];
@@ -236,9 +268,24 @@ const ProjectPage = ({ data, pageContext }) => {
   if (data.previousProject.nodes[0]) {
     previousProjectImagePreviewFluid =
       data.previousProject.nodes[0].imagePreview.fluid;
+    previousProjectSlug = pageContext.previousProjectSlug;
+    previousProjectTitle = pageContext.previousProjectTitle;
+  } else {
+    previousProjectImagePreviewFluid =
+      data.lastProject.nodes[0].imagePreview.fluid;
+    previousProjectSlug = data.lastProject.nodes[0].slug;
+    previousProjectTitle = data.lastProject.nodes[0].title;
   }
+
   if (data.nextProject.nodes[0]) {
     nextProjectImagePreviewFluid = data.nextProject.nodes[0].imagePreview.fluid;
+    nextProjectSlug = pageContext.nextProjectSlug;
+    nextProjectTitle = pageContext.nextProjectTitle;
+  } else {
+    nextProjectImagePreviewFluid =
+      data.firstProject.nodes[0].imagePreview.fluid;
+    nextProjectSlug = data.firstProject.nodes[0].slug;
+    nextProjectTitle = data.firstProject.nodes[0].title;
   }
 
   return (
@@ -309,11 +356,11 @@ const ProjectPage = ({ data, pageContext }) => {
           </section>
 
           <Pagination
-            previousProjectSlug={pageContext.previousProjectSlug}
-            previousProjectTitle={pageContext.previousProjectTitle}
+            previousProjectSlug={previousProjectSlug}
+            previousProjectTitle={previousProjectTitle}
             previousProjectImagePreview={previousProjectImagePreviewFluid}
-            nextProjectSlug={pageContext.nextProjectSlug}
-            nextProjectTitle={pageContext.nextProjectTitle}
+            nextProjectSlug={nextProjectSlug}
+            nextProjectTitle={nextProjectTitle}
             nextProjectImagePreview={nextProjectImagePreviewFluid}
           />
         </section>
