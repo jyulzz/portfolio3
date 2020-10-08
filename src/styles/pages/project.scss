@@ -198,10 +198,7 @@ body {
           .card {
             width: 288px !important;
             display: inline-block;
-            background: rgba(
-              map-get($UI_Named_Colors--dark, "card-background"),
-              1
-            );
+            background: rgba(map-get($UI_Named_Colors, "card-background"), 1);
             box-shadow: 0 16px 32px
               rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
             .information {
