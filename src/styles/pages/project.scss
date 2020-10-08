@@ -198,7 +198,10 @@ body {
           .card {
             width: 288px !important;
             display: inline-block;
-            background: white;
+            background: rgba(
+              map-get($UI_Named_Colors--dark, "card-background"),
+              1
+            );
             box-shadow: 0 16px 32px
               rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
             .information {
@@ -242,6 +245,20 @@ body {
 
   &.dark {
     section#project {
+      .project {
+        @include breakpointUp("m") {
+          .card {
+            background: map-get(
+              $UI_Named_Colors--dark,
+              "card-background"
+            ) !important;
+            border: thin solid map-get($UI_Named_Colors--dark, "border");
+            box-shadow: 0 16px 32px
+                rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32),
+              0 0 1px rgba(map-get($UI_Named_Colors--dark, "text-dim"), 1);
+          }
+        }
+      }
       figure.thumbnail {
         .card {
           h1 {
@@ -265,7 +282,7 @@ body {
 
       section#pagination {
         border-top: thin dotted
-          map-get($Foundations_Colors_Neutral--dark, "grey-medium");
+          rgba(map-get($Foundations_Colors_Neutral--dark, "grey-medium"), 0.5);
       }
     }
   }
