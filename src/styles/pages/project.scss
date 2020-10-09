@@ -164,15 +164,64 @@ body {
 
       .project {
         font-weight: map-get($Foundations_Fontweights, "Semibold");
+        .card {
+          background: rgba(map-get($UI_Named_Colors, "card-background"), 1);
+          box-shadow: 0 16px 32px
+            rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
+          .information {
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+          }
+        }
       }
       @include breakpointDown("s") {
-        display: grid;
-        .project:first-of-type {
-          margin-bottom: 20px;
+        .project .card {
+          display: grid;
+          grid-template-columns: 20% 20% 20% 20% 20%;
+          align-items: center;
+
+          .information {
+            .link {
+              @include getFontResponsive("M");
+            }
+          }
         }
 
-        .preview {
-          display: none;
+        .project:first-of-type {
+          .card {
+            .preview {
+              order: 2;
+
+              grid-column-start: 4;
+              grid-column-end: 6;
+            }
+            .information {
+              order: 1;
+
+              grid-column-start: 1;
+              grid-column-end: 3;
+            }
+          }
+          margin-top: 24px;
+          margin-bottom: 24px;
+        }
+
+        .project:last-of-type {
+          .card {
+            .preview {
+              order: 1;
+              grid-column-start: 1;
+              grid-column-end: 3;
+            }
+            .information {
+              order: 2;
+              text-align: right;
+              grid-column-start: 3;
+              grid-column-end: 6;
+            }
+          }
         }
       }
 
@@ -204,9 +253,6 @@ body {
           .card {
             width: 100% !important;
 
-            background: rgba(map-get($UI_Named_Colors, "card-background"), 1);
-            box-shadow: 0 16px 32px
-              rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
             .information {
               padding-top: 4px;
               padding-left: 20px;
@@ -243,7 +289,7 @@ body {
   &.dark {
     section#project {
       .project {
-        @include breakpointUp("m") {
+        @include breakpointUp("xs") {
           .card {
             background: map-get(
               $UI_Named_Colors--dark,
