@@ -139,154 +139,65 @@ body {
     }
 
     section#pagination {
-      border-top: thin dotted
-        map-get($Foundations_Colors_Neutral, "grey-medium");
-
       @include breakpointFromTo("xs", "s") {
         margin-top: 48px;
-        padding-top: 32px;
       }
       @include breakpointOnly("m") {
         margin-top: 68px;
-        padding-top: 36px;
       }
       @include breakpointUp("l") {
         margin-top: 68px;
-        padding-top: 40px;
       }
       @include breakpointUp("xl") {
         margin-top: 72px;
-        padding-top: 44px;
       }
 
-      .project {
-        font-weight: map-get($Foundations_Fontweights, "Semibold");
-        .card {
-          background: rgba(map-get($UI_Named_Colors, "card-background"), 1);
-          box-shadow: 0 16px 32px
-            rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
-          .information {
-            .title {
-              font-weight: map-get($Foundations_Fontweights, "Semibold");
-            }
-            .link {
-              font-weight: map-get($Foundations_Fontweights, "Semibold");
-            }
-          }
-        }
-      }
-
-      @include breakpointOnly("xs") {
+      .projects {
         .project {
+          font-weight: map-get($Foundations_Fontweights, "Semibold");
           .card {
+            background: rgba(map-get($UI_Named_Colors, "card-background"), 1);
+            box-shadow: 0 16px 32px
+              rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
             .information {
-              padding: 12px;
               .title {
-                @include getFontResponsive("M");
+                font-weight: map-get($Foundations_Fontweights, "Semibold");
               }
               .link {
-                @include getFontResponsive("S");
+                font-weight: map-get($Foundations_Fontweights, "Semibold");
               }
             }
           }
         }
-        .project:first-of-type {
-          margin-bottom: 24px;
-        }
-      }
 
-      @include breakpointOnly("s") {
-        .project .card {
-          display: grid;
-          grid-template-columns: 20% 20% 20% 20% 20%;
-          align-items: center;
-
-          .information {
-            padding-left: 12px;
-
-            .title {
-              @include getFontResponsive("L");
+        @include breakpointOnly("xs") {
+          .project {
+            .card {
+              .information {
+                padding: 12px;
+                .title {
+                  @include getFontResponsive("M");
+                }
+                .link {
+                  @include getFontResponsive("S");
+                }
+              }
             }
-            .link {
-              @include getFontResponsive("M");
-            }
+          }
+          .project:first-of-type {
+            margin-bottom: 24px;
           }
         }
 
-        .project:first-of-type {
-          .card {
-            .preview {
-              order: 2;
-              height: 100%;
-              grid-column-start: 4;
-              grid-column-end: 6;
-            }
-            .information {
-              order: 1;
+        @include breakpointOnly("s") {
+          .project .card {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            align-items: center;
 
-              grid-column-start: 1;
-              grid-column-end: 3;
+            .information {
               padding-left: 12px;
-            }
-          }
-          margin-top: 24px;
-          margin-bottom: 24px;
-        }
 
-        .project:last-of-type {
-          .card {
-            .preview {
-              order: 1;
-              height: 100%;
-
-              grid-column-start: 1;
-              grid-column-end: 3;
-            }
-            .information {
-              padding-right: 12px;
-
-              order: 2;
-              text-align: right;
-              grid-column-start: 3;
-              grid-column-end: 6;
-            }
-          }
-        }
-      }
-
-      @include breakpointUp("m") {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 40px;
-        .project {
-          &.previous {
-            text-align: left;
-            .preview {
-              display: inline-block;
-            }
-          }
-          &.next {
-            text-align: right;
-            .preview {
-              display: inline-block;
-            }
-          }
-          &:last-of-type {
-            text-align: right;
-          }
-          .preview {
-            width: 100%;
-            height: 200px;
-          }
-          margin-top: 32px;
-          .card {
-            width: 100% !important;
-
-            .information {
-              padding-top: 4px;
-              padding-left: 20px;
-              padding-right: 20px;
-              padding-bottom: 12px;
               .title {
                 @include getFontResponsive("L");
               }
@@ -295,19 +206,103 @@ body {
               }
             }
           }
-        }
-      }
-      @include breakpointOnly("l") {
-        .project {
-          .preview {
-            height: 256px;
+
+          .project:first-of-type {
+            .card {
+              .preview {
+                order: 2;
+                height: 100%;
+                grid-column-start: 4;
+                grid-column-end: 6;
+              }
+              .information {
+                order: 1;
+
+                grid-column-start: 1;
+                grid-column-end: 3;
+                padding-left: 12px;
+              }
+            }
+            margin-top: 24px;
+            margin-bottom: 24px;
+          }
+
+          .project:last-of-type {
+            .card {
+              .preview {
+                order: 1;
+                height: 100%;
+
+                grid-column-start: 1;
+                grid-column-end: 3;
+              }
+              .information {
+                padding-right: 12px;
+
+                order: 2;
+                text-align: right;
+                grid-column-start: 3;
+                grid-column-end: 6;
+              }
+            }
           }
         }
-      }
-      @include breakpointUp("xl") {
-        .project {
-          .preview {
-            height: 316px;
+
+        @include breakpointUp("m") {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 40px;
+          .project {
+            &.previous {
+              text-align: left;
+              .preview {
+                display: inline-block;
+              }
+            }
+            &.next {
+              text-align: right;
+              .preview {
+                display: inline-block;
+              }
+            }
+            &:last-of-type {
+              text-align: right;
+            }
+            .preview {
+              width: 100%;
+              height: 200px;
+            }
+            //margin-top: 32px;
+            .card {
+              width: 100% !important;
+
+              .information {
+                padding-top: 4px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 12px;
+                .title {
+                  @include getFontResponsive("L");
+                }
+                .link {
+                  @include getFontResponsive("M");
+                }
+              }
+            }
+          }
+        }
+        @include breakpointOnly("l") {
+          .project {
+            .preview {
+              height: 256px;
+            }
+          }
+        }
+        @include breakpointUp("xl") {
+          .project {
+            .preview {
+              height: 316px;
+            }
           }
         }
       }
@@ -349,11 +344,6 @@ body {
             );
           }
         }
-      }
-
-      section#pagination {
-        border-top: thin dotted
-          rgba(map-get($Foundations_Colors_Neutral--dark, "grey-medium"), 0.5);
       }
     }
   }
