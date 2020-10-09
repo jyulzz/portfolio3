@@ -287,6 +287,12 @@ body {
               padding-left: 20px;
               padding-right: 20px;
               padding-bottom: 12px;
+              .title {
+                @include getFontResponsive("L");
+              }
+              .link {
+                @include getFontResponsive("M");
+              }
             }
           }
         }
