@@ -17,6 +17,7 @@ import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Link from "../components/link";
+import Title from "../components/title";
 import {
   faLongArrowLeft,
   faLongArrowRight,
@@ -123,8 +124,14 @@ class Pagination extends React.Component {
         ${this.previousProjectSlug === null ? "null" : "previous"}
         ${this.nextProjectSlug === null ? "null" : "next"}`}
         >
-          {this.previousProject()}
-          {this.nextProject()}
+          <Title level="1">
+            <div>More Projects</div>
+          </Title>
+
+          <div className="projects">
+            {this.previousProject()}
+            {this.nextProject()}
+          </div>
         </section>
       </>
     );
