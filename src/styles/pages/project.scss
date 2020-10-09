@@ -42,6 +42,8 @@ body {
           .title {
             @include getFontResponsive("XXXL");
             font-weight: map-get($Foundations_Fontweights, "Semibold");
+            word-break: break-all;
+            white-space: pre-line;
           }
 
           .subtitle {
@@ -176,52 +178,25 @@ body {
           }
         }
       }
+
       @include breakpointDown("s") {
         .project .card {
-          display: grid;
-          grid-template-columns: 20% 20% 20% 20% 20%;
-          align-items: center;
-
           .information {
-            .link {
+            .title {
               @include getFontResponsive("M");
+            }
+            .link {
+              @include getFontResponsive("S");
             }
           }
         }
 
         .project:first-of-type {
-          .card {
-            .preview {
-              order: 2;
-
-              grid-column-start: 4;
-              grid-column-end: 6;
-            }
-            .information {
-              order: 1;
-
-              grid-column-start: 1;
-              grid-column-end: 3;
-            }
-          }
           margin-top: 24px;
           margin-bottom: 24px;
         }
 
         .project:last-of-type {
-          .card {
-            .preview {
-              order: 1;
-              grid-column-start: 1;
-              grid-column-end: 3;
-            }
-            .information {
-              order: 2;
-              text-align: right;
-              grid-column-start: 3;
-              grid-column-end: 6;
-            }
-          }
         }
       }
 
