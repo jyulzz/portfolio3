@@ -37,25 +37,20 @@ const Items = () => {
   /* Pull the list of Projects on Contentful */
   const contentfulData = useStaticQuery(graphql`
     {
-      released: allContentfulProject(filter: { released: { eq: true } }) {
-        edges {
-          node {
+      projects: contentfulList(slug: { eq: "projects" }) {
+        items {
+          ... on ContentfulProject {
             id
             slug
             title
             organization
-            tools {
-              icon {
-                file {
-                  url
-                }
-              }
-              name
-            }
             imagePreview {
               fluid(maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp
               }
+            }
+            description {
+              description
             }
             animation {
               file {
@@ -67,50 +62,8 @@ const Items = () => {
                 ...GatsbyContentfulFluid_withWebp
               }
             }
-            description {
-              description
-            }
-            released
             releaseDate(formatString: "MMMM DD, YYYY")
-            inProgress
-          }
-        }
-      }
-      unreleased: allContentfulProject(filter: { released: { eq: false } }) {
-        edges {
-          node {
-            id
-            slug
-            title
-            organization
-            tools {
-              icon {
-                file {
-                  url
-                }
-              }
-              name
-            }
-            imagePreview {
-              fluid(maxWidth: 800) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-            animation {
-              file {
-                url
-              }
-            }
-            animationBackground {
-              fluid(maxWidth: 800) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-            description {
-              description
-            }
             released
-            releaseDate(formatString: "MMMM DD, YYYY")
             inProgress
           }
         }
@@ -119,38 +72,37 @@ const Items = () => {
   `);
 
   /* For each Project found in Contentful response */
-  contentfulData.unreleased.edges.forEach((node) => {
+  contentfulData.projects.items.forEach((item) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     projects.push(
-      <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
+      <div key={item.id} className="project-thumbnail" id={item.slug}>
         <span className="thumbnail">
-          {node.node.animation !== null &&
-          node.node.animationBackground !== null ? (
+          {item.animation !== null && item.animationBackground !== null ? (
             <Animation
-              id={node.node.id}
-              src={node.node.animation.file.url}
-              bg={node.node.animationBackground.fluid}
+              id={item.id}
+              src={item.animation.file.url}
+              bg={item.animationBackground.fluid}
             />
           ) : (
             <Img
-              fluid={node.node.imagePreview.fluid}
+              fluid={item.imagePreview.fluid}
               objectFit="cover"
               objectPosition="50% 50%"
-              alt={node.node.title}
+              alt={item.title}
               style={{ height: "100%" }}
             />
           )}
         </span>
         <div className="information">
-          <Title level="2">{node.node.title}</Title>
+          <Title level="2">{item.title}</Title>
           <div className="organization-date">
-            {node.node.organization === null ? (
+            {item.organization === null ? (
               ""
             ) : (
-              <span className="organization">{node.node.organization}</span>
+              <span className="organization">{item.organization}</span>
             )}
             <></>
-            {node.node.inProgress === true ? (
+            {item.inProgress === true ? (
               <div className="inProgress">
                 <FontAwesomeIcon icon={faTrafficCone} />
                 Work in Progress
@@ -159,77 +111,22 @@ const Items = () => {
               <span className="date">
                 <>
                   {" "}
-                  •{" "}
-                  {node.node.releaseDate.substring(
-                    node.node.releaseDate.length - 4
-                  )}
+                  • {item.releaseDate.substring(item.releaseDate.length - 4)}
                 </>
               </span>
             )}
           </div>
-          <div className="description">{node.node.description.description}</div>
-          <Link level="inactive" icon={["fas", "clock"]}>
-            Coming {node.node.releaseDate}
-          </Link>
-        </div>
-      </div>
-    );
-  });
-
-  /* For each Project found in Contentful response */
-  contentfulData.released.edges.forEach((node) => {
-    /* Add an HTML item to the projects array with information from the Contentful Project item */
-    projects.push(
-      <div key={node.node.id} className="project-thumbnail" id={node.node.slug}>
-        <a
-          href={"/work/" + node.node.slug}
-          className="thumbnail"
-          name={"View " + node.node.title}
-        >
-          {node.node.animation !== null &&
-          node.node.animationBackground !== null ? (
-            <Animation
-              id={node.node.id}
-              src={node.node.animation.file.url}
-              bg={node.node.animationBackground.fluid}
-            />
+          <div className="description">{item.description.description}</div>
+          {item.released === true ? (
+            <Link href={"/work/" + item.slug} level="primary">
+              View Project<> </>
+              <FontAwesomeIcon icon={faLongArrowRight} />{" "}
+            </Link>
           ) : (
-            <Img
-              fluid={node.node.imagePreview.fluid}
-              objectFit="cover"
-              objectPosition="50% 50%"
-              alt={node.node.title}
-              style={{ height: "100%" }}
-            />
+            <Link level="inactive" icon={["fas", "clock"]}>
+              Coming {item.releaseDate}
+            </Link>
           )}
-        </a>
-        <div className="information">
-          <Title level="2">{node.node.title}</Title>
-          <div className="organization-date">
-            <span className="organization">{node.node.organization}</span>
-            <> </>{" "}
-            {node.node.inProgress === true ? (
-              <div className="inProgress">
-                <FontAwesomeIcon icon={faTrafficCone} />
-                Work in Progress
-              </div>
-            ) : (
-              <span className="date">
-                <>
-                  {" "}
-                  •{" "}
-                  {node.node.releaseDate.substring(
-                    node.node.releaseDate.length - 4
-                  )}
-                </>
-              </span>
-            )}
-          </div>
-          <div className="description">{node.node.description.description}</div>
-          <Link href={"/work/" + node.node.slug} level="primary">
-            View Project<> </>
-            <FontAwesomeIcon icon={faLongArrowRight} />
-          </Link>
         </div>
       </div>
     );
