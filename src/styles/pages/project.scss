@@ -158,11 +158,6 @@ body {
         margin-top: 72px;
         padding-top: 44px;
       }
-      @include getFontResponsive("XL");
-
-      a {
-        @include getFontResponsive("L");
-      }
 
       .project {
         font-weight: map-get($Foundations_Fontweights, "Semibold");
@@ -171,32 +166,91 @@ body {
           box-shadow: 0 16px 32px
             rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
           .information {
-            padding-top: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-bottom: 20px;
+            .title {
+              font-weight: map-get($Foundations_Fontweights, "Semibold");
+            }
+            .link {
+              font-weight: map-get($Foundations_Fontweights, "Semibold");
+            }
           }
         }
       }
 
-      @include breakpointDown("s") {
+      @include breakpointOnly("xs") {
+        .project {
+          .card {
+            .information {
+              padding: 12px;
+              .title {
+                @include getFontResponsive("M");
+              }
+              .link {
+                @include getFontResponsive("S");
+              }
+            }
+          }
+        }
+        .project:first-of-type {
+          margin-bottom: 24px;
+        }
+      }
+
+      @include breakpointOnly("s") {
         .project .card {
+          display: grid;
+          grid-template-columns: 20% 20% 20% 20% 20%;
+          align-items: center;
+
           .information {
+            padding-left: 12px;
+
             .title {
-              @include getFontResponsive("M");
+              @include getFontResponsive("L");
             }
             .link {
-              @include getFontResponsive("S");
+              @include getFontResponsive("M");
             }
           }
         }
 
         .project:first-of-type {
+          .card {
+            .preview {
+              order: 2;
+              height: 100%;
+              grid-column-start: 4;
+              grid-column-end: 6;
+            }
+            .information {
+              order: 1;
+
+              grid-column-start: 1;
+              grid-column-end: 3;
+              padding-left: 12px;
+            }
+          }
           margin-top: 24px;
           margin-bottom: 24px;
         }
 
         .project:last-of-type {
+          .card {
+            .preview {
+              order: 1;
+              height: 100%;
+
+              grid-column-start: 1;
+              grid-column-end: 3;
+            }
+            .information {
+              padding-right: 12px;
+
+              order: 2;
+              text-align: right;
+              grid-column-start: 3;
+              grid-column-end: 6;
+            }
+          }
         }
       }
 
@@ -233,13 +287,6 @@ body {
               padding-left: 20px;
               padding-right: 20px;
               padding-bottom: 12px;
-              .title {
-                font-weight: map-get($Foundations_Fontweights, "Semibold");
-              }
-              .link {
-                font-weight: map-get($Foundations_Fontweights, "Semibold");
-                @include getFontResponsive("M");
-              }
             }
           }
         }
