@@ -196,8 +196,6 @@ body {
             align-items: center;
 
             .information {
-              padding-left: 12px;
-
               .title {
                 @include getFontResponsive("L");
               }
@@ -217,10 +215,9 @@ body {
               }
               .information {
                 order: 1;
-
+                padding-left: 12%;
                 grid-column-start: 1;
                 grid-column-end: 3;
-                padding-left: 12px;
               }
             }
             margin-top: 24px;
@@ -232,16 +229,14 @@ body {
               .preview {
                 order: 1;
                 height: 100%;
-
                 grid-column-start: 1;
                 grid-column-end: 3;
               }
               .information {
-                padding-right: 12px;
-
                 order: 2;
+                padding-right: 12%;
                 text-align: right;
-                grid-column-start: 3;
+                grid-column-start: 4;
                 grid-column-end: 6;
               }
             }
