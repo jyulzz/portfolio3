@@ -13,7 +13,6 @@ Page template for the Index page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Emoji from "a11y-react-emoji";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Header from "./template/header";
 import Main from "./template/main";
@@ -25,16 +24,8 @@ import Hero from "../components/hero";
 import Work from "../components/work/work";
 import Versions from "../components/versions/versions";
 import Link from "../components/link";
-import { Gems } from "../components/gems";
-import Credits from "../components/credits";
-import Technologies from "../components/technologies";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../styles/pages/index.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library, config } from "@fortawesome/fontawesome-svg-core";
-import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
-library.add(faLongArrowRight);
-config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -215,48 +206,7 @@ const IndexPage = () => {
           </Section>
         </Container>
       </Main>
-
-      <Footer>
-        <Container>
-          <Title level="1">Credits</Title>
-          <Section>
-            <Title level="2">License</Title>
-            <Emoji symbol="🇪🇺" label="Flag: European Union" />
-            Published under EUPL v1.2
-          </Section>
-          <Section>
-            <Title level="2">Design &amp; Code</Title>
-            <Emoji symbol="✌️" label="Victory Hand Emoji" />
-            {""}100% by me{" | "}
-            <Link
-              className="inverted"
-              href="https://github.com/jyulzz/portfolio3"
-              target="_blank"
-              level=""
-              title="View on GitHub"
-            >
-              View on GitHub <FontAwesomeIcon icon={faLongArrowRight} />
-            </Link>
-          </Section>
-
-          <Section>
-            <Title level="2">Inspiration</Title>
-            <Emoji symbol="🙏" label="Person With Folded Hands Emoji" /> Many
-            thanks
-            <Gems id="credits">
-              <Credits />
-            </Gems>
-          </Section>
-          <Section>
-            <Title level="2">Stack</Title>
-            <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I build this
-            with
-            <Gems id="technologies">
-              <Technologies />
-            </Gems>
-          </Section>
-        </Container>
-      </Footer>
+      <Footer />
     </>
   );
 };
