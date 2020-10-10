@@ -125,7 +125,7 @@ if (typeof window !== "undefined") {
 const AboutPage = () => {
   const paragraphs = [];
 
-  const paragraphsR = [];
+  const paragraphsArray = [];
 
   const data = useStaticQuery(graphql`
     {
@@ -181,7 +181,7 @@ const AboutPage = () => {
     });
   });
   paragraphs.forEach((p) => {
-    paragraphsR.push(
+    paragraphsArray.push(
       <div className={"block " + p.slug} key={p.id}>
         <h3>{p.title}</h3>
         <span className="rte">
@@ -264,7 +264,7 @@ const AboutPage = () => {
                 </li>
               </ul>
             </div>
-            {paragraphsR}
+            {paragraphsArray}
           </div>
         </div>
       </Main>
