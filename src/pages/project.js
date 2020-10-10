@@ -303,6 +303,7 @@ const ProjectPage = ({ data, pageContext }) => {
           ],
         }}
       />
+
       <Header />
 
       <Main type="default" className="project">
@@ -346,7 +347,6 @@ const ProjectPage = ({ data, pageContext }) => {
           <section className="contentful-rich-text-types">
             {documentToReactComponents(projectData.content.json, options)}
           </section>
-
           <Pagination
             previousProjectSlug={previousProjectSlug}
             previousProjectTitle={previousProjectTitle}
@@ -357,6 +357,7 @@ const ProjectPage = ({ data, pageContext }) => {
           />
         </section>
       </Main>
+
       <Footer />
     </>
   );

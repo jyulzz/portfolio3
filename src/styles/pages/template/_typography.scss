@@ -12,13 +12,13 @@ body {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   @include getFontResponsive("M");
 
-  .contentful-rich-text-types {
-    .link {
-      word-break: normal !important;
-      white-space: normal !important;
-      overflow-wrap: break-word !important;
-    }
+  .link {
+    word-break: normal !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
 
+  .contentful-rich-text-types {
     h1 {
       @include getFontResponsive("XXXL");
       @include breakpointOnly("xs") {
