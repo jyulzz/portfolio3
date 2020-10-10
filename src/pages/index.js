@@ -206,6 +206,7 @@ const IndexPage = () => {
           </Section>
         </Container>
       </Main>
+
       <Footer />
     </>
   );

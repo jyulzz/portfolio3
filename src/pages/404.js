@@ -85,7 +85,9 @@ const NotFoundPage = () => {
           ],
         }}
       />
+
       <Header />
+
       <Main className="notfound">
         <Container>
           <h1>404 – Page Not Found</h1>
@@ -109,6 +111,7 @@ const NotFoundPage = () => {
           </h2>
         </Container>
       </Main>
+
       <Footer />
     </>
   );

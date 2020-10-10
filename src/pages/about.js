@@ -162,6 +162,7 @@ const AboutPage = () => {
       slug: paragraph.slug,
     });
   });
+
   paragraphs.forEach((p) => {
     paragraphsArray.push(
       <div className={"block " + p.slug} key={p.id}>
@@ -211,7 +212,6 @@ const AboutPage = () => {
               <figcaption>{data.contentfulPerson.name}}</figcaption>
             </figure>
           </div>
-
           <div className="text">
             <div className="block">
               <h1>{data.contentfulPerson.name}</h1>
