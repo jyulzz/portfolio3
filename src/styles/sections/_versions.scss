@@ -13,5 +13,11 @@ section#versions {
 
   .version-thumbnail {
     @extend .project-thumbnail;
+    .tag.date {
+      display: block !important;
+      &::before {
+        display: none;
+      }
+    }
   }
 }
