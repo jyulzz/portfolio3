@@ -104,7 +104,7 @@ const Items = () => {
             {node.node.releaseDate.substring(node.node.releaseDate.length - 4)}
           </div>
           <Link href={node.node.url} target="__blank" level="primary">
-            View this version <FontAwesomeIcon icon={faLongArrowRight} />
+            View this Version <FontAwesomeIcon icon={faLongArrowRight} />
           </Link>
         </div>
       </div>

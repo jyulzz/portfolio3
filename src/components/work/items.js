@@ -17,12 +17,16 @@ import Img from "gatsby-image/withIEPolyfill";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
-import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
+import {
+  faTrafficCone,
+  faCalendarCheck,
+  faClock,
+} from "@fortawesome/pro-solid-svg-icons";
 import Title from "../../components/title";
 import Link from "../../components/link";
 import Animation from "../../components/animation";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-library.add(faLongArrowRight, faTrafficCone);
+library.add(faLongArrowRight, faTrafficCone, faCalendarCheck, faClock);
 config.autoAddCss = false;
 /* -----------------------------------------------------------------------------*
 /IMPORTS
@@ -43,7 +47,13 @@ const Items = () => {
             id
             slug
             title
-            organization
+            subtitle
+            organizations {
+              name
+            }
+            tags {
+              name
+            }
             imagePreview {
               fluid(maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp
@@ -62,9 +72,14 @@ const Items = () => {
                 ...GatsbyContentfulFluid_withWebp
               }
             }
+            content {
+              json
+            }
             releaseDate(formatString: "MMMM DD, YYYY")
             released
             inProgress
+            readingTime
+            updatedAt(formatString: "MMM.DD.YYYY")
           }
         }
       }
@@ -73,6 +88,9 @@ const Items = () => {
 
   /* For each Project found in Contentful response */
   contentfulData.projects.items.forEach((item) => {
+    var organizationsArray = [];
+    var tagsArray = [];
+
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     projects.push(
       <div key={item.id} className="project-thumbnail" id={item.slug}>
@@ -95,38 +113,67 @@ const Items = () => {
         </span>
         <div className="information">
           <Title level="2">{item.title}</Title>
-          <div className="organization-date">
-            {item.organization === null ? (
-              ""
-            ) : (
-              <span className="organization">{item.organization}</span>
-            )}
-            <></>
-            {item.inProgress === true ? (
-              <div className="inProgress">
-                <FontAwesomeIcon icon={faTrafficCone} />
-                Work in Progress
-              </div>
-            ) : (
-              <span className="date">
-                <>
-                  {" "}
-                  • {item.releaseDate.substring(item.releaseDate.length - 4)}
-                </>
-              </span>
-            )}
-          </div>
+          {item.organizations &&
+          item.released === true &&
+          item.inProgress === false
+            ? item.organizations.forEach((organization) => {
+                organizationsArray.push(
+                  <div className="tag organization">{organization.name}</div>
+                );
+              })
+            : ""}
+
+          {organizationsArray.length > 1 ? (
+            <div className="tag organization">Multiple Organizations</div>
+          ) : (
+            <div className="tag organization">{organizationsArray}</div>
+          )}
+
+          {item.released === false ? (
+            <div className="tag releaseDate">Coming {item.releaseDate}</div>
+          ) : (
+            ""
+          )}
+          {item.released === true && item.inProgress === false ? (
+            <div className="tag date">
+              {item.releaseDate.substring(item.releaseDate.length - 4)}
+            </div>
+          ) : (
+            ""
+          )}
+          {item.inProgress === true ? (
+            <div className="tag inProgress">Work in Progress</div>
+          ) : (
+            ""
+          )}
           <div className="description">{item.description.description}</div>
           {item.released === true ? (
             <Link href={"/work/" + item.slug} level="primary">
-              View Project<> </>
-              <FontAwesomeIcon icon={faLongArrowRight} />{" "}
+              View this Project
+              <FontAwesomeIcon icon={faLongArrowRight} />
             </Link>
           ) : (
-            <Link level="inactive" icon={["fas", "clock"]}>
-              Coming {item.releaseDate}
-            </Link>
+            ""
           )}
+          <div className="tags">
+            <>
+              {item.tags
+                ? item.tags.forEach((tag) => {
+                    tagsArray.push(
+                      <div className="tag generic">{tag.name}</div>
+                    );
+                  })
+                : ""}
+              {item.released === true ? (
+                <div className="tag readingTime">
+                  {item.readingTime} mins read
+                </div>
+              ) : (
+                ""
+              )}
+              {tagsArray}
+            </>
+          </div>
         </div>
       </div>
     );

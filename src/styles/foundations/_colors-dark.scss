@@ -12,7 +12,8 @@ $Foundations_Colors_Neutral--dark: (
   "black": rgba(0, 0, 0, 1),
   "black-light": rgba(20, 20, 20, 1),
   "grey-dark": rgba(28, 28, 28, 1),
-  "grey-medium-dark": rgba(40, 40, 40, 1),
+  "grey-medium-darker": rgba(40, 40, 40, 1),
+  "grey-medium-dark": rgba(80, 80, 80, 1),
   "grey-medium": rgba(148, 148, 148, 1),
   "grey-light": rgba(236, 236, 236, 1),
   "white-dark": rgba(248, 248, 248, 1),
@@ -27,14 +28,14 @@ $Foundations_Colors_Primary--dark: (
 $UI_Named_Colors--dark: (
   "text": map-get($Foundations_Colors_Neutral--dark, "grey-light"),
   "text-dim": map-get($Foundations_Colors_Neutral--dark, "grey-medium"),
-  "text-sub": map-get($Foundations_Colors_Neutral--dark, "grey-dark"),
+  "text-sub": map-get($Foundations_Colors_Neutral--dark, "grey-medium-dark"),
   "link-text": map-get($Foundations_Colors_Primary--dark, "primary"),
   "background": map-get($Foundations_Colors_Neutral--dark, "grey-dark"),
   "menu-bar-background":
     rgba(map-get($Foundations_Colors_Neutral--dark, "grey-dark"), 0.925),
   "footer-background":
     rgba(map-get($Foundations_Colors_Neutral--dark, "black-light"), 0.48),
-  "border": map-get($Foundations_Colors_Neutral--dark, "grey-medium-dark"),
+  "border": map-get($Foundations_Colors_Neutral--dark, "grey-medium-darker"),
   "overlay-background":
     rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.9),
   "card-background":
