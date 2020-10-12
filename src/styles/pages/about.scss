@@ -31,7 +31,16 @@ main.about {
       padding: 0;
       margin: 0;
       border: 0;
-
+      border-radius: 8px;
+      .gatsby-image-wrapper {
+        border-radius: 8px;
+        picture {
+          border-radius: 8px;
+          img {
+            border-radius: 8px;
+          }
+        }
+      }
       figcaption {
         display: none;
       }
