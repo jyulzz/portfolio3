@@ -99,7 +99,7 @@ const Items = () => {
         </a>
         <div className="information">
           <Title level="2">Portfolio Version {node.node.name}</Title>
-          <div className="organization">
+          <div className="tag date">
             Published in{" "}
             {node.node.releaseDate.substring(node.node.releaseDate.length - 4)}
           </div>
