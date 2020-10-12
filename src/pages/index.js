@@ -17,13 +17,9 @@ import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import { Container } from "../components/grid";
-import Title from "../components/title";
-import Section from "../components/section";
 import Hero from "../components/hero";
 import Work from "../components/work/work";
 import Versions from "../components/versions/versions";
-import Link from "../components/link";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../styles/pages/index.scss";
 /*-----------------------------------------------------------------------------*
@@ -132,79 +128,6 @@ const IndexPage = () => {
         <Hero />
         <Work />
         <Versions />
-        <Container id="about-and-contact">
-          <Section id="about">
-            <Title level="1">About</Title>
-            <ul>
-              <li>
-                <Link
-                  level="primary"
-                  icon={["fas", "user-circle"]}
-                  href={data.aboutLink.url}
-                  target="_self"
-                  title={data.aboutLink.title}
-                >
-                  Read more about me
-                </Link>
-              </li>
-              <li>
-                <Link
-                  icon={["fas", "file-user"]}
-                  href={data.cvLink.url}
-                  target="_blank"
-                  title={data.cvLink.title}
-                >
-                  CV/Résumé
-                </Link>
-              </li>
-              <li>
-                <Link
-                  icon={["fab", "linkedin"]}
-                  href={data.linkedinLink.url}
-                  target="_blank"
-                  title={data.linkedinLink.title}
-                >
-                  LinkedIn Profile
-                </Link>
-              </li>
-            </ul>
-          </Section>
-          <Section id="contact">
-            <Title level="1">Contact</Title>
-            <ul>
-              <li>
-                <Link
-                  level="primary"
-                  href={data.meetingLink.url}
-                  target="_blank"
-                  icon={["fas", "calendar-plus"]}
-                  title={data.meetingLink.title}
-                >
-                  Book a free 30 mins conversation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  icon={["fas", "envelope"]}
-                  href={"mailto:" + data.emailLink.url}
-                  title={data.emailLink.title}
-                >
-                  Email me at {data.emailLink.url}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  icon={["fab", "whatsapp-square"]}
-                  href={data.whatsappLink.url}
-                  target="_blank"
-                  title={data.whatsappLink.title}
-                >
-                  Message me on WhatsApp
-                </Link>
-              </li>
-            </ul>
-          </Section>
-        </Container>
       </Main>
 
       <Footer />
