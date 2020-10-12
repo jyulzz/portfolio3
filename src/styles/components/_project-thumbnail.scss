@@ -14,7 +14,6 @@ body {
     display: grid;
 
     background: map-get($UI_Named_Colors, "card-background");
-
     box-shadow: 0 16px 32px
       rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
 
@@ -23,37 +22,106 @@ body {
     .thumbnail {
       .animation {
         height: 100%;
+        .scene {
+        }
       }
     }
 
     .information {
-      .description,
-      .organization-date {
-        margin-bottom: 4px;
+      .title.level2 {
+        font-weight: map-get($Foundations_Fontweights, "Semibold");
+        @include getFontResponsive("L");
       }
 
       .description {
         font-weight: map-get($Foundations_Fontweights, "Medium");
       }
 
-      .organization-date {
-        color: map-get($UI_Named_Colors, "text-dim");
+      .tags {
+        line-height: 100%;
+        margin-top: 8px;
       }
 
-      .inProgress {
-        svg {
-          display: inline-block;
-          margin-right: 8px;
+      .tag {
+        font-weight: map-get($Foundations_Fontweights, "Medium");
+        color: map-get($UI_Named_Colors, "text-sub");
+        @include getFontResponsive("S");
+        border-radius: 4px;
+        width: max-content;
+        display: inline-block;
+
+        &.organization,
+        &.date {
+          color: map-get($UI_Named_Colors, "text-dim");
         }
 
-        color: rgba(map-get($Foundations_Colors_Primary, "success"), 1);
-        background: rgba(map-get($Foundations_Colors_Primary, "success"), 0.1);
-        margin-top: 4px;
-        padding: 8px;
-        border-radius: 4px;
-        font-weight: map-get($Foundations_Fontweights, "Medium");
-        display: inline;
-        width: max-content;
+        &.organization,
+        &.date,
+        &.inProgress {
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          @include getFontResponsive("M");
+          font-weight: map-get($Foundations_Fontweights, "Normal");
+          background: transparent;
+        }
+
+        @include breakpointUp("xs") {
+          &.date {
+            &::before {
+              margin-left: 4px;
+              margin-right: 4px;
+              content: "•";
+            }
+          }
+        }
+
+        &.inProgress,
+        &.releaseDate {
+          @include getFontResponsive("M");
+          color: map-get($Foundations_Colors_Primary, "success");
+          line-height: 100%;
+          font-weight: map-get($Foundations_Fontweights, "Medium");
+          &::before {
+            margin-left: 0px;
+            margin-right: 8px;
+            @extend %fa-icon;
+            @extend .fas;
+          }
+        }
+
+        &.inProgress {
+          &::before {
+            content: fa-content($fa-var-traffic-cone);
+          }
+        }
+
+        &.releaseDate {
+          &::before {
+            content: fa-content($fa-var-clock);
+          }
+        }
+
+        &.readingTime {
+          @include getFontResponsive("XS");
+          margin-right: 8px;
+          color: map-get($Foundations_Colors_Primary, "accent");
+          background: rgba(map-get($Foundations_Colors_Primary, "accent"), 0.1);
+          padding-left: 6px;
+          padding-right: 6px;
+          margin-bottom: 8px;
+        }
+
+        &.generic {
+          @include getFontResponsive("XS");
+          margin-right: 8px;
+          background: map-get($Foundations_Colors_Neutral, "grey-light");
+          color: map-get($UI_Named_Colors, "text-dim");
+
+          padding-left: 6px;
+          padding-right: 6px;
+          margin-bottom: 8px;
+        }
       }
 
       .link {
@@ -61,29 +129,13 @@ body {
           margin-right: 0;
           margin-left: 0.25rem;
         }
-
-        &.inactive {
-          svg {
-            margin-right: 8px;
-          }
-          transition: all 0s;
-          display: inline-block;
-          padding: 4px 8px;
-          border-radius: 4px;
-          font-weight: map-get($Foundations_Fontweights, "Medium");
-          @include getFontResponsive("S");
-          color: map-get($UI_Named_Colors, "text-dim");
-          background: rgba(
-            map-get($Foundations_Colors_Neutral, "grey-light"),
-            0.4
-          );
-        }
       }
     }
     @include breakpointFromTo("xs", "s") {
       grid-template-columns: repeat(6, 1fr);
       grid-column-gap: 16px;
       margin-bottom: 48px;
+      border-radius: 8px;
 
       .information,
       .thumbnail {
@@ -93,10 +145,32 @@ body {
 
       .information {
         padding: 24px;
+        border-radius: 8px;
       }
 
       .thumbnail {
-        height: 48vw;
+        height: 100%;
+        min-height: 30vw;
+
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        .animation {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          .background {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+
+            picture {
+              border-top-left-radius: 8px;
+              border-top-right-radius: 8px;
+              img {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+              }
+            }
+          }
+        }
       }
     }
     @include breakpointUp("m") {
@@ -108,22 +182,59 @@ body {
       align-items: center;
       justify-content: center;
 
+      border-radius: 8px;
       .information {
         grid-area: 1 / 1 / 2 / 5;
         padding: 24px 8px 24px 24px;
       }
 
       .thumbnail {
-        height: 40vw;
-        max-height: 400px;
+        min-height: 40vw;
+        max-height: 52vw;
+        height: 100%;
         grid-area: 1 / 5 / 2 / 11;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        .animation {
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+          .background {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            picture {
+              border-top-right-radius: 8px;
+              border-bottom-right-radius: 8px;
+              img {
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+              }
+            }
+          }
+        }
       }
     }
+    @include breakpointOnly("m") {
+      margin-bottom: 60px;
+      .thumbnail {
+        min-height: 30vw;
+        max-height: 48vw;
+      }
+    }
+
     @include breakpointOnly("l") {
       margin-bottom: 60px;
+      .thumbnail {
+        min-height: 30vw;
+        max-height: 40vw;
+      }
     }
-    @include breakpointOnly("xl") {
+    @include breakpointUp("xl") {
       margin-bottom: 68px;
+      .thumbnail {
+        min-height: 30vw;
+
+        max-height: 600px;
+      }
     }
   }
 
@@ -135,25 +246,24 @@ body {
         0 0 1px rgba(map-get($UI_Named_Colors--dark, "text-dim"), 1);
 
       .information {
-        .organization-date {
-          color: map-get($UI_Named_Colors--dark, "text-dim");
-        }
-
-        .inProgress {
-          color: rgba(map-get($Foundations_Colors_Primary--dark, "success"), 1);
-          background: rgba(
-            map-get($Foundations_Colors_Primary--dark, "success"),
-            0.1
-          );
-        }
-
-        .link {
-          &.inactive {
-            color: map-get($UI_Named_Colors--dark, "text");
+        .tag {
+          &.readingTime {
+            color: map-get($Foundations_Colors_Primary--dark, "accent");
             background: rgba(
-              map-get($Foundations_Colors_Neutral--dark, "grey-medium-dark"),
-              1
+              map-get($Foundations_Colors_Primary--dark, "accent"),
+              0.16
             );
+          }
+          &.inProgress,
+          &.releaseDate {
+            color: map-get($Foundations_Colors_Primary--dark, "success");
+          }
+          &.generic {
+            background: map-get(
+              $Foundations_Colors_Neutral--dark,
+              "grey-medium-darker"
+            );
+            color: map-get($UI_Named_Colors--dark, "text-dim");
           }
         }
       }
