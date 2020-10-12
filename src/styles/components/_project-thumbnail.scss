@@ -247,11 +247,15 @@ body {
 
       .information {
         .tag {
+          &.organization,
+          &.date {
+            color: map-get($UI_Named_Colors--dark, "text-dim");
+          }
           &.readingTime {
             color: map-get($Foundations_Colors_Primary--dark, "accent");
             background: rgba(
               map-get($Foundations_Colors_Primary--dark, "accent"),
-              0.16
+              0.12
             );
           }
           &.inProgress,
