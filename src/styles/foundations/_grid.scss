@@ -37,8 +37,8 @@ body .view {
 @include breakpointOnly("m") {
   .view {
     .grid {
-      margin-left: 68px;
-      margin-right: 68px;
+      margin-left: 48px;
+      margin-right: 48px;
       grid-template-columns: repeat(12, 1fr);
       grid-column-gap: 16px;
     }
