@@ -124,10 +124,16 @@ body {
         }
       }
 
-      .link {
-        svg {
-          margin-right: 0;
-          margin-left: 0.25rem;
+      .linkWrapper {
+        background: rgba(map-get($UI_Named_Colors, "link-text"), 0.1);
+        border-radius: 4px;
+        padding: 4px 12px;
+        width: max-content;
+        .link {
+          svg {
+            margin-right: 0;
+            margin-left: 0.25rem;
+          }
         }
       }
     }
@@ -246,6 +252,10 @@ body {
         0 0 1px rgba(map-get($UI_Named_Colors--dark, "text-dim"), 1);
 
       .information {
+        .linkWrapper {
+          background: rgba(map-get($UI_Named_Colors--dark, "link-text"), 0.1);
+        }
+
         .tag {
           &.organization,
           &.date {
