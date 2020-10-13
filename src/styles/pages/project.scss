@@ -331,19 +331,22 @@ body {
   &.dark {
     section#project {
       .project {
+        border-radius: 8px;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.32), 0 0 1px #949494;
+
         @include breakpointUp("xs") {
           .card {
             background: map-get(
               $UI_Named_Colors--dark,
               "card-background"
             ) !important;
-            outline: thin solid map-get($UI_Named_Colors--dark, "border");
             box-shadow: 0 16px 32px
                 rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32),
               0 0 1px rgba(map-get($UI_Named_Colors--dark, "text-dim"), 1);
           }
         }
       }
+
       figure.thumbnail {
         .card {
           h1 {
