@@ -160,6 +160,7 @@ export const query = graphql`
     firstProject: allContentfulProject(
       limit: 1
       sort: { fields: updatedAt, order: DESC }
+      filter: { released: { eq: true } }
     ) {
       nodes {
         slug
@@ -174,6 +175,7 @@ export const query = graphql`
     lastProject: allContentfulProject(
       limit: 1
       sort: { fields: updatedAt, order: ASC }
+      filter: { released: { eq: true } }
     ) {
       nodes {
         slug
