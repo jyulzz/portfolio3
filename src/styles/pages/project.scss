@@ -173,6 +173,12 @@ body {
         @include breakpointOnly("xs") {
           .project {
             .card {
+              border-radius: 8px;
+              .previousProjectImagePreview,
+              .nextProjectImagePreview {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+              }
               .information {
                 padding: 12px;
                 .title {
@@ -194,7 +200,16 @@ body {
             display: grid;
             grid-template-columns: 20% 20% 20% 20% 20%;
             align-items: center;
+            border-radius: 8px;
+            .previousProjectImagePreview {
+              border-top-right-radius: 8px;
+              border-bottom-right-radius: 8px;
+            }
 
+            .nextProjectImagePreview {
+              border-top-left-radius: 8px;
+              border-bottom-left-radius: 8px;
+            }
             .information {
               .title {
                 @include getFontResponsive("L");
@@ -215,9 +230,9 @@ body {
               }
               .information {
                 order: 1;
-                padding-left: 12%;
+                padding-left: 10%;
                 grid-column-start: 1;
-                grid-column-end: 3;
+                grid-column-end: 4;
               }
             }
             margin-top: 24px;
@@ -234,9 +249,9 @@ body {
               }
               .information {
                 order: 2;
-                padding-right: 12%;
+                padding-right: 10%;
                 text-align: right;
-                grid-column-start: 4;
+                grid-column-start: 3;
                 grid-column-end: 6;
               }
             }
@@ -270,7 +285,16 @@ body {
             //margin-top: 32px;
             .card {
               width: 100% !important;
+              border-radius: 8px;
+              .previousProjectImagePreview {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+              }
 
+              .nextProjectImagePreview {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+              }
               .information {
                 padding-top: 4px;
                 padding-left: 20px;
