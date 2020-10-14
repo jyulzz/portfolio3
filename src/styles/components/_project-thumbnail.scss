@@ -9,11 +9,52 @@ Styles for Project Thumbnail component.
 *-----------------------------------------------------------------------------*/
 @import "../components/animation";
 
+.linkWrapper.out {
+  background: scale-color(
+    rgba(map-get($UI_Named_Colors, "link-text"), 1),
+    $lightness: 94%
+  );
+  border-radius: 4px;
+  padding: 8px 8px;
+  width: max-content;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px 0px
+    scale-color(
+      rgba(map-get($UI_Named_Colors, "link-text"), 0.25),
+      $lightness: 40%
+    );
+  .linkWrapper.in {
+    border-radius: 2px;
+    border-top: 1px solid transparent;
+    padding: 2px 8px;
+    background: scale-color(
+      rgba(map-get($UI_Named_Colors, "link-text"), 1),
+      $lightness: 84%
+    );
+    box-shadow: 0 1px 2px 0px
+      scale-color(
+        rgba(map-get($UI_Named_Colors, "link-text"), 1),
+        $lightness: 40%
+      );
+    .link {
+      padding: 0 !important;
+      height: 100% !important;
+      line-height: 100% !important;
+      svg {
+        margin-right: 0;
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}
+
 body {
   div.project-thumbnail {
     display: grid;
 
     background: map-get($UI_Named_Colors, "card-background");
+
     box-shadow: 0 16px 32px
       rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
 
@@ -121,21 +162,6 @@ body {
           padding-left: 6px;
           padding-right: 6px;
           margin-bottom: 8px;
-        }
-      }
-
-      .linkWrapper {
-        background: rgba(map-get($UI_Named_Colors, "link-text"), 0.1);
-        border-radius: 4px;
-        padding: 4px 12px;
-        width: max-content;
-        margin-top: 8px;
-        margin-bottom: 16px;
-        .link {
-          svg {
-            margin-right: 0;
-            margin-left: 0.25rem;
-          }
         }
       }
     }

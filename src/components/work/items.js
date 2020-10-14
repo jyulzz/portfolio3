@@ -148,11 +148,12 @@ const Items = () => {
           )}
           <div className="description">{item.description.description}</div>
           {item.released === true ? (
-            <div className="linkWrapper">
-              <Link href={"/work/" + item.slug} level="primary">
-                View this Project
-                <FontAwesomeIcon icon={faLongArrowRight} />
-              </Link>
+            <div className="linkWrapper out">
+              <div className="linkWrapper in">
+                <Link href={"/work/" + item.slug} level="primary">
+                  View this Project <FontAwesomeIcon icon={faLongArrowRight} />
+                </Link>
+              </div>
             </div>
           ) : (
             ""
