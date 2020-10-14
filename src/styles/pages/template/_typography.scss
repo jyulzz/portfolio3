@@ -13,8 +13,8 @@ body {
   @include getFontResponsive("M");
 
   .link {
-    word-break: normal !important;
-    white-space: normal !important;
+    word-break: break-all !important;
+    white-space: pre-wrap !important;
     overflow-wrap: break-word !important;
   }
 
