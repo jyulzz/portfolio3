@@ -13,6 +13,12 @@ body {
   @include getFontResponsive("M");
 
   .contentful-rich-text-types {
+    .link {
+      word-break: break-all !important;
+      white-space: pre-wrap !important;
+      overflow-wrap: break-word !important;
+    }
+
     h1 {
       @include getFontResponsive("XXXL");
       @include breakpointOnly("xs") {
@@ -277,11 +283,6 @@ body {
           min-height: getPHeight("xl", "M");
           line-height: 160%;
         }
-      }
-      .link {
-        word-break: break-all !important;
-        white-space: pre-wrap !important;
-        overflow-wrap: break-word !important;
       }
     }
   }
