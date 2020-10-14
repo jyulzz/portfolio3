@@ -15,7 +15,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Emoji from "a11y-react-emoji";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { Container } from "../components/grid";
 import Section from "../components/section";
 /*-----------------------------------------------------------------------------*
@@ -41,6 +41,9 @@ const options = {
           {children}
         </h1>
       );
+    },
+    [MARKS.BOLD]: (node, children) => {
+      return <b>{children}</b>;
     },
     [BLOCKS.HEADING_2]: (node, children) => {
       return <h2>{children}</h2>;

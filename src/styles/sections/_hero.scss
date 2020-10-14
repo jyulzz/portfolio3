@@ -34,6 +34,18 @@ section#hero {
       margin-top: 24px;
       margin-bottom: 16px;
     }
+    b {
+      font-weight: map-get($Foundations_Fontweights, "Semibold");
+      letter-spacing: 0.02em;
+      margin-left: 0.08em;
+      font-size: 100%;
+    }
+    code {
+      /*&::after {
+        content: "\A";
+        white-space: pre;
+      }*/
+    }
   }
 
   h2 {
