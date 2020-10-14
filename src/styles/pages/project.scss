@@ -193,6 +193,9 @@ body {
           .project:first-of-type {
             margin-bottom: 24px;
           }
+          .project:last-of-type {
+            text-align: right;
+          }
         }
 
         @include breakpointOnly("s") {
