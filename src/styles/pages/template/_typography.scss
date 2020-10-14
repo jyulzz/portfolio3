@@ -12,12 +12,6 @@ body {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   @include getFontResponsive("M");
 
-  .link {
-    word-break: break-all !important;
-    white-space: pre-wrap !important;
-    overflow-wrap: break-word !important;
-  }
-
   .contentful-rich-text-types {
     h1 {
       @include getFontResponsive("XXXL");
@@ -283,6 +277,11 @@ body {
           min-height: getPHeight("xl", "M");
           line-height: 160%;
         }
+      }
+      .link {
+        word-break: break-all !important;
+        white-space: pre-wrap !important;
+        overflow-wrap: break-word !important;
       }
     }
   }
