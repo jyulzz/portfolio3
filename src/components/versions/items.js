@@ -103,10 +103,12 @@ const Items = () => {
             Published in{" "}
             {node.node.releaseDate.substring(node.node.releaseDate.length - 4)}
           </div>
-          <div className="linkWrapper">
-            <Link href={node.node.url} target="__blank" level="primary">
-              View this Version <FontAwesomeIcon icon={faLongArrowRight} />
-            </Link>
+          <div className="linkWrapper out">
+            <div className="linkWrapper in">
+              <Link href={node.node.url} target="__blank" level="primary">
+                View this Version <FontAwesomeIcon icon={faLongArrowRight} />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
