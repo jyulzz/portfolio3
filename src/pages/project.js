@@ -218,6 +218,12 @@ export const query = graphql`
           description
         }
         subtitle
+        organizations {
+          name
+        }
+        tags {
+          name
+        }
         imagePreview {
           id
           file {
@@ -244,6 +250,8 @@ export const query = graphql`
           json
         }
         inProgress
+        released
+        readingTime
       }
     }
   }
@@ -258,6 +266,8 @@ const ProjectPage = ({ data, pageContext }) => {
   let nextProjectImagePreviewFluid;
 
   let projectData = data.project.nodes[0];
+
+  let tagsArray = [];
 
   if (data.previousProject.nodes[0]) {
     previousProjectImagePreviewFluid =
