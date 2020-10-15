@@ -250,22 +250,22 @@ body {
     @include breakpointOnly("m") {
       margin-bottom: 60px;
       .thumbnail {
-        min-height: 30vw;
-        max-height: 48vw;
+        min-height: 400px;
+        max-height: 500px;
       }
     }
 
     @include breakpointOnly("l") {
       margin-bottom: 60px;
       .thumbnail {
-        min-height: 30vw;
-        max-height: 40vw;
+        min-height: 400px;
+        max-height: 500px;
       }
     }
     @include breakpointUp("xl") {
       margin-bottom: 68px;
       .thumbnail {
-        min-height: 30vw;
+        min-height: 400px;
 
         max-height: 600px;
       }
