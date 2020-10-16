@@ -91,6 +91,13 @@ body {
         width: max-content;
         display: inline-block;
 
+        &::before {
+          margin-left: 0px;
+          margin-right: 4px;
+          @extend %fa-icon;
+          @extend .far;
+        }
+
         &.organization,
         &.date {
           color: map-get($UI_Named_Colors, "text-dim");
@@ -151,6 +158,9 @@ body {
           padding-left: 6px;
           padding-right: 6px;
           margin-bottom: 8px;
+          &::before {
+            content: fa-content($fa-var-clock);
+          }
         }
 
         &.generic {
@@ -162,6 +172,9 @@ body {
           padding-left: 6px;
           padding-right: 6px;
           margin-bottom: 8px;
+          &::before {
+            content: fa-content($fa-var-tag);
+          }
         }
       }
     }
@@ -318,7 +331,7 @@ body {
             color: map-get($Foundations_Colors_Primary--dark, "accent");
             background: scale-color(
               rgba(map-get($Foundations_Colors_Primary--dark, "accent"), 1),
-              $lightness: -65%
+              $lightness: -67.5%
             );
           }
           &.inProgress,
