@@ -15,7 +15,75 @@ Project Page styles.
 //Templates
 body {
   section#project {
-    figure.thumbnail {
+    .thumbnail {
+      .tags {
+        line-height: 100%;
+        margin-top: 8px;
+
+        .tag {
+          font-weight: map-get($Foundations_Fontweights, "Medium");
+          border-radius: 4px;
+          width: max-content;
+          display: inline-block;
+
+          @include getFontResponsive("M");
+          margin-right: 8px;
+          background: map-get($Foundations_Colors_Neutral, "grey-light");
+          color: map-get($UI_Named_Colors, "text-dim");
+
+          padding-left: 12px;
+          padding-right: 12px;
+          margin-bottom: 8px;
+
+          &.inProgress {
+            @include getFontResponsive("M");
+            margin-right: 8px;
+            padding-left: 12px;
+            padding-right: 12px;
+            margin-bottom: 8px;
+            color: map-get($Foundations_Colors_Primary, "success");
+            background: rgba(
+              map-get($Foundations_Colors_Primary, "success"),
+              0.1
+            );
+            line-height: 100%;
+            font-weight: map-get($Foundations_Fontweights, "Medium");
+            &::before {
+              margin-left: 0px;
+              margin-right: 8px;
+              @extend %fa-icon;
+              @extend .fas;
+              content: fa-content($fa-var-traffic-cone);
+            }
+          }
+
+          &.readingTime {
+            @include getFontResponsive("M");
+            margin-right: 8px;
+            color: map-get($Foundations_Colors_Primary, "accent");
+            background: rgba(
+              map-get($Foundations_Colors_Primary, "accent"),
+              0.1
+            );
+            padding-left: 12px;
+            padding-right: 12px;
+            margin-bottom: 8px;
+          }
+
+          &.organization,
+          &.date {
+            background: scale-color(
+              rgba(map-get($UI_Named_Colors, "link-text"), 1),
+              $lightness: 94%
+            );
+            color: scale-color(
+              rgba(map-get($UI_Named_Colors, "link-text"), 1),
+              $lightness: 0%
+            );
+          }
+        }
+      }
+
       .image {
         @include animation;
       }
@@ -60,27 +128,6 @@ body {
           @include breakpointUp("xs") {
             padding-bottom: 8px;
           }
-        }
-
-        .inProgress {
-          svg {
-            display: inline-block;
-            margin-right: 12px;
-            @include getFontResponsive("M");
-          }
-          @include getFontResponsive("M");
-
-          color: rgba(map-get($Foundations_Colors_Primary, "success"), 1);
-          background: rgba(
-            map-get($Foundations_Colors_Primary, "success"),
-            0.1
-          );
-          margin-top: 8px !important;
-          padding: 8px 16px;
-          border-radius: 4px;
-          font-weight: map-get($Foundations_Fontweights, "Medium");
-
-          width: max-content;
         }
       }
 
@@ -349,23 +396,47 @@ body {
         }
       }
 
-      figure.thumbnail {
+      .thumbnail {
         .card {
-          h1 {
-            .subtitle {
-              color: map-get($UI_Named_Colors--dark, "text-dim");
+          .tag {
+            background: map-get(
+              $Foundations_Colors_Neutral--dark,
+              "grey-medium-darker"
+            );
+            color: map-get($UI_Named_Colors--dark, "text-dim");
+
+            &.inProgress {
+              color: map-get($Foundations_Colors_Primary--dark, "success");
+              background: rgba(
+                map-get($Foundations_Colors_Primary--dark, "success"),
+                0.1
+              );
+            }
+
+            &.readingTime {
+              color: map-get($Foundations_Colors_Primary--dark, "accent");
+              background: rgba(
+                map-get($Foundations_Colors_Primary--dark, "accent"),
+                0.1
+              );
+            }
+            &.organization,
+            &.date {
+              background: scale-color(
+                rgba(map-get($UI_Named_Colors--dark, "link-text"), 1),
+                $lightness: -75%
+              );
+              color: scale-color(
+                rgba(map-get($UI_Named_Colors--dark, "link-text"), 1),
+                $lightness: 0%
+              );
             }
           }
+        }
 
-          .inProgress {
-            color: rgba(
-              map-get($Foundations_Colors_Primary--dark, "success"),
-              1
-            );
-            background: rgba(
-              map-get($Foundations_Colors_Primary--dark, "success"),
-              0.1
-            );
+        h1 {
+          .subtitle {
+            color: map-get($UI_Named_Colors--dark, "text-dim");
           }
         }
       }
