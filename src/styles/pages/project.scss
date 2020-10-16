@@ -62,8 +62,7 @@ body {
               @extend .far;
             }
             &.organization,
-            &.date,
-            &.readingTime {
+            &.date {
               &::before {
                 @extend .fas;
               }
@@ -443,7 +442,7 @@ body {
               color: map-get($Foundations_Colors_Primary--dark, "accent");
               background: scale-color(
                 rgba(map-get($Foundations_Colors_Primary--dark, "accent"), 1),
-                $lightness: -65%
+                $lightness: -67.5%
               );
             }
             &.organization,

@@ -16,7 +16,7 @@ section#versions {
     .tag.date {
       display: block !important;
       &::before {
-        display: none;
+        display: none !important;
       }
     }
   }
