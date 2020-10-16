@@ -8,12 +8,6 @@ Hero section styles.
 
 *-----------------------------------------------------------------------------*/
 
-$fa-font-path: "../../../node_modules/@fortawesome/fontawesome-pro/webfonts";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/regular.scss";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/solid.scss";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/light.scss";
-
 section#hero {
   @include gridPlacementPreset("standard");
   white-space: pre-line;

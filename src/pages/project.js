@@ -251,6 +251,7 @@ export const query = graphql`
         }
         inProgress
         released
+        releaseDate(formatString: "MMMM DD, YYYY")
         readingTime
       }
     }
@@ -268,6 +269,8 @@ const ProjectPage = ({ data, pageContext }) => {
   let projectData = data.project.nodes[0];
 
   let tagsArray = [];
+
+  let organizationsArray = [];
 
   if (data.previousProject.nodes[0]) {
     previousProjectImagePreviewFluid =
@@ -320,21 +323,70 @@ const ProjectPage = ({ data, pageContext }) => {
 
       <Main type="default" className="project">
         <section id="project">
-          <figure className="thumbnail">
+          <div className="thumbnail">
             <div className="card">
               <h1>
                 <span className="title">{projectData.title}</span>
                 <span className="subtitle">{projectData.subtitle}</span>
               </h1>
+
               <h2>{projectData.description.description}</h2>
-              {projectData.inProgress === true ? (
-                <div className="inProgress">
-                  <FontAwesomeIcon icon={faTrafficCone} />
-                  This project is a work in progress
-                </div>
-              ) : (
-                <></>
-              )}
+              <div className="tags">
+                <>
+                  {projectData.organizations &&
+                  projectData.released === true &&
+                  projectData.inProgress === false
+                    ? projectData.organizations.forEach((organization) => {
+                        organizationsArray.push(
+                          <div className="tag organization">
+                            {organization.name}
+                          </div>
+                        );
+                      })
+                    : ""}
+
+                  {organizationsArray.length > 1 ? (
+                    <div className="tag organization">
+                      Multiple Organizations
+                    </div>
+                  ) : (
+                    <>{organizationsArray}</>
+                  )}
+
+                  {projectData.released === true &&
+                  projectData.inProgress === false ? (
+                    <div className="tag date">
+                      {projectData.releaseDate.substring(
+                        projectData.releaseDate.length - 4
+                      )}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {projectData.inProgress === true ? (
+                    <div className="tag inProgress">
+                      This project is a work in progress
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                  {projectData.tags
+                    ? projectData.tags.forEach((tag) => {
+                        tagsArray.push(
+                          <div className="tag generic">{tag.name}</div>
+                        );
+                      })
+                    : ""}
+                  {projectData.released === true ? (
+                    <div className="tag readingTime">
+                      {projectData.readingTime} mins read
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {tagsArray}
+                </>
+              </div>
             </div>
             <div className="image">
               {projectData.animation !== null &&
@@ -354,7 +406,7 @@ const ProjectPage = ({ data, pageContext }) => {
                 />
               )}
             </div>
-          </figure>
+          </div>
           {/* This is the Rich Text rendering section */}
           <section className="contentful-rich-text-types">
             {documentToReactComponents(projectData.content.json, options)}

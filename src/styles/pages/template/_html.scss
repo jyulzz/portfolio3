@@ -9,6 +9,11 @@ Root level styles.
 *-----------------------------------------------------------------------------*/
 
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:Roboto:300,400,500,600,700,300i,400i,500i,600i,700i&display=swap");
+$fa-font-path: "../../../node_modules/@fortawesome/fontawesome-pro/webfonts";
+@import "node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss";
+@import "node_modules/@fortawesome/fontawesome-pro/scss/regular.scss";
+@import "node_modules/@fortawesome/fontawesome-pro/scss/solid.scss";
+@import "node_modules/@fortawesome/fontawesome-pro/scss/light.scss";
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
