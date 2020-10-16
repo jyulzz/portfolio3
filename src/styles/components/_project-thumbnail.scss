@@ -316,9 +316,9 @@ body {
           }
           &.readingTime {
             color: map-get($Foundations_Colors_Primary--dark, "accent");
-            background: rgba(
-              map-get($Foundations_Colors_Primary--dark, "accent"),
-              0.12
+            background: scale-color(
+              rgba(map-get($Foundations_Colors_Primary--dark, "accent"), 1),
+              $lightness: -65%
             );
           }
           &.inProgress,
