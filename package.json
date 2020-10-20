@@ -28,7 +28,7 @@
     "gatsby-plugin-next-seo": "^1.6.1",
     "gatsby-plugin-offline": "^3.2.33",
     "gatsby-plugin-readingtime-contentful": "^1.0.0",
-    "gatsby-plugin-sass": "^2.3.17",
+    "gatsby-plugin-sass": "^2.3.18",
     "gatsby-plugin-sharp": "^2.6.43",
     "gatsby-plugin-styled-jsx": "^3.3.14",
     "gatsby-react-router-scroll": "^3.0.14",
