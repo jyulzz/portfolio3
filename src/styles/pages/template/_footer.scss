@@ -25,6 +25,43 @@ body {
           grid-template-columns: repeat(10, 1fr);
           grid-column-gap: 16px;
         }
+
+        &#about-and-contact {
+          display: grid;
+          @include breakpointFromTo("xs", "s") {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-gap: 8px;
+          }
+          @include breakpointUp("m") {
+            grid-template-columns: repeat(10, 1fr);
+            grid-column-gap: 16px;
+          }
+
+          section#about,
+          section#contact {
+            ul li {
+              margin-bottom: 16px;
+            }
+          }
+          @include breakpointFromTo("xs", "s") {
+            section#about,
+            section#contact {
+              grid-column-start: 1;
+              grid-column-end: 7;
+            }
+          }
+          @include breakpointUp("m") {
+            section#about {
+              grid-column-start: 1;
+              grid-column-end: 5;
+            }
+
+            section#contact {
+              grid-column-start: 5;
+              grid-column-end: 11;
+            }
+          }
+        }
       }
     }
 
