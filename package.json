@@ -35,7 +35,7 @@
     "gatsby-source-contentful": "^2.3.55",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-transformer-remark": "^2.8.42",
-    "gatsby-transformer-sharp": "^2.5.18",
+    "gatsby-transformer-sharp": "^2.5.19",
     "lottie-web": "^5.7.3",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
