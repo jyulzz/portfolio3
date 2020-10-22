@@ -39,7 +39,7 @@ const Animation = ({ id, src, bg }) => {
         lottie.setQuality("low");
       })
       .catch((error) => {
-        console.log(error);
+        return false;
       });
   }, [id, src]);
 
@@ -57,7 +57,7 @@ const Animation = ({ id, src, bg }) => {
           objectPosition="50% 50%"
           style={{ height: "100%", width: "100%" }}
           className="background"
-        ></Img>
+        />
       </div>
     </>
   );
