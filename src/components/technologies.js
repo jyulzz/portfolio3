@@ -60,6 +60,7 @@ const Technologies = () => {
             alt={item.name}
             height="100%"
             width="100%"
+            fadeIn="false"
           />
         </Diamond>
       </Link>

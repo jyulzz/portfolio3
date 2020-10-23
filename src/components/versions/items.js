@@ -94,6 +94,7 @@ const Items = () => {
               objectPosition="50% 50%"
               alt={node.node.name}
               style={{ height: "100%" }}
+              fadeIn="false"
             />
           )}
         </a>

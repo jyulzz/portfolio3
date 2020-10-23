@@ -61,6 +61,7 @@ const Credits = () => {
             fluid={item.photo.fluid}
             objectFit="cover"
             objectPosition="50% 50%"
+            fadeIn="false"
           />
         </Diamond>
       </Link>

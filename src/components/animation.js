@@ -57,6 +57,7 @@ const Animation = ({ id, src, bg }) => {
           objectPosition="50% 50%"
           style={{ height: "100%", width: "100%" }}
           className="background"
+          fadeIn="false"
         />
       </div>
     </>
