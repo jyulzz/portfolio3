@@ -208,6 +208,7 @@ const AboutPage = () => {
                 objectPosition="50% 50%"
                 alt={data.contentfulPerson.name}
                 style={{ height: "100%" }}
+                fadeIn="false"
               />
               <figcaption>{data.contentfulPerson.name}}</figcaption>
             </figure>
