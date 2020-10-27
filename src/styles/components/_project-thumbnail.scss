@@ -51,7 +51,7 @@ body {
         box-shadow: 0 1px 2px 0px
           scale-color(
             rgba(map-get($UI_Named_Colors, "link-text"), 0.25),
-            $lightness: 40%
+            $lightness: 50%
           );
         .linkWrapper.in {
           border-radius: 2px;
@@ -64,7 +64,7 @@ body {
           box-shadow: 0 1px 2px 0px
             scale-color(
               rgba(map-get($UI_Named_Colors, "link-text"), 1),
-              $lightness: 40%
+              $lightness: 50%
             );
           .link {
             padding: 0 !important;
