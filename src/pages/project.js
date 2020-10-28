@@ -403,7 +403,6 @@ const ProjectPage = ({ data, pageContext }) => {
                   objectPosition="50% 50%"
                   alt={projectData.title}
                   style={{ height: "100%" }}
-                  fadeIn="false"
                 />
               )}
             </div>

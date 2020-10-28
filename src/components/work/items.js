@@ -108,7 +108,6 @@ const Items = () => {
               objectPosition="50% 50%"
               alt={item.title}
               style={{ height: "100%" }}
-              fadeIn="false"
             />
           )}
         </span>

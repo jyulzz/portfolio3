@@ -61,7 +61,6 @@ class Pagination extends React.Component {
                   alt={this.previousProjectTitle}
                   style={{ height: "100%" }}
                   className="previousProjectImagePreview"
-                  fadeIn="false"
                 />
               </div>
               <div className="information">
@@ -95,7 +94,6 @@ class Pagination extends React.Component {
                   alt={this.nextProjectTitle}
                   style={{ height: "100%" }}
                   className="nextProjectImagePreview"
-                  fadeIn="false"
                 />{" "}
               </div>
               <div className="information">
