@@ -75,11 +75,7 @@ const Items = () => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     versions.push(
       <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>
-        <a
-          href={node.node.url}
-          className="thumbnail"
-          name={"View " + node.node.name}
-        >
+        <div className="thumbnail">
           {node.node.animation !== null &&
           node.node.animationBackground !== null ? (
             <Animation
@@ -94,10 +90,9 @@ const Items = () => {
               objectPosition="50% 50%"
               alt={node.node.name}
               style={{ height: "100%" }}
-              fadeIn="false"
             />
           )}
-        </a>
+        </div>
         <div className="information">
           <Title level="2">Portfolio Version {node.node.name}</Title>
           <div className="tag date">
