@@ -20,7 +20,6 @@ body {
 
     .thumbnail {
       width: 100%;
-      border: thin solid transparent;
       .animation {
         height: 100%;
         .scene {
@@ -239,6 +238,7 @@ body {
       }
 
       .thumbnail {
+        border: thin solid transparent;
         min-height: 40vw;
         max-height: 52vw;
         height: 100%;
