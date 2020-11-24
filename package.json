@@ -19,7 +19,7 @@
     "acorn-dynamic-import": "^4.0.0",
     "axios": "^0.21.0",
     "chokidar": "^3.4.3",
-    "gatsby": "^2.27.1",
+    "gatsby": "^2.27.2",
     "gatsby-image": "^2.6.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-google-analytics": "^2.6.0",
