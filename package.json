@@ -26,7 +26,7 @@
     "gatsby-plugin-manifest": "^2.8.0",
     "gatsby-plugin-netlify": "^2.7.0",
     "gatsby-plugin-next-seo": "^1.6.1",
-    "gatsby-plugin-offline": "^3.5.0",
+    "gatsby-plugin-offline": "^3.6.0",
     "gatsby-plugin-readingtime-contentful": "^1.0.0",
     "gatsby-plugin-sass": "^2.7.0",
     "gatsby-plugin-sharp": "^2.10.0",
