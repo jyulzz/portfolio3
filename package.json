@@ -29,7 +29,7 @@
     "gatsby-plugin-offline": "^3.7.1",
     "gatsby-plugin-readingtime-contentful": "^1.0.0",
     "gatsby-plugin-sass": "^2.8.0",
-    "gatsby-plugin-sharp": "^2.11.1",
+    "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-styled-jsx": "^3.7.0",
     "gatsby-react-router-scroll": "^3.4.0",
     "gatsby-source-contentful": "^3.1.3",
