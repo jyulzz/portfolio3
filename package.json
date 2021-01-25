@@ -15,7 +15,7 @@
     "@fortawesome/pro-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "a11y-react-emoji": "^1.1.2",
-    "acorn": "^8.0.4",
+    "acorn": "^8.0.5",
     "acorn-dynamic-import": "^4.0.0",
     "axios": "^0.21.1",
     "chokidar": "^3.5.1",
