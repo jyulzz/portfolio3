@@ -49,7 +49,7 @@
     "reset-css": "^5.0.1",
     "smooth-scroll": "^16.1.3",
     "styled-jsx": "^3.4.4",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.2"
   },
   "devDependencies": {
     "prettier": "^2.2.1",
