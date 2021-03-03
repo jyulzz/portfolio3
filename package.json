@@ -42,7 +42,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet-async": "^1.0.8",
+    "react-helmet-async": "^1.0.9",
     "react-obfuscate": "^3.6.8",
     "react-refresh": "^0.9.0",
     "react-viewport-utils": "^1.12.1",
