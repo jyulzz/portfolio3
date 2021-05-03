@@ -13,6 +13,7 @@ Page template for the About page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import _JSXStyle from "styled-jsx/style";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -123,7 +124,7 @@ const AboutPage = () => {
           slug
           title
           content {
-            json
+            raw
           }
         }
       }
@@ -158,7 +159,7 @@ const AboutPage = () => {
     paragraphs.push({
       title: paragraph.title,
       id: paragraph.id,
-      json: paragraph.content.json,
+      raw: JSON.parse(paragraph.content.raw),
       slug: paragraph.slug,
     });
   });
@@ -167,9 +168,7 @@ const AboutPage = () => {
     paragraphsArray.push(
       <div className={"block " + p.slug} key={p.id}>
         <h3>{p.title}</h3>
-        <span className="rte">
-          {documentToReactComponents(p.json, options)}
-        </span>
+        <span className="rte">{documentToReactComponents(p.raw, options)}</span>
       </div>
     );
   });

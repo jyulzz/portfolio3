@@ -79,7 +79,7 @@ const Hero = () => {
             id
             name
             hero {
-              json
+              raw
             }
           }
         }
@@ -90,7 +90,7 @@ const Hero = () => {
     <Container>
       <Section id="hero">
         {documentToReactComponents(
-          contenfulData.allContentfulSite.edges["0"].node.hero.json,
+          JSON.parse(contenfulData.allContentfulSite.edges["0"].node.hero.raw),
           options
         )}
       </Section>
