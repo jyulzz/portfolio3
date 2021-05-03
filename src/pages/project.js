@@ -15,8 +15,8 @@ Template for the Project pages created through code in /gatsby-node.js
 import React from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Header from "./template/header";
 import Main from "./template/main";
@@ -49,59 +49,63 @@ config.autoAddCss = false;
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      let { description, file } = node.data.target.fields;
-      return (
-        <figure>
-          <img
-            src={file[Conf.ContentfulDefaultLocale].url}
-            alt={description[Conf.ContentfulDefaultLocale]}
-          />
-          <figcaption>
-            <span className="description">
-              {description[Conf.ContentfulDefaultLocale]}
-            </span>
-            <Link
-              href={file[Conf.ContentfulDefaultLocale].url}
-              target="_blank"
-              level=""
-            >
-              Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
-            </Link>
-          </figcaption>
-        </figure>
-      );
+      if (node.data.target.gatsbyImageData) {
+        return (
+          <figure>
+            <img
+              srcSet={node.data.target.gatsbyImageData.images.sources[0].srcSet}
+              alt={node.data.target.description}
+            />
+            <figcaption>
+              {" "}
+              <span className="description">
+                {node.data.target.description}
+              </span>
+              <Link href={node.data.target.file.url} target="_blank" level="">
+                Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
+              </Link>
+            </figcaption>
+          </figure>
+        );
+      } else {
+        return (
+          <figure>
+            <img
+              src={node.data.target.file.url}
+              alt={node.data.target.description}
+            />
+            <figcaption>
+              {" "}
+              <span className="description">
+                {node.data.target.description}
+              </span>
+              <Link href={node.data.target.file.url} target="_blank" level="">
+                Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
+              </Link>
+            </figcaption>
+          </figure>
+        );
+      }
     },
-    [INLINES.EMBEDDED_ENTRY]: (node, children) => {
-      switch (node.data.target.sys.contentType.sys.id) {
-        case "iframe":
+
+    [INLINES.EMBEDDED_ENTRY]: (node) => {
+      switch (node.data.target.__typename) {
+        case "ContentfulIFrame":
           return (
-            <>
-              <figure>
-                <iframe
-                  title={node.data.target.id}
-                  className="iframe"
-                  src={
-                    node.data.target.fields.url[Conf.ContentfulDefaultLocale]
-                  }
-                ></iframe>
-                <figcaption>
-                  {" "}
-                  <span className="description">
-                    {node.data.target.fields.name[Conf.ContentfulDefaultLocale]}
-                  </span>
-                  <Link
-                    href={
-                      node.data.target.fields.url[Conf.ContentfulDefaultLocale]
-                    }
-                    target="_blank"
-                    level=""
-                  >
-                    Open In New Window{" "}
-                    <FontAwesomeIcon icon={faLongArrowRight} />
-                  </Link>
-                </figcaption>
-              </figure>
-            </>
+            <figure>
+              <iframe
+                title={node.data.target.id}
+                className="iframe"
+                src={node.data.target.url}
+              ></iframe>
+              <figcaption>
+                {" "}
+                <span className="description">{node.data.target.name}</span>
+                <Link href={node.data.target.url} target="_blank" level="">
+                  Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
+                </Link>
+              </figcaption>
+            </figure>
           );
         default:
           return <></>;
@@ -247,7 +251,41 @@ export const query = graphql`
           }
         }
         content {
-          json
+          raw
+          references {
+            ... on ContentfulAsset {
+              contentful_id
+              __typename
+              title
+              gatsbyImageData
+              id
+              file {
+                url
+                fileName
+                contentType
+              }
+              description
+              fixed(width: 1600) {
+                src
+              }
+            }
+            ... on ContentfulIFrame {
+              __typename
+              contentful_id
+              id
+              name
+              url
+              sys {
+                contentType {
+                  sys {
+                    id
+                    type
+                    linkType
+                  }
+                }
+              }
+            }
+          }
         }
         inProgress
         released
@@ -409,7 +447,7 @@ const ProjectPage = ({ data, pageContext }) => {
           </div>
           {/* This is the Rich Text rendering section */}
           <section className="contentful-rich-text-types">
-            {documentToReactComponents(projectData.content.json, options)}
+            {renderRichText(projectData.content, options)}
           </section>
           <Pagination
             previousProjectSlug={previousProjectSlug}

@@ -50,7 +50,7 @@ const Footer = ({ children }) => {
           slug
           title
           content {
-            json
+            raw
           }
         }
       }
