@@ -73,7 +73,7 @@ const Items = () => {
               }
             }
             content {
-              json
+              raw
             }
             releaseDate(formatString: "MMMM DD, YYYY")
             released

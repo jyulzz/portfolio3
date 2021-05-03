@@ -409,7 +409,10 @@ const ProjectPage = ({ data, pageContext }) => {
           </div>
           {/* This is the Rich Text rendering section */}
           <section className="contentful-rich-text-types">
-            {documentToReactComponents(projectData.content.json, options)}
+            {documentToReactComponents(
+              JSON.parse(projectData.content.raw),
+              options
+            )}
           </section>
           <Pagination
             previousProjectSlug={previousProjectSlug}
