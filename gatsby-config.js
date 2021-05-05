@@ -29,7 +29,7 @@ module.exports = {
       resolve: `gatsby-plugin-styled-jsx`,
       options: {
         optimizeForSpeed: true,
-        sourceMaps: false,
+        sourceMaps: true,
         vendorPrefixes: true,
       },
     },
