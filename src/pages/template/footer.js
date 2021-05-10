@@ -167,13 +167,13 @@ const Footer = ({ children }) => {
             <Title level="1">Credits</Title>
             <Section>
               <Title level="2">License</Title>
-              <Emoji symbol="🇪🇺" label="Flag: European Union" />
-              Published under EUPL v1.2
+              <Emoji symbol="🇪🇺" label="Flag: European Union" /> Published under
+              EUPL v1.2
             </Section>
             <Section>
               <Title level="2">Made by</Title>
-              <Emoji symbol="✌️" label="Victory Hand Emoji" />
-              {""}100% designed and coded by me{" | "}
+              <Emoji symbol="✌️" label="Victory Hand Emoji" /> 100% designed and
+              coded by me{" | "}
               <Link
                 className="inverted"
                 href="https://github.com/jyulzz/portfolio3"

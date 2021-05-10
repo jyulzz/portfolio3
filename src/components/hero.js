@@ -35,10 +35,7 @@ const options = {
     [BLOCKS.HEADING_1]: (node, children) => {
       return (
         <h1>
-          {" "}
-          <Emoji symbol="👋" label="Waiving Hand Emoji" />
-          {" "}
-          {children}
+          <Emoji symbol="👋" label="Waiving Hand Emoji" /> {children}
         </h1>
       );
     },

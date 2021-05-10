@@ -18,7 +18,7 @@ import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Conf from "../../conf.yml";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Seo from "../components/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -152,24 +152,10 @@ const AboutPage = () => {
 
   return (
     <>
-      <GatsbySeo
+      <Seo
         title="About"
         description="Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006."
-        openGraph={{
-          type: "website",
-          title: "About | Jules Thivent - Product and UX Designer – Portfolio",
-          locale: "enUS",
-          description:
-            "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",
-          images: [
-            {
-              url: data.indexOGImage.file.url + "?fm=png&w=800&h=600",
-              width: 800,
-              height: 600,
-              alt: "Jules Thivent - Product and UX Designer – Portfolio",
-            },
-          ],
-        }}
+        OGImage={data.indexOGImage.file.url}
       />
 
       <Header />

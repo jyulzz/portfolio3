@@ -17,7 +17,7 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image/withIEPolyfill";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Seo from "../components/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -335,26 +335,10 @@ const ProjectPage = ({ data, pageContext }) => {
 
   return (
     <>
-      <GatsbySeo
+      <Seo
         title={projectData.title}
         description={projectData.description}
-        openGraph={{
-          type: "website",
-          title:
-            projectData.title +
-            " | Jules Thivent - Product and UX Designer – Portfolio",
-          locale: "enUS",
-          description: projectData.description.description,
-          images: [
-            {
-              url:
-                "https://" + projectData.imagePreview + "?fm=png&w=800&h=600",
-              width: 800,
-              height: 600,
-              alt: projectData.description,
-            },
-          ],
-        }}
+        OGImage={projectData.imagePreview}
       />
 
       <Header />
