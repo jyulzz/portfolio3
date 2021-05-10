@@ -24,7 +24,7 @@ import { Diamond } from "./gems";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const Credits = () => {
-  const credits = [];
+  const creditsArray = [];
 
   /* Pull items from the list on Contentful with the slug 'credited-people' */
   const data = useStaticQuery(graphql`
@@ -50,7 +50,7 @@ const Credits = () => {
 
   /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
   data.contentfulList.items.forEach((item) => {
-    credits.push(
+    creditsArray.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Diamond title={item.name}>
           <Img
@@ -62,7 +62,7 @@ const Credits = () => {
       </Link>
     );
   });
-  return credits;
+  return creditsArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS

@@ -15,7 +15,7 @@ import React from "react";
 import { Container } from "../../components/grid";
 import Title from "../../components/title";
 import Section from "../../components/section";
-import Items from "./items";
+import WorkItems from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -30,7 +30,7 @@ const Work = () => {
         <Title level="1">
           <div>Work</div>
         </Title>
-        <Items />
+        <WorkItems />
       </Section>
     </Container>
   );

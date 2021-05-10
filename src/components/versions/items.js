@@ -30,8 +30,8 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
 COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Items = () => {
-  const versions = [];
+const VersionsItems = () => {
+  const versionsItemsArray = [];
 
   /* Pull the list of Projects on Contentful*/
   const data = useStaticQuery(graphql`
@@ -73,7 +73,7 @@ const Items = () => {
   /* For each Project found in Contentful response */
   data.versions.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
-    versions.push(
+    versionsItemsArray.push(
       <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>
         <div className="thumbnail">
           {node.node.animation !== null &&
@@ -111,7 +111,7 @@ const Items = () => {
     );
   });
 
-  return versions;
+  return versionsItemsArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -120,7 +120,7 @@ const Items = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
   *-----------------------------------------------------------------------------*/
-export default Items;
+export default VersionsItems;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
   *-----------------------------------------------------------------------------*/

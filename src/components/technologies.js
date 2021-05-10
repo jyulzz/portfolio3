@@ -23,7 +23,7 @@ import { Diamond } from "./gems";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const Technologies = () => {
-  const technologies = [];
+  const technologiesArray = [];
 
   /* Pull items from the list on Contentful with the slug 'technologies' */
   const data = useStaticQuery(graphql`
@@ -48,7 +48,7 @@ const Technologies = () => {
 
   /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
   data.contentfulList.items.forEach((item) => {
-    technologies.push(
+    technologiesArray.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Diamond title={item.name}>
           <img
@@ -61,7 +61,7 @@ const Technologies = () => {
       </Link>
     );
   });
-  return technologies;
+  return technologiesArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS

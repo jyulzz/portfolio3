@@ -23,7 +23,7 @@ import Link from "../../components/link";
 *-----------------------------------------------------------------------------*/
 
 function MenuItems() {
-  const menuItems = [];
+  const menuItemsArray = [];
   const data = useStaticQuery(graphql`
     {
       contentfulMenu(slug: { eq: "main" }) {
@@ -66,7 +66,7 @@ function MenuItems() {
       itemHref = "" + item.anchor;
       itemTarget = "_self";
     }
-    menuItems.push(
+    menuItemsArray.push(
       <div
         className="item"
         key={item.id}
@@ -81,7 +81,7 @@ function MenuItems() {
       </div>
     );
   });
-  return menuItems;
+  return menuItemsArray;
 }
 /*-----------------------------------------------------------------------------*
   /COMPONENTS

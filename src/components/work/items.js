@@ -35,11 +35,11 @@ config.autoAddCss = false;
 /* -----------------------------------------------------------------------------*
 COMPONENTS
 *----------------------------------------------------------------------------- */
-const Items = () => {
-  const projects = [];
+const WorkItems = () => {
+  const workItemsArray = [];
 
   /* Pull the list of Projects on Contentful */
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       projects: contentfulList(slug: { eq: "projects" }) {
         items {
@@ -87,12 +87,12 @@ const Items = () => {
   `);
 
   /* For each Project found in Contentful response */
-  contentfulData.projects.items.forEach((item) => {
+  data.projects.items.forEach((item) => {
     var organizationsArray = [];
     var tagsArray = [];
 
     /* Add an HTML item to the projects array with information from the Contentful Project item */
-    projects.push(
+    workItemsArray.push(
       <div key={item.id} className="project-thumbnail" id={item.slug}>
         <span className="thumbnail">
           {item.animation !== null && item.animationBackground !== null ? (
@@ -182,7 +182,7 @@ const Items = () => {
     );
   });
 
-  return projects;
+  return workItemsArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -191,7 +191,7 @@ const Items = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
   *-----------------------------------------------------------------------------*/
-export default Items;
+export default WorkItems;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
   *-----------------------------------------------------------------------------*/
