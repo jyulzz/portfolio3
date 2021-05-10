@@ -91,10 +91,6 @@ function MenuItems() {
         itemHref = item.slug;
         itemTarget = item.target;
         break;
-      default:
-        itemHref = "";
-        itemTarget = "";
-        break;
     }
 
     menuItemsArray.push(
