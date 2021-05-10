@@ -8,14 +8,13 @@ Smooth scroll component.
 
 *-----------------------------------------------------------------------------*/
 
+import { useEffect } from "react";
+
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const SmoothScroll = () => {
-  /* If 'window' object exists, add smooth scrolling to links in the main navigation menu 'nav#main' */
-  if (typeof window !== "undefined") {
-    // Make scroll behavior of internal links smooth
-    // eslint-disable-next-line global-require
+  useEffect(function mount() {
     require("smooth-scroll")('nav#main a[href*="#"]', {
       header: "[data-scroll-header]",
       offset: 80,
@@ -26,7 +25,7 @@ const SmoothScroll = () => {
       popstate: true,
       clip: true,
     });
-  }
+  });
   return null;
 };
 /*-----------------------------------------------------------------------------*
