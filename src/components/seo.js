@@ -52,7 +52,6 @@ const Seo = ({ title, description, OGImage }) => {
 *-----------------------------------------------------------------------------*/
 Seo.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.isRequired,
   OGImage: PropTypes.string.isRequired,
 };
 
