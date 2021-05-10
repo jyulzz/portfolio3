@@ -13,7 +13,7 @@ import axios from "axios";
 import lottie from "lottie-web";
 import Img from "gatsby-image/withIEPolyfill";
 
-const Animation = ({ id, src, bg }) => {
+const Animation = ({ id, src, background }) => {
   const fetchData = React.useCallback(() => {
     axios({
       method: "GET",
@@ -52,7 +52,7 @@ const Animation = ({ id, src, bg }) => {
       <div id={"animation-" + id} className="animation">
         <div className="scene"></div>
         <Img
-          fluid={bg}
+          fluid={background}
           objectFit="cover"
           objectPosition="50% 50%"
           style={{ height: "100%", width: "100%" }}

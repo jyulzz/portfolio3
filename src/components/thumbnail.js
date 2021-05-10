@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/seo.js
+src/components/thumbnail.js
 
 DESCRIPTION
-Wrapper for the GatsbySeo component
+Thumbnail component used in Work and Versions cards
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,8 +12,10 @@ Wrapper for the GatsbySeo component
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
 import PropTypes from "prop-types";
+import Animation from "./animation";
+import Img from "gatsby-image/withIEPolyfill";
+
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -21,29 +23,33 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Seo = ({ title, description, OGImage }) => {
+const Thumbnail = ({
+  animation,
+  animationBackground,
+  imagePreview,
+  id,
+  title,
+}) => {
   return (
-    <GatsbySeo
-      title={title}
-      description={description}
-      openGraph={{
-        type: "website",
-        title: title + " | Jules Thivent - Product and UX Designer – Portfolio",
-        locale: "enUS",
-        description: description,
-        images: [
-          {
-            url: "https://" + OGImage + "?fm=png&w=800&h=600",
-            width: 800,
-            height: 600,
-            alt: "Jules Thivent - Product and UX Designer – Portfolio",
-          },
-        ],
-      }}
-    />
+    <span className="thumbnail">
+      {animation !== null && animationBackground !== null ? (
+        <Animation
+          id={id}
+          src={animation.file.url}
+          background={animationBackground.fluid}
+        />
+      ) : (
+        <Img
+          fluid={imagePreview.fluid}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          alt={title}
+          style={{ height: "100%" }}
+        />
+      )}
+    </span>
   );
 };
-
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -51,18 +57,21 @@ const Seo = ({ title, description, OGImage }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Seo.propTypes = {
+Thumbnail.propTypes = {
+  animation: PropTypes.object.isRequired,
+  animationBackground: PropTypes.object.isRequired,
+  imagePreview: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  OGImage: PropTypes.string.isRequired,
+};
+Thumbnail.defaultProps = {
+  animation: {},
+  animationBackground: {},
+  imagePreview: {},
+  id: "",
+  title: "",
 };
 
-Seo.defaultProps = {
-  title: "Home",
-  description:
-    "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",
-  OGImage: "",
-};
 /*-----------------------------------------------------------------------------*
   /PROPS
 *-----------------------------------------------------------------------------*/
@@ -70,7 +79,7 @@ Seo.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Seo;
+export default Thumbnail;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

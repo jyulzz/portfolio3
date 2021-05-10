@@ -29,7 +29,7 @@ const Gems = ({ id, children }) => {
   );
 };
 
-const Diamond = ({ children, title }) => {
+const Gem = ({ children, title }) => {
   return (
     <>
       {" "}
@@ -52,17 +52,20 @@ const Diamond = ({ children, title }) => {
   PROPS
 *-----------------------------------------------------------------------------*/
 Gems.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 Gems.defaultProps = {
   id: "",
+  children: [],
 };
-Diamond.propTypes = {
-  title: PropTypes.node.isRequired,
+Gem.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
-Diamond.defaultProps = {
+Gem.defaultProps = {
   title: "",
+  children: [],
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -71,7 +74,7 @@ Diamond.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Diamond };
+export { Gems, Gem };
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

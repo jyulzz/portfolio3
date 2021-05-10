@@ -15,7 +15,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
 import Img from "gatsby-image/withIEPolyfill";
-import { Diamond } from "./gems";
+import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -52,13 +52,13 @@ const Credits = () => {
   data.contentfulList.items.forEach((item) => {
     creditsArray.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <Diamond title={item.name}>
+        <Gem title={item.name}>
           <Img
             fluid={item.photo.fluid}
             objectFit="cover"
             objectPosition="50% 50%"
           />
-        </Diamond>
+        </Gem>
       </Link>
     );
   });
