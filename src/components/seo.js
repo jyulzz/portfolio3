@@ -52,12 +52,10 @@ const Seo = ({ title, description, OGImage }) => {
 *-----------------------------------------------------------------------------*/
 Seo.propTypes = {
   title: PropTypes.string.isRequired,
-  OGImage: PropTypes.string.isRequired,
 };
 
 Seo.defaultProps = {
   title: "Home",
-  OGImage: "",
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
