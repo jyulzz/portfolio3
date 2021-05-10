@@ -13,7 +13,7 @@ Page template for the Index page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Seo from "../components/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -42,25 +42,10 @@ const IndexPage = () => {
 
   return (
     <>
-      <GatsbySeo
+      <Seo
         title="Home"
         description="Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006."
-        openGraph={{
-          type: "website",
-          title: "Home | Jules Thivent - Product and UX Designer – Portfolio",
-          locale: "enUS",
-          description:
-            "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",
-          images: [
-            {
-              url:
-                "https://" + data.indexOGImage.file.url + "?fm=png&w=800&h=600",
-              width: 800,
-              height: 600,
-              alt: "Jules Thivent - Product and UX Designer – Portfolio",
-            },
-          ],
-        }}
+        OGImage={data.indexOGImage.file.url}
       />
 
       <Header />
