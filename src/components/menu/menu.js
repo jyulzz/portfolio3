@@ -12,7 +12,6 @@ Builds the main navigation menu.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-
 import MenuItems from "./items";
 import MenuToggle from "./toggle";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
@@ -22,7 +21,6 @@ import { faAdjust } from "@fortawesome/pro-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 library.add(faAdjust);
 config.autoAddCss = false;
-
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -56,13 +54,10 @@ class Menu extends React.Component {
     switch (document.body.classList.contains("dark")) {
       case true:
         return "light";
-        break;
       case false:
         return "dark";
-        break;
       default:
         return "dark";
-        break;
     }
   }
 

@@ -32,7 +32,6 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-
 class Pagination extends React.Component {
   constructor(props) {
     super(props);

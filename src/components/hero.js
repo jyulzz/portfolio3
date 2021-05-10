@@ -25,7 +25,6 @@ import Section from "../components/section";
 /*-----------------------------------------------------------------------------*
   OPTIONS
 *-----------------------------------------------------------------------------*/
-
 /* 'options' contains rendering directives for Rich Text content received from Contentful, including embedded assets, paragraphs and headers. */
 const options = {
   renderNode: {

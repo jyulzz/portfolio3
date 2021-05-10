@@ -17,7 +17,6 @@ import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faBars, faTimes } from "@fortawesome/pro-regular-svg-icons";
 library.add(faBars, faTimes);
 config.autoAddCss = false;
-
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
