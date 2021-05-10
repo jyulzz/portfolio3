@@ -46,7 +46,7 @@ const Animation = ({ id, src, background }) => {
             },
           },
         });
-        lottie.setQuality("low");
+        lottie.setQuality("high");
       })
       .catch((error) => {
         return false;
