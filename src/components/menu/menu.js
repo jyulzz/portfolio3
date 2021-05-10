@@ -56,8 +56,13 @@ class Menu extends React.Component {
     switch (document.body.classList.contains("dark")) {
       case true:
         return "light";
+        break;
       case false:
         return "dark";
+        break;
+      default:
+        return "dark";
+        break;
     }
   }
 
