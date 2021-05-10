@@ -13,6 +13,7 @@ Contains the base setup for setting the <footer/> tag and its contents within th
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import PropTypes from "prop-types";
 import { View, Grid } from "../../components/grid";
 import Emoji from "a11y-react-emoji";
 import Link from "../../components/link";
@@ -210,6 +211,14 @@ const Footer = ({ children }) => {
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
+
+Footer.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+Footer.defaultProps = {
+  children: [],
+};
 
 /*-----------------------------------------------------------------------------*
   EXPORTS

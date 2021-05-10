@@ -20,7 +20,7 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Section = ({ children, id, className }) => {
+const Section = ({ id, children, className }) => {
   return (
     <section id={id} className={className}>
       {children}
@@ -35,12 +35,13 @@ const Section = ({ children, id, className }) => {
   PROPS
 *-----------------------------------------------------------------------------*/
 Section.propTypes = {
-  children: PropTypes.node.isRequired,
   id: PropTypes.string,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 Section.defaultProps = {
   id: "",
+  children: [],
   className: "",
 };
 /*-----------------------------------------------------------------------------*

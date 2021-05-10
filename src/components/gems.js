@@ -29,7 +29,7 @@ const Gems = ({ id, children }) => {
   );
 };
 
-const Gem = ({ children, title }) => {
+const Gem = ({ title, children }) => {
   return (
     <>
       {" "}

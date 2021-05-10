@@ -9,6 +9,7 @@ Animation component based on lottie-web.
 *-----------------------------------------------------------------------------*/
 
 import React from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import lottie from "lottie-web";
 import Img from "gatsby-image/withIEPolyfill";
@@ -62,6 +63,18 @@ const Animation = ({ id, src, background }) => {
       </div>
     </>
   );
+};
+
+Animation.propTypes = {
+  id: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  background: PropTypes.object.isRequired,
+};
+
+Animation.defaultProps = {
+  id: "",
+  src: "",
+  background: [],
 };
 
 export default Animation;

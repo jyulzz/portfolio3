@@ -117,14 +117,19 @@ Link.propTypes = {
   level: PropTypes.string,
   icon: PropTypes.array,
   href: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  title: PropTypes.string,
+  target: PropTypes.string,
+  children: PropTypes.node,
 };
 
 Link.defaultProps = {
   level: "",
   href: "",
-  icon: null,
   className: "",
+  title: "",
+  target: "",
+  children: [],
 };
 /*-----------------------------------------------------------------------------*
   /PROPS

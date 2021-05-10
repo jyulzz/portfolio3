@@ -53,14 +53,13 @@ const Seo = ({ title, description, OGImage }) => {
 *-----------------------------------------------------------------------------*/
 Seo.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.object.isRequired,
   OGImage: PropTypes.string.isRequired,
 };
 
 Seo.defaultProps = {
   title: "Home",
-  description:
-    "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",
+  description: {},
   OGImage: "",
 };
 /*-----------------------------------------------------------------------------*

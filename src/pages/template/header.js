@@ -12,6 +12,7 @@ Contains the base setup for setting the <header/> tag and its contents within th
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { ViewportProvider, connectViewport } from "react-viewport-utils";
 import Logo from "../../components/logo";
 import Menu from "../../components/menu/menu";
@@ -55,6 +56,14 @@ const Header = () => (
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
+
+HeaderContent.propTypes = {
+  scroll: PropTypes.object,
+};
+
+HeaderContent.defaultProps = {
+  scroll: {},
+};
 
 /*-----------------------------------------------------------------------------*
   EXPORTS

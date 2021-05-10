@@ -14,7 +14,7 @@ Template for the Project pages created through code in /gatsby-node.js
 
 import React from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
+import PropTypes from "prop-types";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Seo from "../components/seo";
@@ -447,6 +447,16 @@ const ProjectPage = ({ data, pageContext }) => {
       <Footer />
     </>
   );
+};
+
+ProjectPage.propTypes = {
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
+};
+
+ProjectPage.defaultProps = {
+  data: [],
+  pageContext: [],
 };
 
 export default ProjectPage;
