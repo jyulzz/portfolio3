@@ -35,17 +35,38 @@ function MenuItems() {
             url
             title
             target
+            sys {
+              contentType {
+                sys {
+                  id
+                }
+              }
+            }
           }
           ... on ContentfulAnchor {
             id
             anchor
             title
+            sys {
+              contentType {
+                sys {
+                  id
+                }
+              }
+            }
           }
           ... on ContentfulPage {
             id
             slug
             title
             target
+            sys {
+              contentType {
+                sys {
+                  id
+                }
+              }
+            }
           }
         }
       }
@@ -56,16 +77,26 @@ function MenuItems() {
   data.contentfulMenu.Items.forEach((item) => {
     var itemHref;
     var itemTarget;
-    if ("url" in item) {
-      itemHref = item.url;
-      itemTarget = item.target;
-    } else if ("slug" in item) {
-      itemHref = item.slug;
-      itemTarget = item.target;
-    } else if ("anchor" in item) {
-      itemHref = "" + item.anchor;
-      itemTarget = "_self";
+
+    switch (item.sys.contentType.sys.id) {
+      case "link":
+        itemHref = item.url;
+        itemTarget = item.target;
+        break;
+      case "anchor":
+        itemHref = "" + item.anchor;
+        itemTarget = "_self";
+        break;
+      case "page":
+        itemHref = item.slug;
+        itemTarget = item.target;
+        break;
+      default:
+        itemHref = "";
+        itemTarget = "";
+        break;
     }
+
     menuItemsArray.push(
       <div
         className="item"
