@@ -24,7 +24,7 @@ import Footer from "./template/footer";
 import Link from "../components/link";
 import Conf from "../../conf.yml";
 import Pagination from "../components/pagination";
-import Animation from "../components/animation";
+import Thumbnail from "../components/thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
@@ -160,7 +160,11 @@ const options = {
 *-----------------------------------------------------------------------------*/
 
 export const query = graphql`
-  query($slug: String, $previousProjectSlug: String, $nextProjectSlug: String) {
+  query (
+    $slug: String
+    $previousProjectSlug: String
+    $nextProjectSlug: String
+  ) {
     firstProject: allContentfulProject(
       limit: 1
       sort: { fields: updatedAt, order: DESC }
@@ -411,22 +415,12 @@ const ProjectPage = ({ data, pageContext }) => {
               </div>
             </div>
             <div className="image">
-              {projectData.animation !== null &&
-              projectData.animationBackground !== null ? (
-                <Animation
-                  id={projectData.id}
-                  src={projectData.animation.file.url}
-                  bg={projectData.animationBackground.fluid}
-                />
-              ) : (
-                <Img
-                  fluid={projectData.imagePreview.fluid}
-                  objectFit="cover"
-                  objectPosition="50% 50%"
-                  alt={projectData.title}
-                  style={{ height: "100%" }}
-                />
-              )}
+              <Thumbnail
+                animation={projectData.animation}
+                animationBackground={projectData.animationBackground}
+                id={projectData.id}
+                title={projectData.Title}
+              />
             </div>
           </div>
           {/* This is the Rich Text rendering section */}
