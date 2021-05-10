@@ -13,6 +13,13 @@ https://www.gatsbyjs.org/docs/api-files-gatsby-config/
 *----------------------------------------------------------------------------- */
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+    FUNCTIONS: true,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,

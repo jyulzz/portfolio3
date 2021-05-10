@@ -37,41 +37,6 @@ const IndexPage = () => {
           url
         }
       }
-      aboutLink: contentfulLink(shortname: { eq: "about" }) {
-        id
-        url
-        title
-      }
-      meetingLink: contentfulLink(shortname: { eq: "30minmeeting" }) {
-        id
-        url
-        title
-      }
-      workLink: contentfulLink(shortname: { eq: "work" }) {
-        id
-        url
-        title
-      }
-      cvLink: contentfulLink(shortname: { eq: "cv" }) {
-        id
-        url
-        title
-      }
-      linkedinLink: contentfulLink(shortname: { eq: "linkedin" }) {
-        id
-        url
-        title
-      }
-      emailLink: contentfulLink(shortname: { eq: "email" }) {
-        id
-        url
-        title
-      }
-      whatsappLink: contentfulLink(shortname: { eq: "whatsapp" }) {
-        id
-        url
-        title
-      }
     }
   `);
 
