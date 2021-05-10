@@ -71,17 +71,13 @@ const options = {
 *-----------------------------------------------------------------------------*/
 const Hero = () => {
   /* Pull the Site entry from Contentful for this site. */
-  const contenfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      allContentfulSite(filter: { slug: { eq: "jules-thivent" } }) {
-        edges {
-          node {
-            id
-            name
-            hero {
-              raw
-            }
-          }
+      contentfulSite(slug: { eq: "jules-thivent" }) {
+        id
+        name
+        hero {
+          raw
         }
       }
     }
@@ -90,7 +86,7 @@ const Hero = () => {
     <Container>
       <Section id="hero">
         {documentToReactComponents(
-          JSON.parse(contenfulData.allContentfulSite.edges["0"].node.hero.raw),
+          JSON.parse(data.contentfulSite.hero.raw),
           options
         )}
       </Section>

@@ -24,32 +24,28 @@ import Link from "../../components/link";
 
 function MenuItems() {
   const menuItems = [];
-  const contenfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      allContentfulMenu(filter: { slug: { eq: "main" } }) {
-        edges {
-          node {
+      contentfulMenu(slug: { eq: "main" }) {
+        id
+        slug
+        Items {
+          ... on ContentfulLink {
+            id
+            url
+            title
+            target
+          }
+          ... on ContentfulAnchor {
+            id
+            anchor
+            title
+          }
+          ... on ContentfulPage {
             id
             slug
-            Items {
-              ... on ContentfulLink {
-                id
-                url
-                title
-                target
-              }
-              ... on ContentfulAnchor {
-                id
-                anchor
-                title
-              }
-              ... on ContentfulPage {
-                id
-                slug
-                title
-                target
-              }
-            }
+            title
+            target
           }
         }
       }
@@ -57,7 +53,7 @@ function MenuItems() {
   `);
 
   /* Depending on the type of item returned from Contentful (out-of-site link with a url, link to a site page with slug, or anchor link within the page, add the correctly formatted <li/> tag to the menuItems array)*/
-  contenfulData.allContentfulMenu.edges["0"].node.Items.forEach((item) => {
+  data.contentfulMenu.Items.forEach((item) => {
     var itemHref;
     var itemTarget;
     if ("url" in item) {

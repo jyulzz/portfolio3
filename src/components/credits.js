@@ -27,23 +27,19 @@ const Credits = () => {
   const credits = [];
 
   /* Pull items from the list on Contentful with the slug 'credited-people' */
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      allContentfulList(filter: { slug: { eq: "credits" } }) {
-        edges {
-          node {
+      contentfulList(slug: { eq: "credits" }) {
+        id
+        items {
+          ... on ContentfulPerson {
             id
-            items {
-              ... on ContentfulPerson {
-                id
-                name
-                link
-                photo {
-                  id
-                  fluid(maxWidth: 80) {
-                    ...GatsbyContentfulFluid_withWebp
-                  }
-                }
+            name
+            link
+            photo {
+              id
+              fluid(maxWidth: 80) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
@@ -53,7 +49,7 @@ const Credits = () => {
   `);
 
   /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
-  contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
+  data.contentfulList.items.forEach((item) => {
     credits.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Diamond title={item.name}>

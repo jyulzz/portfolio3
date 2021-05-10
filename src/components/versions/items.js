@@ -34,7 +34,7 @@ const Items = () => {
   const versions = [];
 
   /* Pull the list of Projects on Contentful*/
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       versions: allContentfulVersion(sort: { fields: version, order: DESC }) {
         edges {
@@ -71,7 +71,7 @@ const Items = () => {
   `);
 
   /* For each Project found in Contentful response */
-  contentfulData.versions.edges.forEach((node) => {
+  data.versions.edges.forEach((node) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
     versions.push(
       <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>

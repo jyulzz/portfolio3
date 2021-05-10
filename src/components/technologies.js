@@ -26,22 +26,18 @@ const Technologies = () => {
   const technologies = [];
 
   /* Pull items from the list on Contentful with the slug 'technologies' */
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      allContentfulList(filter: { slug: { eq: "technologies" } }) {
-        edges {
-          node {
+      contentfulList(slug: { eq: "technologies" }) {
+        id
+        items {
+          ... on ContentfulItem {
             id
-            items {
-              ... on ContentfulItem {
-                id
-                name
-                link
-                icon {
-                  file {
-                    url
-                  }
-                }
+            name
+            link
+            icon {
+              file {
+                url
               }
             }
           }
@@ -51,7 +47,7 @@ const Technologies = () => {
   `);
 
   /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
-  contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
+  data.contentfulList.items.forEach((item) => {
     technologies.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Diamond title={item.name}>
