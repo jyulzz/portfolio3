@@ -13,12 +13,11 @@ Page template for the About page.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import Options from "../options/about.js";
 import _JSXStyle from "styled-jsx/style";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
-import Conf from "../../conf.yml";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Seo from "../components/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -28,78 +27,6 @@ import "../styles/pages/project.scss";
 
 /*-----------------------------------------------------------------------------*
   /IMPORTS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
-  OPTIONS
-*-----------------------------------------------------------------------------*/
-
-/* 'options' contains rendering directives for Rich Text content received from Contentful, including embedded assets, paragraphs and headers. */
-const options = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      let { description, file } = node.data.target.fields;
-      return (
-        <figure>
-          <img
-            src={
-              "https://" +
-              file[Conf.ContentfulDefaultLocale].url +
-              "?fm=jpg&fl=progressive&q=80"
-            }
-            alt={description[Conf.ContentfulDefaultLocale]}
-          />
-        </figure>
-      );
-    },
-    [BLOCKS.PARAGRAPH]: (node, children) => {
-      return <p>{children}</p>;
-    },
-    [BLOCKS.HEADING_1]: (node, children) => {
-      return <h1>{children}</h1>;
-    },
-    [BLOCKS.HEADING_2]: (node, children) => {
-      return <h2>{children}</h2>;
-    },
-    [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3>{children}</h3>;
-    },
-    [BLOCKS.HEADING_4]: (node, children) => {
-      return <h4>{children}</h4>;
-    },
-    [BLOCKS.HEADING_5]: (node, children) => {
-      return <h5>{children}</h5>;
-    },
-    [BLOCKS.HEADING_6]: (node, children) => {
-      return <h6>{children}</h6>;
-    },
-  },
-};
-/*-----------------------------------------------------------------------------*
-  /OPTIONS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
-  FUNCTIONS
-*-----------------------------------------------------------------------------*/
-
-/* If 'window' object exists, add smooth scrolling to links in the main navigation menu 'nav#main' */
-if (typeof window !== "undefined") {
-  // Make scroll behavior of internal links smooth
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")("nav#main a[href*='#']", {
-    header: "[data-scroll-header]",
-    offset: 80,
-    speed: 500,
-    speedAsDuration: true,
-    easing: "easeInOutQuad",
-    updateURL: true,
-    popstate: true,
-    clip: true,
-  });
-}
-/*-----------------------------------------------------------------------------*
-  /FUNCTIONS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
@@ -168,31 +95,17 @@ const AboutPage = () => {
     paragraphsArray.push(
       <div className={"block " + p.slug} key={p.id}>
         <h3>{p.title}</h3>
-        <span className="rte">{documentToReactComponents(p.raw, options)}</span>
+        <span className="rte">{documentToReactComponents(p.raw, Options)}</span>
       </div>
     );
   });
 
   return (
     <>
-      <GatsbySeo
+      <Seo
         title="About"
         description="Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006."
-        openGraph={{
-          type: "website",
-          title: "About | Jules Thivent - Product and UX Designer – Portfolio",
-          locale: "enUS",
-          description:
-            "Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006.",
-          images: [
-            {
-              url: data.indexOGImage.file.url + "?fm=png&w=800&h=600",
-              width: 800,
-              height: 600,
-              alt: "Jules Thivent - Product and UX Designer – Portfolio",
-            },
-          ],
-        }}
+        OGImage={data.indexOGImage.file.url}
       />
 
       <Header />

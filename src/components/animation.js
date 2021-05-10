@@ -8,12 +8,22 @@ Animation component based on lottie-web.
 
 *-----------------------------------------------------------------------------*/
 
+/*-----------------------------------------------------------------------------*
+  IMPORTS
+*-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import lottie from "lottie-web";
 import Img from "gatsby-image/withIEPolyfill";
+/*-----------------------------------------------------------------------------*
+  /IMPORTS
+*-----------------------------------------------------------------------------*/
 
-const Animation = ({ id, src, bg }) => {
+/*-----------------------------------------------------------------------------*
+  COMPONENTS
+*-----------------------------------------------------------------------------*/
+const Animation = ({ id, src, background }) => {
   const fetchData = React.useCallback(() => {
     axios({
       method: "GET",
@@ -36,7 +46,7 @@ const Animation = ({ id, src, bg }) => {
             },
           },
         });
-        lottie.setQuality("low");
+        lottie.setQuality("high");
       })
       .catch((error) => {
         return false;
@@ -52,7 +62,7 @@ const Animation = ({ id, src, bg }) => {
       <div id={"animation-" + id} className="animation">
         <div className="scene"></div>
         <Img
-          fluid={bg}
+          fluid={background}
           objectFit="cover"
           objectPosition="50% 50%"
           style={{ height: "100%", width: "100%" }}
@@ -63,5 +73,32 @@ const Animation = ({ id, src, bg }) => {
     </>
   );
 };
+/*-----------------------------------------------------------------------------*
+  /COMPONENTS
+*-----------------------------------------------------------------------------*/
 
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Animation.propTypes = {
+  id: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  background: PropTypes.object.isRequired,
+};
+
+Animation.defaultProps = {
+  id: "",
+  src: "",
+  background: [],
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  EXPORTS
+*-----------------------------------------------------------------------------*/
 export default Animation;
+/*-----------------------------------------------------------------------------*
+  /EXPORTS
+*-----------------------------------------------------------------------------*/

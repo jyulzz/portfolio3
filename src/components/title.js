@@ -31,12 +31,13 @@ const Title = ({ level, children }) => {
   PROPS
 *-----------------------------------------------------------------------------*/
 Title.propTypes = {
-  children: PropTypes.node.isRequired,
   level: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Title.defaultProps = {
   level: "",
+  children: [],
 };
 /*-----------------------------------------------------------------------------*
   /PROPS

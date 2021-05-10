@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/gems.js
+src/components/seo.js
 
 DESCRIPTION
-Gems and Gem components
+Wrapper for the GatsbySeo component
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,8 +12,8 @@ Gems and Gem components
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import PropTypes from "prop-types";
-import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -21,27 +21,26 @@ import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Gems = ({ id, children }) => {
+const Seo = ({ title, description, OGImage }) => {
   return (
-    <div className={"gems "} id={id}>
-      {children}
-    </div>
-  );
-};
-
-const Gem = ({ title, children }) => {
-  return (
-    <>
-      {" "}
-      <style jsx>{`
-        .gem {
-          overflow: hidden;
-        }
-      `}</style>
-      <span className={"gem"} role="img" title={title}>
-        {children}
-      </span>
-    </>
+    <GatsbySeo
+      title={title}
+      description={description}
+      openGraph={{
+        type: "website",
+        title: title + " | Jules Thivent - Product and UX Designer – Portfolio",
+        locale: "enUS",
+        description: description,
+        images: [
+          {
+            url: "https://" + OGImage + "?fm=png&w=800&h=600",
+            width: 800,
+            height: 600,
+            alt: "Jules Thivent - Product and UX Designer – Portfolio",
+          },
+        ],
+      }}
+    />
   );
 };
 /*-----------------------------------------------------------------------------*
@@ -51,21 +50,12 @@ const Gem = ({ title, children }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Gems.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-Gems.defaultProps = {
-  id: "",
-  children: [],
-};
-Gem.propTypes = {
+Seo.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
 };
-Gem.defaultProps = {
-  title: "",
-  children: [],
+
+Seo.defaultProps = {
+  title: "Home",
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -74,7 +64,7 @@ Gem.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Gem };
+export default Seo;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/history/versions.js
+src/components/versions/items.js
 
 DESCRIPTION
 Builds a block showing previews of Versions pulled from Contentful.
@@ -13,10 +13,9 @@ IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
 import Title from "../../components/title";
 import Link from "../../components/link";
-import Animation from "../../components/animation";
+import Thumbnail from "../../components/thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
@@ -30,28 +29,27 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
 COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Items = () => {
-  const versions = [];
+const VersionsItems = () => {
+  const versionsItemsArray = [];
 
   /* Pull the list of Projects on Contentful*/
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      versions: allContentfulVersion(sort: { fields: version, order: DESC }) {
-        edges {
-          node {
+      versions: contentfulList(slug: { eq: "versions" }) {
+        items {
+          ... on ContentfulVersion {
             id
             name
             description {
               description
             }
-            releaseDate(formatString: "MMMM DD, YYYY")
             imagePreview {
-              file {
-                url
-              }
               fluid(maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp
               }
+            }
+            description {
+              description
             }
             animation {
               file {
@@ -63,7 +61,7 @@ const Items = () => {
                 ...GatsbyContentfulFluid_withWebp
               }
             }
-            url
+            releaseDate(formatString: "MMMM DD, YYYY")
           }
         }
       }
@@ -71,37 +69,26 @@ const Items = () => {
   `);
 
   /* For each Project found in Contentful response */
-  contentfulData.versions.edges.forEach((node) => {
+  data.versions.items.forEach((item) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
-    versions.push(
-      <div key={node.node.id} className="version-thumbnail" id={node.node.slug}>
-        <div className="thumbnail">
-          {node.node.animation !== null &&
-          node.node.animationBackground !== null ? (
-            <Animation
-              id={node.node.id}
-              src={node.node.animation.file.url}
-              bg={node.node.animationBackground.fluid}
-            />
-          ) : (
-            <Img
-              fluid={node.node.imagePreview.fluid}
-              objectFit="cover"
-              objectPosition="50% 50%"
-              alt={node.node.name}
-              style={{ height: "100%" }}
-            />
-          )}
-        </div>
+    versionsItemsArray.push(
+      <div key={item.id} className="version-thumbnail" id={item.slug}>
+        <Thumbnail
+          animation={item.animation}
+          animationBackground={item.animationBackground}
+          id={item.id}
+          title={item.Title}
+        />
+
         <div className="information">
-          <Title level="2">Portfolio Version {node.node.name}</Title>
+          <Title level="2">Portfolio Version {item.name}</Title>
           <div className="tag date">
-            Published in{" "}
-            {node.node.releaseDate.substring(node.node.releaseDate.length - 4)}
+            {"Published in "}
+            {item.releaseDate.substring(item.releaseDate.length - 4)}
           </div>
           <div className="linkWrapper out">
             <div className="linkWrapper in">
-              <Link href={node.node.url} target="__blank" level="primary">
+              <Link href={item.url} target="__blank" level="primary">
                 View this Version <FontAwesomeIcon icon={faLongArrowRight} />
               </Link>
             </div>
@@ -111,7 +98,7 @@ const Items = () => {
     );
   });
 
-  return versions;
+  return versionsItemsArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -120,7 +107,7 @@ const Items = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
   *-----------------------------------------------------------------------------*/
-export default Items;
+export default VersionsItems;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
   *-----------------------------------------------------------------------------*/

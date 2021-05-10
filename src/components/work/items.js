@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------*
 
 FILE
-sc /components/work/projects.js
+src/components/work/items.js
 
 DESCRIPTION
 Builds a block showing previews of Projects pulled from Contentful.
@@ -13,18 +13,17 @@ IMPORTS
 *----------------------------------------------------------------------------- */
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
+import Title from "../../components/title";
+import Link from "../../components/link";
+import Thumbnail from "../../components/thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
-import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
 import {
   faTrafficCone,
   faCalendarCheck,
   faClock,
 } from "@fortawesome/pro-solid-svg-icons";
-import Title from "../../components/title";
-import Link from "../../components/link";
-import Animation from "../../components/animation";
+import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 library.add(faLongArrowRight, faTrafficCone, faCalendarCheck, faClock);
 config.autoAddCss = false;
@@ -35,11 +34,11 @@ config.autoAddCss = false;
 /* -----------------------------------------------------------------------------*
 COMPONENTS
 *----------------------------------------------------------------------------- */
-const Items = () => {
-  const projects = [];
+const WorkItems = () => {
+  const workItemsArray = [];
 
   /* Pull the list of Projects on Contentful */
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       projects: contentfulList(slug: { eq: "projects" }) {
         items {
@@ -87,30 +86,20 @@ const Items = () => {
   `);
 
   /* For each Project found in Contentful response */
-  contentfulData.projects.items.forEach((item) => {
+  data.projects.items.forEach((item) => {
     var organizationsArray = [];
     var tagsArray = [];
 
     /* Add an HTML item to the projects array with information from the Contentful Project item */
-    projects.push(
+    workItemsArray.push(
       <div key={item.id} className="project-thumbnail" id={item.slug}>
-        <span className="thumbnail">
-          {item.animation !== null && item.animationBackground !== null ? (
-            <Animation
-              id={item.id}
-              src={item.animation.file.url}
-              bg={item.animationBackground.fluid}
-            />
-          ) : (
-            <Img
-              fluid={item.imagePreview.fluid}
-              objectFit="cover"
-              objectPosition="50% 50%"
-              alt={item.title}
-              style={{ height: "100%" }}
-            />
-          )}
-        </span>
+        <Thumbnail
+          animation={item.animation}
+          animationBackground={item.animationBackground}
+          id={item.id}
+          title={item.Title}
+        />
+
         <div className="information">
           <Title level="2">{item.title}</Title>
           {item.organizations &&
@@ -121,7 +110,7 @@ const Items = () => {
                   <div className="tag organization">{organization.name}</div>
                 );
               })
-            : ""}
+            : null}
 
           {organizationsArray.length > 1 ? (
             <div className="tag organization">Multiple Organizations</div>
@@ -131,21 +120,15 @@ const Items = () => {
 
           {item.released === false ? (
             <div className="tag releaseDate">Coming {item.releaseDate}</div>
-          ) : (
-            ""
-          )}
+          ) : null}
           {item.released === true && item.inProgress === false ? (
             <div className="tag date">
               {item.releaseDate.substring(item.releaseDate.length - 4)}
             </div>
-          ) : (
-            ""
-          )}
+          ) : null}
           {item.inProgress === true ? (
             <div className="tag inProgress">Work in Progress</div>
-          ) : (
-            ""
-          )}
+          ) : null}
           <div className="description">{item.description.description}</div>
           {item.released === true ? (
             <div className="linkWrapper out">
@@ -155,9 +138,7 @@ const Items = () => {
                 </Link>
               </div>
             </div>
-          ) : (
-            ""
-          )}
+          ) : null}
           <div className="tags">
             <>
               {item.tags
@@ -171,9 +152,7 @@ const Items = () => {
                 <div className="tag readingTime">
                   {item.readingTime} mins read
                 </div>
-              ) : (
-                ""
-              )}
+              ) : null}
               {tagsArray}
             </>
           </div>
@@ -182,7 +161,7 @@ const Items = () => {
     );
   });
 
-  return projects;
+  return workItemsArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -191,7 +170,7 @@ const Items = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
   *-----------------------------------------------------------------------------*/
-export default Items;
+export default WorkItems;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
   *-----------------------------------------------------------------------------*/

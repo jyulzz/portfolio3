@@ -14,153 +14,27 @@ Template for the Project pages created through code in /gatsby-node.js
 
 import React from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import PropTypes from "prop-types";
+import Options from "../options/project.js";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Seo from "../components/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import Link from "../components/link";
-import Conf from "../../conf.yml";
 import Pagination from "../components/pagination";
-import Animation from "../components/animation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library, config } from "@fortawesome/fontawesome-svg-core";
-import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
-import {
-  faLongArrowLeft,
-  faLongArrowRight,
-} from "@fortawesome/pro-regular-svg-icons";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import Thumbnail from "../components/thumbnail";
 import "../styles/pages/project.scss";
-library.add(faTrafficCone, faLongArrowLeft, faLongArrowRight);
-config.autoAddCss = false;
 
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------*
-  OPTIONS
-*-----------------------------------------------------------------------------*/
-
-/* 'options' contains rendering directives for Rich Text content received from Contentful, including embedded assets, paragraphs and headers. */
-const options = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      if (node.data.target.gatsbyImageData) {
-        return (
-          <figure>
-            <img
-              srcSet={node.data.target.gatsbyImageData.images.sources[0].srcSet}
-              alt={node.data.target.description}
-            />
-            <figcaption>
-              {" "}
-              <span className="description">
-                {node.data.target.description}
-              </span>
-              <Link href={node.data.target.file.url} target="_blank" level="">
-                Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
-              </Link>
-            </figcaption>
-          </figure>
-        );
-      } else {
-        return (
-          <figure>
-            <img
-              src={node.data.target.file.url}
-              alt={node.data.target.description}
-            />
-            <figcaption>
-              {" "}
-              <span className="description">
-                {node.data.target.description}
-              </span>
-              <Link href={node.data.target.file.url} target="_blank" level="">
-                Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
-              </Link>
-            </figcaption>
-          </figure>
-        );
-      }
-    },
-
-    [INLINES.EMBEDDED_ENTRY]: (node) => {
-      switch (node.data.target.__typename) {
-        case "ContentfulIFrame":
-          return (
-            <figure>
-              <iframe
-                title={node.data.target.id}
-                className="iframe"
-                src={node.data.target.url}
-              ></iframe>
-              <figcaption>
-                {" "}
-                <span className="description">{node.data.target.name}</span>
-                <Link href={node.data.target.url} target="_blank" level="">
-                  Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
-                </Link>
-              </figcaption>
-            </figure>
-          );
-        default:
-          return <></>;
-      }
-    },
-    [INLINES.HYPERLINK]: (node) => {
-      return (
-        <Link href={node.data.uri} target="_blank" level="">
-          {node.content[0].value}
-        </Link>
-      );
-    },
-    [INLINES.ASSET_HYPERLINK]: (node) => {
-      return (
-        <Link
-          href={
-            "https://" +
-            node.data.target.fields.file[Conf.ContentfulDefaultLocale].url
-          }
-          target="_blank"
-          level=""
-        >
-          {node.content[0].value}
-        </Link>
-      );
-    },
-    [BLOCKS.PARAGRAPH]: (node, children) => {
-      return <p>{children}</p>;
-    },
-    [BLOCKS.HEADING_1]: (node, children) => {
-      return <h1>{children}</h1>;
-    },
-    [BLOCKS.HEADING_2]: (node, children) => {
-      return <h2>{children}</h2>;
-    },
-    [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3>{children}</h3>;
-    },
-    [BLOCKS.HEADING_4]: (node, children) => {
-      return <h4>{children}</h4>;
-    },
-    [BLOCKS.HEADING_5]: (node, children) => {
-      return <h5>{children}</h5>;
-    },
-    [BLOCKS.HEADING_6]: (node, children) => {
-      return <h6>{children}</h6>;
-    },
-  },
-};
-/*-----------------------------------------------------------------------------*
-  /OPTIONS
-*-----------------------------------------------------------------------------*/
-
 export const query = graphql`
-  query($slug: String, $previousProjectSlug: String, $nextProjectSlug: String) {
+  query (
+    $slug: String
+    $previousProjectSlug: String
+    $nextProjectSlug: String
+  ) {
     firstProject: allContentfulProject(
       limit: 1
       sort: { fields: updatedAt, order: DESC }
@@ -335,26 +209,10 @@ const ProjectPage = ({ data, pageContext }) => {
 
   return (
     <>
-      <GatsbySeo
+      <Seo
         title={projectData.title}
         description={projectData.description}
-        openGraph={{
-          type: "website",
-          title:
-            projectData.title +
-            " | Jules Thivent - Product and UX Designer – Portfolio",
-          locale: "enUS",
-          description: projectData.description.description,
-          images: [
-            {
-              url:
-                "https://" + projectData.imagePreview + "?fm=png&w=800&h=600",
-              width: 800,
-              height: 600,
-              alt: projectData.description,
-            },
-          ],
-        }}
+        OGImage={projectData.imagePreview}
       />
 
       <Header />
@@ -427,27 +285,17 @@ const ProjectPage = ({ data, pageContext }) => {
               </div>
             </div>
             <div className="image">
-              {projectData.animation !== null &&
-              projectData.animationBackground !== null ? (
-                <Animation
-                  id={projectData.id}
-                  src={projectData.animation.file.url}
-                  bg={projectData.animationBackground.fluid}
-                />
-              ) : (
-                <Img
-                  fluid={projectData.imagePreview.fluid}
-                  objectFit="cover"
-                  objectPosition="50% 50%"
-                  alt={projectData.title}
-                  style={{ height: "100%" }}
-                />
-              )}
+              <Thumbnail
+                animation={projectData.animation}
+                animationBackground={projectData.animationBackground}
+                id={projectData.id}
+                title={projectData.Title}
+              />
             </div>
           </div>
           {/* This is the Rich Text rendering section */}
           <section className="contentful-rich-text-types">
-            {renderRichText(projectData.content, options)}
+            {renderRichText(projectData.content, Options)}
           </section>
           <Pagination
             previousProjectSlug={previousProjectSlug}
@@ -463,6 +311,16 @@ const ProjectPage = ({ data, pageContext }) => {
       <Footer />
     </>
   );
+};
+
+ProjectPage.propTypes = {
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
+};
+
+ProjectPage.defaultProps = {
+  data: [],
+  pageContext: [],
 };
 
 export default ProjectPage;

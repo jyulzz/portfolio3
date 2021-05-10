@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/history/history.js
+src/components/versions/versions.js
 
 DESCRIPTION
 Builds the Versions section used on the Index page.
@@ -15,7 +15,7 @@ import React from "react";
 import { Container } from "../../components/grid";
 import Title from "../../components/title";
 import Section from "../../components/section";
-import Items from "./items";
+import VersionsItems from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,14 +23,14 @@ import Items from "./items";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const History = () => {
+const Versions = () => {
   return (
     <Container>
       <Section id="versions">
         <Title level="1">
           <div>Versions</div>
         </Title>
-        <Items />
+        <VersionsItems />
       </Section>
     </Container>
   );
@@ -42,7 +42,7 @@ const History = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default History;
+export default Versions;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

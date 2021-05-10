@@ -14,7 +14,7 @@ Displays icons linked to sites of technologies used in this project.
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
-import { Diamond } from "./gems";
+import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,25 +23,21 @@ import { Diamond } from "./gems";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const Technologies = () => {
-  const technologies = [];
+  const technologiesArray = [];
 
   /* Pull items from the list on Contentful with the slug 'technologies' */
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      allContentfulList(filter: { slug: { eq: "technologies" } }) {
-        edges {
-          node {
+      contentfulList(slug: { eq: "technologies" }) {
+        id
+        items {
+          ... on ContentfulItem {
             id
-            items {
-              ... on ContentfulItem {
-                id
-                name
-                link
-                icon {
-                  file {
-                    url
-                  }
-                }
+            name
+            link
+            icon {
+              file {
+                url
               }
             }
           }
@@ -51,21 +47,21 @@ const Technologies = () => {
   `);
 
   /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
-  contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
-    technologies.push(
+  data.contentfulList.items.forEach((item) => {
+    technologiesArray.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <Diamond title={item.name}>
+        <Gem title={item.name}>
           <img
             src={"https://" + item.icon.file.url}
             alt={item.name}
             height="100%"
             width="100%"
           />
-        </Diamond>
+        </Gem>
       </Link>
     );
   });
-  return technologies;
+  return technologiesArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS

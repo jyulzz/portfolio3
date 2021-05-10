@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/hero.js
+src/options/about.js
 
 DESCRIPTION
-Hero section used on the Index page.
+Render options for the page template for the About page.
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,12 +12,8 @@ Hero section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Emoji from "a11y-react-emoji";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { Container } from "../components/grid";
-import Section from "../components/section";
+import { BLOCKS } from "@contentful/rich-text-types";
+import Conf from "../../conf.yml";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -26,20 +22,28 @@ import Section from "../components/section";
   OPTIONS
 *-----------------------------------------------------------------------------*/
 /* 'options' contains rendering directives for Rich Text content received from Contentful, including embedded assets, paragraphs and headers. */
-const options = {
+const Options = {
   renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      let { description, file } = node.data.target.fields;
+      return (
+        <figure>
+          <img
+            src={
+              "https://" +
+              file[Conf.ContentfulDefaultLocale].url +
+              "?fm=jpg&fl=progressive&q=80"
+            }
+            alt={description[Conf.ContentfulDefaultLocale]}
+          />
+        </figure>
+      );
+    },
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <p>{children}</p>;
     },
     [BLOCKS.HEADING_1]: (node, children) => {
-      return (
-        <h1>
-          <Emoji symbol="👋" label="Waiving Hand Emoji" /> {children}
-        </h1>
-      );
-    },
-    [MARKS.BOLD]: (node, children) => {
-      return <b>{children}</b>;
+      return <h1>{children}</h1>;
     },
     [BLOCKS.HEADING_2]: (node, children) => {
       return <h2>{children}</h2>;
@@ -63,40 +67,9 @@ const options = {
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
-  COMPONENTS
-*-----------------------------------------------------------------------------*/
-const Hero = () => {
-  /* Pull the Site entry from Contentful for this site. */
-  const data = useStaticQuery(graphql`
-    {
-      contentfulSite(slug: { eq: "jules-thivent" }) {
-        id
-        name
-        hero {
-          raw
-        }
-      }
-    }
-  `);
-  return (
-    <Container>
-      <Section id="hero">
-        {documentToReactComponents(
-          JSON.parse(data.contentfulSite.hero.raw),
-          options
-        )}
-      </Section>
-    </Container>
-  );
-};
-/*-----------------------------------------------------------------------------*
-  /COMPONENTS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Hero;
+export default Options;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

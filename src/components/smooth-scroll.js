@@ -1,19 +1,17 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/gems.js
+src/components/smooth-scroll.js
 
 DESCRIPTION
-Gems and Gem components
+Smooth scroll component.
 
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
   IMPORTS
 *-----------------------------------------------------------------------------*/
-import React from "react";
-import PropTypes from "prop-types";
-import _JSXStyle from "styled-jsx/style";
+import { useEffect } from "react";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -21,60 +19,29 @@ import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Gems = ({ id, children }) => {
-  return (
-    <div className={"gems "} id={id}>
-      {children}
-    </div>
-  );
-};
-
-const Gem = ({ title, children }) => {
-  return (
-    <>
-      {" "}
-      <style jsx>{`
-        .gem {
-          overflow: hidden;
-        }
-      `}</style>
-      <span className={"gem"} role="img" title={title}>
-        {children}
-      </span>
-    </>
-  );
+const SmoothScroll = () => {
+  useEffect(function mount() {
+    require("smooth-scroll")('nav#main a[href*="#"]', {
+      header: "[data-scroll-header]",
+      offset: 80,
+      speed: 500,
+      speedAsDuration: true,
+      easing: "easeInOutQuad",
+      updateURL: true,
+      popstate: true,
+      clip: true,
+    });
+  });
+  return null;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
-  PROPS
-*-----------------------------------------------------------------------------*/
-Gems.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-Gems.defaultProps = {
-  id: "",
-  children: [],
-};
-Gem.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-Gem.defaultProps = {
-  title: "",
-  children: [],
-};
-/*-----------------------------------------------------------------------------*
-  /PROPS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Gem };
+export default SmoothScroll;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

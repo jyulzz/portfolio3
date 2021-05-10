@@ -12,7 +12,6 @@ Builds the main navigation menu.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-
 import MenuItems from "./items";
 import MenuToggle from "./toggle";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
@@ -22,7 +21,6 @@ import { faAdjust } from "@fortawesome/pro-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 library.add(faAdjust);
 config.autoAddCss = false;
-
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -38,18 +36,28 @@ class Menu extends React.Component {
     };
     this.toggleOverlaidMenu = this.toggleOverlaidMenu.bind(this);
   }
+
   toggleOverlaidMenu(menuState) {
     this.setState({ isOpen: menuState });
   }
 
-  whichTheme() {
-    if (document.body.classList.contains("dark")) {
-      document.querySelector("#themeToggler").blur();
-      return "light";
-    } else {
-      document.querySelector("#themeToggler").blur();
+  blurThemeToggler(id) {
+    document.querySelector(id).blur();
+  }
 
-      return "dark";
+  clickThemeToggler(id) {
+    document.querySelector(id).click();
+  }
+
+  switchTheme() {
+    this.blurThemeToggler("#themeToggler");
+    switch (document.body.classList.contains("dark")) {
+      case true:
+        return "light";
+      case false:
+        return "dark";
+      default:
+        return "dark";
     }
   }
 
@@ -68,7 +76,7 @@ class Menu extends React.Component {
               id="themeToggler"
               aria-label="Theme Toggler"
               title="Switch Theme"
-              onClick={(e) => toggleTheme(this.whichTheme())}
+              onClick={(e) => toggleTheme(this.switchTheme())}
             >
               <FontAwesomeIcon icon={faAdjust} />
             </button>
@@ -81,7 +89,7 @@ class Menu extends React.Component {
             "overlay " + (this.state.isOpen === true ? "open" : "closed")
           }
           onClick={() => {
-            document.querySelector("#menuToggle").click();
+            this.clickThemeToggler("#menuToggle");
           }}
           role="button"
           aria-hidden="true"

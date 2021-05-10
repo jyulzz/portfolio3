@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/gems.js
+src/components/thumbnail.js
 
 DESCRIPTION
-Gems and Gem components
+Thumbnail component used in Work and Versions cards
 
 *-----------------------------------------------------------------------------*/
 
@@ -13,7 +13,8 @@ Gems and Gem components
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
-import _JSXStyle from "styled-jsx/style";
+import Animation from "./animation";
+import Img from "gatsby-image/withIEPolyfill";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -21,27 +22,31 @@ import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Gems = ({ id, children }) => {
+const Thumbnail = ({
+  animation,
+  animationBackground,
+  imagePreview,
+  id,
+  title,
+}) => {
   return (
-    <div className={"gems "} id={id}>
-      {children}
-    </div>
-  );
-};
-
-const Gem = ({ title, children }) => {
-  return (
-    <>
-      {" "}
-      <style jsx>{`
-        .gem {
-          overflow: hidden;
-        }
-      `}</style>
-      <span className={"gem"} role="img" title={title}>
-        {children}
-      </span>
-    </>
+    <span className="thumbnail">
+      {animation !== null && animationBackground !== null ? (
+        <Animation
+          id={id}
+          src={animation.file.url}
+          background={animationBackground.fluid}
+        />
+      ) : (
+        <Img
+          fluid={imagePreview.fluid}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          alt={title}
+          style={{ height: "100%" }}
+        />
+      )}
+    </span>
   );
 };
 /*-----------------------------------------------------------------------------*
@@ -51,21 +56,19 @@ const Gem = ({ title, children }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Gems.propTypes = {
+Thumbnail.propTypes = {
+  animation: PropTypes.object.isRequired,
+  animationBackground: PropTypes.object.isRequired,
+  imagePreview: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-Gems.defaultProps = {
-  id: "",
-  children: [],
-};
-Gem.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
 };
-Gem.defaultProps = {
+Thumbnail.defaultProps = {
+  animation: {},
+  animationBackground: {},
+  imagePreview: {},
+  id: "",
   title: "",
-  children: [],
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -74,7 +77,7 @@ Gem.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Gem };
+export default Thumbnail;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

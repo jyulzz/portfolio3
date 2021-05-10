@@ -15,7 +15,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
 import Img from "gatsby-image/withIEPolyfill";
-import { Diamond } from "./gems";
+import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -24,26 +24,22 @@ import { Diamond } from "./gems";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const Credits = () => {
-  const credits = [];
+  const creditsArray = [];
 
   /* Pull items from the list on Contentful with the slug 'credited-people' */
-  const contentfulData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
-      allContentfulList(filter: { slug: { eq: "credits" } }) {
-        edges {
-          node {
+      contentfulList(slug: { eq: "credits" }) {
+        id
+        items {
+          ... on ContentfulPerson {
             id
-            items {
-              ... on ContentfulPerson {
-                id
-                name
-                link
-                photo {
-                  id
-                  fluid(maxWidth: 80) {
-                    ...GatsbyContentfulFluid_withWebp
-                  }
-                }
+            name
+            link
+            photo {
+              id
+              fluid(maxWidth: 80) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
@@ -53,20 +49,20 @@ const Credits = () => {
   `);
 
   /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
-  contentfulData.allContentfulList.edges["0"].node.items.forEach((item) => {
-    credits.push(
+  data.contentfulList.items.forEach((item) => {
+    creditsArray.push(
       <Link href={item.link} key={item.id} target="_blank">
-        <Diamond title={item.name}>
+        <Gem title={item.name}>
           <Img
             fluid={item.photo.fluid}
             objectFit="cover"
             objectPosition="50% 50%"
           />
-        </Diamond>
+        </Gem>
       </Link>
     );
   });
-  return credits;
+  return creditsArray;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
