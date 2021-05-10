@@ -54,20 +54,6 @@ const Footer = ({ children }) => {
           }
         }
       }
-      contentfulPerson(name: { eq: "Jules Thivent" }) {
-        name
-        function
-        photo {
-          file {
-            url
-          }
-        }
-      }
-      aboutLink: contentfulLink(shortname: { eq: "about" }) {
-        id
-        url
-        title
-      }
       meetingLink: contentfulLink(shortname: { eq: "30minmeeting" }) {
         id
         url

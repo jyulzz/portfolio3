@@ -27,30 +27,6 @@ import "../styles/pages/index.scss";
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
-  FUNCTIONS
-*-----------------------------------------------------------------------------*/
-
-/* If 'window' object exists, add smooth scrolling to links in the main navigation menu 'nav#main' */
-if (typeof window !== "undefined") {
-  // Make scroll behavior of internal links smooth
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")('nav#main a[href*="#"]', {
-    header: "[data-scroll-header]",
-    offset: 80,
-    speed: 500,
-    speedAsDuration: true,
-    easing: "easeInOutQuad",
-    updateURL: true,
-    popstate: true,
-    clip: true,
-  });
-}
-
-/*-----------------------------------------------------------------------------*
-  /FUNCTIONS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const IndexPage = () => {
@@ -60,41 +36,6 @@ const IndexPage = () => {
         file {
           url
         }
-      }
-      aboutLink: contentfulLink(shortname: { eq: "about" }) {
-        id
-        url
-        title
-      }
-      meetingLink: contentfulLink(shortname: { eq: "30minmeeting" }) {
-        id
-        url
-        title
-      }
-      workLink: contentfulLink(shortname: { eq: "work" }) {
-        id
-        url
-        title
-      }
-      cvLink: contentfulLink(shortname: { eq: "cv" }) {
-        id
-        url
-        title
-      }
-      linkedinLink: contentfulLink(shortname: { eq: "linkedin" }) {
-        id
-        url
-        title
-      }
-      emailLink: contentfulLink(shortname: { eq: "email" }) {
-        id
-        url
-        title
-      }
-      whatsappLink: contentfulLink(shortname: { eq: "whatsapp" }) {
-        id
-        url
-        title
       }
     }
   `);
