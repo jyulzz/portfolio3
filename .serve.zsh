@@ -10,7 +10,7 @@
 
 #!/bin/zsh
 sudo clear
-echo "\n\033[1;32mbuild.zsh: a ZSH Script to run 'gatsby build' on this project.\033[0m"
+echo "\n\033[1;32mserve.zsh: a ZSH script to \033[49;33mbuild and run a production\033[0m \033[1;32mversion of this project."
 echo "\n\033[1;35m1. Install:\033[0m\n"
 npm install
 echo "\n\033[1;35m2. Audit Vulnerabilities:\033[0m\n"
