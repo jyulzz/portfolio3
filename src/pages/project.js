@@ -180,40 +180,34 @@ export const query = graphql`
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const ProjectPage = ({ data, pageContext }) => {
-  let previousProjectSlug;
-  let previousProjectTitle;
-  let previousProjectImagePreviewFluid;
-  let nextProjectSlug;
-  let nextProjectTitle;
-  let nextProjectImagePreviewFluid;
+  let previousProject = {},
+    nextProject = {};
+
+  let tagsArray = [],
+    organizationsArray = [];
 
   let projectData = data.project.nodes[0];
 
-  let tagsArray = [];
-
-  let organizationsArray = [];
-
   if (data.previousProject.nodes[0]) {
-    previousProjectImagePreviewFluid =
+    previousProject.slug = pageContext.previousProjectSlug;
+    previousProject.title = pageContext.previousProjectTitle;
+    previousProject.imagePreview =
       data.previousProject.nodes[0].imagePreview.fluid;
-    previousProjectSlug = pageContext.previousProjectSlug;
-    previousProjectTitle = pageContext.previousProjectTitle;
   } else {
-    previousProjectImagePreviewFluid =
-      data.lastProject.nodes[0].imagePreview.fluid;
-    previousProjectSlug = data.lastProject.nodes[0].slug;
-    previousProjectTitle = data.lastProject.nodes[0].title;
+    previousProject.slug = data.lastProject.nodes[0].slug;
+    previousProject.title = data.lastProject.nodes[0].title;
+    previousProject.imagePreview = data.lastProject.nodes[0].imagePreview.fluid;
   }
 
   if (data.nextProject.nodes[0]) {
-    nextProjectImagePreviewFluid = data.nextProject.nodes[0].imagePreview.fluid;
-    nextProjectSlug = pageContext.nextProjectSlug;
-    nextProjectTitle = pageContext.nextProjectTitle;
+    nextProject.slug = pageContext.nextProjectSlug;
+    nextProject.title = pageContext.nextProjectTitle;
+    nextProject.imagePreview = data.nextProject.nodes[0].imagePreview.fluid;
   } else {
-    nextProjectImagePreviewFluid =
+    previousProject.slug = data.firstProject.nodes[0].slug;
+    previousProject.title = data.firstProject.nodes[0].title;
+    previousProject.imagePreview =
       data.firstProject.nodes[0].imagePreview.fluid;
-    nextProjectSlug = data.firstProject.nodes[0].slug;
-    nextProjectTitle = data.firstProject.nodes[0].title;
   }
 
   return (
@@ -248,7 +242,7 @@ const ProjectPage = ({ data, pageContext }) => {
                           </div>
                         );
                       })
-                    : ""}
+                    : null}
 
                   {organizationsArray.length > 1 ? (
                     <div className="tag organization">
@@ -281,14 +275,12 @@ const ProjectPage = ({ data, pageContext }) => {
                           <div className="tag generic">{tag.name}</div>
                         );
                       })
-                    : ""}
+                    : null}
                   {projectData.released === true ? (
                     <div className="tag readingTime">
                       {projectData.readingTime} mins read
                     </div>
-                  ) : (
-                    ""
-                  )}
+                  ) : null}
                   {tagsArray}
                 </>
               </div>
@@ -307,12 +299,12 @@ const ProjectPage = ({ data, pageContext }) => {
             {renderRichText(projectData.content, Options)}
           </section>
           <Pagination
-            previousProjectSlug={previousProjectSlug}
-            previousProjectTitle={previousProjectTitle}
-            previousProjectImagePreview={previousProjectImagePreviewFluid}
-            nextProjectSlug={nextProjectSlug}
-            nextProjectTitle={nextProjectTitle}
-            nextProjectImagePreview={nextProjectImagePreviewFluid}
+            previousProjectSlug={previousProject.slug}
+            previousProjectTitle={previousProject.title}
+            previousProjectImagePreview={previousProject.imagePreview}
+            nextProjectSlug={nextProject.slug}
+            nextProjectTitle={nextProject.title}
+            nextProjectImagePreview={nextProject.imagePreview}
           />
         </section>
       </Main>
