@@ -33,8 +33,6 @@ import "../styles/pages/project.scss";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const AboutPage = () => {
-  const paragraphs = [];
-
   const paragraphsArray = [];
 
   const data = useStaticQuery(graphql`
@@ -83,19 +81,15 @@ const AboutPage = () => {
   `);
 
   data.contentfulPage.paragraphs.forEach((paragraph) => {
-    paragraphs.push({
-      title: paragraph.title,
-      id: paragraph.id,
-      raw: JSON.parse(paragraph.content.raw),
-      slug: paragraph.slug,
-    });
-  });
-
-  paragraphs.forEach((p) => {
     paragraphsArray.push(
-      <div className={"block " + p.slug} key={p.id}>
-        <h3>{p.title}</h3>
-        <span className="rte">{documentToReactComponents(p.raw, Options)}</span>
+      <div className={"block " + paragraph.slug} key={paragraph.id}>
+        <h3>{paragraph.title}</h3>
+        <span className="rte">
+          {documentToReactComponents(
+            JSON.parse(paragraph.content.raw),
+            Options
+          )}
+        </span>
       </div>
     );
   });
