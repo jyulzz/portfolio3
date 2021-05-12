@@ -35,7 +35,7 @@
     "gatsby-react-router-scroll": "^4.4.0",
     "gatsby-source-contentful": "^5.4.0",
     "gatsby-source-filesystem": "^3.4.0",
-    "gatsby-transformer-remark": "^4.1.0",
+    "gatsby-transformer-remark": "^4.2.0",
     "gatsby-transformer-sharp": "^3.4.0",
     "lottie-web": "^5.7.8",
     "node-sass": "^5.0.0",
