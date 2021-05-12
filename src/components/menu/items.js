@@ -12,6 +12,7 @@ Builds a menuItems array with menu items based on Contentful data.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "../../components/link";
 /*-----------------------------------------------------------------------------*
@@ -22,9 +23,9 @@ import Link from "../../components/link";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 
-function MenuItems() {
-  const menuItemsArray = [];
-  const data = useStaticQuery(graphql`
+function MenuItems({ menuItems, data }) {
+  menuItems = [];
+  data = useStaticQuery(graphql`
     {
       contentfulMenu(slug: { eq: "main" }) {
         id
@@ -93,7 +94,7 @@ function MenuItems() {
         break;
     }
 
-    menuItemsArray.push(
+    menuItems.push(
       <div
         className="item"
         key={item.id}
@@ -108,10 +109,25 @@ function MenuItems() {
       </div>
     );
   });
-  return menuItemsArray;
+  return menuItems;
 }
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+MenuItems.propTypes = {
+  menuItems: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+MenuItems.defaultProps = {
+  menuItems: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

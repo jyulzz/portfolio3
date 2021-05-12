@@ -29,6 +29,9 @@ import "../styles/pages/project.scss";
   /IMPORTS
 *-----------------------------------------------------------------------------*/
 
+/*-----------------------------------------------------------------------------*
+  DATA
+*-----------------------------------------------------------------------------*/
 export const query = graphql`
   query (
     $slug: String
@@ -169,42 +172,50 @@ export const query = graphql`
     }
   }
 `;
+/*-----------------------------------------------------------------------------*
+  /DATA
+*-----------------------------------------------------------------------------*/
 
-const ProjectPage = ({ data, pageContext }) => {
-  let previousProjectSlug;
-  let previousProjectTitle;
-  let previousProjectImagePreviewFluid;
-  let nextProjectSlug;
-  let nextProjectTitle;
-  let nextProjectImagePreviewFluid;
+/*-----------------------------------------------------------------------------*
+  COMPONENTS
+*-----------------------------------------------------------------------------*/
+const ProjectPage = ({
+  data,
+  pageContext,
+  previousProject,
+  nextProject,
+  tagsArray,
+  organizationsArray,
+  projectData,
+}) => {
+  previousProject = {};
+  nextProject = {};
 
-  let projectData = data.project.nodes[0];
+  tagsArray = [];
+  organizationsArray = [];
 
-  let tagsArray = [];
-
-  let organizationsArray = [];
+  projectData = data.project.nodes[0];
 
   if (data.previousProject.nodes[0]) {
-    previousProjectImagePreviewFluid =
+    previousProject.slug = pageContext.previousProjectSlug;
+    previousProject.title = pageContext.previousProjectTitle;
+    previousProject.imagePreview =
       data.previousProject.nodes[0].imagePreview.fluid;
-    previousProjectSlug = pageContext.previousProjectSlug;
-    previousProjectTitle = pageContext.previousProjectTitle;
   } else {
-    previousProjectImagePreviewFluid =
-      data.lastProject.nodes[0].imagePreview.fluid;
-    previousProjectSlug = data.lastProject.nodes[0].slug;
-    previousProjectTitle = data.lastProject.nodes[0].title;
+    previousProject.slug = data.lastProject.nodes[0].slug;
+    previousProject.title = data.lastProject.nodes[0].title;
+    previousProject.imagePreview = data.lastProject.nodes[0].imagePreview.fluid;
   }
 
   if (data.nextProject.nodes[0]) {
-    nextProjectImagePreviewFluid = data.nextProject.nodes[0].imagePreview.fluid;
-    nextProjectSlug = pageContext.nextProjectSlug;
-    nextProjectTitle = pageContext.nextProjectTitle;
+    nextProject.slug = pageContext.nextProjectSlug;
+    nextProject.title = pageContext.nextProjectTitle;
+    nextProject.imagePreview = data.nextProject.nodes[0].imagePreview.fluid;
   } else {
-    nextProjectImagePreviewFluid =
+    previousProject.slug = data.firstProject.nodes[0].slug;
+    previousProject.title = data.firstProject.nodes[0].title;
+    previousProject.imagePreview =
       data.firstProject.nodes[0].imagePreview.fluid;
-    nextProjectSlug = data.firstProject.nodes[0].slug;
-    nextProjectTitle = data.firstProject.nodes[0].title;
   }
 
   return (
@@ -239,7 +250,7 @@ const ProjectPage = ({ data, pageContext }) => {
                           </div>
                         );
                       })
-                    : ""}
+                    : null}
 
                   {organizationsArray.length > 1 ? (
                     <div className="tag organization">
@@ -272,14 +283,12 @@ const ProjectPage = ({ data, pageContext }) => {
                           <div className="tag generic">{tag.name}</div>
                         );
                       })
-                    : ""}
+                    : null}
                   {projectData.released === true ? (
                     <div className="tag readingTime">
                       {projectData.readingTime} mins read
                     </div>
-                  ) : (
-                    ""
-                  )}
+                  ) : null}
                   {tagsArray}
                 </>
               </div>
@@ -298,12 +307,12 @@ const ProjectPage = ({ data, pageContext }) => {
             {renderRichText(projectData.content, Options)}
           </section>
           <Pagination
-            previousProjectSlug={previousProjectSlug}
-            previousProjectTitle={previousProjectTitle}
-            previousProjectImagePreview={previousProjectImagePreviewFluid}
-            nextProjectSlug={nextProjectSlug}
-            nextProjectTitle={nextProjectTitle}
-            nextProjectImagePreview={nextProjectImagePreviewFluid}
+            previousProjectSlug={previousProject.slug}
+            previousProjectTitle={previousProject.title}
+            previousProjectImagePreview={previousProject.imagePreview}
+            nextProjectSlug={nextProject.slug}
+            nextProjectTitle={nextProject.title}
+            nextProjectImagePreview={nextProject.imagePreview}
           />
         </section>
       </Main>
@@ -312,15 +321,40 @@ const ProjectPage = ({ data, pageContext }) => {
     </>
   );
 };
+/*-----------------------------------------------------------------------------*
+  /COMPONENTS
+*-----------------------------------------------------------------------------*/
 
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
 ProjectPage.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
+  previousProject: PropTypes.object.isRequired,
+  nextProject: PropTypes.object.isRequired,
+  tagsArray: PropTypes.array.isRequired,
+  organizationsArray: PropTypes.array.isRequired,
+  projectData: PropTypes.object.isRequired,
 };
 
 ProjectPage.defaultProps = {
   data: [],
   pageContext: [],
+  previousProject: {},
+  nextProject: {},
+  tagsArray: [],
+  organizationsArray: [],
+  projectData: {},
 };
+/*-----------------------------------------------------------------------------*
+  /PROPS
+*-----------------------------------------------------------------------------*/
 
+/*-----------------------------------------------------------------------------*
+  EXPORTS
+*-----------------------------------------------------------------------------*/
 export default ProjectPage;
+/*-----------------------------------------------------------------------------*
+  /EXPORTS
+*-----------------------------------------------------------------------------*/

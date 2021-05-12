@@ -12,6 +12,7 @@ Builds a block showing previews of Versions pulled from Contentful.
 IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Title from "../../components/title";
 import Link from "../../components/link";
@@ -29,11 +30,9 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
 COMPONENTS
 *-----------------------------------------------------------------------------*/
-const VersionsItems = () => {
-  const versionsItemsArray = [];
-
+const VersionsItems = ({ versionsItems, data }) => {
   /* Pull the list of Projects on Contentful*/
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       versions: contentfulList(slug: { eq: "versions" }) {
         items {
@@ -71,7 +70,7 @@ const VersionsItems = () => {
   /* For each Project found in Contentful response */
   data.versions.items.forEach((item) => {
     /* Add an HTML item to the projects array with information from the Contentful Project item */
-    versionsItemsArray.push(
+    versionsItems.push(
       <div key={item.id} className="version-thumbnail" id={item.slug}>
         <Thumbnail
           animation={item.animation}
@@ -98,16 +97,31 @@ const VersionsItems = () => {
     );
   });
 
-  return versionsItemsArray;
+  return versionsItems;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
-  *-----------------------------------------------------------------------------*/
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+VersionsItems.propTypes = {
+  versionsItems: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+VersionsItems.defaultProps = {
+  versionsItems: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
+*-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
   EXPORTS
-  *-----------------------------------------------------------------------------*/
+*-----------------------------------------------------------------------------*/
 export default VersionsItems;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
-  *-----------------------------------------------------------------------------*/
+*-----------------------------------------------------------------------------*/

@@ -12,6 +12,7 @@ Page template for the About page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Options from "../options/about.js";
 import _JSXStyle from "styled-jsx/style";
@@ -32,12 +33,10 @@ import "../styles/pages/project.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const AboutPage = () => {
-  const paragraphs = [];
+const AboutPage = ({ paragraphs, data }) => {
+  paragraphs = [];
 
-  const paragraphsArray = [];
-
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {
         file {
@@ -83,19 +82,15 @@ const AboutPage = () => {
   `);
 
   data.contentfulPage.paragraphs.forEach((paragraph) => {
-    paragraphs.push({
-      title: paragraph.title,
-      id: paragraph.id,
-      raw: JSON.parse(paragraph.content.raw),
-      slug: paragraph.slug,
-    });
-  });
-
-  paragraphs.forEach((p) => {
-    paragraphsArray.push(
-      <div className={"block " + p.slug} key={p.id}>
-        <h3>{p.title}</h3>
-        <span className="rte">{documentToReactComponents(p.raw, Options)}</span>
+    paragraphs.push(
+      <div className={"block " + paragraph.slug} key={paragraph.id}>
+        <h3>{paragraph.title}</h3>
+        <span className="rte">
+          {documentToReactComponents(
+            JSON.parse(paragraph.content.raw),
+            Options
+          )}
+        </span>
       </div>
     );
   });
@@ -158,7 +153,7 @@ const AboutPage = () => {
                 </li>
               </ul>
             </div>
-            {paragraphsArray}
+            {paragraphs}
           </div>
         </div>
       </Main>
@@ -169,6 +164,21 @@ const AboutPage = () => {
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+AboutPage.propTypes = {
+  paragraphs: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+AboutPage.defaultProps = {
+  paragraphs: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
