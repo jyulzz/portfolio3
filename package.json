@@ -33,7 +33,7 @@
     "gatsby-plugin-sharp": "^3.4.2",
     "gatsby-plugin-styled-jsx": "^4.4.0",
     "gatsby-react-router-scroll": "^4.4.0",
-    "gatsby-source-contentful": "^5.4.0",
+    "gatsby-source-contentful": "^5.5.0",
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-transformer-remark": "^4.1.0",
     "gatsby-transformer-sharp": "^3.4.0",
