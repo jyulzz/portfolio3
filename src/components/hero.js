@@ -12,6 +12,7 @@ Hero section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Emoji from "a11y-react-emoji";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -65,9 +66,9 @@ const options = {
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Hero = () => {
+const Hero = ({ data }) => {
   /* Pull the Site entry from Contentful for this site. */
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       contentfulSite(slug: { eq: "jules-thivent" }) {
         id
@@ -91,6 +92,19 @@ const Hero = () => {
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Hero.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+Hero.defaultProps = {
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

@@ -12,6 +12,7 @@ Page template for the About page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Options from "../options/about.js";
 import _JSXStyle from "styled-jsx/style";
@@ -32,10 +33,10 @@ import "../styles/pages/project.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const AboutPage = () => {
-  const paragraphsArray = [];
+const AboutPage = ({ paragraphs, data }) => {
+  paragraphs = [];
 
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {
         file {
@@ -81,7 +82,7 @@ const AboutPage = () => {
   `);
 
   data.contentfulPage.paragraphs.forEach((paragraph) => {
-    paragraphsArray.push(
+    paragraphs.push(
       <div className={"block " + paragraph.slug} key={paragraph.id}>
         <h3>{paragraph.title}</h3>
         <span className="rte">
@@ -152,7 +153,7 @@ const AboutPage = () => {
                 </li>
               </ul>
             </div>
-            {paragraphsArray}
+            {paragraphs}
           </div>
         </div>
       </Main>
@@ -163,6 +164,21 @@ const AboutPage = () => {
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+AboutPage.propTypes = {
+  paragraphs: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+AboutPage.defaultProps = {
+  paragraphs: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

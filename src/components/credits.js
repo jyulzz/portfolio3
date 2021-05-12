@@ -12,6 +12,7 @@ Displays photos linked to profiles of people who inspired the author.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
 import Img from "gatsby-image/withIEPolyfill";
@@ -23,11 +24,11 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Credits = () => {
-  const creditsArray = [];
+const Credits = ({ credits, data }) => {
+  credits = [];
 
   /* Pull items from the list on Contentful with the slug 'credited-people' */
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       contentfulList(slug: { eq: "credits" }) {
         id
@@ -50,7 +51,7 @@ const Credits = () => {
 
   /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
   data.contentfulList.items.forEach((item) => {
-    creditsArray.push(
+    credits.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Gem title={item.name}>
           <Img
@@ -62,10 +63,25 @@ const Credits = () => {
       </Link>
     );
   });
-  return creditsArray;
+  return credits;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Credits.propTypes = {
+  credits: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+Credits.defaultProps = {
+  credits: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

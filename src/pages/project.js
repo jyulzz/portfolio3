@@ -179,14 +179,22 @@ export const query = graphql`
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const ProjectPage = ({ data, pageContext }) => {
-  let previousProject = {},
-    nextProject = {};
+const ProjectPage = ({
+  data,
+  pageContext,
+  previousProject,
+  nextProject,
+  tagsArray,
+  organizationsArray,
+  projectData,
+}) => {
+  previousProject = {};
+  nextProject = {};
 
-  let tagsArray = [],
-    organizationsArray = [];
+  tagsArray = [];
+  organizationsArray = [];
 
-  let projectData = data.project.nodes[0];
+  projectData = data.project.nodes[0];
 
   if (data.previousProject.nodes[0]) {
     previousProject.slug = pageContext.previousProjectSlug;
@@ -323,11 +331,21 @@ const ProjectPage = ({ data, pageContext }) => {
 ProjectPage.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
+  previousProject: PropTypes.object.isRequired,
+  nextProject: PropTypes.object.isRequired,
+  tagsArray: PropTypes.array.isRequired,
+  organizationsArray: PropTypes.array.isRequired,
+  projectData: PropTypes.object.isRequired,
 };
 
 ProjectPage.defaultProps = {
   data: [],
   pageContext: [],
+  previousProject: {},
+  nextProject: {},
+  tagsArray: [],
+  organizationsArray: [],
+  projectData: {},
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
