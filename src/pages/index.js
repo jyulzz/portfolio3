@@ -12,6 +12,7 @@ Page template for the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Seo from "../components/seo";
 import Header from "./template/header";
@@ -29,8 +30,8 @@ import "../styles/pages/index.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
+const IndexPage = ({ data }) => {
+  data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {
         file {
@@ -62,6 +63,19 @@ const IndexPage = () => {
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+IndexPage.defaultProps = {
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

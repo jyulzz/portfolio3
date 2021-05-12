@@ -12,6 +12,7 @@ Displays icons linked to sites of technologies used in this project.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Link from "./link";
 import { Gem } from "./gems";
@@ -22,11 +23,11 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Technologies = () => {
-  const technologiesArray = [];
+const Technologies = ({ technologies, data }) => {
+  technologies = [];
 
   /* Pull items from the list on Contentful with the slug 'technologies' */
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       contentfulList(slug: { eq: "technologies" }) {
         id
@@ -48,7 +49,7 @@ const Technologies = () => {
 
   /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
   data.contentfulList.items.forEach((item) => {
-    technologiesArray.push(
+    technologies.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Gem title={item.name}>
           <img
@@ -61,10 +62,25 @@ const Technologies = () => {
       </Link>
     );
   });
-  return technologiesArray;
+  return technologies;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Technologies.propTypes = {
+  technologies: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+Technologies.defaultProps = {
+  technologies: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

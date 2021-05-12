@@ -12,6 +12,7 @@ Builds a block showing previews of Projects pulled from Contentful.
 IMPORTS
 *----------------------------------------------------------------------------- */
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Title from "../../components/title";
 import Link from "../../components/link";
@@ -34,11 +35,9 @@ config.autoAddCss = false;
 /* -----------------------------------------------------------------------------*
 COMPONENTS
 *----------------------------------------------------------------------------- */
-const WorkItems = () => {
-  const workItemsArray = [];
-
+const WorkItems = ({ workItems, data }) => {
   /* Pull the list of Projects on Contentful */
-  const data = useStaticQuery(graphql`
+  data = useStaticQuery(graphql`
     {
       projects: contentfulList(slug: { eq: "projects" }) {
         items {
@@ -91,7 +90,7 @@ const WorkItems = () => {
     var tagsArray = [];
 
     /* Add an HTML item to the projects array with information from the Contentful Project item */
-    workItemsArray.push(
+    workItems.push(
       <div key={item.id} className="project-thumbnail" id={item.slug}>
         <Thumbnail
           animation={item.animation}
@@ -161,10 +160,25 @@ const WorkItems = () => {
     );
   });
 
-  return workItemsArray;
+  return workItems;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
+  *-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
+    PROPS
+  *-----------------------------------------------------------------------------*/
+WorkItems.propTypes = {
+  workItems: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
+};
+WorkItems.defaultProps = {
+  workItems: [],
+  data: {},
+};
+/*-----------------------------------------------------------------------------*
+    /PROPS
   *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*

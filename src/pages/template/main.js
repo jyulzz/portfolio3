@@ -42,9 +42,12 @@ const Main = ({ children, type, className }) => {
 Main.propTypes = {
   children: PropTypes.node.isRequired,
   type: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };
 Main.defaultProps = {
-  type: `default`,
+  type: "",
+  children: [],
+  className: "",
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
