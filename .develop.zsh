@@ -10,7 +10,7 @@
 
 #!/bin/zsh
 sudo clear
-echo "\n\033[1;32mdevelop.zsh: a ZSH script to \033[49;33mbuild and run a development\033[0m \033[1;32mversion of this project."
+echo "\n\033[1;49;33mDEVELOP.ZSH:\033[1;32m a ZSH script to \033[49;33mBUILD\033[1;32m and \033[49;33mRUN\033[1;32m a \033[49;33mDEV\033[1;32melopment\033[0m \033[1;32mversion of this project."
 echo "\n\033[1;35m1. Update dependencies:\033[0m\n"
 ncu -u
 echo "\n\033[1;35m2. Install:\033[0m\n"
