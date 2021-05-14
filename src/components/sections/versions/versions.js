@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/work/work.js
+src/components/versions/versions.js
 
 DESCRIPTION
-Builds the Work section used on the Index page.
+Builds the Versions section used on the Index page.
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,10 +12,10 @@ Builds the Work section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { Container } from "../../components/grid";
-import Title from "../../components/title";
-import Section from "../../components/section";
-import WorkItems from "./items";
+import { Container } from "../../ui-kit/grid";
+import Title from "../../ui-kit/title";
+import Section from "../../ui-kit/section";
+import VersionsItems from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,14 +23,14 @@ import WorkItems from "./items";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Work = () => {
+const Versions = () => {
   return (
     <Container>
-      <Section id="work">
+      <Section id="versions">
         <Title level="1">
-          <div>Work</div>
+          <div>Versions</div>
         </Title>
-        <WorkItems />
+        <VersionsItems />
       </Section>
     </Container>
   );
@@ -42,7 +42,7 @@ const Work = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Work;
+export default Versions;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

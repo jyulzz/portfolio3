@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/technologies.js
+src/components/credits.js
 
 DESCRIPTION
-Displays icons linked to sites of technologies used in this project.
+Displays photos linked to profiles of people who inspired the author.
 
 *-----------------------------------------------------------------------------*/
 
@@ -14,8 +14,9 @@ Displays icons linked to sites of technologies used in this project.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "./link";
-import { Gem } from "./gems";
+import Link from "../ui-kit/link";
+import Img from "gatsby-image/withIEPolyfill";
+import { Gem } from "../ui-kit/gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,20 +24,21 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Technologies = ({ technologies = [], data = {} }) => {
-  /* Pull items from the list on Contentful with the slug 'technologies' */
+const Credits = ({ credits = [], data = "" }) => {
+  /* Pull items from the list on Contentful with the slug 'credited-people' */
   data = useStaticQuery(graphql`
     {
-      contentfulList(slug: { eq: "technologies" }) {
+      contentfulList(slug: { eq: "credits" }) {
         id
         items {
-          ... on ContentfulItem {
+          ... on ContentfulPerson {
             id
             name
             link
-            icon {
-              file {
-                url
+            photo {
+              id
+              fluid(maxWidth: 80) {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
@@ -45,22 +47,21 @@ const Technologies = ({ technologies = [], data = {} }) => {
     }
   `);
 
-  /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
+  /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
   data.contentfulList.items.forEach((item) => {
-    technologies.push(
+    credits.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Gem title={item.name}>
-          <img
-            src={"https://" + item.icon.file.url}
-            alt={item.name}
-            height="100%"
-            width="100%"
+          <Img
+            fluid={item.photo.fluid}
+            objectFit="cover"
+            objectPosition="50% 50%"
           />
         </Gem>
       </Link>
     );
   });
-  return technologies;
+  return credits;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -69,12 +70,12 @@ const Technologies = ({ technologies = [], data = {} }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Technologies.propTypes = {
-  technologies: PropTypes.array.isRequired,
+Credits.propTypes = {
+  credits: PropTypes.array.isRequired,
   data: PropTypes.object.isRequired,
 };
-Technologies.defaultProps = {
-  technologies: [],
+Credits.defaultProps = {
+  credits: [],
   data: {},
 };
 /*-----------------------------------------------------------------------------*
@@ -84,7 +85,7 @@ Technologies.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Technologies;
+export default Credits;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

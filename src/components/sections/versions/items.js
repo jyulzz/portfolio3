@@ -14,9 +14,9 @@ IMPORTS
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Title from "../../components/title";
-import Link from "../../components/link";
-import Thumbnail from "../../components/thumbnail";
+import Title from "../../ui-kit/title";
+import Link from "../../ui-kit/link";
+import Thumbnail from "../../ui-kit/thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";

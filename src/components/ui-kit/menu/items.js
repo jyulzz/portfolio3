@@ -14,7 +14,7 @@ Builds a menuItems array with menu items based on Contentful data.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "../../components/link";
+import Link from "../../ui-kit/link";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/

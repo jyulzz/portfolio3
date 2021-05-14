@@ -14,7 +14,7 @@ Render options for the tempalte for the Project pages created through code in /g
 
 import React from "react";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import Link from "../components/link";
+import Link from "../components/ui-kit/link";
 import Conf from "../../conf.yml";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";

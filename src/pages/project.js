@@ -17,12 +17,12 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Options from "../options/project.js";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import Seo from "../components/seo";
+import Seo from "../components/misc/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import Pagination from "../components/pagination";
-import Thumbnail from "../components/thumbnail";
+import Pagination from "../components/ui-kit/pagination";
+import Thumbnail from "../components/ui-kit/thumbnail";
 import "../styles/pages/project.scss";
 
 /*-----------------------------------------------------------------------------*

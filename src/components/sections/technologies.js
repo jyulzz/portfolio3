@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/credits.js
+src/components/technologies.js
 
 DESCRIPTION
-Displays photos linked to profiles of people who inspired the author.
+Displays icons linked to sites of technologies used in this project.
 
 *-----------------------------------------------------------------------------*/
 
@@ -14,9 +14,8 @@ Displays photos linked to profiles of people who inspired the author.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "./link";
-import Img from "gatsby-image/withIEPolyfill";
-import { Gem } from "./gems";
+import Link from "../ui-kit/link";
+import { Gem } from "../ui-kit/gems";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -24,21 +23,20 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Credits = ({ credits = [], data = "" }) => {
-  /* Pull items from the list on Contentful with the slug 'credited-people' */
+const Technologies = ({ technologies = [], data = {} }) => {
+  /* Pull items from the list on Contentful with the slug 'technologies' */
   data = useStaticQuery(graphql`
     {
-      contentfulList(slug: { eq: "credits" }) {
+      contentfulList(slug: { eq: "technologies" }) {
         id
         items {
-          ... on ContentfulPerson {
+          ... on ContentfulItem {
             id
             name
             link
-            photo {
-              id
-              fluid(maxWidth: 80) {
-                ...GatsbyContentfulFluid_withWebp
+            icon {
+              file {
+                url
               }
             }
           }
@@ -47,21 +45,22 @@ const Credits = ({ credits = [], data = "" }) => {
     }
   `);
 
-  /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
+  /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
   data.contentfulList.items.forEach((item) => {
-    credits.push(
+    technologies.push(
       <Link href={item.link} key={item.id} target="_blank">
         <Gem title={item.name}>
-          <Img
-            fluid={item.photo.fluid}
-            objectFit="cover"
-            objectPosition="50% 50%"
+          <img
+            src={"https://" + item.icon.file.url}
+            alt={item.name}
+            height="100%"
+            width="100%"
           />
         </Gem>
       </Link>
     );
   });
-  return credits;
+  return technologies;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -70,12 +69,12 @@ const Credits = ({ credits = [], data = "" }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Credits.propTypes = {
-  credits: PropTypes.array.isRequired,
+Technologies.propTypes = {
+  technologies: PropTypes.array.isRequired,
   data: PropTypes.object.isRequired,
 };
-Credits.defaultProps = {
-  credits: [],
+Technologies.defaultProps = {
+  technologies: [],
   data: {},
 };
 /*-----------------------------------------------------------------------------*
@@ -85,7 +84,7 @@ Credits.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Credits;
+export default Technologies;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

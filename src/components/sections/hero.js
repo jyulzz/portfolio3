@@ -14,10 +14,10 @@ Hero section used on the Index page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Options from "../options/about.js";
+import Options from "../../options/about.js";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Container } from "../components/grid";
-import Section from "../components/section";
+import { Container } from "../../components/ui-kit/grid";
+import Section from "../../components/ui-kit/section";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
