@@ -78,7 +78,7 @@ module.exports = {
         name: `jules-thivent-portfolio`,
         short_name: `jt`,
         start_url: `/`,
-        icon: `src/images/favicon.svg`,
+        icon: `src/assets/images/favicon.svg`,
       },
     },
     {
