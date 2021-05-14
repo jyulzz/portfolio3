@@ -42,6 +42,7 @@ const VersionsItems = ({ versionsItems = [], data = {} }) => {
             description {
               description
             }
+            url
             imagePreview {
               fluid(maxWidth: 800) {
                 ...GatsbyContentfulFluid_withWebp

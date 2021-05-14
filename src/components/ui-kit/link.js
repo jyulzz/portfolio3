@@ -50,8 +50,8 @@ config.autoAddCss = false;
 *-----------------------------------------------------------------------------*/
 const Link = ({
   level = "",
-  rel = "",
   icon = "",
+  rel = "",
   href = "",
   className = "",
   title = "",
