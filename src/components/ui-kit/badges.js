@@ -93,6 +93,16 @@ Badge.defaultProps = {
   title: "",
   children: [],
 };
+Badges.propTypes = {
+  id: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
+};
+Badges.defaultProps = {
+  id: "",
+  data: {},
+  items: [],
+};
 /* ----------------------------------------------------------------------------*
   /PROPS
 *---------------------------------------------------------------------------- */
