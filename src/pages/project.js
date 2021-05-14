@@ -180,20 +180,14 @@ export const query = graphql`
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const ProjectPage = ({
-  data,
-  pageContext,
-  previousProject,
-  nextProject,
-  tagsArray,
-  organizationsArray,
-  projectData,
+  data = {},
+  pageContext = {},
+  previousProject = {},
+  nextProject = {},
+  tagsArray = [],
+  organizationsArray = [],
+  projectData = {},
 }) => {
-  previousProject = {};
-  nextProject = {};
-
-  tagsArray = [];
-  organizationsArray = [];
-
   projectData = data.project.nodes[0];
 
   if (data.previousProject.nodes[0]) {

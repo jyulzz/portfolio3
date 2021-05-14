@@ -23,7 +23,7 @@ import Link from "../../components/link";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 
-function MenuItems({ menuItems, data }) {
+function MenuItems({ menuItems = [], data = {} }) {
   menuItems = [];
   data = useStaticQuery(graphql`
     {

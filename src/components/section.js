@@ -20,7 +20,7 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Section = ({ id, children, className }) => {
+const Section = ({ id = "", children = {}, className = "" }) => {
   return (
     <section id={id} className={className}>
       {children}

@@ -20,17 +20,17 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Container = ({ id, children }) => {
+const Container = ({ id = "", children = {} }) => {
   return (
     <div className={"container "} id={id}>
       {children}
     </div>
   );
 };
-const View = ({ children }) => {
+const View = ({ children = {} }) => {
   return <div className="view">{children}</div>;
 };
-const Grid = ({ children }) => {
+const Grid = ({ children = {} }) => {
   return <div className="grid">{children}</div>;
 };
 

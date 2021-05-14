@@ -41,7 +41,7 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Footer = ({ children }) => {
+const Footer = ({ children = {} }) => {
   const data = useStaticQuery(graphql`
     {
       contentfulPage(slug: { eq: "/about/" }) {

@@ -21,7 +21,7 @@ import { View, Grid, Container } from "../../components/grid";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Main = ({ children, type, className }) => {
+const Main = ({ children = {}, type = "", className = "" }) => {
   return (
     <main className={className}>
       <View>

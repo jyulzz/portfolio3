@@ -23,11 +23,11 @@ import Img from "gatsby-image/withIEPolyfill";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const Thumbnail = ({
-  animation,
-  animationBackground,
-  imagePreview,
-  id,
-  title,
+  animation = {},
+  animationBackground = {},
+  imagePreview = {},
+  id = "",
+  title = "",
 }) => {
   return (
     <span className="thumbnail">

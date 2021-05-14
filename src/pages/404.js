@@ -29,7 +29,7 @@ import "../styles/pages/project.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = ({ data = {} }) => {
   data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {

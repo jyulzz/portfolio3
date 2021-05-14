@@ -33,9 +33,7 @@ import "../styles/pages/project.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const AboutPage = ({ paragraphs, data }) => {
-  paragraphs = [];
-
+const AboutPage = ({ paragraphs = [], data = {} }) => {
   data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {

@@ -27,7 +27,7 @@ import SmoothScroll from "../../components/smooth-scroll.js";
 *-----------------------------------------------------------------------------*/
 
 /* HeaderContent is the general container for the <header/> section */
-const HeaderContent = ({ scroll }) => (
+const HeaderContent = ({ scroll = {} }) => (
   /* Once the user has scrolled past the value 'scroll', the header will get the 'scrolled' class which triggers appearance changes based on CSS rules */
   <>
     <SmoothScroll />

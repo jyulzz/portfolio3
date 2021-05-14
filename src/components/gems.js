@@ -21,7 +21,7 @@ import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Gems = ({ id, children }) => {
+const Gems = ({ id = "", children = {} }) => {
   return (
     <div className={"gems "} id={id}>
       {children}
@@ -29,7 +29,7 @@ const Gems = ({ id, children }) => {
   );
 };
 
-const Gem = ({ title, children }) => {
+const Gem = ({ title = "", children = {} }) => {
   return (
     <>
       {" "}

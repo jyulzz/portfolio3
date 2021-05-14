@@ -24,9 +24,7 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Credits = ({ credits, data }) => {
-  credits = [];
-
+const Credits = ({ credits = [], data = "" }) => {
   /* Pull items from the list on Contentful with the slug 'credited-people' */
   data = useStaticQuery(graphql`
     {

@@ -21,7 +21,7 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Seo = ({ title, description, OGImage }) => {
+const Seo = ({ title = "", description = "", OGImage = "" }) => {
   return (
     <GatsbySeo
       title={title}

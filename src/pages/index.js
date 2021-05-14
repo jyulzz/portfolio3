@@ -30,7 +30,7 @@ import "../styles/pages/index.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data = {} }) => {
   data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {

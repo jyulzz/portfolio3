@@ -48,8 +48,16 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Link = ({ level, icon, href, className, title, target, children }) => {
-  var rel;
+const Link = ({
+  level = "",
+  rel = "",
+  icon = "",
+  href = "",
+  className = "",
+  title = "",
+  target = "",
+  children = {},
+}) => {
   if (href.includes("http")) {
     rel = "noreferrer";
   } else {

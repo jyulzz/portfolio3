@@ -30,7 +30,7 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
 COMPONENTS
 *-----------------------------------------------------------------------------*/
-const VersionsItems = ({ versionsItems, data }) => {
+const VersionsItems = ({ versionsItems = [], data = {} }) => {
   /* Pull the list of Projects on Contentful*/
   data = useStaticQuery(graphql`
     {

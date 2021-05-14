@@ -23,9 +23,7 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Technologies = ({ technologies, data }) => {
-  technologies = [];
-
+const Technologies = ({ technologies = [], data = {} }) => {
   /* Pull items from the list on Contentful with the slug 'technologies' */
   data = useStaticQuery(graphql`
     {
