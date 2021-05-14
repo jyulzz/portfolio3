@@ -39,7 +39,7 @@
     "gatsby-transformer-sharp": "^3.5.0",
     "lottie-web": "^5.7.8",
     "node-sass": "^6.0.0",
-    "npm-check-updates": "^11.5.11",
+    "npm-check-updates": "^11.5.12",
     "postcss": "^8.2.15",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
