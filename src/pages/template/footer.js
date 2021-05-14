@@ -14,15 +14,13 @@ Contains the base setup for setting the <footer/> tag and its contents within th
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import { View, Grid } from "../../components/grid";
+import { View, Grid, Container } from "../../components/ui-kit/view";
 import Emoji from "a11y-react-emoji";
-import Link from "../../components/link";
-import { Container } from "../../components/grid";
-import Title from "../../components/title";
-import Section from "../../components/section";
-import { Gems } from "../../components/gems";
-import Credits from "../../components/credits";
-import Technologies from "../../components/technologies";
+import Link from "../../components/ui-kit/link";
+import Title from "../../components/ui-kit/title";
+import Section from "../../components/ui-kit/section";
+import Credits from "../../components/sections/credits";
+import Technologies from "../../components/sections/technologies";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
@@ -41,7 +39,7 @@ config.autoAddCss = false;
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Footer = ({ children }) => {
+const Footer = ({ children = {} }) => {
   const data = useStaticQuery(graphql`
     {
       contentfulPage(slug: { eq: "/about/" }) {
@@ -190,17 +188,13 @@ const Footer = ({ children }) => {
               <Title level="2">Inspiration</Title>
               <Emoji symbol="🙏" label="Person With Folded Hands Emoji" /> Many
               thanks
-              <Gems id="credits">
-                <Credits />
-              </Gems>
+              <Credits />
             </Section>
             <Section>
               <Title level="2">Stack</Title>
               <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I build
               this with
-              <Gems id="technologies">
-                <Technologies />
-              </Gems>
+              <Technologies />
             </Section>
           </Container>
         </Grid>

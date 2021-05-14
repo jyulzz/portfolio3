@@ -18,11 +18,11 @@ import Options from "../options/about.js";
 import _JSXStyle from "styled-jsx/style";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Seo from "../components/seo";
+import Seo from "../components/misc/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import Link from "../components/link";
+import Link from "../components/ui-kit/link";
 import "../styles/pages/about.scss";
 import "../styles/pages/project.scss";
 
@@ -33,9 +33,7 @@ import "../styles/pages/project.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const AboutPage = ({ paragraphs, data }) => {
-  paragraphs = [];
-
+const AboutPage = ({ paragraphs = [], data = {} }) => {
   data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {

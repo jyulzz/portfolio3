@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/logo.js
+src/components/misc/seo.js
 
 DESCRIPTION
-Logo component used in the main navigation header.
+Wrapper for the GatsbySeo component
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,7 +12,8 @@ Logo component used in the main navigation header.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import Link from "./link";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -20,17 +21,26 @@ import Link from "./link";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Logo = () => {
+const Seo = ({ title = "", description = "", OGImage = "" }) => {
   return (
-    <Link
-      href="/"
-      level=""
-      title="Go to Index Page"
-      tabIndex="0"
-      className="logo"
-    >
-      JT
-    </Link>
+    <GatsbySeo
+      title={title}
+      description={description}
+      openGraph={{
+        type: "website",
+        title: title + " | Jules Thivent - Product and UX Designer – Portfolio",
+        locale: "enUS",
+        description: description,
+        images: [
+          {
+            url: "https://" + OGImage + "?fm=png&w=800&h=600",
+            width: 800,
+            height: 600,
+            alt: "Jules Thivent - Product and UX Designer – Portfolio",
+          },
+        ],
+      }}
+    />
   );
 };
 /*-----------------------------------------------------------------------------*
@@ -38,9 +48,23 @@ const Logo = () => {
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Seo.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+Seo.defaultProps = {
+  title: "Home",
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Logo;
+export default Seo;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

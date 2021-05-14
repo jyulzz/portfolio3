@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------*
 
 FILE
-src/components/work/items.js
+src/components/sections/work/items.js
 
 DESCRIPTION
 Builds a block showing previews of Projects pulled from Contentful.
@@ -14,9 +14,9 @@ IMPORTS
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Title from "../../components/title";
-import Link from "../../components/link";
-import Thumbnail from "../../components/thumbnail";
+import Title from "../../ui-kit/title";
+import Link from "../../ui-kit/link";
+import Thumbnail from "../../ui-kit/thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -35,7 +35,7 @@ config.autoAddCss = false;
 /* -----------------------------------------------------------------------------*
 COMPONENTS
 *----------------------------------------------------------------------------- */
-const WorkItems = ({ workItems, data }) => {
+const WorkItems = ({ workItems = [], data = {} }) => {
   /* Pull the list of Projects on Contentful */
   data = useStaticQuery(graphql`
     {

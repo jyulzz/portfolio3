@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/hero.js
+src/options/hero.js
 
 DESCRIPTION
-Hero section used on the Index page.
+Render options for the Hero section for the Index page.
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,13 +12,9 @@ Hero section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Emoji from "a11y-react-emoji";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { Container } from "../components/grid";
-import Section from "../components/section";
+import Emoji from "a11y-react-emoji";
+
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -27,7 +23,7 @@ import Section from "../components/section";
   OPTIONS
 *-----------------------------------------------------------------------------*/
 /* 'options' contains rendering directives for Rich Text content received from Contentful, including embedded assets, paragraphs and headers. */
-const options = {
+const Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <p>{children}</p>;
@@ -64,53 +60,9 @@ const options = {
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
-  COMPONENTS
-*-----------------------------------------------------------------------------*/
-const Hero = ({ data }) => {
-  /* Pull the Site entry from Contentful for this site. */
-  data = useStaticQuery(graphql`
-    {
-      contentfulSite(slug: { eq: "jules-thivent" }) {
-        id
-        name
-        hero {
-          raw
-        }
-      }
-    }
-  `);
-  return (
-    <Container>
-      <Section id="hero">
-        {documentToReactComponents(
-          JSON.parse(data.contentfulSite.hero.raw),
-          options
-        )}
-      </Section>
-    </Container>
-  );
-};
-/*-----------------------------------------------------------------------------*
-  /COMPONENTS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
-  PROPS
-*-----------------------------------------------------------------------------*/
-Hero.propTypes = {
-  data: PropTypes.object.isRequired,
-};
-Hero.defaultProps = {
-  data: {},
-};
-/*-----------------------------------------------------------------------------*
-  /PROPS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Hero;
+export default Options;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

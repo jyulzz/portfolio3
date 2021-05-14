@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/work/work.js
+src/components/sections/work/work.js
 
 DESCRIPTION
 Builds the Work section used on the Index page.
@@ -12,9 +12,9 @@ Builds the Work section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { Container } from "../../components/grid";
-import Title from "../../components/title";
-import Section from "../../components/section";
+import { Container } from "../../ui-kit/view";
+import Title from "../../ui-kit/title";
+import Section from "../../ui-kit/section";
 import WorkItems from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS

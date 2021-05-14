@@ -1,10 +1,11 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/technologies.js
+src/components/ui-kit/badges.js
 
 DESCRIPTION
-Displays icons linked to sites of technologies used in this project.
+Displays badges linked to people who's work is credited or sites of technologies
+used in this project.
 
 *-----------------------------------------------------------------------------*/
 
@@ -13,9 +14,9 @@ Displays icons linked to sites of technologies used in this project.
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Link from "./link";
-import { Gem } from "./gems";
+import Link from "../ui-kit/link";
+import Img from "gatsby-image/withIEPolyfill";
+import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,47 +24,60 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Technologies = ({ technologies, data }) => {
-  technologies = [];
 
-  /* Pull items from the list on Contentful with the slug 'technologies' */
-  data = useStaticQuery(graphql`
-    {
-      contentfulList(slug: { eq: "technologies" }) {
-        id
-        items {
-          ... on ContentfulItem {
-            id
-            name
-            link
-            icon {
-              file {
-                url
-              }
-            }
-          }
+const Badge = ({ title = "", children = {} }) => {
+  return (
+    <>
+      {" "}
+      <style jsx>{`
+        .badge {
+          overflow: hidden;
         }
-      }
-    }
-  `);
-
-  /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
-  data.contentfulList.items.forEach((item) => {
-    technologies.push(
-      <Link href={item.link} key={item.id} target="_blank">
-        <Gem title={item.name}>
-          <img
-            src={"https://" + item.icon.file.url}
-            alt={item.name}
-            height="100%"
-            width="100%"
-          />
-        </Gem>
-      </Link>
-    );
-  });
-  return technologies;
+      `}</style>
+      <span className={"badge"} role="img" title={title}>
+        {children}
+      </span>
+    </>
+  );
 };
+
+const Badges = ({ data, items = [], id }) => {
+  data.contentfulList.items.forEach((item) => {
+    if (item.photo) {
+      items.push(
+        <Link href={item.link} key={item.id} target="_blank">
+          <Badge title={item.name}>
+            <Img
+              fluid={item.photo.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+            />
+          </Badge>
+        </Link>
+      );
+    } else if (item.icon) {
+      items.push(
+        <Link href={item.link} key={item.id} target="_blank">
+          <Badge title={item.name}>
+            <img
+              src={item.icon.file.url}
+              alt={item.name}
+              height="100%"
+              width="100%"
+            />
+          </Badge>
+        </Link>
+      );
+    }
+  });
+
+  return (
+    <div className="badges" key={id} id={id}>
+      {items}
+    </div>
+  );
+};
+
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -71,13 +85,13 @@ const Technologies = ({ technologies, data }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Technologies.propTypes = {
-  technologies: PropTypes.array.isRequired,
-  data: PropTypes.object.isRequired,
+Badge.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
 };
-Technologies.defaultProps = {
-  technologies: [],
-  data: {},
+Badge.defaultProps = {
+  title: "",
+  children: [],
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -86,7 +100,7 @@ Technologies.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Technologies;
+export default Badges;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

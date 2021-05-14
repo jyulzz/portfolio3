@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/credits.js
+src/components/sections/hero.js
 
 DESCRIPTION
-Displays photos linked to profiles of people who inspired the author.
+Hero section used on the Index page.
 
 *-----------------------------------------------------------------------------*/
 
@@ -14,9 +14,10 @@ Displays photos linked to profiles of people who inspired the author.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "./link";
-import Img from "gatsby-image/withIEPolyfill";
-import { Gem } from "./gems";
+import Options from "../../options/about.js";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Container } from "../../components/ui-kit/view";
+import Section from "../../components/ui-kit/section";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -24,46 +25,30 @@ import { Gem } from "./gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Credits = ({ credits, data }) => {
-  credits = [];
-
-  /* Pull items from the list on Contentful with the slug 'credited-people' */
+const Hero = ({ data = {}, options = {} }) => {
+  options = Options;
+  /* Pull the Site entry from Contentful for this site. */
   data = useStaticQuery(graphql`
     {
-      contentfulList(slug: { eq: "credits" }) {
+      contentfulSite(slug: { eq: "jules-thivent" }) {
         id
-        items {
-          ... on ContentfulPerson {
-            id
-            name
-            link
-            photo {
-              id
-              fluid(maxWidth: 80) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-          }
+        name
+        hero {
+          raw
         }
       }
     }
   `);
-
-  /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
-  data.contentfulList.items.forEach((item) => {
-    credits.push(
-      <Link href={item.link} key={item.id} target="_blank">
-        <Gem title={item.name}>
-          <Img
-            fluid={item.photo.fluid}
-            objectFit="cover"
-            objectPosition="50% 50%"
-          />
-        </Gem>
-      </Link>
-    );
-  });
-  return credits;
+  return (
+    <Container>
+      <Section id="hero">
+        {documentToReactComponents(
+          JSON.parse(data.contentfulSite.hero.raw),
+          options
+        )}
+      </Section>
+    </Container>
+  );
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -72,13 +57,13 @@ const Credits = ({ credits, data }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Credits.propTypes = {
-  credits: PropTypes.array.isRequired,
+Hero.propTypes = {
   data: PropTypes.object.isRequired,
+  options: PropTypes.object.isRequired,
 };
-Credits.defaultProps = {
-  credits: [],
+Hero.defaultProps = {
   data: {},
+  options: {},
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -87,7 +72,7 @@ Credits.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Credits;
+export default Hero;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

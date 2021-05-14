@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/pages/index.js
+src/components/sections/technologies.js
 
 DESCRIPTION
-Page template for the Index page.
+Displays icons linked to sites of technologies used in this project.
 
 *-----------------------------------------------------------------------------*/
 
@@ -14,15 +14,7 @@ Page template for the Index page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Seo from "../components/misc/seo";
-import Header from "./template/header";
-import Main from "./template/main";
-import Footer from "./template/footer";
-import Hero from "../components/sections/hero";
-import Work from "../components/sections/work/work";
-import Versions from "../components/sections/versions/versions";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/pages/index.scss";
+import Badges from "../ui-kit/badges.js";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -30,36 +22,29 @@ import "../styles/pages/index.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const IndexPage = ({ data = {} }) => {
+
+const Technologies = ({ data = {} }) => {
   data = useStaticQuery(graphql`
     {
-      indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {
-        file {
-          url
+      contentfulList(slug: { eq: "technologies" }) {
+        id
+        items {
+          ... on ContentfulItem {
+            id
+            name
+            link
+            icon {
+              file {
+                url
+              }
+            }
+          }
         }
       }
     }
   `);
 
-  return (
-    <>
-      <Seo
-        title="Home"
-        description="Jules Thivent is a product designer focused on creating growth and success by delivering great user experiences since 2006."
-        OGImage={data.indexOGImage.file.url}
-      />
-
-      <Header />
-
-      <Main className="index">
-        <Hero />
-        <Work />
-        <Versions />
-      </Main>
-
-      <Footer />
-    </>
-  );
+  return <Badges data={data} id="technologies" />;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -68,10 +53,10 @@ const IndexPage = ({ data = {} }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-IndexPage.propTypes = {
+Technologies.propTypes = {
   data: PropTypes.object.isRequired,
 };
-IndexPage.defaultProps = {
+Technologies.defaultProps = {
   data: {},
 };
 /*-----------------------------------------------------------------------------*
@@ -81,7 +66,7 @@ IndexPage.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default IndexPage;
+export default Technologies;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

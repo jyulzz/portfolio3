@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/grid.js
+src/components/ui-kit/thumbnail.js
 
 DESCRIPTION
-Contains the View, Grid and Container components that are used to build the grid system used throughout this portfolio.
+Thumbnail component used in Work and Versions cards
 
 *-----------------------------------------------------------------------------*/
 
@@ -13,6 +13,8 @@ Contains the View, Grid and Container components that are used to build the grid
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
+import Animation from "./animation";
+import Img from "gatsby-image/withIEPolyfill";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -20,20 +22,33 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Container = ({ id, children }) => {
+const Thumbnail = ({
+  animation = {},
+  animationBackground = {},
+  imagePreview = {},
+  id = "",
+  title = "",
+}) => {
   return (
-    <div className={"container "} id={id}>
-      {children}
-    </div>
+    <span className="thumbnail">
+      {animation !== null && animationBackground !== null ? (
+        <Animation
+          id={id}
+          src={animation.file.url}
+          background={animationBackground.fluid}
+        />
+      ) : (
+        <Img
+          fluid={imagePreview.fluid}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          alt={title}
+          style={{ height: "100%" }}
+        />
+      )}
+    </span>
   );
 };
-const View = ({ children }) => {
-  return <div className="view">{children}</div>;
-};
-const Grid = ({ children }) => {
-  return <div className="grid">{children}</div>;
-};
-
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -41,30 +56,19 @@ const Grid = ({ children }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Container.propTypes = {
+Thumbnail.propTypes = {
+  animation: PropTypes.object.isRequired,
+  animationBackground: PropTypes.object.isRequired,
+  imagePreview: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
 };
-
-Container.defaultProps = {
+Thumbnail.defaultProps = {
+  animation: {},
+  animationBackground: {},
+  imagePreview: {},
   id: "",
-  children: [],
-};
-
-View.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-View.defaultProps = {
-  children: [],
-};
-
-Grid.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-Grid.defaultProps = {
-  children: [],
+  title: "",
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -73,7 +77,7 @@ Grid.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Grid, View, Container };
+export default Thumbnail;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

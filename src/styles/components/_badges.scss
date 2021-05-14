@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/styles/components/_gems.scss
+src/styles/components/_badges.scss
 
 DESCRIPTION
 Styles for Gems and Gem components.
@@ -9,9 +9,9 @@ Styles for Gems and Gem components.
 *-----------------------------------------------------------------------------*/
 
 body {
-  .gems {
+  .badges {
     margin-top: 0;
-    .gem {
+    .badge {
       box-sizing: border-box;
       display: inline-block;
       width: 40px;

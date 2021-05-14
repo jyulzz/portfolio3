@@ -14,8 +14,8 @@ Page template for the 404 page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Seo from "../components/seo";
-import { Container } from "../components/grid";
+import Seo from "../components/misc/seo";
+import { Container } from "../components/ui-kit/view";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
@@ -29,7 +29,7 @@ import "../styles/pages/project.scss";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = ({ data = {} }) => {
   data = useStaticQuery(graphql`
     {
       indexOGImage: contentfulAsset(title: { eq: "Index OG Image" }) {

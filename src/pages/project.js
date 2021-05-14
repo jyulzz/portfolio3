@@ -17,12 +17,12 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Options from "../options/project.js";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import Seo from "../components/seo";
+import Seo from "../components/misc/seo";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
-import Pagination from "../components/pagination";
-import Thumbnail from "../components/thumbnail";
+import Pagination from "../components/ui-kit/pagination";
+import Thumbnail from "../components/ui-kit/thumbnail";
 import "../styles/pages/project.scss";
 
 /*-----------------------------------------------------------------------------*
@@ -180,20 +180,14 @@ export const query = graphql`
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 const ProjectPage = ({
-  data,
-  pageContext,
-  previousProject,
-  nextProject,
-  tagsArray,
-  organizationsArray,
-  projectData,
+  data = {},
+  pageContext = {},
+  previousProject = {},
+  nextProject = {},
+  tags = [],
+  organizations = [],
+  projectData = {},
 }) => {
-  previousProject = {};
-  nextProject = {};
-
-  tagsArray = [];
-  organizationsArray = [];
-
   projectData = data.project.nodes[0];
 
   if (data.previousProject.nodes[0]) {
@@ -244,7 +238,7 @@ const ProjectPage = ({
                   projectData.released === true &&
                   projectData.inProgress === false
                     ? projectData.organizations.forEach((organization) => {
-                        organizationsArray.push(
+                        organizations.push(
                           <div className="tag organization">
                             {organization.name}
                           </div>
@@ -252,12 +246,12 @@ const ProjectPage = ({
                       })
                     : null}
 
-                  {organizationsArray.length > 1 ? (
+                  {organizations.length > 1 ? (
                     <div className="tag organization">
                       Multiple Organizations
                     </div>
                   ) : (
-                    <>{organizationsArray}</>
+                    <>{organizations}</>
                   )}
 
                   {projectData.released === true &&
@@ -279,7 +273,7 @@ const ProjectPage = ({
                   )}
                   {projectData.tags
                     ? projectData.tags.forEach((tag) => {
-                        tagsArray.push(
+                        tags.push(
                           <div className="tag generic">{tag.name}</div>
                         );
                       })
@@ -289,7 +283,7 @@ const ProjectPage = ({
                       {projectData.readingTime} mins read
                     </div>
                   ) : null}
-                  {tagsArray}
+                  {tags}
                 </>
               </div>
             </div>
@@ -333,8 +327,8 @@ ProjectPage.propTypes = {
   pageContext: PropTypes.object.isRequired,
   previousProject: PropTypes.object.isRequired,
   nextProject: PropTypes.object.isRequired,
-  tagsArray: PropTypes.array.isRequired,
-  organizationsArray: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
+  organizations: PropTypes.array.isRequired,
   projectData: PropTypes.object.isRequired,
 };
 
@@ -343,8 +337,8 @@ ProjectPage.defaultProps = {
   pageContext: [],
   previousProject: {},
   nextProject: {},
-  tagsArray: [],
-  organizationsArray: [],
+  tags: [],
+  organizations: [],
   projectData: {},
 };
 /*-----------------------------------------------------------------------------*

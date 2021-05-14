@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/versions/versions.js
+src/components/ui-kit/title.js
 
 DESCRIPTION
-Builds the Versions section used on the Index page.
+Title component with 'level' property allowing titles to be styled differently for each level defined in CSS.
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,10 +12,7 @@ Builds the Versions section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { Container } from "../../components/grid";
-import Title from "../../components/title";
-import Section from "../../components/section";
-import VersionsItems from "./items";
+import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,26 +20,33 @@ import VersionsItems from "./items";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Versions = () => {
-  return (
-    <Container>
-      <Section id="versions">
-        <Title level="1">
-          <div>Versions</div>
-        </Title>
-        <VersionsItems />
-      </Section>
-    </Container>
-  );
+const Title = ({ level = "", children = {} }) => {
+  return <div className={"title level" + level}>{children}</div>;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
+  PROPS
+*-----------------------------------------------------------------------------*/
+Title.propTypes = {
+  level: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+Title.defaultProps = {
+  level: "",
+  children: [],
+};
+/*-----------------------------------------------------------------------------*
+  /PROPS
+*-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Versions;
+export default Title;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

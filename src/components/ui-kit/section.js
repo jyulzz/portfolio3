@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/seo.js
+src/components/ui-kit/section.js
 
 DESCRIPTION
-Wrapper for the GatsbySeo component
+Section component.
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,7 +12,6 @@ Wrapper for the GatsbySeo component
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
 import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
@@ -21,26 +20,11 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Seo = ({ title, description, OGImage }) => {
+const Section = ({ id = "", children = {}, className = "" }) => {
   return (
-    <GatsbySeo
-      title={title}
-      description={description}
-      openGraph={{
-        type: "website",
-        title: title + " | Jules Thivent - Product and UX Designer – Portfolio",
-        locale: "enUS",
-        description: description,
-        images: [
-          {
-            url: "https://" + OGImage + "?fm=png&w=800&h=600",
-            width: 800,
-            height: 600,
-            alt: "Jules Thivent - Product and UX Designer – Portfolio",
-          },
-        ],
-      }}
-    />
+    <section id={id} className={className}>
+      {children}
+    </section>
   );
 };
 /*-----------------------------------------------------------------------------*
@@ -50,12 +34,15 @@ const Seo = ({ title, description, OGImage }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Seo.propTypes = {
-  title: PropTypes.string.isRequired,
+Section.propTypes = {
+  id: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
-
-Seo.defaultProps = {
-  title: "Home",
+Section.defaultProps = {
+  id: "",
+  children: [],
+  className: "",
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -64,7 +51,7 @@ Seo.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Seo;
+export default Section;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

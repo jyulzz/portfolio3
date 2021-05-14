@@ -1,17 +1,21 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/smooth-scroll.js
+src/components/sections/versions/versions.js
 
 DESCRIPTION
-Smooth scroll component.
+Builds the Versions section used on the Index page.
 
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
   IMPORTS
 *-----------------------------------------------------------------------------*/
-import { useEffect } from "react";
+import React from "react";
+import { Container } from "../../ui-kit/view";
+import Title from "../../ui-kit/title";
+import Section from "../../ui-kit/section";
+import VersionsItems from "./items";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -19,20 +23,17 @@ import { useEffect } from "react";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const SmoothScroll = () => {
-  useEffect(function mount() {
-    require("smooth-scroll")('nav#main a[href*="#"]', {
-      header: "[data-scroll-header]",
-      offset: 80,
-      speed: 500,
-      speedAsDuration: true,
-      easing: "easeInOutQuad",
-      updateURL: true,
-      popstate: true,
-      clip: true,
-    });
-  });
-  return null;
+const Versions = () => {
+  return (
+    <Container>
+      <Section id="versions">
+        <Title level="1">
+          <div>Versions</div>
+        </Title>
+        <VersionsItems />
+      </Section>
+    </Container>
+  );
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -41,7 +42,7 @@ const SmoothScroll = () => {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default SmoothScroll;
+export default Versions;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

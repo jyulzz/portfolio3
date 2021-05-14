@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/title.js
+src/components/ui-kit/logo.js
 
 DESCRIPTION
-Title component with 'level' property allowing titles to be styled differently for each level defined in CSS.
+Logo component used in the main navigation header.
 
 *-----------------------------------------------------------------------------*/
 
@@ -12,7 +12,7 @@ Title component with 'level' property allowing titles to be styled differently f
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import PropTypes from "prop-types";
+import Link from "./link";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -20,33 +20,27 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Title = ({ level, children }) => {
-  return <div className={"title level" + level}>{children}</div>;
+const Logo = () => {
+  return (
+    <Link
+      href="/"
+      level=""
+      title="Go to Index Page"
+      tabIndex="0"
+      className="logo"
+    >
+      JT
+    </Link>
+  );
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------*
-  PROPS
-*-----------------------------------------------------------------------------*/
-Title.propTypes = {
-  level: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
-
-Title.defaultProps = {
-  level: "",
-  children: [],
-};
-/*-----------------------------------------------------------------------------*
-  /PROPS
-*-----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Title;
+export default Logo;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

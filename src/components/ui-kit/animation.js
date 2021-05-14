@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/animation.js
+src/components/ui-kit/animation.js
 
 DESCRIPTION
 Animation component based on lottie-web.
@@ -23,8 +23,8 @@ import Img from "gatsby-image/withIEPolyfill";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Animation = ({ id, src, background }) => {
-  const fetchData = React.useCallback(() => {
+const Animation = ({ id = "", src = "", background = {}, fetchData = {} }) => {
+  fetchData = React.useCallback(() => {
     axios({
       method: "GET",
       url: src,
@@ -89,7 +89,7 @@ Animation.propTypes = {
 Animation.defaultProps = {
   id: "",
   src: "",
-  background: [],
+  background: {},
 };
 /*-----------------------------------------------------------------------------*
   /PROPS

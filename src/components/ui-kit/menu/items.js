@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/menu/items.js
+src/components/ui-kit/menu/items.js
 
 DESCRIPTION
-Builds a menuItems array with menu items based on Contentful data.
+Builds an array with menu items based on Contentful data.
 
 *-----------------------------------------------------------------------------*/
 
@@ -14,7 +14,7 @@ Builds a menuItems array with menu items based on Contentful data.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "../../components/link";
+import Link from "../../ui-kit/link";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,7 +23,7 @@ import Link from "../../components/link";
   COMPONENTS
 *-----------------------------------------------------------------------------*/
 
-function MenuItems({ menuItems, data }) {
+function MenuItems({ menuItems = [], data = {} }) {
   menuItems = [];
   data = useStaticQuery(graphql`
     {

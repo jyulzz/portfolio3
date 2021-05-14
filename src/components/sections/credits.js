@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/thumbnail.js
+src/components/sections/credits.js
 
 DESCRIPTION
-Thumbnail component used in Work and Versions cards
+Displays photos linked to profiles of people who inspired the author.
 
 *-----------------------------------------------------------------------------*/
 
@@ -13,8 +13,9 @@ Thumbnail component used in Work and Versions cards
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
-import Animation from "./animation";
-import Img from "gatsby-image/withIEPolyfill";
+import { useStaticQuery, graphql } from "gatsby";
+import Badges from "../ui-kit/badges";
+
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -22,33 +23,32 @@ import Img from "gatsby-image/withIEPolyfill";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Thumbnail = ({
-  animation,
-  animationBackground,
-  imagePreview,
-  id,
-  title,
-}) => {
-  return (
-    <span className="thumbnail">
-      {animation !== null && animationBackground !== null ? (
-        <Animation
-          id={id}
-          src={animation.file.url}
-          background={animationBackground.fluid}
-        />
-      ) : (
-        <Img
-          fluid={imagePreview.fluid}
-          objectFit="cover"
-          objectPosition="50% 50%"
-          alt={title}
-          style={{ height: "100%" }}
-        />
-      )}
-    </span>
-  );
+
+const Credits = ({ data = {} }) => {
+  data = useStaticQuery(graphql`
+    {
+      contentfulList(slug: { eq: "credits" }) {
+        id
+        items {
+          ... on ContentfulPerson {
+            id
+            name
+            link
+            photo {
+              id
+              fluid(maxWidth: 80) {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return <Badges data={data} id="credits" />;
 };
+
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -56,19 +56,11 @@ const Thumbnail = ({
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Thumbnail.propTypes = {
-  animation: PropTypes.object.isRequired,
-  animationBackground: PropTypes.object.isRequired,
-  imagePreview: PropTypes.object.isRequired,
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+Credits.propTypes = {
+  data: PropTypes.object.isRequired,
 };
-Thumbnail.defaultProps = {
-  animation: {},
-  animationBackground: {},
-  imagePreview: {},
-  id: "",
-  title: "",
+Credits.defaultProps = {
+  data: {},
 };
 /*-----------------------------------------------------------------------------*
   /PROPS
@@ -77,7 +69,7 @@ Thumbnail.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export default Thumbnail;
+export default Credits;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

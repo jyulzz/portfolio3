@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/gems.js
+src/components/ui-kit/view.js
 
 DESCRIPTION
-Gems and Gem components
+Contains the View, Grid and Container components that are used to build the grid system used throughout this portfolio.
 
 *-----------------------------------------------------------------------------*/
 
@@ -13,7 +13,6 @@ Gems and Gem components
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
-import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -21,27 +20,17 @@ import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Gems = ({ id, children }) => {
+const View = ({ children = {} }) => {
+  return <div className="view">{children}</div>;
+};
+const Grid = ({ children = {} }) => {
+  return <div className="grid">{children}</div>;
+};
+const Container = ({ id = "", children = {} }) => {
   return (
-    <div className={"gems "} id={id}>
+    <div className={"container "} id={id}>
       {children}
     </div>
-  );
-};
-
-const Gem = ({ title, children }) => {
-  return (
-    <>
-      {" "}
-      <style jsx>{`
-        .gem {
-          overflow: hidden;
-        }
-      `}</style>
-      <span className={"gem"} role="img" title={title}>
-        {children}
-      </span>
-    </>
   );
 };
 /*-----------------------------------------------------------------------------*
@@ -51,20 +40,29 @@ const Gem = ({ title, children }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Gems.propTypes = {
+View.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+View.defaultProps = {
+  children: [],
+};
+
+Grid.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+Grid.defaultProps = {
+  children: [],
+};
+
+Container.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
-Gems.defaultProps = {
+
+Container.defaultProps = {
   id: "",
-  children: [],
-};
-Gem.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-Gem.defaultProps = {
-  title: "",
   children: [],
 };
 /*-----------------------------------------------------------------------------*
@@ -74,7 +72,7 @@ Gem.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Gem };
+export { View, Grid, Container };
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

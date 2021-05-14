@@ -13,7 +13,7 @@ Contains the base setup for setting the <main/> tag and its contents within the 
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Grid, Container } from "../../components/grid";
+import { View, Grid, Container } from "../../components/ui-kit/view";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -21,7 +21,7 @@ import { View, Grid, Container } from "../../components/grid";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Main = ({ children, type, className }) => {
+const Main = ({ children = {}, type = "", className = "" }) => {
   return (
     <main className={className}>
       <View>

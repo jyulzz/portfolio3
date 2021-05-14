@@ -14,10 +14,10 @@ Contains the base setup for setting the <header/> tag and its contents within th
 import React from "react";
 import PropTypes from "prop-types";
 import { ViewportProvider, connectViewport } from "react-viewport-utils";
-import Logo from "../../components/logo";
-import Menu from "../../components/menu/menu";
-import { View, Grid, Container } from "../../components/grid";
-import SmoothScroll from "../../components/smooth-scroll.js";
+import Logo from "../../components/ui-kit/logo";
+import Menu from "../../components/ui-kit/menu/menu";
+import { View, Grid, Container } from "../../components/ui-kit/view";
+import SmoothScroll from "../../components/misc/smooth-scroll.js";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -27,7 +27,7 @@ import SmoothScroll from "../../components/smooth-scroll.js";
 *-----------------------------------------------------------------------------*/
 
 /* HeaderContent is the general container for the <header/> section */
-const HeaderContent = ({ scroll }) => (
+const HeaderContent = ({ scroll = {} }) => (
   /* Once the user has scrolled past the value 'scroll', the header will get the 'scrolled' class which triggers appearance changes based on CSS rules */
   <>
     <SmoothScroll />
