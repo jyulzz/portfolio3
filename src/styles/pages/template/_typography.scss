@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------*
+/* ----------------------------------------------------------------------------*
 
 FILE
 src/styles/pages/template/_typography.scss
@@ -6,7 +6,7 @@ src/styles/pages/template/_typography.scss
 DESCRIPTION
 Typography styles.
 
-*-----------------------------------------------------------------------------*/
+*---------------------------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:Roboto:300,400,500,600,700,300i,400i,500i,600i,700i&display=swap");
 $fa-font-path: "../../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 @import "node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss";
