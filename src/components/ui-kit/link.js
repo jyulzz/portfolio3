@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/link.js
+src/components/ui-kit/link.js
 
 DESCRIPTION
 Link component. Links can have an icon or no icon, and can have a level of importance such as 'primary' for which specific CSS classes are applied for specific appearances.

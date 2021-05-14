@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/animation.js
+src/components/ui-kit/animation.js
 
 DESCRIPTION
 Animation component based on lottie-web.

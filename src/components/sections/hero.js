@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/hero.js
+src/components/sections/hero.js
 
 DESCRIPTION
 Hero section used on the Index page.

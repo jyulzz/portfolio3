@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/section.js
+src/components/ui-kit/section.js
 
 DESCRIPTION
 Section component.

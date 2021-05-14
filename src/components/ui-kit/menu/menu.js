@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------*
 
 FILE
-src/components/menu/menu.js
+src/components/ui-kit/menu/menu.js
 
 DESCRIPTION
 Builds the main navigation menu.

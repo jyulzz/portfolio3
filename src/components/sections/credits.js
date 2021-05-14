@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/credits.js
+src/components/sections/credits.js
 
 DESCRIPTION
 Displays photos linked to profiles of people who inspired the author.

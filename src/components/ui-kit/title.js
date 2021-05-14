@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/title.js
+src/components/ui-kit/title.js
 
 DESCRIPTION
 Title component with 'level' property allowing titles to be styled differently for each level defined in CSS.

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/versions/versions.js
+src/components/sections/versions/versions.js
 
 DESCRIPTION
 Builds the Versions section used on the Index page.

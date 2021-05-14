@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/versions/items.js
+src/components/sections/versions/items.js
 
 DESCRIPTION
 Builds a block showing previews of Versions pulled from Contentful.

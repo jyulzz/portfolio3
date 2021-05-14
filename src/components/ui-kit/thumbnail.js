@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/thumbnail.js
+src/components/ui-kit/thumbnail.js
 
 DESCRIPTION
 Thumbnail component used in Work and Versions cards

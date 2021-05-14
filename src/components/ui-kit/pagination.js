@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/pagination.js
+src/components/ui-kit/pagination.js
 
 DESCRIPTION
 Template for the Pagination component used in the Project template.

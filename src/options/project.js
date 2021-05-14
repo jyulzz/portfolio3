@@ -4,7 +4,7 @@ FILE
 src/options/project.js
 
 DESCRIPTION
-Render options for the tempalte for the Project pages created through code in /gatsby-node.js
+Render options for the template for the Project pages created through code in /gatsby-node.js
 
 *-----------------------------------------------------------------------------*/
 

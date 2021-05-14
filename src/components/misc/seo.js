@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/seo.js
+src/components/misc/seo.js
 
 DESCRIPTION
 Wrapper for the GatsbySeo component

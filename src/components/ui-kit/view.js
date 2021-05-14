@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/grid.js
+src/components/ui-kit/view.js
 
 DESCRIPTION
 Contains the View, Grid and Container components that are used to build the grid system used throughout this portfolio.

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/logo.js
+src/components/ui-kit/logo.js
 
 DESCRIPTION
 Logo component used in the main navigation header.

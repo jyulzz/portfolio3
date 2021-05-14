@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/smooth-scroll.js
+src/components/misc/smooth-scroll.js
 
 DESCRIPTION
 Smooth scroll component.

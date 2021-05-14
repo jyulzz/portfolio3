@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/options/about.js
+src/options/hero.js
 
 DESCRIPTION
 Render options for the Hero section for the Index page.

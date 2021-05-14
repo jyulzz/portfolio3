@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/technologies.js
+src/components/sections/technologies.js
 
 DESCRIPTION
 Displays icons linked to sites of technologies used in this project.

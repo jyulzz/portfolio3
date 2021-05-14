@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------*
 
 FILE
-src/components/work/items.js
+src/components/sections/work/items.js
 
 DESCRIPTION
 Builds a block showing previews of Projects pulled from Contentful.

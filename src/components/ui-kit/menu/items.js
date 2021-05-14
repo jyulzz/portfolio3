@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/menu/items.js
+src/components/ui-kit/menu/items.js
 
 DESCRIPTION
-Builds a menuItems array with menu items based on Contentful data.
+Builds an array with menu items based on Contentful data.
 
 *-----------------------------------------------------------------------------*/
 

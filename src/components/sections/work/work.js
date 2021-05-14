@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/work/work.js
+src/components/sections/work/work.js
 
 DESCRIPTION
 Builds the Work section used on the Index page.
