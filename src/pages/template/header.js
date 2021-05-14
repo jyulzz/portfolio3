@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
 import { ViewportProvider, connectViewport } from "react-viewport-utils";
 import Logo from "../../components/ui-kit/logo";
 import Menu from "../../components/ui-kit/menu/menu";
-import { View, Grid, Container } from "../../components/ui-kit/grid";
+import { View, Grid, Container } from "../../components/ui-kit/view";
 import SmoothScroll from "../../components/misc/smooth-scroll.js";
 /*-----------------------------------------------------------------------------*
   /IMPORTS

@@ -20,6 +20,12 @@ import PropTypes from "prop-types";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
+const View = ({ children = {} }) => {
+  return <div className="view">{children}</div>;
+};
+const Grid = ({ children = {} }) => {
+  return <div className="grid">{children}</div>;
+};
 const Container = ({ id = "", children = {} }) => {
   return (
     <div className={"container "} id={id}>
@@ -27,13 +33,6 @@ const Container = ({ id = "", children = {} }) => {
     </div>
   );
 };
-const View = ({ children = {} }) => {
-  return <div className="view">{children}</div>;
-};
-const Grid = ({ children = {} }) => {
-  return <div className="grid">{children}</div>;
-};
-
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -41,16 +40,6 @@ const Grid = ({ children = {} }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Container.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-Container.defaultProps = {
-  id: "",
-  children: [],
-};
-
 View.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -66,6 +55,16 @@ Grid.propTypes = {
 Grid.defaultProps = {
   children: [],
 };
+
+Container.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+Container.defaultProps = {
+  id: "",
+  children: [],
+};
 /*-----------------------------------------------------------------------------*
   /PROPS
 *-----------------------------------------------------------------------------*/
@@ -73,7 +72,7 @@ Grid.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Grid, View, Container };
+export { View, Grid, Container };
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

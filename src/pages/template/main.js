@@ -13,7 +13,7 @@ Contains the base setup for setting the <main/> tag and its contents within the 
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Grid, Container } from "../../components/ui-kit/grid";
+import { View, Grid, Container } from "../../components/ui-kit/view";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/

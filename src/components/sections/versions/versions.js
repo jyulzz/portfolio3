@@ -12,7 +12,7 @@ Builds the Versions section used on the Index page.
   IMPORTS
 *-----------------------------------------------------------------------------*/
 import React from "react";
-import { Container } from "../../ui-kit/grid";
+import { Container } from "../../ui-kit/view";
 import Title from "../../ui-kit/title";
 import Section from "../../ui-kit/section";
 import VersionsItems from "./items";

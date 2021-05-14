@@ -14,10 +14,9 @@ Contains the base setup for setting the <footer/> tag and its contents within th
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import { View, Grid } from "../../components/ui-kit/grid";
+import { View, Grid, Container } from "../../components/ui-kit/view";
 import Emoji from "a11y-react-emoji";
 import Link from "../../components/ui-kit/link";
-import { Container } from "../../components/ui-kit/grid";
 import Title from "../../components/ui-kit/title";
 import Section from "../../components/ui-kit/section";
 import { Gems } from "../../components/ui-kit/gems";

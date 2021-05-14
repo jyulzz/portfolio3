@@ -15,7 +15,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Seo from "../components/misc/seo";
-import { Container } from "../components/ui-kit/grid";
+import { Container } from "../components/ui-kit/view";
 import Header from "./template/header";
 import Main from "./template/main";
 import Footer from "./template/footer";
