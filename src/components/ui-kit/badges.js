@@ -1,10 +1,11 @@
 /*-----------------------------------------------------------------------------*
 
 FILE
-src/components/gems.js
+src/components/ui-kit/badges.js
 
 DESCRIPTION
-Gems and Gem components
+Displays badges linked to people who's work is credited or sites of technologies
+used in this project.
 
 *-----------------------------------------------------------------------------*/
 
@@ -13,6 +14,8 @@ Gems and Gem components
 *-----------------------------------------------------------------------------*/
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "../ui-kit/link";
+import Img from "gatsby-image/withIEPolyfill";
 import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
@@ -21,29 +24,60 @@ import _JSXStyle from "styled-jsx/style";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Gems = ({ id = "", children = {} }) => {
-  return (
-    <div className={"gems "} id={id}>
-      {children}
-    </div>
-  );
-};
 
-const Gem = ({ title = "", children = {} }) => {
+const Badge = ({ title = "", children = {} }) => {
   return (
     <>
       {" "}
       <style jsx>{`
-        .gem {
+        .badge {
           overflow: hidden;
         }
       `}</style>
-      <span className={"gem"} role="img" title={title}>
+      <span className={"badge"} role="img" title={title}>
         {children}
       </span>
     </>
   );
 };
+
+const Badges = ({ data, items = [], id }) => {
+  data.contentfulList.items.forEach((item) => {
+    if (item.photo) {
+      items.push(
+        <Link href={item.link} key={item.id} target="_blank">
+          <Badge title={item.name}>
+            <Img
+              fluid={item.photo.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+            />
+          </Badge>
+        </Link>
+      );
+    } else if (item.icon) {
+      items.push(
+        <Link href={item.link} key={item.id} target="_blank">
+          <Badge title={item.name}>
+            <img
+              src={item.icon.file.url}
+              alt={item.name}
+              height="100%"
+              width="100%"
+            />
+          </Badge>
+        </Link>
+      );
+    }
+  });
+
+  return (
+    <div className="badges" key={id} id={id}>
+      {items}
+    </div>
+  );
+};
+
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -51,19 +85,11 @@ const Gem = ({ title = "", children = {} }) => {
 /*-----------------------------------------------------------------------------*
   PROPS
 *-----------------------------------------------------------------------------*/
-Gems.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-Gems.defaultProps = {
-  id: "",
-  children: [],
-};
-Gem.propTypes = {
+Badge.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.object.isRequired,
 };
-Gem.defaultProps = {
+Badge.defaultProps = {
   title: "",
   children: [],
 };
@@ -74,7 +100,7 @@ Gem.defaultProps = {
 /*-----------------------------------------------------------------------------*
   EXPORTS
 *-----------------------------------------------------------------------------*/
-export { Gems, Gem };
+export default Badges;
 /*-----------------------------------------------------------------------------*
   /EXPORTS
 *-----------------------------------------------------------------------------*/

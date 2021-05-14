@@ -14,9 +14,8 @@ Displays photos linked to profiles of people who inspired the author.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "../ui-kit/link";
-import Img from "gatsby-image/withIEPolyfill";
-import { Gem } from "../ui-kit/gems";
+import Badges from "../ui-kit/badges";
+
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -24,8 +23,8 @@ import { Gem } from "../ui-kit/gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Credits = ({ credits = [], data = "" }) => {
-  /* Pull items from the list on Contentful with the slug 'credited-people' */
+
+const Credits = ({ data = {} }) => {
   data = useStaticQuery(graphql`
     {
       contentfulList(slug: { eq: "credits" }) {
@@ -47,22 +46,9 @@ const Credits = ({ credits = [], data = "" }) => {
     }
   `);
 
-  /* For each item (credited person), create an HTML anchor tag containing a li tag with their photo and a link to their profile. */
-  data.contentfulList.items.forEach((item) => {
-    credits.push(
-      <Link href={item.link} key={item.id} target="_blank">
-        <Gem title={item.name}>
-          <Img
-            fluid={item.photo.fluid}
-            objectFit="cover"
-            objectPosition="50% 50%"
-          />
-        </Gem>
-      </Link>
-    );
-  });
-  return credits;
+  return <Badges data={data} id="credits" />;
 };
+
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
 *-----------------------------------------------------------------------------*/
@@ -71,11 +57,9 @@ const Credits = ({ credits = [], data = "" }) => {
   PROPS
 *-----------------------------------------------------------------------------*/
 Credits.propTypes = {
-  credits: PropTypes.array.isRequired,
   data: PropTypes.object.isRequired,
 };
 Credits.defaultProps = {
-  credits: [],
   data: {},
 };
 /*-----------------------------------------------------------------------------*

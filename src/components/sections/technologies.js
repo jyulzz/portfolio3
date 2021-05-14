@@ -14,8 +14,7 @@ Displays icons linked to sites of technologies used in this project.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Link from "../ui-kit/link";
-import { Gem } from "../ui-kit/gems";
+import Badges from "../ui-kit/badges.js";
 /*-----------------------------------------------------------------------------*
   /IMPORTS
 *-----------------------------------------------------------------------------*/
@@ -23,8 +22,8 @@ import { Gem } from "../ui-kit/gems";
 /*-----------------------------------------------------------------------------*
   COMPONENTS
 *-----------------------------------------------------------------------------*/
-const Technologies = ({ technologies = [], data = {} }) => {
-  /* Pull items from the list on Contentful with the slug 'technologies' */
+
+const Technologies = ({ data = {} }) => {
   data = useStaticQuery(graphql`
     {
       contentfulList(slug: { eq: "technologies" }) {
@@ -45,22 +44,7 @@ const Technologies = ({ technologies = [], data = {} }) => {
     }
   `);
 
-  /* For each item (technology), create an HTML anchor tag containing a li tag with their logo and a link to their site. */
-  data.contentfulList.items.forEach((item) => {
-    technologies.push(
-      <Link href={item.link} key={item.id} target="_blank">
-        <Gem title={item.name}>
-          <img
-            src={"https://" + item.icon.file.url}
-            alt={item.name}
-            height="100%"
-            width="100%"
-          />
-        </Gem>
-      </Link>
-    );
-  });
-  return technologies;
+  return <Badges data={data} id="technologies" />;
 };
 /*-----------------------------------------------------------------------------*
   /COMPONENTS
@@ -70,11 +54,9 @@ const Technologies = ({ technologies = [], data = {} }) => {
   PROPS
 *-----------------------------------------------------------------------------*/
 Technologies.propTypes = {
-  technologies: PropTypes.array.isRequired,
   data: PropTypes.object.isRequired,
 };
 Technologies.defaultProps = {
-  technologies: [],
   data: {},
 };
 /*-----------------------------------------------------------------------------*

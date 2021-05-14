@@ -19,7 +19,6 @@ import Emoji from "a11y-react-emoji";
 import Link from "../../components/ui-kit/link";
 import Title from "../../components/ui-kit/title";
 import Section from "../../components/ui-kit/section";
-import { Gems } from "../../components/ui-kit/gems";
 import Credits from "../../components/sections/credits";
 import Technologies from "../../components/sections/technologies";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -189,17 +188,13 @@ const Footer = ({ children = {} }) => {
               <Title level="2">Inspiration</Title>
               <Emoji symbol="🙏" label="Person With Folded Hands Emoji" /> Many
               thanks
-              <Gems id="credits">
-                <Credits />
-              </Gems>
+              <Credits />
             </Section>
             <Section>
               <Title level="2">Stack</Title>
               <Emoji symbol="💪" label="Flexed Biceps Emoji" /> What I build
               this with
-              <Gems id="technologies">
-                <Technologies />
-              </Gems>
+              <Technologies />
             </Section>
           </Container>
         </Grid>
