@@ -106,10 +106,6 @@ body {
         }
       }
 
-      .image {
-        border-radius: 8px;
-        @include animation;
-      }
       .card {
         @include breakpointFromTo("xs", "s") {
           padding-bottom: 24px;
@@ -157,6 +153,8 @@ body {
       .image {
         width: 100%;
         overflow: hidden;
+        border-radius: 8px;
+        @include animation;
 
         video {
           width: 100%;
