@@ -92,7 +92,7 @@ body {
         display: inline-block;
 
         &::before {
-          margin-left: 0px;
+          margin-left: 0;
           margin-right: 4px;
           @extend %fa-icon;
           @extend .far;

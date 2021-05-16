@@ -106,7 +106,9 @@ const WorkItems = ({ workItems = [], data = {} }) => {
           item.inProgress === false
             ? item.organizations.forEach((organization) => {
                 organizationsArray.push(
-                  <div className="tag organization">{organization.name}</div>
+                  <div className="tag organization" key={organization.name}>
+                    {organization.name}
+                  </div>
                 );
               })
             : null}
@@ -143,7 +145,9 @@ const WorkItems = ({ workItems = [], data = {} }) => {
               {item.tags
                 ? item.tags.forEach((tag) => {
                     tagsArray.push(
-                      <div className="tag generic">{tag.name}</div>
+                      <div className="tag generic" key={tag.name}>
+                        {tag.name}
+                      </div>
                     );
                   })
                 : ""}
