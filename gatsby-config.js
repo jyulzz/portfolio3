@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-75777892-3",
+        trackingId: `UA-75777892-3`,
         head: true,
         anonymize: true,
         respectDNT: true,
@@ -48,16 +48,15 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-next-seo",
+      resolve: `gatsby-plugin-next-seo`,
       options: {
-        language: "en",
-        titleTemplate:
-          "%s | Jules Thivent - Product and UX Designer – Portfolio",
+        language: `en`,
+        titleTemplate: `%s | Jules Thivent - Product and UX Designer – Portfolio`,
         openGraph: {
-          type: "website",
-          locale: "en_US",
-          url: "https://www.julesthivent.com/",
-          site_name: "Jules Thivent - Product and UX Designer – Portfolio",
+          type: `website`,
+          locale: `en_US`,
+          url: `https://www.julesthivent.com/`,
+          site_name: `Jules Thivent - Product and UX Designer – Portfolio`,
         },
       },
     },
@@ -67,7 +66,7 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         sassOptions: {
-          includePaths: [require("path").resolve(__dirname, "node_modules")],
+          includePaths: [require(`path`).resolve(__dirname, `node_modules`)],
         },
       },
     },
@@ -82,7 +81,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-netlify",
+      resolve: `gatsby-plugin-netlify`,
     },
     {
       resolve: `gatsby-source-contentful`,
