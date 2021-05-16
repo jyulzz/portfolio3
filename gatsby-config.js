@@ -44,14 +44,15 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "${__dirname}/src/assets/images",
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
       resolve: "gatsby-plugin-next-seo",
       options: {
         language: "en",
-        titleTemplate: "%s | Jules Thivent - Product and UX Designer – Portfolio",
+        titleTemplate:
+          `%s | Jules Thivent - Product and UX Designer – Portfolio`,
         openGraph: {
           type: "website",
           locale: "en_US",
