@@ -41,7 +41,7 @@ const Badge = ({ title = "", children = {} }) => {
   );
 };
 
-const Badges = ({ data, items = [], id }) => {
+const Badges = ({ id = "", data = {}, items = [] }) => {
   data.contentfulList.items.forEach((item) => {
     if (item.photo) {
       items.push(
@@ -92,16 +92,6 @@ Badge.propTypes = {
 Badge.defaultProps = {
   title: "",
   children: [],
-};
-Badges.propTypes = {
-  id: PropTypes.string.isRequired,
-  data: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired,
-};
-Badges.defaultProps = {
-  id: "",
-  data: {},
-  items: [],
 };
 /* ----------------------------------------------------------------------------*
   /PROPS

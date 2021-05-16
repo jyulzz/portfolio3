@@ -22,8 +22,8 @@ import Badges from "../ui-kit/badges.js";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Technologies = ({ data = {} }) => {
-  data = useStaticQuery(graphql`
+const Technologies = ({ technologiesData = {} }) => {
+  technologiesData = useStaticQuery(graphql`
     {
       contentfulList(slug: { eq: "technologies" }) {
         id
@@ -43,7 +43,7 @@ const Technologies = ({ data = {} }) => {
     }
   `);
 
-  return <Badges data={data} id="technologies" />;
+  return <Badges data={technologiesData} id="technologies" />;
 };
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
