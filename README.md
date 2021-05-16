@@ -1,6 +1,6 @@
 # ✌️ Jules Thivent's Portfolio
 
-This is the repository for my portfolio https://julesthivent.com.
+This is the repository for my portfolio <https://julesthivent.com>.
 
 ## 🤖 Version 3
 
