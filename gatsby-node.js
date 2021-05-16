@@ -18,7 +18,7 @@ https://www.gatsbyjs.org/docs/api-files-gatsby-node/
 /*
 About 'Path' : https://nodejs.org/docs/latest/api/path.html
 */
-const path = require(`path`);
+const path = require("path");
 /*
 
 /*
