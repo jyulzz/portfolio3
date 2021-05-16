@@ -42,7 +42,7 @@ body {
 
           &.tag {
             &::before {
-              margin-left: 0px;
+              margin-left: 0;
               margin-right: 8px;
               @extend %fa-icon;
               @extend .far;
