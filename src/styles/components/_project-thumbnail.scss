@@ -355,10 +355,10 @@ body {
 							);
 
 						.link {
-							color: rgba(map-get($Foundations_Colors_Neutral--dark, 'white')) !important;
+							color: rgba(map-get($Foundations_Colors_Neutral--dark, 'white'), 1) !important;
 
 							&:hover {
-								border-bottom-color: rgba(map-get($Foundations_Colors_Neutral--dark, 'white')) !important;
+								border-bottom-color: rgba(map-get($Foundations_Colors_Neutral--dark, 'white'), 1) !important;
 							}
 						}
 					}
