@@ -22,7 +22,7 @@ import Link from "../../ui-kit/link";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-function MenuItems({ menuItems = [], data = {} }) {
+function MenuItems({ menuItems, data = {} }) {
   menuItems = [];
   data = useStaticQuery(graphql`
     {
@@ -91,6 +91,8 @@ function MenuItems({ menuItems = [], data = {} }) {
         itemHref = item.slug;
         itemTarget = item.target;
         break;
+      default:
+        return null;
     }
 
     menuItems.push(
