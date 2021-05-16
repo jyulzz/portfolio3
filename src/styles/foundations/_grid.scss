@@ -9,99 +9,110 @@ Grid (part of Foundations).
 *---------------------------------------------------------------------------- */
 
 body .view {
-  width: 100vw;
-  min-width: 320px;
+	width: 100vw;
+	min-width: 320px;
 
-  .grid {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: auto minmax(0, 888px) auto;
+	.grid {
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		grid-template-columns: auto minmax(0, 888px) auto;
 
-    .container {
-      grid-column-end: 2;
-      grid-column-start: 2;
-    }
-  }
+		.container {
+			grid-column-end: 2;
+			grid-column-start: 2;
+		}
+	}
 }
-@include breakpointFromTo("xs", "s") {
-  .view {
-    .grid {
-      margin-left: 32px;
-      margin-right: 32px;
-      grid-template-columns: repeat(6, 1fr);
-      grid-column-gap: 8px;
-    }
-  }
+
+@include breakpointFromTo('xs', 's') {
+	.view {
+		.grid {
+			margin-left: 32px;
+			margin-right: 32px;
+			grid-template-columns: repeat(6, 1fr);
+			grid-column-gap: 8px;
+		}
+	}
 }
-@include breakpointOnly("m") {
-  .view {
-    .grid {
-      margin-left: 48px;
-      margin-right: 48px;
-      grid-template-columns: repeat(12, 1fr);
-      grid-column-gap: 16px;
-    }
-  }
+
+@include breakpointOnly('m') {
+	.view {
+		.grid {
+			margin-left: 48px;
+			margin-right: 48px;
+			grid-template-columns: repeat(12, 1fr);
+			grid-column-gap: 16px;
+		}
+	}
 }
-@include breakpointOnly("l") {
-  .view {
-    .grid {
-      margin-left: 136px;
-      margin-right: 136px;
-      grid-template-columns: repeat(12, 1fr);
-      grid-column-gap: 16px;
-    }
-  }
+
+@include breakpointOnly('l') {
+	.view {
+		.grid {
+			margin-left: 136px;
+			margin-right: 136px;
+			grid-template-columns: repeat(12, 1fr);
+			grid-column-gap: 16px;
+		}
+	}
 }
-@include breakpointUp("xl") {
-  .view {
-    .grid {
-      margin-left: 136px;
-      margin-right: 136px;
-      grid-template-columns: repeat(12, 1fr);
-      grid-column-gap: 16px;
-    }
-  }
+
+@include breakpointUp('xl') {
+	.view {
+		.grid {
+			margin-left: 136px;
+			margin-right: 136px;
+			grid-template-columns: repeat(12, 1fr);
+			grid-column-gap: 16px;
+		}
+	}
 }
 
 .container {
-  &.standard {
-    @include breakpointFromTo("xs", "s") {
-      grid-column-start: 1;
-      grid-column-end: 7;
-    }
-    @include breakpointOnly("m") {
-      grid-column-start: 2;
-      grid-column-end: 12;
-    }
-    @include breakpointOnly("l") {
-      grid-column-start: 2;
-      grid-column-end: 12;
-    }
-    @include breakpointUp("xl") {
-      grid-column-start: 2;
-      grid-column-end: 12;
-    }
-  }
+	&.standard {
+		@include breakpointFromTo('xs', 's') {
+			grid-column-start: 1;
+			grid-column-end: 7;
+		}
+
+		@include breakpointOnly('m') {
+			grid-column-start: 2;
+			grid-column-end: 12;
+		}
+
+		@include breakpointOnly('l') {
+			grid-column-start: 2;
+			grid-column-end: 12;
+		}
+
+		@include breakpointUp('xl') {
+			grid-column-start: 2;
+			grid-column-end: 12;
+		}
+	}
 }
+
 @mixin gridPlacementPreset($preset) {
-  @if ($preset == "standard") {
-    @include breakpointFromTo("xs", "s") {
-      grid-column-start: 1;
-      grid-column-end: 7;
-    }
-    @include breakpointOnly("m") {
-      grid-column-start: 2;
-      grid-column-end: 12;
-    }
-    @include breakpointOnly("l") {
-      grid-column-start: 2;
-      grid-column-end: 12;
-    }
-    @include breakpointUp("xl") {
-      grid-column-start: 2;
-      grid-column-end: 12;
-    }
-  }
+	@if ($preset == 'standard') {
+		@include breakpointFromTo('xs', 's') {
+			grid-column-start: 1;
+			grid-column-end: 7;
+		}
+
+		@include breakpointOnly('m') {
+			grid-column-start: 2;
+			grid-column-end: 12;
+		}
+
+		@include breakpointOnly('l') {
+			grid-column-start: 2;
+			grid-column-end: 12;
+		}
+
+		@include breakpointUp('xl') {
+			grid-column-start: 2;
+			grid-column-end: 12;
+		}
+	}
 }

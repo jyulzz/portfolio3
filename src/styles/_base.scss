@@ -11,27 +11,27 @@ Base styles bundle.
 @charset "utf-8";
 
 // Reset
-@import "reset-css/sass/reset";
+@import 'reset-css/sass/reset';
 
 //Foundations
-@import "foundations/colors";
-@import "foundations/colors-dark";
-@import "foundations/breakpoints";
-@import "foundations/grid";
-@import "foundations/typescales";
+@import 'foundations/colors';
+@import 'foundations/colors-dark';
+@import 'foundations/breakpoints';
+@import 'foundations/grid';
+@import 'foundations/typescales';
 
 //Template
-@import "pages/template/typography";
-@import "pages/template/spacing";
-@import "pages/template/html";
-@import "pages/template/header";
-@import "pages/template/footer";
+@import 'pages/template/typography';
+@import 'pages/template/spacing';
+@import 'pages/template/html';
+@import 'pages/template/header';
+@import 'pages/template/footer';
 
 //Components
-@import "components/link";
-@import "components/title";
-@import "components/menu";
-@import "components/overlay";
+@import 'components/link';
+@import 'components/title';
+@import 'components/menu';
+@import 'components/overlay';
 
 //Utilities
-@import "utils/dev";
+@import 'utils/dev';

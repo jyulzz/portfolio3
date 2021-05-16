@@ -9,152 +9,154 @@ Styles for Header component.
 *---------------------------------------------------------------------------- */
 
 body {
-  header {
-    .overlay {
-      cursor: pointer;
-      visibility: collapse;
-      background-color: transparent;
+	header {
+		.overlay {
+			cursor: pointer;
+			visibility: collapse;
+			background-color: transparent;
 
-      transition-property: visibility, background-color;
-      transition-duration: 320ms;
-      transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
-      transition-delay: 0;
+			transition-property: visibility, background-color;
+			transition-duration: 320ms;
+			transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
+			transition-delay: 0;
 
-      display: flex;
-      justify-content: flex-end;
-      z-index: 3;
+			display: flex;
+			justify-content: flex-end;
+			z-index: 3;
 
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
 
-      @include breakpointUp("m") {
-        display: none;
-      }
+			@include breakpointUp('m') {
+				display: none;
+			}
 
-      .pane {
-        transition: all 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12);
-        transition-delay: 0;
+			.pane {
+				transition: all 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12);
+				transition-delay: 0;
 
-        background-color: map-get($UI_Named_Colors, "card-background");
-        z-index: 3;
-        padding-right: 40px;
-        padding-left: 40px;
-        opacity: 1;
-        width: 192px;
-        transform: translateX(272px);
+				background-color: map-get($UI_Named_Colors, 'card-background');
+				z-index: 3;
+				padding-right: 40px;
+				padding-left: 40px;
+				opacity: 1;
+				width: 192px;
+				transform: translateX(272px);
 
-        @include breakpointOnly("m") {
-          width: 128px;
-          padding-left: 84px;
-          padding-right: 84px;
-        }
+				@include breakpointOnly('m') {
+					width: 128px;
+					padding-left: 84px;
+					padding-right: 84px;
+				}
 
-        .list {
-          transition-property: all;
-          transition-duration: 320ms;
-          transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
-          transition-delay: 0;
-          margin-top: 94px;
-        }
+				.list {
+					transition-property: all;
+					transition-duration: 320ms;
+					transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
+					transition-delay: 0;
+					margin-top: 94px;
+				}
 
-        .item {
-          transition-property: all;
-          transition-duration: 320ms;
-          transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
-          transition-delay: 0;
-          text-align: left;
-          padding-top: 16px;
-          padding-bottom: 16px;
-          display: flex !important;
-          box-sizing: content-box;
+				.item {
+					transition-property: all;
+					transition-duration: 320ms;
+					transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
+					transition-delay: 0;
+					text-align: left;
+					padding-top: 16px;
+					padding-bottom: 16px;
+					display: flex !important;
+					box-sizing: content-box;
 
-          border-bottom: 2px solid map-get($UI_Named_Colors, "border");
+					border-bottom: 2px solid map-get($UI_Named_Colors, 'border');
 
-          &:hover {
-            border-bottom-color: map-get($UI_Named_Colors, "link-text");
-          }
+					&:hover {
+						border-bottom-color: map-get($UI_Named_Colors, 'link-text');
+					}
 
-          &:first-of-type {
-            margin-top: 112px;
-          }
+					&:first-of-type {
+						margin-top: 112px;
+					}
 
-          a {
-            border: none;
-            flex-direction: row;
-            flex-grow: 1;
+					a {
+						border: none;
+						flex-direction: row;
+						flex-grow: 1;
 
-            span {
-              @include getFontResponsive("L");
-            }
-          }
-        }
-      }
+						span {
+							@include getFontResponsive('L');
+						}
+					}
+				}
+			}
 
-      &.open {
-        visibility: visible;
-        opacity: 1;
-        background-color: map-get($UI_Named_Colors, "overlay-background");
-        transition: visibility 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0ms,
-          background-color 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0 !important;
+			&.open {
+				visibility: visible;
+				opacity: 1;
+				background-color: map-get($UI_Named_Colors, 'overlay-background');
+				transition:
+					visibility 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0ms,
+					background-color 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0 !important;
 
-        .pane {
-          transform: translateX(0);
-          transition: all 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0;
-        }
-      }
+				.pane {
+					transform: translateX(0);
+					transition: all 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0;
+				}
+			}
 
-      &.closed {
-        transition: visibility 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0ms,
-          background-color 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0 !important;
-      }
-    }
+			&.closed {
+				transition:
+					visibility 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0ms,
+					background-color 320ms cubic-bezier(0.82, 0.1, 0.14, 1.12) 0 !important;
+			}
+		}
 
-    &.scrolled {
-      .overlay {
-        .pane {
-          .list {
-            margin-top: 76px;
+		&.scrolled {
+			.overlay {
+				.pane {
+					.list {
+						margin-top: 76px;
 
-            .item:first-of-type {
-              margin-top: 0;
-            }
-          }
-        }
-      }
-    }
-  }
+						.item:first-of-type {
+							margin-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 
-  &.dark {
-    .overlay {
-      &.open {
-        background-color: map-get($UI_Named_Colors--dark, "overlay-background");
-      }
+	&.dark {
+		.overlay {
+			&.open {
+				background-color: map-get($UI_Named_Colors--dark, 'overlay-background');
+			}
 
-      .pane {
-        background: map-get($Foundations_Colors_Neutral--dark, "black-light");
-        border-left: thin solid map-get($UI_Named_Colors--dark, "border");
+			.pane {
+				background: map-get($Foundations_Colors_Neutral--dark, 'black-light');
+				border-left: thin solid map-get($UI_Named_Colors--dark, 'border');
 
-        .item {
-          a {
-            border: none;
-          }
+				.item {
+					a {
+						border: none;
+					}
 
-          border-bottom-color: map-get($UI_Named_Colors--dark, "border");
+					border-bottom-color: map-get($UI_Named_Colors--dark, 'border');
 
-          &:hover {
-            border-bottom-color: map-get($UI_Named_Colors--dark, "link-text");
-          }
+					&:hover {
+						border-bottom-color: map-get($UI_Named_Colors--dark, 'link-text');
+					}
 
-          &:first-of-type {
-            border-top-color: map-get($UI_Named_Colors--dark, "border");
-          }
-        }
-      }
-    }
-  }
+					&:first-of-type {
+						border-top-color: map-get($UI_Named_Colors--dark, 'border');
+					}
+				}
+			}
+		}
+	}
 }

@@ -9,105 +9,115 @@ Header section.
 *---------------------------------------------------------------------------- */
 
 body {
-  header {
-    position: fixed;
-    z-index: 12;
-    top: 0;
-    transition-property: padding, box-shadow, background-color;
-    transition-timing-function: ease-out, cubic-bezier(0.82, 0.1, 0.14, 1.12);
-    transition-delay: 20ms;
-    transition-duration: 120ms;
-    background-color: rgba(map-get($UI_Named_Colors, "menu-bar-background"), 0);
+	header {
+		position: fixed;
+		z-index: 12;
+		top: 0;
+		transition-property: padding, box-shadow, background-color;
+		transition-timing-function: ease-out, cubic-bezier(0.82, 0.1, 0.14, 1.12);
+		transition-delay: 20ms;
+		transition-duration: 120ms;
+		background-color: rgba(map-get($UI_Named_Colors, 'menu-bar-background'), 0);
 
-    &.scrolled {
-      backdrop-filter: blur(8px);
-      box-shadow: 0 16px 32px
-        rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
-      background-color: rgba(
-        map-get($UI_Named_Colors, "menu-bar-background"),
-        0.9
-      );
-      border-bottom: thin solid transparent;
-    }
+		&.scrolled {
+			backdrop-filter: blur(8px);
+			box-shadow:
+				0 16px 32px
+				rgba(map-get($Foundations_Colors_Neutral, 'black'), 0.16);
+			background-color:
+				rgba(
+					map-get($UI_Named_Colors, 'menu-bar-background'),
+					0.9
+				);
+			border-bottom: thin solid transparent;
+		}
 
-    .container {
-      display: flex;
-      flex-direction: row;
+		.container {
+			display: flex;
+			flex-direction: row;
 
-      .logo {
-        box-sizing: content-box;
-        transition: all 240ms ease-out 80ms, box-shadow 0s;
-        font-weight: map-get($Foundations_Fontweights, "Bold");
-        @include getFontResponsive("L");
-        color: map-get($Foundations_Colors_Neutral, "white");
-        border: 2px solid map-get($UI_Named_Colors, "text");
-        background: map-get($UI_Named_Colors, "text");
+			.logo {
+				box-sizing: content-box;
+				transition: all 240ms ease-out 80ms, box-shadow 0s;
+				font-weight: map-get($Foundations_Fontweights, 'Bold');
 
-        border-radius: 4px;
-        box-shadow: 0 4px 12px
-          map-get($Foundations_Colors_Neutral, "grey-medium");
+				@include getFontResponsive('L');
+				color: map-get($Foundations_Colors_Neutral, 'white');
+				border: 2px solid map-get($UI_Named_Colors, 'text');
+				background: map-get($UI_Named_Colors, 'text');
 
-        cursor: pointer;
-        text-transform: lowercase;
-        text-align: center;
-        @include breakpointFromTo("xs", "m") {
-          height: 40px;
-          width: 40px;
-          line-height: 40px;
-        }
-        @include breakpointUp("l") {
-          height: 40px;
-          width: 40px;
-          line-height: 40px;
-        }
+				border-radius: 4px;
+				box-shadow:
+					0 4px 12px
+					map-get($Foundations_Colors_Neutral, 'grey-medium');
 
-        &:active,
-        &:focus,
-        &:hover {
-          outline: none;
-          background: transparent;
-          color: map-get($UI_Named_Colors, "link-text");
-          border: 2px solid map-get($UI_Named_Colors, "link-text");
-        }
-      }
-    }
-  }
+				cursor: pointer;
+				text-transform: lowercase;
+				text-align: center;
 
-  &.dark {
-    header {
-      background-color: rgba(
-        map-get($UI_Named_Colors--dark, "menu-bar-background"),
-        0
-      );
+				@include breakpointFromTo('xs', 'm') {
+					height: 40px;
+					width: 40px;
+					line-height: 40px;
+				}
 
-      &.scrolled {
-        backdrop-filter: blur(8px);
-        background-color: rgba(
-          map-get($UI_Named_Colors--dark, "menu-bar-background"),
-          0.9
-        );
-        border-bottom: thin solid
-          rgba(map-get($UI_Named_Colors--dark, "border"), 0.8);
-        box-shadow: 0 16px 32px
-          rgba(map-get($Foundations_Colors_Neutral--dark, "black-light"), 0.8);
-      }
+				@include breakpointUp('l') {
+					height: 40px;
+					width: 40px;
+					line-height: 40px;
+				}
 
-      .container {
-        .logo {
-          color: map-get($Foundations_Colors_Neutral--dark, "black") !important;
-          border: 2px solid map-get($UI_Named_Colors--dark, "text") !important;
-          background: map-get($UI_Named_Colors--dark, "text") !important;
-          box-shadow: 0 4px 12px map-get($Foundations_Colors_Neutral, "black");
+				&:active,
+				&:focus,
+				&:hover {
+					outline: none;
+					background: transparent;
+					color: map-get($UI_Named_Colors, 'link-text');
+					border: 2px solid map-get($UI_Named_Colors, 'link-text');
+				}
+			}
+		}
+	}
 
-          &:active,
-          &:focus,
-          &:hover {
-            color: map-get($UI_Named_Colors--dark, "text") !important;
-            background: map-get($UI_Named_Colors--dark, "link-text") !important;
-            border: 2px solid map-get($UI_Named_Colors--dark, "link-text") !important;
-          }
-        }
-      }
-    }
-  }
+	&.dark {
+		header {
+			background-color:
+				rgba(
+					map-get($UI_Named_Colors--dark, 'menu-bar-background'),
+					0
+				);
+
+			&.scrolled {
+				backdrop-filter: blur(8px);
+				background-color:
+					rgba(
+						map-get($UI_Named_Colors--dark, 'menu-bar-background'),
+						0.9
+					);
+				border-bottom:
+					thin solid
+					rgba(map-get($UI_Named_Colors--dark, 'border'), 0.8);
+				box-shadow:
+					0 16px 32px
+					rgba(map-get($Foundations_Colors_Neutral--dark, 'black-light'), 0.8);
+			}
+
+			.container {
+				.logo {
+					color: map-get($Foundations_Colors_Neutral--dark, 'black') !important;
+					border: 2px solid map-get($UI_Named_Colors--dark, 'text') !important;
+					background: map-get($UI_Named_Colors--dark, 'text') !important;
+					box-shadow: 0 4px 12px map-get($Foundations_Colors_Neutral, 'black');
+
+					&:active,
+					&:focus,
+					&:hover {
+						color: map-get($UI_Named_Colors--dark, 'text') !important;
+						background: map-get($UI_Named_Colors--dark, 'link-text') !important;
+						border: 2px solid map-get($UI_Named_Colors--dark, 'link-text') !important;
+					}
+				}
+			}
+		}
+	}
 }

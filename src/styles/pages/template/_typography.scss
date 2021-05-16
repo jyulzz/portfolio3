@@ -7,298 +7,357 @@ DESCRIPTION
 Typography styles.
 
 *---------------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:Roboto:300,400,500,600,700,300i,400i,500i,600i,700i&display=swap");
-$fa-font-path: "../../../node_modules/@fortawesome/fontawesome-pro/webfonts";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/regular.scss";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/solid.scss";
-@import "node_modules/@fortawesome/fontawesome-pro/scss/light.scss";
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:Roboto:300,400,500,600,700,300i,400i,500i,600i,700i&display=swap');
+$fa-font-path: '../../../node_modules/@fortawesome/fontawesome-pro/webfonts';
+
+@import 'node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss';
+@import 'node_modules/@fortawesome/fontawesome-pro/scss/regular.scss';
+@import 'node_modules/@fortawesome/fontawesome-pro/scss/solid.scss';
+@import 'node_modules/@fortawesome/fontawesome-pro/scss/light.scss';
 
 body {
-  font-family: "IBM Plex Sans", Helvetica, sans-serif;
-  @include getFontResponsive("M");
+	font-family: 'IBM Plex Sans', Helvetica, sans-serif;
 
-  .contentful-rich-text-types {
-    .link {
-      word-break: break-all !important;
-      white-space: pre-wrap !important;
-      overflow-wrap: break-word !important;
-    }
+	@include getFontResponsive('M');
 
-    h1 {
-      @include getFontResponsive("XXXL");
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "XXL");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "XXL");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "XXL");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "XXL");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "XXL");
-      }
-    }
+	.contentful-rich-text-types {
+		.link {
+			word-break: break-all !important;
+			white-space: pre-wrap !important;
+			overflow-wrap: break-word !important;
+		}
 
-    h2 {
-      @include getFontResponsive("XXL");
-      margin-bottom: 16px;
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "XL");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "XL");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "XL");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "XL");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "XL");
-      }
-    }
+		h1 {
+			@include getFontResponsive('XXXL');
 
-    h3 {
-      @include getFontResponsive("XL");
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "M");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "M");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "M");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "M");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "M");
-      }
-    }
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'XXL');
+			}
 
-    h4 {
-      @include getFontResponsive("L");
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "M");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "M");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "M");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "M");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "M");
-      }
-    }
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'XXL');
+			}
 
-    h5 {
-      @include getFontResponsive("M");
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "S");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "S");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "S");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "S");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "S");
-      }
-    }
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'XXL');
+			}
 
-    h6 {
-      @include getFontResponsive("S");
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "XS");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "XS");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "XS");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "XS");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "XS");
-      }
-    }
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'XXL');
+			}
 
-    p {
-      @include getFontResponsive("M");
-      @include breakpointOnly("xs") {
-        margin-bottom: getPHeight("xs", "L");
-      }
-      @include breakpointOnly("s") {
-        margin-bottom: getPHeight("s", "L");
-      }
-      @include breakpointOnly("m") {
-        margin-bottom: getPHeight("m", "L");
-      }
-      @include breakpointOnly("l") {
-        margin-bottom: getPHeight("l", "L");
-      }
-      @include breakpointUp("xl") {
-        margin-bottom: getPHeight("xl", "L");
-      }
-    }
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'XXL');
+			}
+		}
 
-    ul li {
-      list-style-type: disc;
-      list-style-position: inside;
-      @include breakpointOnly("xs") {
-        margin-left: getPHeight("xs", "XXL");
-      }
-      @include breakpointOnly("s") {
-        margin-left: getPHeight("s", "XXL");
-      }
-      @include breakpointOnly("m") {
-        margin-left: getPHeight("m", "XXL");
-      }
-      @include breakpointOnly("l") {
-        margin-left: getPHeight("l", "XXL");
-      }
-      @include breakpointUp("xl") {
-        margin-left: getPHeight("xl", "XXL");
-      }
+		h2 {
+			@include getFontResponsive('XXL');
+			margin-bottom: 16px;
 
-      &:last-of-type {
-        @include breakpointOnly("xs") {
-          margin-bottom: getPHeight("xs", "M");
-        }
-        @include breakpointOnly("s") {
-          margin-bottom: getPHeight("s", "M");
-        }
-        @include breakpointOnly("m") {
-          margin-bottom: getPHeight("m", "M");
-        }
-        @include breakpointOnly("l") {
-          margin-bottom: getPHeight("l", "M");
-        }
-        @include breakpointUp("xl") {
-          margin-bottom: getPHeight("xl", "M");
-        }
-      }
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'XL');
+			}
 
-      p {
-        display: inline;
-      }
-    }
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'XL');
+			}
 
-    b {
-      font-weight: map-get($Foundations_Fontweights, "Semibold");
-    }
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'XL');
+			}
 
-    i {
-      font-style: italic;
-    }
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'XL');
+			}
 
-    u {
-      text-decoration: underline;
-    }
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'XL');
+			}
+		}
 
-    code {
-      font-family: "IBM Plex Mono", monospace;
-    }
+		h3 {
+			@include getFontResponsive('XL');
 
-    figure {
-      box-shadow: 0 16px 32px
-        rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
-      background: map-get($Foundations_Colors_Neutral, "card-background");
-      border: thin solid transparent;
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'M');
+			}
 
-      width: 100%;
-      box-sizing: border-box;
-      @include breakpointOnly("xs") {
-        margin-top: getPHeight("xs", "XXXL");
-        padding: getPHeight("xs", "XXXL");
-        margin-bottom: getPHeight("xs", "XXXL");
-      }
-      @include breakpointOnly("s") {
-        margin-top: getPHeight("s", "XXXL");
-        padding: getPHeight("s", "XXXL");
-        margin-bottom: getPHeight("s", "XXXL");
-      }
-      @include breakpointOnly("m") {
-        margin-top: getPHeight("m", "XXXL");
-        padding: getPHeight("m", "XXXL");
-        margin-bottom: getPHeight("m", "XXXL");
-      }
-      @include breakpointOnly("l") {
-        margin-top: getPHeight("l", "XXXL");
-        padding: getPHeight("l", "XXXL");
-        margin-bottom: getPHeight("l", "XXXL");
-      }
-      @include breakpointUp("xl") {
-        margin-top: getPHeight("xl", "XXXL");
-        padding: getPHeight("xl", "XXXL");
-        margin-bottom: getPHeight("xl", "XXXL");
-      }
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'M');
+			}
 
-      figcaption {
-        background: gba(map-get($Foundations_Colors_Neutral, "white"), 1);
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'M');
+			}
 
-        .description {
-          margin-right: 8px;
-        }
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'M');
+			}
 
-        a.link {
-          word-break: keep-all;
-          white-space: nowrap;
-          display: inline-block;
-        }
-        @include getFontResponsive("S");
-        @include breakpointOnly("xs") {
-          padding-top: getPHeight("xs", "XXL");
-          min-height: getPHeight("xs", "M");
-          line-height: 160%;
-        }
-        @include breakpointOnly("s") {
-          padding-top: getPHeight("s", "XXL");
-          min-height: getPHeight("s", "M");
-          line-height: 160%;
-        }
-        @include breakpointOnly("m") {
-          padding-top: getPHeight("m", "XXL");
-          min-height: getPHeight("m", "M");
-          line-height: 160%;
-        }
-        @include breakpointOnly("l") {
-          padding-top: getPHeight("l", "XXL");
-          min-height: getPHeight("l", "M");
-          line-height: 160%;
-        }
-        @include breakpointUp("xl") {
-          padding-top: getPHeight("xl", "XXL");
-          min-height: getPHeight("xl", "M");
-          line-height: 160%;
-        }
-      }
-    }
-  }
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'M');
+			}
+		}
 
-  &.dark {
-    figure:not(.thumbnail) {
-      box-shadow: 0 16px 32px
-        rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32);
-      background: map-get($UI_Named_Colors--dark, "card-background");
-      border: thin solid map-get($UI_Named_Colors--dark, "border");
-    }
-  }
+		h4 {
+			@include getFontResponsive('L');
+
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'M');
+			}
+
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'M');
+			}
+
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'M');
+			}
+
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'M');
+			}
+
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'M');
+			}
+		}
+
+		h5 {
+			@include getFontResponsive('M');
+
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'S');
+			}
+
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'S');
+			}
+
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'S');
+			}
+
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'S');
+			}
+
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'S');
+			}
+		}
+
+		h6 {
+			@include getFontResponsive('S');
+
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'XS');
+			}
+
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'XS');
+			}
+
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'XS');
+			}
+
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'XS');
+			}
+
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'XS');
+			}
+		}
+
+		p {
+			@include getFontResponsive('M');
+
+			@include breakpointOnly('xs') {
+				margin-bottom: getpheight('xs', 'L');
+			}
+
+			@include breakpointOnly('s') {
+				margin-bottom: getpheight('s', 'L');
+			}
+
+			@include breakpointOnly('m') {
+				margin-bottom: getpheight('m', 'L');
+			}
+
+			@include breakpointOnly('l') {
+				margin-bottom: getpheight('l', 'L');
+			}
+
+			@include breakpointUp('xl') {
+				margin-bottom: getpheight('xl', 'L');
+			}
+		}
+
+		ul li {
+			list-style-type: disc;
+			list-style-position: inside;
+
+			@include breakpointOnly('xs') {
+				margin-left: getpheight('xs', 'XXL');
+			}
+
+			@include breakpointOnly('s') {
+				margin-left: getpheight('s', 'XXL');
+			}
+
+			@include breakpointOnly('m') {
+				margin-left: getpheight('m', 'XXL');
+			}
+
+			@include breakpointOnly('l') {
+				margin-left: getpheight('l', 'XXL');
+			}
+
+			@include breakpointUp('xl') {
+				margin-left: getpheight('xl', 'XXL');
+			}
+
+			&:last-of-type {
+				@include breakpointOnly('xs') {
+					margin-bottom: getpheight('xs', 'M');
+				}
+
+				@include breakpointOnly('s') {
+					margin-bottom: getpheight('s', 'M');
+				}
+
+				@include breakpointOnly('m') {
+					margin-bottom: getpheight('m', 'M');
+				}
+
+				@include breakpointOnly('l') {
+					margin-bottom: getpheight('l', 'M');
+				}
+
+				@include breakpointUp('xl') {
+					margin-bottom: getpheight('xl', 'M');
+				}
+			}
+
+			p {
+				display: inline;
+			}
+		}
+
+		b {
+			font-weight: map-get($Foundations_Fontweights, 'Semibold');
+		}
+
+		i {
+			font-style: italic;
+		}
+
+		u {
+			text-decoration: underline;
+		}
+
+		code {
+			font-family: 'IBM Plex Mono', monospace;
+		}
+
+		figure {
+			box-shadow:
+				0 16px 32px
+				rgba(map-get($Foundations_Colors_Neutral, 'black'), 0.16);
+			background: map-get($Foundations_Colors_Neutral, 'card-background');
+			border: thin solid transparent;
+
+			width: 100%;
+			box-sizing: border-box;
+
+			@include breakpointOnly('xs') {
+				margin-top: getpheight('xs', 'XXXL');
+				padding: getpheight('xs', 'XXXL');
+				margin-bottom: getpheight('xs', 'XXXL');
+			}
+
+			@include breakpointOnly('s') {
+				margin-top: getpheight('s', 'XXXL');
+				padding: getpheight('s', 'XXXL');
+				margin-bottom: getpheight('s', 'XXXL');
+			}
+
+			@include breakpointOnly('m') {
+				margin-top: getpheight('m', 'XXXL');
+				padding: getpheight('m', 'XXXL');
+				margin-bottom: getpheight('m', 'XXXL');
+			}
+
+			@include breakpointOnly('l') {
+				margin-top: getpheight('l', 'XXXL');
+				padding: getpheight('l', 'XXXL');
+				margin-bottom: getpheight('l', 'XXXL');
+			}
+
+			@include breakpointUp('xl') {
+				margin-top: getpheight('xl', 'XXXL');
+				padding: getpheight('xl', 'XXXL');
+				margin-bottom: getpheight('xl', 'XXXL');
+			}
+
+			figcaption {
+				background: gba(map-get($Foundations_Colors_Neutral, 'white'), 1);
+
+				.description {
+					margin-right: 8px;
+				}
+
+				a.link {
+					word-break: keep-all;
+					white-space: nowrap;
+					display: inline-block;
+				}
+
+				@include getFontResponsive('S');
+
+				@include breakpointOnly('xs') {
+					padding-top: getpheight('xs', 'XXL');
+					min-height: getpheight('xs', 'M');
+					line-height: 160%;
+				}
+
+				@include breakpointOnly('s') {
+					padding-top: getpheight('s', 'XXL');
+					min-height: getpheight('s', 'M');
+					line-height: 160%;
+				}
+
+				@include breakpointOnly('m') {
+					padding-top: getpheight('m', 'XXL');
+					min-height: getpheight('m', 'M');
+					line-height: 160%;
+				}
+
+				@include breakpointOnly('l') {
+					padding-top: getpheight('l', 'XXL');
+					min-height: getpheight('l', 'M');
+					line-height: 160%;
+				}
+
+				@include breakpointUp('xl') {
+					padding-top: getpheight('xl', 'XXL');
+					min-height: getpheight('xl', 'M');
+					line-height: 160%;
+				}
+			}
+		}
+	}
+
+	&.dark {
+		figure:not(.thumbnail) {
+			box-shadow:
+				0 16px 32px
+				rgba(map-get($Foundations_Colors_Neutral--dark, 'black'), 0.32);
+			background: map-get($UI_Named_Colors--dark, 'card-background');
+			border: thin solid map-get($UI_Named_Colors--dark, 'border');
+		}
+	}
 }
