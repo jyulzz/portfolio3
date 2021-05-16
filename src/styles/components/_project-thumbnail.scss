@@ -131,7 +131,7 @@ body {
           line-height: 100%;
           font-weight: map-get($Foundations_Fontweights, "Medium");
           &::before {
-            margin-left: 0px;
+            margin-left: 0;
             margin-right: 8px;
             @extend %fa-icon;
             @extend .fas;
