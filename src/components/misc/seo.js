@@ -30,7 +30,7 @@ const Seo = ({ title = "", description = "", OGImage = "" }) => {
         type: "website",
         title: title + " | Jules Thivent - Product and UX Designer – Portfolio",
         locale: "enUS",
-        description: description,
+        description: { description },
         images: [
           {
             url: "https://" + OGImage + "?fm=png&w=800&h=600",

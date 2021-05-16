@@ -21,7 +21,7 @@ import { useEffect } from "react";
 *---------------------------------------------------------------------------- */
 const SmoothScroll = () => {
   useEffect(function mount() {
-    require("smooth-scroll")('nav#main a[href*="#"]', {
+    require("smooth-scroll")("nav#main a[href*='#']", {
       header: "[data-scroll-header]",
       offset: 80,
       speed: 500,
