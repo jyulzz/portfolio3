@@ -22,9 +22,9 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: `UA-75777892-3`,
+        trackingId: "UA-75777892-3",
         head: true,
         anonymize: true,
         respectDNT: true,
@@ -33,7 +33,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-styled-jsx`,
+      resolve: "gatsby-plugin-styled-jsx",
       options: {
         optimizeForSpeed: true,
         sourceMaps: true,
@@ -41,54 +41,54 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        name: "images",
+        path: "${__dirname}/src/assets/images",
       },
     },
     {
-      resolve: `gatsby-plugin-next-seo`,
+      resolve: "gatsby-plugin-next-seo",
       options: {
-        language: `en`,
-        titleTemplate: `%s | Jules Thivent - Product and UX Designer – Portfolio`,
+        language: "en",
+        titleTemplate: "%s | Jules Thivent - Product and UX Designer – Portfolio",
         openGraph: {
-          type: `website`,
-          locale: `en_US`,
-          url: `https://www.julesthivent.com/`,
-          site_name: `Jules Thivent - Product and UX Designer – Portfolio`,
+          type: "website",
+          locale: "en_US",
+          url: "https://www.julesthivent.com/",
+          site_name: "Jules Thivent - Product and UX Designer – Portfolio",
         },
       },
     },
-    `gatsby-plugin-dark-mode`,
-    `gatsby-transformer-sharp`,
+    "gatsby-plugin-dark-mode",
+    "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: "gatsby-plugin-sass",
       options: {
         sassOptions: {
-          includePaths: [require(`path`).resolve(__dirname, `node_modules`)],
+          includePaths: [require("path").resolve(__dirname, "node_modules")],
         },
       },
     },
-    `gatsby-plugin-sharp`,
+    "gatsby-plugin-sharp",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `jules-thivent-portfolio`,
-        short_name: `jt`,
-        start_url: `/`,
-        icon: `src/assets/images/favicon.svg`,
+        name: "jules-thivent-portfolio",
+        short_name: "jt",
+        start_url: "/",
+        icon: "src/assets/images/favicon.svg",
       },
     },
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: "gatsby-plugin-netlify",
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: "gatsby-source-contentful",
       options: {
-        spaceId: `i6guo7zsdt38`,
-        accessToken: `H0HnqTsu7-sLQd3kNghCBeKyVIlNSiYP8i0R6MZc31I`,
-        host: `preview.contentful.com`,
+        spaceId: "i6guo7zsdt38",
+        accessToken: "H0HnqTsu7-sLQd3kNghCBeKyVIlNSiYP8i0R6MZc31I",
+        host: "preview.contentful.com",
         forceFullSync: true,
       },
     },
