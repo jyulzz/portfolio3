@@ -335,7 +335,7 @@ body {
 							$lightness: -46%
 						);
 					box-shadow:
-						0 1px 2px 0px
+						0 1px 2px
 						scale-color(
 							rgba(map-get($UI_Named_Colors--dark, 'link-text'), 0.25),
 							$lightness: -80%
