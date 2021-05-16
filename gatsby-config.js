@@ -51,8 +51,7 @@ module.exports = {
       resolve: "gatsby-plugin-next-seo",
       options: {
         language: "en",
-        titleTemplate:
-          `%s | Jules Thivent - Product and UX Designer – Portfolio`,
+        titleTemplate: `%s | Jules Thivent - Product and UX Designer – Portfolio`,
         openGraph: {
           type: "website",
           locale: "en_US",
