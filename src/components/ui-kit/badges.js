@@ -16,7 +16,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "../ui-kit/link";
 import Img from "gatsby-image/withIEPolyfill";
-import _JSXStyle from "styled-jsx/style";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -27,21 +26,13 @@ import _JSXStyle from "styled-jsx/style";
 
 const Badge = ({ title = "", children = {} }) => {
   return (
-    <>
-      {" "}
-      <style jsx>{`
-        .badge {
-          overflow: hidden;
-        }
-      `}</style>
-      <span className={"badge"} role="img" title={title}>
-        {children}
-      </span>
-    </>
+    <span className={"badge"} role="img" title={title}>
+      {children}
+    </span>
   );
 };
 
-const Badges = ({ data, items = [], id }) => {
+const Badges = ({ id = "", data = {}, items = [] }) => {
   data.contentfulList.items.forEach((item) => {
     if (item.photo) {
       items.push(

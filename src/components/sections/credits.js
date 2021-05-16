@@ -22,8 +22,8 @@ import Badges from "../ui-kit/badges";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Credits = ({ data = {} }) => {
-  data = useStaticQuery(graphql`
+const Credits = ({ creditsData = {} }) => {
+  creditsData = useStaticQuery(graphql`
     {
       contentfulList(slug: { eq: "credits" }) {
         id
@@ -44,7 +44,7 @@ const Credits = ({ data = {} }) => {
     }
   `);
 
-  return <Badges data={data} id="credits" />;
+  return <Badges data={creditsData} id="credits" />;
 };
 
 /* ----------------------------------------------------------------------------*
@@ -55,10 +55,10 @@ const Credits = ({ data = {} }) => {
   PROPS
 *---------------------------------------------------------------------------- */
 Credits.propTypes = {
-  data: PropTypes.object.isRequired,
+  creditsData: PropTypes.object.isRequired,
 };
 Credits.defaultProps = {
-  data: {},
+  creditsData: {},
 };
 /* ----------------------------------------------------------------------------*
   /PROPS

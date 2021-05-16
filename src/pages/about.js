@@ -15,7 +15,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Options from "../options/about.js";
-import _JSXStyle from "styled-jsx/style";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Seo from "../components/misc/seo";

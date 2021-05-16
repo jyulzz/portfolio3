@@ -12,6 +12,7 @@ body {
   .badges {
     margin-top: 0;
     .badge {
+      overflow: hidden;
       box-sizing: border-box;
       display: inline-block;
       width: 40px;

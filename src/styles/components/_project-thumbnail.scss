@@ -22,8 +22,6 @@ body {
       width: 100%;
       .animation {
         height: 100%;
-        .scene {
-        }
         .background {
           width: 105%;
         }
@@ -46,7 +44,7 @@ body {
           $lightness: 96%
         );
         border-radius: 4px;
-        padding: 4px 4px;
+        padding: 4px;
         width: max-content;
         margin-top: 8px;
         margin-bottom: 16px;
@@ -94,7 +92,7 @@ body {
         display: inline-block;
 
         &::before {
-          margin-left: 0px;
+          margin-left: 0;
           margin-right: 4px;
           @extend %fa-icon;
           @extend .far;
@@ -133,7 +131,7 @@ body {
           line-height: 100%;
           font-weight: map-get($Foundations_Fontweights, "Medium");
           &::before {
-            margin-left: 0px;
+            margin-left: 0;
             margin-right: 8px;
             @extend %fa-icon;
             @extend .fas;
