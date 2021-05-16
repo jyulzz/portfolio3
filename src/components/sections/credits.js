@@ -55,10 +55,10 @@ const Credits = ({ creditsData = {} }) => {
   PROPS
 *---------------------------------------------------------------------------- */
 Credits.propTypes = {
-  data: PropTypes.object.isRequired,
+  creditsData: PropTypes.object.isRequired,
 };
 Credits.defaultProps = {
-  data: {},
+  creditsData: {},
 };
 /* ----------------------------------------------------------------------------*
   /PROPS

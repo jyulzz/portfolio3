@@ -53,10 +53,10 @@ const Technologies = ({ technologiesData = {} }) => {
   PROPS
 *---------------------------------------------------------------------------- */
 Technologies.propTypes = {
-  data: PropTypes.object.isRequired,
+  technologiesData: PropTypes.object.isRequired,
 };
 Technologies.defaultProps = {
-  data: {},
+  technologiesData: {},
 };
 /* ----------------------------------------------------------------------------*
   /PROPS

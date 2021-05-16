@@ -29,11 +29,11 @@ const Badge = ({ title = "", children = {} }) => {
   return (
     <>
       {" "}
-      <style jsx>{`
+      <_JSXStyle>{`
         .badge {
           overflow: hidden;
         }
-      `}</style>
+      `}</_JSXStyle>
       <span className={"badge"} role="img" title={title}>
         {children}
       </span>
