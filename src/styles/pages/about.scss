@@ -52,7 +52,7 @@ main.about {
 		}
 
 		h1 {
-			@include getFontResponsive('XXL');
+			@include get-font-responsive('XXL');
 			font-weight: map-get($Foundations_Fontweights, 'Semibold');
 		}
 

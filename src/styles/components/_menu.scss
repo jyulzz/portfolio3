@@ -22,7 +22,7 @@ body {
 				a {
 					text-decoration: none;
 
-					@include getFontResponsive('M');
+					@include get-font-responsive('M');
 					outline: none;
 					color: map-get($UI_Named_Colors, 'link-text');
 
@@ -48,7 +48,7 @@ body {
 			background: transparent;
 			cursor: pointer;
 
-			@include getFontResponsive('L');
+			@include get-font-responsive('L');
 
 			color: map-get($UI_Named_Colors, 'text');
 

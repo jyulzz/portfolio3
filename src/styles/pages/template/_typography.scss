@@ -18,7 +18,7 @@ $fa-font-path: '../../../node_modules/@fortawesome/fontawesome-pro/webfonts';
 body {
 	font-family: 'IBM Plex Sans', Helvetica, sans-serif;
 
-	@include getFontResponsive('M');
+	@include get-font-responsive('M');
 
 	.contentful-rich-text-types {
 		.link {
@@ -28,171 +28,171 @@ body {
 		}
 
 		h1 {
-			@include getFontResponsive('XXXL');
+			@include get-font-responsive('XXXL');
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'XXL');
+				margin-bottom: get-p-height('xs', 'XXL');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'XXL');
+				margin-bottom: get-p-height('s', 'XXL');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'XXL');
+				margin-bottom: get-p-height('m', 'XXL');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'XXL');
+				margin-bottom: get-p-height('l', 'XXL');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'XXL');
+				margin-bottom: get-p-height('xl', 'XXL');
 			}
 		}
 
 		h2 {
-			@include getFontResponsive('XXL');
+			@include get-font-responsive('XXL');
 			margin-bottom: 16px;
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'XL');
+				margin-bottom: get-p-height('xs', 'XL');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'XL');
+				margin-bottom: get-p-height('s', 'XL');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'XL');
+				margin-bottom: get-p-height('m', 'XL');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'XL');
+				margin-bottom: get-p-height('l', 'XL');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'XL');
+				margin-bottom: get-p-height('xl', 'XL');
 			}
 		}
 
 		h3 {
-			@include getFontResponsive('XL');
+			@include get-font-responsive('XL');
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'M');
+				margin-bottom: get-p-height('xs', 'M');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'M');
+				margin-bottom: get-p-height('s', 'M');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'M');
+				margin-bottom: get-p-height('m', 'M');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'M');
+				margin-bottom: get-p-height('l', 'M');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'M');
+				margin-bottom: get-p-height('xl', 'M');
 			}
 		}
 
 		h4 {
-			@include getFontResponsive('L');
+			@include get-font-responsive('L');
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'M');
+				margin-bottom: get-p-height('xs', 'M');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'M');
+				margin-bottom: get-p-height('s', 'M');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'M');
+				margin-bottom: get-p-height('m', 'M');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'M');
+				margin-bottom: get-p-height('l', 'M');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'M');
+				margin-bottom: get-p-height('xl', 'M');
 			}
 		}
 
 		h5 {
-			@include getFontResponsive('M');
+			@include get-font-responsive('M');
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'S');
+				margin-bottom: get-p-height('xs', 'S');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'S');
+				margin-bottom: get-p-height('s', 'S');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'S');
+				margin-bottom: get-p-height('m', 'S');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'S');
+				margin-bottom: get-p-height('l', 'S');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'S');
+				margin-bottom: get-p-height('xl', 'S');
 			}
 		}
 
 		h6 {
-			@include getFontResponsive('S');
+			@include get-font-responsive('S');
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'XS');
+				margin-bottom: get-p-height('xs', 'XS');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'XS');
+				margin-bottom: get-p-height('s', 'XS');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'XS');
+				margin-bottom: get-p-height('m', 'XS');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'XS');
+				margin-bottom: get-p-height('l', 'XS');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'XS');
+				margin-bottom: get-p-height('xl', 'XS');
 			}
 		}
 
 		p {
-			@include getFontResponsive('M');
+			@include get-font-responsive('M');
 
 			@include breakpointOnly('xs') {
-				margin-bottom: getpheight('xs', 'L');
+				margin-bottom: get-p-height('xs', 'L');
 			}
 
 			@include breakpointOnly('s') {
-				margin-bottom: getpheight('s', 'L');
+				margin-bottom: get-p-height('s', 'L');
 			}
 
 			@include breakpointOnly('m') {
-				margin-bottom: getpheight('m', 'L');
+				margin-bottom: get-p-height('m', 'L');
 			}
 
 			@include breakpointOnly('l') {
-				margin-bottom: getpheight('l', 'L');
+				margin-bottom: get-p-height('l', 'L');
 			}
 
 			@include breakpointUp('xl') {
-				margin-bottom: getpheight('xl', 'L');
+				margin-bottom: get-p-height('xl', 'L');
 			}
 		}
 
@@ -201,44 +201,44 @@ body {
 			list-style-position: inside;
 
 			@include breakpointOnly('xs') {
-				margin-left: getpheight('xs', 'XXL');
+				margin-left: get-p-height('xs', 'XXL');
 			}
 
 			@include breakpointOnly('s') {
-				margin-left: getpheight('s', 'XXL');
+				margin-left: get-p-height('s', 'XXL');
 			}
 
 			@include breakpointOnly('m') {
-				margin-left: getpheight('m', 'XXL');
+				margin-left: get-p-height('m', 'XXL');
 			}
 
 			@include breakpointOnly('l') {
-				margin-left: getpheight('l', 'XXL');
+				margin-left: get-p-height('l', 'XXL');
 			}
 
 			@include breakpointUp('xl') {
-				margin-left: getpheight('xl', 'XXL');
+				margin-left: get-p-height('xl', 'XXL');
 			}
 
 			&:last-of-type {
 				@include breakpointOnly('xs') {
-					margin-bottom: getpheight('xs', 'M');
+					margin-bottom: get-p-height('xs', 'M');
 				}
 
 				@include breakpointOnly('s') {
-					margin-bottom: getpheight('s', 'M');
+					margin-bottom: get-p-height('s', 'M');
 				}
 
 				@include breakpointOnly('m') {
-					margin-bottom: getpheight('m', 'M');
+					margin-bottom: get-p-height('m', 'M');
 				}
 
 				@include breakpointOnly('l') {
-					margin-bottom: getpheight('l', 'M');
+					margin-bottom: get-p-height('l', 'M');
 				}
 
 				@include breakpointUp('xl') {
-					margin-bottom: getpheight('xl', 'M');
+					margin-bottom: get-p-height('xl', 'M');
 				}
 			}
 
@@ -274,33 +274,33 @@ body {
 			box-sizing: border-box;
 
 			@include breakpointOnly('xs') {
-				margin-top: getpheight('xs', 'XXXL');
-				padding: getpheight('xs', 'XXXL');
-				margin-bottom: getpheight('xs', 'XXXL');
+				margin-top: get-p-height('xs', 'XXXL');
+				padding: get-p-height('xs', 'XXXL');
+				margin-bottom: get-p-height('xs', 'XXXL');
 			}
 
 			@include breakpointOnly('s') {
-				margin-top: getpheight('s', 'XXXL');
-				padding: getpheight('s', 'XXXL');
-				margin-bottom: getpheight('s', 'XXXL');
+				margin-top: get-p-height('s', 'XXXL');
+				padding: get-p-height('s', 'XXXL');
+				margin-bottom: get-p-height('s', 'XXXL');
 			}
 
 			@include breakpointOnly('m') {
-				margin-top: getpheight('m', 'XXXL');
-				padding: getpheight('m', 'XXXL');
-				margin-bottom: getpheight('m', 'XXXL');
+				margin-top: get-p-height('m', 'XXXL');
+				padding: get-p-height('m', 'XXXL');
+				margin-bottom: get-p-height('m', 'XXXL');
 			}
 
 			@include breakpointOnly('l') {
-				margin-top: getpheight('l', 'XXXL');
-				padding: getpheight('l', 'XXXL');
-				margin-bottom: getpheight('l', 'XXXL');
+				margin-top: get-p-height('l', 'XXXL');
+				padding: get-p-height('l', 'XXXL');
+				margin-bottom: get-p-height('l', 'XXXL');
 			}
 
 			@include breakpointUp('xl') {
-				margin-top: getpheight('xl', 'XXXL');
-				padding: getpheight('xl', 'XXXL');
-				margin-bottom: getpheight('xl', 'XXXL');
+				margin-top: get-p-height('xl', 'XXXL');
+				padding: get-p-height('xl', 'XXXL');
+				margin-bottom: get-p-height('xl', 'XXXL');
 			}
 
 			figcaption {
@@ -316,35 +316,35 @@ body {
 					display: inline-block;
 				}
 
-				@include getFontResponsive('S');
+				@include get-font-responsive('S');
 
 				@include breakpointOnly('xs') {
-					padding-top: getpheight('xs', 'XXL');
-					min-height: getpheight('xs', 'M');
+					padding-top: get-p-height('xs', 'XXL');
+					min-height: get-p-height('xs', 'M');
 					line-height: 160%;
 				}
 
 				@include breakpointOnly('s') {
-					padding-top: getpheight('s', 'XXL');
-					min-height: getpheight('s', 'M');
+					padding-top: get-p-height('s', 'XXL');
+					min-height: get-p-height('s', 'M');
 					line-height: 160%;
 				}
 
 				@include breakpointOnly('m') {
-					padding-top: getpheight('m', 'XXL');
-					min-height: getpheight('m', 'M');
+					padding-top: get-p-height('m', 'XXL');
+					min-height: get-p-height('m', 'M');
 					line-height: 160%;
 				}
 
 				@include breakpointOnly('l') {
-					padding-top: getpheight('l', 'XXL');
-					min-height: getpheight('l', 'M');
+					padding-top: get-p-height('l', 'XXL');
+					min-height: get-p-height('l', 'M');
 					line-height: 160%;
 				}
 
 				@include breakpointUp('xl') {
-					padding-top: getpheight('xl', 'XXL');
-					min-height: getpheight('xl', 'M');
+					padding-top: get-p-height('xl', 'XXL');
+					min-height: get-p-height('xl', 'M');
 					line-height: 160%;
 				}
 			}

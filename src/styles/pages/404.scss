@@ -14,7 +14,7 @@ DESCRIPTION
 //Templates
 main.notfound {
 	h1 {
-		@include getFontResponsive('XXXL');
+		@include get-font-responsive('XXXL');
 		font-weight: map-get($Foundations_Fontweights, 'Medium');
 
 		@include breakpointFromTo('xs', 'm') {
@@ -31,7 +31,7 @@ main.notfound {
 	}
 
 	h2 {
-		@include getFontResponsive('XL');
+		@include get-font-responsive('XL');
 		font-weight: map-get($Foundations_Fontweights, 'Normal');
 
 		@include breakpointFromTo('xs', 'm') {

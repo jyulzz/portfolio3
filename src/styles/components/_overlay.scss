@@ -89,7 +89,7 @@ body {
 						flex-grow: 1;
 
 						span {
-							@include getFontResponsive('L');
+							@include get-font-responsive('L');
 						}
 					}
 				}

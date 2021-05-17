@@ -12,7 +12,7 @@ Styles for Title component.
 	font-weight: map-get($Foundations_Fontweights, 'Medium');
 
 	&.level1 {
-		@include getFontResponsive('XL');
+		@include get-font-responsive('XL');
 
 		@include breakpointFromTo('xs', 's') {
 			margin-top: 24px;
@@ -26,7 +26,7 @@ Styles for Title component.
 	}
 
 	&.level2 {
-		@include getFontResponsive('L');
+		@include get-font-responsive('L');
 
 		@include breakpointUp('xs') {
 			margin-bottom: 4px;

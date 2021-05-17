@@ -35,7 +35,7 @@ body {
 			.title.level2 {
 				font-weight: map-get($Foundations_Fontweights, 'Semibold');
 
-				@include getFontResponsive('L');
+				@include get-font-responsive('L');
 			}
 
 			.description {
@@ -98,7 +98,7 @@ body {
 				font-weight: map-get($Foundations_Fontweights, 'Medium');
 				color: map-get($UI_Named_Colors, 'text-sub');
 
-				@include getFontResponsive('S');
+				@include get-font-responsive('S');
 				border-radius: 4px;
 				width: max-content;
 				display: inline-block;
@@ -123,7 +123,7 @@ body {
 					padding-top: 0 !important;
 					padding-bottom: 0 !important;
 
-					@include getFontResponsive('M');
+					@include get-font-responsive('M');
 					font-weight: map-get($Foundations_Fontweights, 'Normal');
 					background: transparent;
 				}
@@ -140,7 +140,7 @@ body {
 
 				&.inProgress,
 				&.releaseDate {
-					@include getFontResponsive('M');
+					@include get-font-responsive('M');
 					color: map-get($Foundations_Colors_Primary, 'success');
 					line-height: 100%;
 					font-weight: map-get($Foundations_Fontweights, 'Medium');
@@ -167,7 +167,7 @@ body {
 				}
 
 				&.readingTime {
-					@include getFontResponsive('XS');
+					@include get-font-responsive('XS');
 					margin-right: 8px;
 					color: map-get($Foundations_Colors_Primary, 'accent');
 					background: rgba(map-get($Foundations_Colors_Primary, 'accent'), 0.1);
@@ -181,7 +181,7 @@ body {
 				}
 
 				&.generic {
-					@include getFontResponsive('XS');
+					@include get-font-responsive('XS');
 					margin-right: 8px;
 					background: map-get($Foundations_Colors_Neutral, 'grey-light');
 					color: map-get($UI_Named_Colors, 'text-dim');

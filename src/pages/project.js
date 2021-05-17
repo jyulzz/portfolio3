@@ -182,8 +182,8 @@ const ProjectPage = ({
   pageContext = {},
   previousProject = {},
   nextProject = {},
-  tags = [],
-  organizations = [],
+  tagsArray = [],
+  organizationsArray = [],
   projectData = {},
 }) => {
   projectData = data.project.nodes[0];
@@ -236,7 +236,7 @@ const ProjectPage = ({
                   projectData.released === true &&
                   projectData.inProgress === false
                     ? projectData.organizations.forEach((organization) => {
-                        organizations.push(
+                        organizationsArray.push(
                           <div className="tag organization">
                             {organization.name}
                           </div>
@@ -244,12 +244,12 @@ const ProjectPage = ({
                       })
                     : null}
 
-                  {organizations.length > 1 ? (
+                  {organizationsArray.length > 1 ? (
                     <div className="tag organization">
                       Multiple Organizations
                     </div>
                   ) : (
-                    <>{organizations}</>
+                    <>{organizationsArray}</>
                   )}
 
                   {projectData.released === true &&
@@ -271,7 +271,7 @@ const ProjectPage = ({
                   )}
                   {projectData.tags
                     ? projectData.tags.forEach((tag) => {
-                        tags.push(
+                        tagsArray.push(
                           <div className="tag generic">{tag.name}</div>
                         );
                       })
@@ -281,7 +281,7 @@ const ProjectPage = ({
                       {projectData.readingTime} mins read
                     </div>
                   ) : null}
-                  {tags}
+                  {tagsArray}
                 </>
               </div>
             </div>
@@ -325,8 +325,8 @@ ProjectPage.propTypes = {
   pageContext: PropTypes.object.isRequired,
   previousProject: PropTypes.object.isRequired,
   nextProject: PropTypes.object.isRequired,
-  tags: PropTypes.array.isRequired,
-  organizations: PropTypes.array.isRequired,
+  tagsArray: PropTypes.array.isRequired,
+  organizationsArray: PropTypes.array.isRequired,
   projectData: PropTypes.object.isRequired,
 };
 

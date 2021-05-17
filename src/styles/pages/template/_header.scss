@@ -41,7 +41,7 @@ body {
 				transition: all 240ms ease-out 80ms, box-shadow 0s;
 				font-weight: map-get($Foundations_Fontweights, 'Bold');
 
-				@include getFontResponsive('L');
+				@include get-font-responsive('L');
 				color: map-get($Foundations_Colors_Neutral, 'white');
 				border: 2px solid map-get($UI_Named_Colors, 'text');
 				background: map-get($UI_Named_Colors, 'text');

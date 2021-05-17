@@ -27,7 +27,7 @@ body {
 					display: inline-block;
 					line-height: 100%;
 
-					@include getFontResponsive('M');
+					@include get-font-responsive('M');
 					margin-right: 8px;
 					background: map-get($Foundations_Colors_Neutral, 'grey-light');
 					color: map-get($UI_Named_Colors, 'text-dim');
@@ -140,7 +140,7 @@ body {
 					flex-direction: column-reverse;
 
 					.title {
-						@include getFontResponsive('XXXL');
+						@include get-font-responsive('XXXL');
 						font-weight: map-get($Foundations_Fontweights, 'Semibold');
 						word-break: break-all;
 						white-space: pre-line;
@@ -151,12 +151,12 @@ body {
 
 						font-weight: map-get($Foundations_Fontweights, 'Light');
 
-						@include getFontResponsive('XL');
+						@include get-font-responsive('XL');
 					}
 				}
 
 				h2 {
-					@include getFontResponsive('XXL');
+					@include get-font-responsive('XXL');
 					font-weight: map-get($Foundations_Fontweights, 'Normal') !important;
 
 					@include breakpointUp('xs') {
@@ -287,11 +287,11 @@ body {
 								padding: 12px;
 
 								.title {
-									@include getFontResponsive('M');
+									@include get-font-responsive('M');
 								}
 
 								.link {
-									@include getFontResponsive('S');
+									@include get-font-responsive('S');
 								}
 							}
 						}
@@ -325,11 +325,11 @@ body {
 
 						.information {
 							.title {
-								@include getFontResponsive('L');
+								@include get-font-responsive('L');
 							}
 
 							.link {
-								@include getFontResponsive('M');
+								@include get-font-responsive('M');
 							}
 						}
 					}
@@ -426,11 +426,11 @@ body {
 								padding-bottom: 12px;
 
 								.title {
-									@include getFontResponsive('L');
+									@include get-font-responsive('L');
 								}
 
 								.link {
-									@include getFontResponsive('M');
+									@include get-font-responsive('M');
 								}
 							}
 						}

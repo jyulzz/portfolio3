@@ -13,7 +13,7 @@ section#hero {
 	white-space: pre-line;
 
 	h1 {
-		@include getFontScaled('XXL', 'XXL', 'XXL', 'XXXL', 'XXXL');
+		@include get-font-scaled('XXL', 'XXL', 'XXL', 'XXXL', 'XXXL');
 		font-weight: map-get($Foundations_Fontweights, 'Medium');
 
 		@include breakpointFromTo('xs', 'm') {
@@ -41,7 +41,7 @@ section#hero {
 	}
 
 	h2 {
-		@include getFontScaled('XL', 'XL', 'XL', 'XXL', 'XXL');
+		@include get-font-scaled('XL', 'XL', 'XL', 'XXL', 'XXL');
 		font-weight: map-get($Foundations_Fontweights, 'Normal');
 
 		@include breakpointFromTo('xs', 'm') {
