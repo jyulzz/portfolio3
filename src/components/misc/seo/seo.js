@@ -1,20 +1,19 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/sections/credits.js
+src/components/misc/seo.js
 
 DESCRIPTION
-Displays photos linked to profiles of people who inspired the author.
+Wrapper for the GatsbySeo component
 
 *---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------*
-  IMPORTS
+  IMPORT
 *---------------------------------------------------------------------------- */
 import React from "react";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Badges from "../ui-kit/badges";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -22,31 +21,28 @@ import Badges from "../ui-kit/badges";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Credits = ({ creditsData = {} }) => {
-  creditsData = useStaticQuery(graphql`
-    {
-      contentfulList(slug: { eq: "credits" }) {
-        id
-        items {
-          ... on ContentfulPerson {
-            id
-            name
-            link
-            photo {
-              id
-              fluid(maxWidth: 80) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  return <Badges data={creditsData} id="credits" />;
+const Seo = ({ title = "", description = "", OGImage = "" }) => {
+  return (
+    <GatsbySeo
+      title={title}
+      description={description}
+      openGraph={{
+        type: "website",
+        title: title + " | Jules Thivent - Product and UX Designer – Portfolio",
+        locale: "enUS",
+        description: { description },
+        images: [
+          {
+            url: "https://" + OGImage + "?fm=png&w=800&h=600",
+            width: 800,
+            height: 600,
+            alt: "Jules Thivent - Product and UX Designer – Portfolio",
+          },
+        ],
+      }}
+    />
+  );
 };
-
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
 *---------------------------------------------------------------------------- */
@@ -54,11 +50,12 @@ const Credits = ({ creditsData = {} }) => {
 /* ----------------------------------------------------------------------------*
   PROPS
 *---------------------------------------------------------------------------- */
-Credits.propTypes = {
-  creditsData: PropTypes.object.isRequired,
+Seo.propTypes = {
+  title: PropTypes.string.isRequired,
 };
-Credits.defaultProps = {
-  creditsData: {},
+
+Seo.defaultProps = {
+  title: "Home",
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
@@ -67,7 +64,7 @@ Credits.defaultProps = {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Credits;
+export default Seo;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

@@ -16,8 +16,8 @@ import Img from "gatsby-image/withIEPolyfill";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Link from "./link";
-import Title from "./title";
+import Link from "components/ui-kit/link/link";
+import Title from "components/ui-kit/title/title";
 import {
   faLongArrowLeft,
   faLongArrowRight,

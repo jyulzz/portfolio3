@@ -9,15 +9,17 @@ Versions section styles.
 *---------------------------------------------------------------------------- */
 
 section#versions {
-  @include gridPlacementPreset("standard");
+	@include gridPlacementPreset('standard');
 
-  .version-thumbnail {
-    @extend .project-thumbnail;
-    .tag.date {
-      display: block !important;
-      &::before {
-        display: none !important;
-      }
-    }
-  }
+	.version-thumbnail {
+		@extend .project-thumbnail;
+
+		.tag.date {
+			display: block !important;
+
+			&::before {
+				display: none !important;
+			}
+		}
+	}
 }

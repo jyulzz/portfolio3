@@ -9,153 +9,162 @@ Footer section.
 *---------------------------------------------------------------------------- */
 
 body {
-  footer {
-    background: map-get($UI_Named_Colors, "footer-background");
-    color: map-get($Foundations_Colors_Neutral, "white");
-    border-top: thin solid map-get($UI_Named_Colors, "footer-background");
+	footer {
+		background: map-get($UI_Named_Colors, 'footer-background');
+		color: map-get($Foundations_Colors_Neutral, 'white');
+		border-top: thin solid map-get($UI_Named_Colors, 'footer-background');
 
-    .view .grid {
-      .container {
-        display: grid;
-        @include breakpointFromTo("xs", "s") {
-          grid-template-columns: repeat(6, 1fr);
-          grid-column-gap: 8px;
-        }
-        @include breakpointUp("m") {
-          grid-template-columns: repeat(10, 1fr);
-          grid-column-gap: 16px;
-        }
+		.view .grid {
+			.container {
+				display: grid;
 
-        &#about-and-contact {
-          display: grid;
-          @include breakpointFromTo("xs", "s") {
-            grid-template-columns: repeat(6, 1fr);
-            grid-column-gap: 8px;
-          }
-          @include breakpointUp("m") {
-            grid-template-columns: repeat(10, 1fr);
-            grid-column-gap: 16px;
-          }
+				@include breakpointFromTo('xs', 's') {
+					grid-template-columns: repeat(6, 1fr);
+					grid-column-gap: 8px;
+				}
 
-          section#about,
-          section#contact {
-            ul li {
-              margin-bottom: 16px;
-            }
-          }
-          @include breakpointFromTo("xs", "s") {
-            section#about,
-            section#contact {
-              grid-column-start: 1;
-              grid-column-end: 7;
-            }
-          }
-          @include breakpointUp("m") {
-            section#about {
-              grid-column-start: 1;
-              grid-column-end: 5;
-            }
+				@include breakpointUp('m') {
+					grid-template-columns: repeat(10, 1fr);
+					grid-column-gap: 16px;
+				}
 
-            section#contact {
-              grid-column-start: 5;
-              grid-column-end: 11;
-            }
-          }
-        }
-      }
-    }
+				&#about-and-contact {
+					display: grid;
 
-    section {
-      @include breakpointFromTo("xs", "s") {
-        margin-bottom: 32px;
+					@include breakpointFromTo('xs', 's') {
+						grid-template-columns: repeat(6, 1fr);
+						grid-column-gap: 8px;
+					}
 
-        &:nth-child(1) {
-          grid-column-start: 1;
-          grid-column-end: 7;
-        }
+					@include breakpointUp('m') {
+						grid-template-columns: repeat(10, 1fr);
+						grid-column-gap: 16px;
+					}
 
-        &:nth-child(2) {
-          grid-column-start: 1;
-          grid-column-end: 7;
-        }
+					section#about,
+					section#contact {
+						ul li {
+							margin-bottom: 16px;
+						}
+					}
 
-        &:nth-child(3) {
-          grid-column-start: 1;
-          grid-column-end: 7;
-        }
+					@include breakpointFromTo('xs', 's') {
+						section#about,
+						section#contact {
+							grid-column-start: 1;
+							grid-column-end: 7;
+						}
+					}
 
-        &:nth-child(4) {
-          grid-column-start: 1;
-          grid-column-end: 7;
-        }
+					@include breakpointUp('m') {
+						section#about {
+							grid-column-start: 1;
+							grid-column-end: 5;
+						}
 
-        &:nth-child(5) {
-          grid-column-start: 1;
-          grid-column-end: 7;
-        }
-      }
-      @include breakpointUp("m") {
-        margin-bottom: 32px;
+						section#contact {
+							grid-column-start: 5;
+							grid-column-end: 11;
+						}
+					}
+				}
+			}
+		}
 
-        &:nth-child(1) {
-          grid-column-start: 1;
-          grid-column-end: 11;
-        }
+		section {
+			@include breakpointFromTo('xs', 's') {
+				margin-bottom: 32px;
 
-        &:nth-child(2) {
-          grid-column-start: 1;
-          grid-column-end: 5;
-        }
+				&:nth-child(1) {
+					grid-column-start: 1;
+					grid-column-end: 7;
+				}
 
-        &:nth-child(3) {
-          grid-column-start: 5;
-          grid-column-end: 11;
-        }
+				&:nth-child(2) {
+					grid-column-start: 1;
+					grid-column-end: 7;
+				}
 
-        &:nth-child(4) {
-          grid-column-start: 1;
-          grid-column-end: 5;
-        }
+				&:nth-child(3) {
+					grid-column-start: 1;
+					grid-column-end: 7;
+				}
 
-        &:nth-child(5) {
-          grid-column-start: 5;
-          grid-column-end: 11;
-        }
-      }
+				&:nth-child(4) {
+					grid-column-start: 1;
+					grid-column-end: 7;
+				}
 
-      a {
-        color: inherit !important;
+				&:nth-child(5) {
+					grid-column-start: 1;
+					grid-column-end: 7;
+				}
+			}
 
-        &:active,
-        &:focus,
-        &:hover {
-          border-bottom-color: map-get(
-            $Foundations_Colors_Neutral,
-            "white"
-          ) !important;
-        }
-      }
-    }
-  }
+			@include breakpointUp('m') {
+				margin-bottom: 32px;
 
-  &.dark {
-    footer {
-      background: map-get($UI_Named_Colors--dark, "footer-background");
-      color: map-get($UI_Named_Colors--dark, "text");
-      border-top: thin solid map-get($UI_Named_Colors--dark, "border");
-    }
+				&:nth-child(1) {
+					grid-column-start: 1;
+					grid-column-end: 11;
+				}
 
-    a {
-      color: map-get($UI_Named_Colors--dark, "link-text") !important;
+				&:nth-child(2) {
+					grid-column-start: 1;
+					grid-column-end: 5;
+				}
 
-      &:active,
-      &:focus,
-      &:hover {
-        border-bottom-color: map-get(
-          $UI_Named_Colors--dark,
-          "link-text"
-        ) !important;
-      }
-    }
-  }
+				&:nth-child(3) {
+					grid-column-start: 5;
+					grid-column-end: 11;
+				}
+
+				&:nth-child(4) {
+					grid-column-start: 1;
+					grid-column-end: 5;
+				}
+
+				&:nth-child(5) {
+					grid-column-start: 5;
+					grid-column-end: 11;
+				}
+			}
+
+			a {
+				color: inherit !important;
+
+				&:active,
+				&:focus,
+				&:hover {
+					border-bottom-color:
+						map-get(
+							$Foundations_Colors_Neutral,
+							'white'
+						) !important;
+				}
+			}
+		}
+	}
+
+	&.dark {
+		footer {
+			background: map-get($UI_Named_Colors--dark, 'footer-background');
+			color: map-get($UI_Named_Colors--dark, 'text');
+			border-top: thin solid map-get($UI_Named_Colors--dark, 'border');
+		}
+
+		a {
+			color: map-get($UI_Named_Colors--dark, 'link-text') !important;
+
+			&:active,
+			&:focus,
+			&:hover {
+				border-bottom-color:
+					map-get(
+						$UI_Named_Colors--dark,
+						'link-text'
+					) !important;
+			}
+		}
+	}
 }

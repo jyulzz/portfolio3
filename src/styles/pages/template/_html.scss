@@ -9,42 +9,42 @@ Root level styles.
 *---------------------------------------------------------------------------- */
 
 body {
-  color: map-get($UI_Named_Colors, "text");
-  background: map-get($UI_Named_Colors, "background");
+	color: map-get($UI_Named_Colors, 'text');
+	background: map-get($UI_Named_Colors, 'background');
 
-  &.dark {
-    color: map-get($UI_Named_Colors--dark, "text");
-    background: map-get($UI_Named_Colors--dark, "background");
-  }
+	&.dark {
+		color: map-get($UI_Named_Colors--dark, 'text');
+		background: map-get($UI_Named_Colors--dark, 'background');
+	}
 }
 //Ensure that <footer/> is always at the bottom thanks to expansion of <main/>
 #gatsby-focus-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 
-  header {
-    flex-grow: 0;
-    flex-shrink: 1;
-  }
+	header {
+		flex-grow: 0;
+		flex-shrink: 1;
+	}
 
-  main {
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
+	main {
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
 
-  footer {
-    flex-grow: 0;
-    flex-shrink: 1;
-  }
+	footer {
+		flex-grow: 0;
+		flex-shrink: 1;
+	}
 }
 //Prevent img tags from expending beyond container limits and prevent figure
 //tags from having white space at the bottom
 
 figure {
-  line-height: 0;
+	line-height: 0;
 
-  img {
-    max-width: 100%;
-  }
+	img {
+		max-width: 100%;
+	}
 }

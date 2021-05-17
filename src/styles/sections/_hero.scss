@@ -9,58 +9,65 @@ Hero section styles.
 *---------------------------------------------------------------------------- */
 
 section#hero {
-  @include gridPlacementPreset("standard");
-  white-space: pre-line;
+	@include gridPlacementPreset('standard');
+	white-space: pre-line;
 
-  h1 {
-    @include getFontScaled("XXL", "XXL", "XXL", "XXXL", "XXXL");
-    font-weight: map-get($Foundations_Fontweights, "Medium");
-    @include breakpointFromTo("xs", "m") {
-      margin-top: 12px;
+	h1 {
+		@include get-font-scaled('XXL', 'XXL', 'XXL', 'XXXL', 'XXXL');
+		font-weight: map-get($Foundations_Fontweights, 'Medium');
 
-      margin-bottom: 8px;
-    }
-    @include breakpointOnly("l") {
-      margin-top: 20px;
-      margin-bottom: 12px;
-    }
-    @include breakpointUp("xl") {
-      margin-top: 24px;
-      margin-bottom: 16px;
-    }
-    b {
-      font-weight: map-get($Foundations_Fontweights, "Semibold");
-      letter-spacing: 0.02em;
-      margin-left: 0.08em;
-      font-size: 100%;
-    }
-  }
+		@include breakpointFromTo('xs', 'm') {
+			margin-top: 12px;
 
-  h2 {
-    @include getFontScaled("XL", "XL", "XL", "XXL", "XXL");
-    font-weight: map-get($Foundations_Fontweights, "Normal");
-    @include breakpointFromTo("xs", "m") {
-      margin-bottom: 8px;
-    }
-    @include breakpointOnly("l") {
-      margin-bottom: 12px;
-    }
-    @include breakpointUp("xl") {
-      margin-bottom: 16px;
-    }
+			margin-bottom: 8px;
+		}
 
-    a {
-      &:after {
-        @extend %fa-icon;
-        @extend .far;
-        margin-left: 8px;
-        content: fa-content($fa-var-long-arrow-right);
-      }
-    }
-  }
+		@include breakpointOnly('l') {
+			margin-top: 20px;
+			margin-bottom: 12px;
+		}
 
-  a {
-    @extend .link;
-    border-bottom-width: 4px !important;
-  }
+		@include breakpointUp('xl') {
+			margin-top: 24px;
+			margin-bottom: 16px;
+		}
+
+		b {
+			font-weight: map-get($Foundations_Fontweights, 'Semibold');
+			letter-spacing: 0.02em;
+			margin-left: 0.08em;
+			font-size: 100%;
+		}
+	}
+
+	h2 {
+		@include get-font-scaled('XL', 'XL', 'XL', 'XXL', 'XXL');
+		font-weight: map-get($Foundations_Fontweights, 'Normal');
+
+		@include breakpointFromTo('xs', 'm') {
+			margin-bottom: 8px;
+		}
+
+		@include breakpointOnly('l') {
+			margin-bottom: 12px;
+		}
+
+		@include breakpointUp('xl') {
+			margin-bottom: 16px;
+		}
+
+		a {
+			&::after {
+				@extend %fa-icon;
+				@extend .far;
+				margin-left: 8px;
+				content: fa-content($fa-var-long-arrow-right);
+			}
+		}
+	}
+
+	a {
+		@extend .link;
+		border-bottom-width: 4px !important;
+	}
 }

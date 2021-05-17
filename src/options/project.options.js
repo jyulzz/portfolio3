@@ -13,8 +13,8 @@ Render options for the template for the Project pages created through code in /g
 *---------------------------------------------------------------------------- */
 import React from "react";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import Link from "../components/ui-kit/link";
-import Conf from "../../conf.yml";
+import Link from "components/ui-kit/link/link";
+import Conf from "conf/conf.yml";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faTrafficCone } from "@fortawesome/pro-solid-svg-icons";
@@ -23,7 +23,7 @@ import {
   faLongArrowRight,
 } from "@fortawesome/pro-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/pages/project.scss";
+import "styles/pages/project.scss";
 library.add(faTrafficCone, faLongArrowLeft, faLongArrowRight);
 config.autoAddCss = false;
 /* ----------------------------------------------------------------------------*

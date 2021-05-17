@@ -1,0 +1,43 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [true],
+    "color-named": "never",
+    "color-hex-length": "long",
+    "function-blacklist": ["rgb", "hsl"],
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates-with-different-values"]
+      }
+    ],
+    "indentation": "tab",
+    "declaration-empty-line-before": null,
+    "declaration-property-unit-whitelist": {
+      "/^border(?!.*-radius$)/": ["px", "%"],
+      "/^border-radius/": ["px", "rem", "%"],
+      "/^box-shadow": ["px"],
+      "/^margin/": ["rem", "px", "em"],
+      "/^padding/": ["rem", "px", "%"],
+      "font-size": ["rem", "em", "%"],
+      "height": ["rem", "%", "vh", "px"],
+      "width": ["rem", "%", "vw", "px"]
+    },
+    "max-empty-lines": 1,
+    "no-duplicate-selectors": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "selector-max-id": [10],
+    "string-quotes": "single",
+    "value-no-vendor-prefix": true,
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+  }
+}

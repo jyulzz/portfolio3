@@ -10,192 +10,202 @@ About Page styles.
 
 @charset "utf-8";
 // Base
-@import "../base";
+@import '../base';
 //Templates
 main.about {
-  .contentful-rich-text-types {
-    display: grid;
+	.contentful-rich-text-types {
+		display: grid;
 
-    .portrait {
-      h1,
-      h2,
-      h3 {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-    }
+		.portrait {
+			h1,
+			h2,
+			h3 {
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+		}
 
-    figure.image {
-      box-shadow: 0 16px 32px
-        rgba(map-get($Foundations_Colors_Neutral, "black"), 0.24);
-      padding: 0;
-      margin: 0;
-      border: 0;
-      border-radius: 8px;
-      .gatsby-image-wrapper {
-        border-radius: 8px;
-        picture {
-          border-radius: 8px;
-          img {
-            border-radius: 8px;
-          }
-        }
-      }
-      figcaption {
-        display: none;
-      }
-    }
+		figure.image {
+			box-shadow:
+				0 16px 32px
+				rgba(map-get($Foundations_Colors_Neutral, 'black'), 0.24);
+			padding: 0;
+			margin: 0;
+			border: 0;
+			border-radius: 8px;
 
-    h1 {
-      @include getFontResponsive("XXL");
-      font-weight: map-get($Foundations_Fontweights, "Semibold");
-    }
+			.gatsby-image-wrapper {
+				border-radius: 8px;
 
-    h3 {
-      font-weight: map-get($Foundations_Fontweights, "Medium");
-    }
-    @include breakpointOnly("xs") {
-      .portrait {
-        text-align: center;
+				picture {
+					border-radius: 8px;
 
-        figure.image {
-          margin-left: auto;
-          margin-right: auto;
-          width: 180px;
-          margin-bottom: 24px;
+					img {
+						border-radius: 8px;
+					}
+				}
+			}
 
-          img {
-            width: 100%;
-          }
-        }
-      }
+			figcaption {
+				display: none;
+			}
+		}
 
-      .text {
-        .block {
-          margin-bottom: 44px;
+		h1 {
+			@include get-font-responsive('XXL');
+			font-weight: map-get($Foundations_Fontweights, 'Semibold');
+		}
 
-          &:first-of-type {
-            margin-bottom: 44px;
+		h3 {
+			font-weight: map-get($Foundations_Fontweights, 'Medium');
+		}
 
-            h1 {
-              margin-bottom: 0;
-            }
-            text-align: center;
+		@include breakpointOnly('xs') {
+			.portrait {
+				text-align: center;
 
-            .links {
-              margin-top: 8px;
+				figure.image {
+					margin-left: auto;
+					margin-right: auto;
+					width: 180px;
+					margin-bottom: 24px;
 
-              li {
-                display: inline-block;
+					img {
+						width: 100%;
+					}
+				}
+			}
 
-                margin-right: 24px;
-                margin-bottom: 16px;
-              }
-              margin-bottom: 16px;
-            }
-          }
-        }
-      }
-    }
-    @include breakpointOnly("s") {
-      .portrait {
-        text-align: center;
+			.text {
+				.block {
+					margin-bottom: 44px;
 
-        figure.image {
-          margin-left: auto;
-          margin-right: auto;
-          width: 220px;
-          margin-bottom: 24px;
+					&:first-of-type {
+						margin-bottom: 44px;
 
-          img {
-            width: 100%;
-          }
-        }
-      }
+						h1 {
+							margin-bottom: 0;
+						}
+						text-align: center;
 
-      .text {
-        .block {
-          margin-bottom: 44px;
+						.links {
+							margin-top: 8px;
 
-          &:first-of-type {
-            margin-bottom: 24px;
+							li {
+								display: inline-block;
 
-            h1 {
-              margin-bottom: 0;
-            }
-            text-align: center;
+								margin-right: 24px;
+								margin-bottom: 16px;
+							}
+							margin-bottom: 16px;
+						}
+					}
+				}
+			}
+		}
 
-            .links {
-              margin-top: 8px;
+		@include breakpointOnly('s') {
+			.portrait {
+				text-align: center;
 
-              li {
-                display: inline-block;
-                margin-right: 24px;
-                margin-bottom: 16px;
-              }
-              margin-bottom: 44px;
-            }
-          }
-        }
-      }
-    }
-    @include breakpointUp("m") {
-      grid-template-columns: repeat(5, 1fr);
-      grid-column-gap: 16px;
-      align-items: top;
-      justify-content: center;
+				figure.image {
+					margin-left: auto;
+					margin-right: auto;
+					width: 220px;
+					margin-bottom: 24px;
 
-      .portrait {
-        margin-right: 24px !important;
+					img {
+						width: 100%;
+					}
+				}
+			}
 
-        figure.image {
-          margin-bottom: 16px;
-        }
-        grid-column-start: 1;
-        grid-column-end: 3;
-      }
+			.text {
+				.block {
+					margin-bottom: 44px;
 
-      .text {
-        grid-column-start: 3;
-        grid-column-end: 7;
+					&:first-of-type {
+						margin-bottom: 24px;
 
-        .block {
-          margin-bottom: 44px;
+						h1 {
+							margin-bottom: 0;
+						}
+						text-align: center;
 
-          &:first-of-type {
-            h1 {
-              margin-bottom: 0;
-            }
+						.links {
+							margin-top: 8px;
 
-            .links {
-              margin-top: 8px;
-              margin-bottom: 44px;
+							li {
+								display: inline-block;
+								margin-right: 24px;
+								margin-bottom: 16px;
+							}
+							margin-bottom: 44px;
+						}
+					}
+				}
+			}
+		}
 
-              li {
-                margin-left: 0 !important;
-                display: inline-block;
-                margin-right: 24px;
-              }
-            }
-          }
-        }
-      }
-    }
-    @include breakpointUp("l") {
-      figure.image {
-        margin-bottom: 16px !important;
-      }
-    }
-  }
+		@include breakpointUp('m') {
+			grid-template-columns: repeat(5, 1fr);
+			grid-column-gap: 16px;
+			align-items: top;
+			justify-content: center;
+
+			.portrait {
+				margin-right: 24px !important;
+
+				figure.image {
+					margin-bottom: 16px;
+				}
+				grid-column-start: 1;
+				grid-column-end: 3;
+			}
+
+			.text {
+				grid-column-start: 3;
+				grid-column-end: 7;
+
+				.block {
+					margin-bottom: 44px;
+
+					&:first-of-type {
+						h1 {
+							margin-bottom: 0;
+						}
+
+						.links {
+							margin-top: 8px;
+							margin-bottom: 44px;
+
+							li {
+								margin-left: 0 !important;
+								display: inline-block;
+								margin-right: 24px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpointUp('l') {
+			figure.image {
+				margin-bottom: 16px !important;
+			}
+		}
+	}
 }
 
 .dark {
-  main.about {
-    .contentful-rich-text-types {
-      figure.image {
-        box-shadow: 0 4px 8px
-          rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.25);
-      }
-    }
-  }
+	main.about {
+		.contentful-rich-text-types {
+			figure.image {
+				box-shadow:
+					0 4px 8px
+					rgba(map-get($Foundations_Colors_Neutral--dark, 'black'), 0.25);
+			}
+		}
+	}
 }

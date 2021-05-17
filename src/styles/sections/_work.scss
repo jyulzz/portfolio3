@@ -9,5 +9,5 @@ Work section styles.
 *---------------------------------------------------------------------------- */
 
 section#work {
-  @include gridPlacementPreset("standard");
+	@include gridPlacementPreset('standard');
 }

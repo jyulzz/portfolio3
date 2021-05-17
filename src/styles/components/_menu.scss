@@ -9,186 +9,196 @@ Styles for Menu component.
 *---------------------------------------------------------------------------- */
 
 body {
-  nav#main {
-    display: flex;
-    z-index: 3;
-    flex-direction: row;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: flex-end;
+	nav#main {
+		display: flex;
+		z-index: 3;
+		flex-direction: row;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: flex-end;
 
-    .list {
-      .item {
-        a {
-          text-decoration: none;
-          @include getFontResponsive("M");
-          outline: none;
-          color: map-get($UI_Named_Colors, "link-text");
+		.list {
+			.item {
+				a {
+					text-decoration: none;
 
-          &.link {
-            border-top: 2px solid transparent;
-          }
-        }
-      }
-    }
+					@include get-font-responsive('M');
+					outline: none;
+					color: map-get($UI_Named_Colors, 'link-text');
 
-    button {
-      order: 1;
-      box-sizing: content-box;
-      transition-property: box-shadow, background-color, padding, border, color;
-      transition-duration: 120ms;
-      transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
-      transition-delay: 0;
-      z-index: 4;
-      padding: 0 !important;
+					&.link {
+						border-top: 2px solid transparent;
+					}
+				}
+			}
+		}
 
-      display: flex;
-      outline: none;
-      background: transparent;
-      cursor: pointer;
-      @include getFontResponsive("L");
+		button {
+			order: 1;
+			box-sizing: content-box;
+			transition-property: box-shadow, background-color, padding, border, color;
+			transition-duration: 120ms;
+			transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
+			transition-delay: 0;
+			z-index: 4;
+			padding: 0 !important;
 
-      color: map-get($UI_Named_Colors, "text");
+			display: flex;
+			outline: none;
+			background: transparent;
+			cursor: pointer;
 
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border-radius: 4px;
-      border: 2px solid transparent;
-      box-shadow: 0 4px 12px
-        rgba(map-get($Foundations_Colors_Neutral, "black"), 0.25);
-      height: 40px;
-      width: 40px;
-      line-height: 40px;
+			@include get-font-responsive('L');
 
-      &:active,
-      &:focus,
-      &:hover {
-        background: transparent;
-        color: map-get($UI_Named_Colors, "link-text");
-        border: 2px solid map-get($UI_Named_Colors, "link-text");
-      }
+			color: map-get($UI_Named_Colors, 'text');
 
-      @include breakpointOnly("m") {
-        height: 32px;
-        width: 32px;
-        line-height: 32px;
-      }
-      @include breakpointUp("m") {
-        box-shadow: none;
-        border: none;
-        border-top: 2px solid transparent;
-        border-bottom: 2px solid transparent;
-        color: map-get($UI_Named_Colors, "link-text");
-        border-radius: 0;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			border-radius: 4px;
+			border: 2px solid transparent;
+			box-shadow:
+				0 4px 12px
+				rgba(map-get($Foundations_Colors_Neutral, 'black'), 0.25);
+			height: 40px;
+			width: 40px;
+			line-height: 40px;
 
-        &:active,
-        &:focus,
-        &:hover {
-          background: transparent;
-          border: none;
-          border-top: 2px solid transparent;
-          border-bottom: 2px solid transparent;
-          border-bottom-color: map-get($UI_Named_Colors, "link-text");
-          color: map-get($UI_Named_Colors, "link-text");
-        }
-      }
+			&:active,
+			&:focus,
+			&:hover {
+				background: transparent;
+				color: map-get($UI_Named_Colors, 'link-text');
+				border: 2px solid map-get($UI_Named_Colors, 'link-text');
+			}
 
-      @include breakpointUp("l") {
-        height: 36px;
-        width: 36px;
-        line-height: 36px;
-      }
+			@include breakpointOnly('m') {
+				height: 32px;
+				width: 32px;
+				line-height: 32px;
+			}
 
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-    }
-    @include breakpointFromTo("xs", "s") {
-      .item {
-        display: none;
-      }
-    }
-    @include breakpointUp("m") {
-      .item {
-        display: inline-flex;
-        margin-left: 24px;
-      }
+			@include breakpointUp('m') {
+				box-shadow: none;
+				border: none;
+				border-top: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				color: map-get($UI_Named_Colors, 'link-text');
+				border-radius: 0;
 
-      button#menuToggle {
-        display: none;
-      }
-    }
+				&:active,
+				&:focus,
+				&:hover {
+					background: transparent;
+					border: none;
+					border-top: 2px solid transparent;
+					border-bottom: 2px solid transparent;
+					border-bottom-color: map-get($UI_Named_Colors, 'link-text');
+					color: map-get($UI_Named_Colors, 'link-text');
+				}
+			}
 
-    button#themeToggler {
-      order: 0;
+			@include breakpointUp('l') {
+				height: 36px;
+				width: 36px;
+				line-height: 36px;
+			}
 
-      svg {
-        transform: rotate(0deg);
-        transition-property: transform;
-        transition-duration: 800ms;
-      }
-      @include breakpointFromTo("xs", "s") {
-        margin-right: 12px;
-      }
-      @include breakpointUp("m") {
-        margin-left: 24px;
-      }
-    }
-  }
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
 
-  &.dark {
-    nav#main {
-      .list {
-        .item {
-          a {
-            color: map-get($UI_Named_Colors--dark, "link-text");
-          }
-        }
-      }
+		@include breakpointFromTo('xs', 's') {
+			.item {
+				display: none;
+			}
+		}
 
-      button {
-        color: map-get($UI_Named_Colors--dark, "text");
-        border: 2px solid
-          rgba(map-get($Foundations_Colors_Neutral--dark, "white"), 0.1);
+		@include breakpointUp('m') {
+			.item {
+				display: inline-flex;
+				margin-left: 24px;
+			}
 
-        box-shadow: 0 4px 12px
-          rgba(map-get($Foundations_Colors_Neutral, "black"), 0);
+			button#menuToggle {
+				display: none;
+			}
+		}
 
-        &:active,
-        &:focus,
-        &:hover {
-          color: map-get($UI_Named_Colors--dark, "link-text");
-          border: 2px solid map-get($UI_Named_Colors--dark, "link-text");
-        }
+		button#themeToggler {
+			order: 0;
 
-        @include breakpointUp("m") {
-          box-shadow: none;
-          border: none;
-          border-top: 2px solid transparent;
-          border-bottom: 2px solid transparent;
-          color: map-get($UI_Named_Colors--dark, "link-text");
-          border-radius: 0;
+			svg {
+				transform: rotate(0deg);
+				transition-property: transform;
+				transition-duration: 800ms;
+			}
 
-          &:active,
-          &:focus,
-          &:hover {
-            background: transparent;
-            border: none;
-            border-top: 2px solid transparent;
-            border-bottom: 2px solid transparent;
-            border-bottom-color: map-get($UI_Named_Colors--dark, "link-text");
-            color: map-get($UI_Named_Colors--dark, "link-text");
-          }
-        }
+			@include breakpointFromTo('xs', 's') {
+				margin-right: 12px;
+			}
 
-        &#themeToggler {
-          svg {
-            transform: rotate(180deg);
-          }
-        }
-      }
-    }
-  }
+			@include breakpointUp('m') {
+				margin-left: 24px;
+			}
+		}
+	}
+
+	&.dark {
+		nav#main {
+			.list {
+				.item {
+					a {
+						color: map-get($UI_Named_Colors--dark, 'link-text');
+					}
+				}
+			}
+
+			button {
+				color: map-get($UI_Named_Colors--dark, 'text');
+				border:
+					2px solid
+					rgba(map-get($Foundations_Colors_Neutral--dark, 'white'), 0.1);
+
+				box-shadow:
+					0 4px 12px
+					rgba(map-get($Foundations_Colors_Neutral, 'black'), 0);
+
+				&:active,
+				&:focus,
+				&:hover {
+					color: map-get($UI_Named_Colors--dark, 'link-text');
+					border: 2px solid map-get($UI_Named_Colors--dark, 'link-text');
+				}
+
+				@include breakpointUp('m') {
+					box-shadow: none;
+					border: none;
+					border-top: 2px solid transparent;
+					border-bottom: 2px solid transparent;
+					color: map-get($UI_Named_Colors--dark, 'link-text');
+					border-radius: 0;
+
+					&:active,
+					&:focus,
+					&:hover {
+						background: transparent;
+						border: none;
+						border-top: 2px solid transparent;
+						border-bottom: 2px solid transparent;
+						border-bottom-color: map-get($UI_Named_Colors--dark, 'link-text');
+						color: map-get($UI_Named_Colors--dark, 'link-text');
+					}
+				}
+
+				&#themeToggler {
+					svg {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
 }

@@ -9,33 +9,33 @@ Colors (part of Foundations).
 *---------------------------------------------------------------------------- */
 
 $Foundations_Colors_Neutral: (
-  "black": rgba(0, 0, 0, 1),
-  "black-light": rgba(32, 32, 32, 1),
-  "grey-dark": rgba(84, 84, 84, 1),
-  "grey-medium-dark": rgba(132, 132, 132, 1),
-  "grey-medium": rgba(196, 196, 196, 1),
-  "grey-light": rgba(236, 236, 236, 1),
-  "white-dark": rgba(248, 248, 248, 1),
-  "white": rgba(255, 255, 255, 1),
+	'black': rgba(0, 0, 0, 1),
+	'black-light': rgba(32, 32, 32, 1),
+	'grey-dark': rgba(84, 84, 84, 1),
+	'grey-medium-dark': rgba(132, 132, 132, 1),
+	'grey-medium': rgba(196, 196, 196, 1),
+	'grey-light': rgba(236, 236, 236, 1),
+	'white-dark': rgba(248, 248, 248, 1),
+	'white': rgba(255, 255, 255, 1),
 );
 $Foundations_Colors_Primary: (
-  "primary": rgba(33, 51, 181, 1),
-  "success": rgba(17, 116, 45, 1),
-  "error": rgba(255, 0, 0, 1),
-  "accent": rgba(136, 0, 178, 1),
+	'primary': rgba(33, 51, 181, 1),
+	'success': rgba(17, 116, 45, 1),
+	'error': rgba(255, 0, 0, 1),
+	'accent': rgba(136, 0, 178, 1),
 );
 $UI_Named_Colors: (
-  "text": map-get($Foundations_Colors_Neutral, "black-light"),
-  "text-dim": map-get($Foundations_Colors_Neutral, "grey-dark"),
-  "text-sub": map-get($Foundations_Colors_Neutral, "grey-medium"),
-  "link-text": map-get($Foundations_Colors_Primary, "primary"),
-  "background": map-get($Foundations_Colors_Neutral, "white"),
-  "menu-bar-background":
-    rgba(map-get($Foundations_Colors_Neutral, "white"), 0.925),
-  "footer-background": rgba(map-get($Foundations_Colors_Primary, "primary"), 1),
-  "border": map-get($Foundations_Colors_Neutral, "grey-light"),
-  "overlay-background":
-    rgba(map-get($Foundations_Colors_Neutral, "black"), 0.75),
-  "card-background": map-get($Foundations_Colors_Neutral, "white"),
-  "mark": map-get($Foundations_Colors_Primary, "error"),
+	'text': map-get($Foundations_Colors_Neutral, 'black-light'),
+	'text-dim': map-get($Foundations_Colors_Neutral, 'grey-dark'),
+	'text-sub': map-get($Foundations_Colors_Neutral, 'grey-medium'),
+	'link-text': map-get($Foundations_Colors_Primary, 'primary'),
+	'background': map-get($Foundations_Colors_Neutral, 'white'),
+	'menu-bar-background':
+	rgba(map-get($Foundations_Colors_Neutral, 'white'), 0.925),
+	'footer-background': rgba(map-get($Foundations_Colors_Primary, 'primary'), 1),
+	'border': map-get($Foundations_Colors_Neutral, 'grey-light'),
+	'overlay-background':
+	rgba(map-get($Foundations_Colors_Neutral, 'black'), 0.75),
+	'card-background': map-get($Foundations_Colors_Neutral, 'white'),
+	'mark': map-get($Foundations_Colors_Primary, 'error'),
 );

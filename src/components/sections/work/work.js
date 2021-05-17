@@ -12,10 +12,10 @@ Builds the Work section used on the Index page.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import { Container } from "../../ui-kit/view";
-import Title from "../../ui-kit/title";
-import Section from "../../ui-kit/section";
-import WorkItems from "./items";
+import { Container } from "components/ui-kit/view/view";
+import Title from "components/ui-kit/title/title";
+import Section from "components/ui-kit/section/section";
+import WorkItems from "components/sections/work/items";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */

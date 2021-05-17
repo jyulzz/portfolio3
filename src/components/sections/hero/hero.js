@@ -1,11 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/ui-kit/badges.js
+src/components/sections/hero.js
 
 DESCRIPTION
-Displays badges linked to people who's work is credited or sites of technologies
-used in this project.
+Hero section used on the Index page.
 
 *---------------------------------------------------------------------------- */
 
@@ -14,8 +13,11 @@ used in this project.
 *---------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "../ui-kit/link";
-import Img from "gatsby-image/withIEPolyfill";
+import { useStaticQuery, graphql } from "gatsby";
+import Options from "options/about.options.js";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Container } from "components/ui-kit/view/view";
+import Section from "components/ui-kit/section/section";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -23,52 +25,31 @@ import Img from "gatsby-image/withIEPolyfill";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-
-const Badge = ({ title = "", children = {} }) => {
-  return (
-    <span className={"badge"} role="img" title={title}>
-      {children}
-    </span>
-  );
-};
-
-const Badges = ({ id = "", data = {}, items = [] }) => {
-  data.contentfulList.items.forEach((item) => {
-    if (item.photo) {
-      items.push(
-        <Link href={item.link} key={item.id} target="_blank">
-          <Badge title={item.name}>
-            <Img
-              fluid={item.photo.fluid}
-              objectFit="cover"
-              objectPosition="50% 50%"
-            />
-          </Badge>
-        </Link>
-      );
-    } else if (item.icon) {
-      items.push(
-        <Link href={item.link} key={item.id} target="_blank">
-          <Badge title={item.name}>
-            <img
-              src={item.icon.file.url}
-              alt={item.name}
-              height="100%"
-              width="100%"
-            />
-          </Badge>
-        </Link>
-      );
+const Hero = ({ data = {}, options = {} }) => {
+  options = Options;
+  /* Pull the Site entry from Contentful for this site. */
+  data = useStaticQuery(graphql`
+    {
+      contentfulSite(slug: { eq: "jules-thivent" }) {
+        id
+        name
+        hero {
+          raw
+        }
+      }
     }
-  });
-
+  `);
   return (
-    <div className="badges" key={id} id={id}>
-      {items}
-    </div>
+    <Container>
+      <Section id="hero">
+        {documentToReactComponents(
+          JSON.parse(data.contentfulSite.hero.raw),
+          options
+        )}
+      </Section>
+    </Container>
   );
 };
-
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
 *---------------------------------------------------------------------------- */
@@ -76,13 +57,13 @@ const Badges = ({ id = "", data = {}, items = [] }) => {
 /* ----------------------------------------------------------------------------*
   PROPS
 *---------------------------------------------------------------------------- */
-Badge.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+Hero.propTypes = {
+  data: PropTypes.object.isRequired,
+  options: PropTypes.object.isRequired,
 };
-Badge.defaultProps = {
-  title: "",
-  children: [],
+Hero.defaultProps = {
+  data: {},
+  options: {},
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
@@ -91,7 +72,7 @@ Badge.defaultProps = {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Badges;
+export default Hero;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

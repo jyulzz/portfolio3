@@ -22,6 +22,6 @@ npm audit fix
 echo "\n\033[1;35m5. Clean:\033[0m\n"
 sudo gatsby clean
 echo "\n\033[1;35m6. Prettier:\033[0m\n"
-prettier --write "**/*.{js,jsx,json,scss,yml}"
+prettier --write "**/*.{js,jsx,json,yml}"
 echo "\n\033[1;35m6. Develop:\033[0m\n"
 sudo gatsby develop

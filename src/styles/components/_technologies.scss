@@ -9,14 +9,14 @@ Styles for Technologies component.
 *---------------------------------------------------------------------------- */
 
 #technologies {
-  a {
-    display: inline-flex;
-    border: none;
+	a {
+		display: inline-flex;
+		border: none;
 
-    .gem {
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-  }
+		.gem {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	}
 }

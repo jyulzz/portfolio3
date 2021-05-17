@@ -9,98 +9,105 @@ Styles for Link component.
 *---------------------------------------------------------------------------- */
 
 body {
-  .link {
-    transition-property: background, background-color, padding, border-color,
-      border, border-bottom-color, border-bottom, color;
-    transition-duration: 240ms;
-    transition-delay: 80ms;
-    font-weight: map-get($Foundations_Fontweights, "Medium");
-    text-decoration: none;
-    cursor: pointer;
-    color: map-get($UI_Named_Colors, "link-text");
+	.link {
+		transition-property:
+			background,
+			background-color,
+			padding,
+			border-color,
+			border,
+			border-bottom-color,
+			border-bottom,
+			color;
+		transition-duration: 240ms;
+		transition-delay: 80ms;
+		font-weight: map-get($Foundations_Fontweights, 'Medium');
+		text-decoration: none;
+		cursor: pointer;
+		color: map-get($UI_Named_Colors, 'link-text');
 
-    border-bottom: 2px solid transparent;
-    outline: none;
-    white-space: nowrap;
-    word-break: keep-all;
+		border-bottom: 2px solid transparent;
+		outline: none;
+		white-space: nowrap;
+		word-break: keep-all;
 
-    &:active,
-    &:focus,
-    &:hover {
-      border-bottom: 2px solid map-get($UI_Named_Colors, "link-text");
-    }
+		&:active,
+		&:focus,
+		&:hover {
+			border-bottom: 2px solid map-get($UI_Named_Colors, 'link-text');
+		}
 
-    svg {
-      margin-right: 0.5em;
-      width: 1rem !important;
-      line-height: 160%;
-      text-align: center;
-    }
+		svg {
+			margin-right: 0.5em;
+			width: 1rem !important;
+			line-height: 160%;
+			text-align: center;
+		}
 
-    &.inverted {
-      svg {
-        margin-right: 0;
-        margin-left: 0.25em;
-      }
-    }
+		&.inverted {
+			svg {
+				margin-right: 0;
+				margin-left: 0.25em;
+			}
+		}
 
-    &.primary {
-      font-weight: map-get($Foundations_Fontweights, "Semibold");
-    }
+		&.primary {
+			font-weight: map-get($Foundations_Fontweights, 'Semibold');
+		}
 
-    &.secondary {
-      font-weight: map-get($Foundations_Fontweights, "Normal");
-    }
+		&.secondary {
+			font-weight: map-get($Foundations_Fontweights, 'Normal');
+		}
 
-    &.inactive {
-      color: map-get($UI_Named_Colors, "text-dim");
-      border-bottom: none;
-      cursor: default;
+		&.inactive {
+			color: map-get($UI_Named_Colors, 'text-dim');
+			border-bottom: none;
+			cursor: default;
 
-      &:active,
-      &:focus,
-      &:hover {
-        border-bottom: none;
-      }
-    }
+			&:active,
+			&:focus,
+			&:hover {
+				border-bottom: none;
+			}
+		}
 
-    &.transparent {
-      font-weight: inherit;
-      color: inherit;
-    }
+		&.transparent {
+			font-weight: inherit;
+			color: inherit;
+		}
 
-    > a {
-      text-decoration: none;
-    }
-  }
+		> a {
+			text-decoration: none;
+		}
+	}
 
-  // When button tag is used for a link, strip button styles so it looks like any other links
-  button {
-    &.link {
-      padding: 0;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      outline: none;
-      font-size: inherit;
-      background: none;
-    }
-  }
+	// When button tag is used for a link, strip button styles so it looks like any other links
+	button {
+		&.link {
+			padding: 0;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			outline: none;
+			font-size: inherit;
+			background: none;
+		}
+	}
 
-  &.dark {
-    .link {
-      color: map-get($UI_Named_Colors--dark, "link-text");
+	&.dark {
+		.link {
+			color: map-get($UI_Named_Colors--dark, 'link-text');
 
-      &:active,
-      &:focus,
-      &:hover {
-        border-bottom: 2px solid map-get($UI_Named_Colors--dark, "link-text");
-      }
+			&:active,
+			&:focus,
+			&:hover {
+				border-bottom: 2px solid map-get($UI_Named_Colors--dark, 'link-text');
+			}
 
-      &.inactive {
-        color: map-get($UI_Named_Colors--dark, "text-dim");
-        border-bottom: none;
-      }
-    }
-  }
+			&.inactive {
+				color: map-get($UI_Named_Colors--dark, 'text-dim');
+				border-bottom: none;
+			}
+		}
+	}
 }

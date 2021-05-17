@@ -7,347 +7,393 @@ DESCRIPTION
 Styles for Project Thumbnail component.
 
 *---------------------------------------------------------------------------- */
-@import "../components/animation";
+@import '../components/animation';
 
 body {
-  div.project-thumbnail {
-    display: grid;
-    box-shadow: 0 16px 32px
-      rgba(map-get($Foundations_Colors_Neutral, "black"), 0.16);
-    background: map-get($UI_Named_Colors, "card-background");
+	div.project-thumbnail {
+		display: grid;
+		box-shadow:
+			0 16px 32px
+			rgba(map-get($Foundations_Colors_Neutral, 'black'), 0.16);
+		background: map-get($UI_Named_Colors, 'card-background');
 
-    @include animation;
+		@include animation;
 
-    .thumbnail {
-      width: 100%;
-      .animation {
-        height: 100%;
-        .background {
-          width: 105%;
-        }
-      }
-    }
+		.thumbnail {
+			width: 100%;
 
-    .information {
-      .title.level2 {
-        font-weight: map-get($Foundations_Fontweights, "Semibold");
-        @include getFontResponsive("L");
-      }
+			.animation {
+				height: 100%;
 
-      .description {
-        font-weight: map-get($Foundations_Fontweights, "Medium");
-      }
+				.background {
+					width: 105%;
+				}
+			}
+		}
 
-      .linkWrapper.out {
-        background: scale-color(
-          rgba(map-get($UI_Named_Colors, "link-text"), 1),
-          $lightness: 96%
-        );
-        border-radius: 4px;
-        padding: 4px;
-        width: max-content;
-        margin-top: 8px;
-        margin-bottom: 16px;
-        box-shadow: 0 1px 2px 0px
-          scale-color(
-            rgba(map-get($UI_Named_Colors, "link-text"), 0.25),
-            $lightness: 50%
-          );
-        .linkWrapper.in {
-          border-radius: 2px;
-          border-top: 1px solid transparent;
-          padding: 2px 8px;
-          background: scale-color(
-            rgba(map-get($UI_Named_Colors, "link-text"), 1),
-            $lightness: 90%
-          );
-          box-shadow: 0 1px 2px 0px
-            scale-color(
-              rgba(map-get($UI_Named_Colors, "link-text"), 1),
-              $lightness: 50%
-            );
-          .link {
-            padding: 0 !important;
-            height: 100% !important;
-            line-height: 100% !important;
-            svg {
-              margin-right: 0;
-              margin-left: 0.25rem;
-            }
-          }
-        }
-      }
+		.information {
+			.title.level2 {
+				font-weight: map-get($Foundations_Fontweights, 'Semibold');
 
-      .tags {
-        line-height: 100%;
-        margin-top: 8px;
-      }
+				@include get-font-responsive('L');
+			}
 
-      .tag {
-        font-weight: map-get($Foundations_Fontweights, "Medium");
-        color: map-get($UI_Named_Colors, "text-sub");
-        @include getFontResponsive("S");
-        border-radius: 4px;
-        width: max-content;
-        display: inline-block;
+			.description {
+				font-weight: map-get($Foundations_Fontweights, 'Medium');
+			}
 
-        &::before {
-          margin-left: 0;
-          margin-right: 4px;
-          @extend %fa-icon;
-          @extend .far;
-        }
+			.linkWrapper.out {
+				background:
+					scale-color(
+						rgba(map-get($UI_Named_Colors, 'link-text'), 1),
+						$lightness: 96%
+					);
+				border-radius: 4px;
+				padding: 4px;
+				width: max-content;
+				margin-top: 8px;
+				margin-bottom: 16px;
+				box-shadow:
+					0 1px 2px 0
+					scale-color(
+						rgba(map-get($UI_Named_Colors, 'link-text'), 0.25),
+						$lightness: 50%
+					);
 
-        &.organization,
-        &.date {
-          color: map-get($UI_Named_Colors, "text-dim");
-        }
+				.linkWrapper.in {
+					border-radius: 2px;
+					border-top: 1px solid transparent;
+					padding: 2px 8px;
+					background:
+						scale-color(
+							rgba(map-get($UI_Named_Colors, 'link-text'), 1),
+							$lightness: 90%
+						);
+					box-shadow:
+						0 1px 2px 0
+						scale-color(
+							rgba(map-get($UI_Named_Colors, 'link-text'), 1),
+							$lightness: 50%
+						);
 
-        &.organization,
-        &.date,
-        &.inProgress {
-          margin-top: 0 !important;
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
-          @include getFontResponsive("M");
-          font-weight: map-get($Foundations_Fontweights, "Normal");
-          background: transparent;
-        }
+					.link {
+						padding: 0 !important;
+						height: 100% !important;
+						line-height: 100% !important;
 
-        @include breakpointUp("xs") {
-          &.date {
-            &::before {
-              margin-left: 4px;
-              margin-right: 4px;
-              content: "•";
-            }
-          }
-        }
+						svg {
+							margin-right: 0;
+							margin-left: 0.25rem;
+						}
+					}
+				}
+			}
 
-        &.inProgress,
-        &.releaseDate {
-          @include getFontResponsive("M");
-          color: map-get($Foundations_Colors_Primary, "success");
-          line-height: 100%;
-          font-weight: map-get($Foundations_Fontweights, "Medium");
-          &::before {
-            margin-left: 0;
-            margin-right: 8px;
-            @extend %fa-icon;
-            @extend .fas;
-          }
-        }
+			.tags {
+				line-height: 100%;
+				margin-top: 8px;
+			}
 
-        &.inProgress {
-          &::before {
-            content: fa-content($fa-var-traffic-cone);
-          }
-        }
+			.tag {
+				font-weight: map-get($Foundations_Fontweights, 'Medium');
+				color: map-get($UI_Named_Colors, 'text-sub');
 
-        &.releaseDate {
-          &::before {
-            content: fa-content($fa-var-clock);
-          }
-        }
+				@include get-font-responsive('S');
+				border-radius: 4px;
+				width: max-content;
+				display: inline-block;
 
-        &.readingTime {
-          @include getFontResponsive("XS");
-          margin-right: 8px;
-          color: map-get($Foundations_Colors_Primary, "accent");
-          background: rgba(map-get($Foundations_Colors_Primary, "accent"), 0.1);
-          padding-left: 6px;
-          padding-right: 6px;
-          margin-bottom: 8px;
-          &::before {
-            content: fa-content($fa-var-clock);
-          }
-        }
+				&::before {
+					margin-left: 0;
+					margin-right: 4px;
 
-        &.generic {
-          @include getFontResponsive("XS");
-          margin-right: 8px;
-          background: map-get($Foundations_Colors_Neutral, "grey-light");
-          color: map-get($UI_Named_Colors, "text-dim");
+					@extend %fa-icon;
+					@extend .far;
+				}
 
-          padding-left: 6px;
-          padding-right: 6px;
-          margin-bottom: 8px;
-          &::before {
-            content: fa-content($fa-var-tag);
-          }
-        }
-      }
-    }
-    @include breakpointFromTo("xs", "s") {
-      grid-template-columns: repeat(6, 1fr);
-      grid-column-gap: 16px;
-      margin-bottom: 48px;
-      border-radius: 8px;
+				&.organization,
+				&.date {
+					color: map-get($UI_Named_Colors, 'text-dim');
+				}
 
-      .information,
-      .thumbnail {
-        grid-column-start: 1;
-        grid-column-end: 7;
-      }
+				&.organization,
+				&.date,
+				&.inProgress {
+					margin-top: 0 !important;
+					padding-top: 0 !important;
+					padding-bottom: 0 !important;
 
-      .information {
-        padding: 24px;
-        border-radius: 8px;
-      }
+					@include get-font-responsive('M');
+					font-weight: map-get($Foundations_Fontweights, 'Normal');
+					background: transparent;
+				}
 
-      .thumbnail {
-        height: 100%;
-        min-height: 30vw;
+				@include breakpointUp('xs') {
+					&.date {
+						&::before {
+							margin-left: 4px;
+							margin-right: 4px;
+							content: '•';
+						}
+					}
+				}
 
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        .animation {
-          border-top-left-radius: 8px;
-          border-top-right-radius: 8px;
-          .background {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
+				&.inProgress,
+				&.releaseDate {
+					@include get-font-responsive('M');
+					color: map-get($Foundations_Colors_Primary, 'success');
+					line-height: 100%;
+					font-weight: map-get($Foundations_Fontweights, 'Medium');
 
-            picture {
-              border-top-left-radius: 8px;
-              border-top-right-radius: 8px;
-              img {
-                border-top-left-radius: 8px;
-                border-top-right-radius: 8px;
-              }
-            }
-          }
-        }
-      }
-    }
-    @include breakpointUp("m") {
-      grid-template-columns: repeat(10, 1fr);
-      grid-column-gap: 16px;
-      grid-template-rows: 1fr;
-      grid-row-gap: 0;
-      margin-bottom: 54px;
-      align-items: center;
-      justify-content: center;
+					&::before {
+						margin-left: 0;
+						margin-right: 8px;
 
-      border-radius: 8px;
-      .information {
-        grid-area: 1 / 1 / 2 / 5;
-        padding: 24px 8px 24px 24px;
-      }
+						@extend %fa-icon;
+						@extend .fas;
+					}
+				}
 
-      .thumbnail {
-        border: thin solid transparent;
-        min-height: 40vw;
-        max-height: 52vw;
-        height: 100%;
-        grid-area: 1 / 5 / 2 / 11;
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-        .animation {
-          border-top-right-radius: 8px;
-          border-bottom-right-radius: 8px;
-          .background {
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-            picture {
-              border-top-right-radius: 8px;
-              border-bottom-right-radius: 8px;
-              img {
-                border-top-right-radius: 8px;
-                border-bottom-right-radius: 8px;
-              }
-            }
-          }
-        }
-      }
-    }
-    @include breakpointOnly("m") {
-      margin-bottom: 60px;
-      .thumbnail {
-        min-height: 400px;
-        max-height: 500px;
-      }
-    }
+				&.inProgress {
+					&::before {
+						content: fa-content($fa-var-traffic-cone);
+					}
+				}
 
-    @include breakpointOnly("l") {
-      margin-bottom: 60px;
-      .thumbnail {
-        min-height: 400px;
-        max-height: 500px;
-      }
-    }
-    @include breakpointUp("xl") {
-      margin-bottom: 68px;
-      .thumbnail {
-        min-height: 400px;
+				&.releaseDate {
+					&::before {
+						content: fa-content($fa-var-clock);
+					}
+				}
 
-        max-height: 600px;
-      }
-    }
-  }
+				&.readingTime {
+					@include get-font-responsive('XS');
+					margin-right: 8px;
+					color: map-get($Foundations_Colors_Primary, 'accent');
+					background: rgba(map-get($Foundations_Colors_Primary, 'accent'), 0.1);
+					padding-left: 6px;
+					padding-right: 6px;
+					margin-bottom: 8px;
 
-  &.dark {
-    div.project-thumbnail {
-      background: map-get($UI_Named_Colors--dark, "card-background");
-      box-shadow: 0 16px 32px
-          rgba(map-get($Foundations_Colors_Neutral--dark, "black"), 0.32),
-        0 0 1px rgba(map-get($UI_Named_Colors--dark, "text-dim"), 1);
+					&::before {
+						content: fa-content($fa-var-clock);
+					}
+				}
 
-      .information {
-        .linkWrapper.out {
-          background: scale-color(
-            rgba(map-get($UI_Named_Colors--dark, "link-text"), 0.5),
-            $lightness: -46%
-          );
-          box-shadow: 0 1px 2px 0px
-            scale-color(
-              rgba(map-get($UI_Named_Colors--dark, "link-text"), 0.25),
-              $lightness: -80%
-            );
-          .linkWrapper.in {
-            background: scale-color(
-              rgba(map-get($UI_Named_Colors--dark, "link-text"), 0.5),
-              $lightness: -0%
-            );
-            box-shadow: 0 1px 2px 0px
-              scale-color(
-                rgba(map-get($UI_Named_Colors--dark, "link-text"), 1),
-                $lightness: -80%
-              );
-            .link {
-              color: white !important;
-              &:hover {
-                border-bottom-color: white !important;
-              }
-            }
-          }
-        }
+				&.generic {
+					@include get-font-responsive('XS');
+					margin-right: 8px;
+					background: map-get($Foundations_Colors_Neutral, 'grey-light');
+					color: map-get($UI_Named_Colors, 'text-dim');
 
-        .tag {
-          &.organization,
-          &.date {
-            color: map-get($UI_Named_Colors--dark, "text-dim");
-          }
-          &.readingTime {
-            color: map-get($Foundations_Colors_Primary--dark, "accent");
-            background: scale-color(
-              rgba(map-get($Foundations_Colors_Primary--dark, "accent"), 1),
-              $lightness: -67.5%
-            );
-          }
-          &.inProgress,
-          &.releaseDate {
-            color: map-get($Foundations_Colors_Primary--dark, "success");
-          }
-          &.generic {
-            background: map-get(
-              $Foundations_Colors_Neutral--dark,
-              "grey-medium-darker"
-            );
-            color: map-get($UI_Named_Colors--dark, "text-dim");
-          }
-        }
-      }
-    }
-  }
+					padding-left: 6px;
+					padding-right: 6px;
+					margin-bottom: 8px;
+
+					&::before {
+						content: fa-content($fa-var-tag);
+					}
+				}
+			}
+		}
+
+		@include breakpointFromTo('xs', 's') {
+			grid-template-columns: repeat(6, 1fr);
+			grid-column-gap: 16px;
+			margin-bottom: 48px;
+			border-radius: 8px;
+
+			.information,
+			.thumbnail {
+				grid-column-start: 1;
+				grid-column-end: 7;
+			}
+
+			.information {
+				padding: 24px;
+				border-radius: 8px;
+			}
+
+			.thumbnail {
+				height: 100%;
+				min-height: 30vw;
+
+				border-bottom-left-radius: 8px;
+				border-bottom-right-radius: 8px;
+
+				.animation {
+					border-top-left-radius: 8px;
+					border-top-right-radius: 8px;
+
+					.background {
+						border-top-left-radius: 8px;
+						border-top-right-radius: 8px;
+
+						picture {
+							border-top-left-radius: 8px;
+							border-top-right-radius: 8px;
+
+							img {
+								border-top-left-radius: 8px;
+								border-top-right-radius: 8px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpointUp('m') {
+			grid-template-columns: repeat(10, 1fr);
+			grid-column-gap: 16px;
+			grid-template-rows: 1fr;
+			grid-row-gap: 0;
+			margin-bottom: 54px;
+			align-items: center;
+			justify-content: center;
+
+			border-radius: 8px;
+
+			.information {
+				grid-area: 1 / 1 / 2 / 5;
+				padding: 24px 8px 24px 24px;
+			}
+
+			.thumbnail {
+				border: thin solid transparent;
+				min-height: 40vw;
+				max-height: 52vw;
+				height: 100%;
+				grid-area: 1 / 5 / 2 / 11;
+				border-top-right-radius: 8px;
+				border-bottom-right-radius: 8px;
+
+				.animation {
+					border-top-right-radius: 8px;
+					border-bottom-right-radius: 8px;
+
+					.background {
+						border-top-right-radius: 8px;
+						border-bottom-right-radius: 8px;
+
+						picture {
+							border-top-right-radius: 8px;
+							border-bottom-right-radius: 8px;
+
+							img {
+								border-top-right-radius: 8px;
+								border-bottom-right-radius: 8px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpointOnly('m') {
+			margin-bottom: 60px;
+
+			.thumbnail {
+				min-height: 400px;
+				max-height: 500px;
+			}
+		}
+
+		@include breakpointOnly('l') {
+			margin-bottom: 60px;
+
+			.thumbnail {
+				min-height: 400px;
+				max-height: 500px;
+			}
+		}
+
+		@include breakpointUp('xl') {
+			margin-bottom: 68px;
+
+			.thumbnail {
+				min-height: 400px;
+
+				max-height: 600px;
+			}
+		}
+	}
+
+	&.dark {
+		div.project-thumbnail {
+			background: map-get($UI_Named_Colors--dark, 'card-background');
+			box-shadow:
+				0 16px 32px
+				rgba(map-get($Foundations_Colors_Neutral--dark, 'black'), 0.32),
+				0 0 1px rgba(map-get($UI_Named_Colors--dark, 'text-dim'), 1);
+
+			.information {
+				.linkWrapper.out {
+					background:
+						scale-color(
+							rgba(map-get($UI_Named_Colors--dark, 'link-text'), 0.5),
+							$lightness: -46%
+						);
+					box-shadow:
+						0 1px 2px
+						scale-color(
+							rgba(map-get($UI_Named_Colors--dark, 'link-text'), 0.25),
+							$lightness: -80%
+						);
+
+					.linkWrapper.in {
+						background:
+							scale-color(
+								rgba(map-get($UI_Named_Colors--dark, 'link-text'), 0.5),
+								$lightness: -0%
+							);
+						box-shadow:
+							0 1px 2px 0px
+							scale-color(
+								rgba(map-get($UI_Named_Colors--dark, 'link-text'), 1),
+								$lightness: -80%
+							);
+
+						.link {
+							color: rgba(map-get($Foundations_Colors_Neutral--dark, 'white'), 1) !important;
+
+							&:hover {
+								border-bottom-color: rgba(map-get($Foundations_Colors_Neutral--dark, 'white'), 1) !important;
+							}
+						}
+					}
+				}
+
+				.tag {
+					&.organization,
+					&.date {
+						color: map-get($UI_Named_Colors--dark, 'text-dim');
+					}
+
+					&.readingTime {
+						color: map-get($Foundations_Colors_Primary--dark, 'accent');
+						background:
+							scale-color(
+								rgba(map-get($Foundations_Colors_Primary--dark, 'accent'), 1),
+								$lightness: -67.5%
+							);
+					}
+
+					&.inProgress,
+					&.releaseDate {
+						color: map-get($Foundations_Colors_Primary--dark, 'success');
+					}
+
+					&.generic {
+						background:
+							map-get(
+								$Foundations_Colors_Neutral--dark,
+								'grey-medium-darker'
+							);
+						color: map-get($UI_Named_Colors--dark, 'text-dim');
+					}
+				}
+			}
+		}
+	}
 }

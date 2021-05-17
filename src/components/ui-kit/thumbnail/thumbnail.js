@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/sections/hero.js
+src/components/ui-kit/thumbnail.js
 
 DESCRIPTION
-Hero section used on the Index page.
+Thumbnail component used in Work and Versions cards
 
 *---------------------------------------------------------------------------- */
 
@@ -13,11 +13,8 @@ Hero section used on the Index page.
 *---------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Options from "../../options/about.js";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Container } from "../../components/ui-kit/view";
-import Section from "../../components/ui-kit/section";
+import Animation from "components/ui-kit/animation/animation";
+import Img from "gatsby-image/withIEPolyfill";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -25,29 +22,31 @@ import Section from "../../components/ui-kit/section";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Hero = ({ data = {}, options = {} }) => {
-  options = Options;
-  /* Pull the Site entry from Contentful for this site. */
-  data = useStaticQuery(graphql`
-    {
-      contentfulSite(slug: { eq: "jules-thivent" }) {
-        id
-        name
-        hero {
-          raw
-        }
-      }
-    }
-  `);
+const Thumbnail = ({
+  animation = {},
+  animationBackground = {},
+  imagePreview = {},
+  id = "",
+  title = "",
+}) => {
   return (
-    <Container>
-      <Section id="hero">
-        {documentToReactComponents(
-          JSON.parse(data.contentfulSite.hero.raw),
-          options
-        )}
-      </Section>
-    </Container>
+    <span className="thumbnail">
+      {animation !== null && animationBackground !== null ? (
+        <Animation
+          id={id}
+          src={animation.file.url}
+          background={animationBackground.fluid}
+        />
+      ) : (
+        <Img
+          fluid={imagePreview.fluid}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          alt={title}
+          style={{ height: "100%" }}
+        />
+      )}
+    </span>
   );
 };
 /* ----------------------------------------------------------------------------*
@@ -57,13 +56,19 @@ const Hero = ({ data = {}, options = {} }) => {
 /* ----------------------------------------------------------------------------*
   PROPS
 *---------------------------------------------------------------------------- */
-Hero.propTypes = {
-  data: PropTypes.object.isRequired,
-  options: PropTypes.object.isRequired,
+Thumbnail.propTypes = {
+  animation: PropTypes.object.isRequired,
+  animationBackground: PropTypes.object.isRequired,
+  imagePreview: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
-Hero.defaultProps = {
-  data: {},
-  options: {},
+Thumbnail.defaultProps = {
+  animation: {},
+  animationBackground: {},
+  imagePreview: {},
+  id: "",
+  title: "",
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
@@ -72,7 +77,7 @@ Hero.defaultProps = {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Hero;
+export default Thumbnail;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

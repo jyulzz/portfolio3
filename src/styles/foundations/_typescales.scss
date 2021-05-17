@@ -8,358 +8,372 @@ Typescales (part of Foundations).
 
 *---------------------------------------------------------------------------- */
 
-@function pxToRem($size) {
-  $remSize: $size / 16;
-  @return #{$remSize}rem;
+@function px-to-rem($size) {
+	$remSize: $size / 16;
+
+	@return #{$remSize}rem;
 }
 $Foundations_Font_xs: (
-  "XXS": (
-    pxToRem(10),
-    pxToRem(16),
-    pxToRem(8),
-  ),
-  "XS": (
-    pxToRem(12),
-    pxToRem(20),
-    pxToRem(8),
-  ),
-  "S": (
-    pxToRem(14),
-    pxToRem(24),
-    pxToRem(12),
-  ),
-  "M": (
-    pxToRem(16),
-    pxToRem(32),
-    pxToRem(12),
-  ),
-  "L": (
-    pxToRem(20),
-    pxToRem(32),
-    pxToRem(16),
-  ),
-  "XL": (
-    pxToRem(24),
-    pxToRem(40),
-    pxToRem(16),
-  ),
-  "XXL": (
-    pxToRem(28),
-    pxToRem(44),
-    pxToRem(16),
-  ),
-  "XXXL": (
-    pxToRem(34),
-    pxToRem(56),
-    pxToRem(16),
-  ),
+	'XXS': (
+		px-to-rem(10),
+		px-to-rem(16),
+		px-to-rem(8),
+	),
+	'XS': (
+		px-to-rem(12),
+		px-to-rem(20),
+		px-to-rem(8),
+	),
+	'S': (
+		px-to-rem(14),
+		px-to-rem(24),
+		px-to-rem(12),
+	),
+	'M': (
+		px-to-rem(16),
+		px-to-rem(32),
+		px-to-rem(12),
+	),
+	'L': (
+		px-to-rem(20),
+		px-to-rem(32),
+		px-to-rem(16),
+	),
+	'XL': (
+		px-to-rem(24),
+		px-to-rem(40),
+		px-to-rem(16),
+	),
+	'XXL': (
+		px-to-rem(28),
+		px-to-rem(44),
+		px-to-rem(16),
+	),
+	'XXXL': (
+		px-to-rem(34),
+		px-to-rem(56),
+		px-to-rem(16),
+	),
 );
 $Foundations_Font_s: (
-  "XXS": (
-    pxToRem(10),
-    pxToRem(16),
-    pxToRem(8),
-  ),
-  "XS": (
-    pxToRem(12),
-    pxToRem(20),
-    pxToRem(8),
-  ),
-  "S": (
-    pxToRem(14),
-    pxToRem(24),
-    pxToRem(12),
-  ),
-  "M": (
-    pxToRem(16),
-    pxToRem(32),
-    pxToRem(12),
-  ),
-  "L": (
-    pxToRem(20),
-    pxToRem(32),
-    pxToRem(16),
-  ),
-  "XL": (
-    pxToRem(24),
-    pxToRem(40),
-    pxToRem(16),
-  ),
-  "XXL": (
-    pxToRem(28),
-    pxToRem(44),
-    pxToRem(16),
-  ),
-  "XXXL": (
-    pxToRem(34),
-    pxToRem(56),
-    pxToRem(16),
-  ),
+	'XXS': (
+		px-to-rem(10),
+		px-to-rem(16),
+		px-to-rem(8),
+	),
+	'XS': (
+		px-to-rem(12),
+		px-to-rem(20),
+		px-to-rem(8),
+	),
+	'S': (
+		px-to-rem(14),
+		px-to-rem(24),
+		px-to-rem(12),
+	),
+	'M': (
+		px-to-rem(16),
+		px-to-rem(32),
+		px-to-rem(12),
+	),
+	'L': (
+		px-to-rem(20),
+		px-to-rem(32),
+		px-to-rem(16),
+	),
+	'XL': (
+		px-to-rem(24),
+		px-to-rem(40),
+		px-to-rem(16),
+	),
+	'XXL': (
+		px-to-rem(28),
+		px-to-rem(44),
+		px-to-rem(16),
+	),
+	'XXXL': (
+		px-to-rem(34),
+		px-to-rem(56),
+		px-to-rem(16),
+	),
 );
 $Foundations_Font_m: (
-  "XXS": (
-    pxToRem(10),
-    pxToRem(16),
-    pxToRem(8),
-  ),
-  "XS": (
-    pxToRem(12),
-    pxToRem(20),
-    pxToRem(8),
-  ),
-  "S": (
-    pxToRem(14),
-    pxToRem(24),
-    pxToRem(12),
-  ),
-  "M": (
-    pxToRem(16),
-    pxToRem(32),
-    pxToRem(12),
-  ),
-  "L": (
-    pxToRem(20),
-    pxToRem(32),
-    pxToRem(16),
-  ),
-  "XL": (
-    pxToRem(24),
-    pxToRem(40),
-    pxToRem(16),
-  ),
-  "XXL": (
-    pxToRem(30),
-    pxToRem(48),
-    pxToRem(16),
-  ),
-  "XXXL": (
-    pxToRem(34),
-    pxToRem(56),
-    pxToRem(16),
-  ),
+	'XXS': (
+		px-to-rem(10),
+		px-to-rem(16),
+		px-to-rem(8),
+	),
+	'XS': (
+		px-to-rem(12),
+		px-to-rem(20),
+		px-to-rem(8),
+	),
+	'S': (
+		px-to-rem(14),
+		px-to-rem(24),
+		px-to-rem(12),
+	),
+	'M': (
+		px-to-rem(16),
+		px-to-rem(32),
+		px-to-rem(12),
+	),
+	'L': (
+		px-to-rem(20),
+		px-to-rem(32),
+		px-to-rem(16),
+	),
+	'XL': (
+		px-to-rem(24),
+		px-to-rem(40),
+		px-to-rem(16),
+	),
+	'XXL': (
+		px-to-rem(30),
+		px-to-rem(48),
+		px-to-rem(16),
+	),
+	'XXXL': (
+		px-to-rem(34),
+		px-to-rem(56),
+		px-to-rem(16),
+	),
 );
 $Foundations_Font_l: (
-  "XXS": (
-    pxToRem(10),
-    pxToRem(16),
-    pxToRem(8),
-  ),
-  "XS": (
-    pxToRem(12),
-    pxToRem(20),
-    pxToRem(8),
-  ),
-  "S": (
-    pxToRem(14),
-    pxToRem(24),
-    pxToRem(12),
-  ),
-  "M": (
-    pxToRem(18),
-    pxToRem(36),
-    pxToRem(16),
-  ),
-  "L": (
-    pxToRem(22),
-    pxToRem(36),
-    pxToRem(16),
-  ),
-  "XL": (
-    pxToRem(26),
-    pxToRem(40),
-    pxToRem(16),
-  ),
-  "XXL": (
-    pxToRem(30),
-    pxToRem(48),
-    pxToRem(16),
-  ),
-  "XXXL": (
-    pxToRem(40),
-    pxToRem(60),
-    pxToRem(20),
-  ),
+	'XXS': (
+		px-to-rem(10),
+		px-to-rem(16),
+		px-to-rem(8),
+	),
+	'XS': (
+		px-to-rem(12),
+		px-to-rem(20),
+		px-to-rem(8),
+	),
+	'S': (
+		px-to-rem(14),
+		px-to-rem(24),
+		px-to-rem(12),
+	),
+	'M': (
+		px-to-rem(18),
+		px-to-rem(36),
+		px-to-rem(16),
+	),
+	'L': (
+		px-to-rem(22),
+		px-to-rem(36),
+		px-to-rem(16),
+	),
+	'XL': (
+		px-to-rem(26),
+		px-to-rem(40),
+		px-to-rem(16),
+	),
+	'XXL': (
+		px-to-rem(30),
+		px-to-rem(48),
+		px-to-rem(16),
+	),
+	'XXXL': (
+		px-to-rem(40),
+		px-to-rem(60),
+		px-to-rem(20),
+	),
 );
 $Foundations_Font_xl: (
-  "XXS": (
-    pxToRem(10),
-    pxToRem(16),
-    pxToRem(8),
-  ),
-  "XS": (
-    pxToRem(12),
-    pxToRem(20),
-    pxToRem(8),
-  ),
-  "S": (
-    pxToRem(14),
-    pxToRem(24),
-    pxToRem(12),
-  ),
-  "M": (
-    pxToRem(18),
-    pxToRem(36),
-    pxToRem(16),
-  ),
-  "L": (
-    pxToRem(22),
-    pxToRem(36),
-    pxToRem(16),
-  ),
-  "XL": (
-    pxToRem(26),
-    pxToRem(40),
-    pxToRem(16),
-  ),
-  "XXL": (
-    pxToRem(32),
-    pxToRem(52),
-    pxToRem(20),
-  ),
-  "XXXL": (
-    pxToRem(40),
-    pxToRem(60),
-    pxToRem(20),
-  ),
+	'XXS': (
+		px-to-rem(10),
+		px-to-rem(16),
+		px-to-rem(8),
+	),
+	'XS': (
+		px-to-rem(12),
+		px-to-rem(20),
+		px-to-rem(8),
+	),
+	'S': (
+		px-to-rem(14),
+		px-to-rem(24),
+		px-to-rem(12),
+	),
+	'M': (
+		px-to-rem(18),
+		px-to-rem(36),
+		px-to-rem(16),
+	),
+	'L': (
+		px-to-rem(22),
+		px-to-rem(36),
+		px-to-rem(16),
+	),
+	'XL': (
+		px-to-rem(26),
+		px-to-rem(40),
+		px-to-rem(16),
+	),
+	'XXL': (
+		px-to-rem(32),
+		px-to-rem(52),
+		px-to-rem(20),
+	),
+	'XXXL': (
+		px-to-rem(40),
+		px-to-rem(60),
+		px-to-rem(20),
+	),
 );
 $Foundations_Fontweights: (
-  "Thin": 100,
-  "Extra Light": 200,
-  "Light": 300,
-  "Normal": 400,
-  "Medium": 500,
-  "Semibold": 600,
-  "Bold": 700,
-  "Extra Bold": 800,
-  "Black": 900,
-  "Extra Black": 950,
+	'Thin': 100,
+	'Extra Light': 200,
+	'Light': 300,
+	'Normal': 400,
+	'Medium': 500,
+	'Semibold': 600,
+	'Bold': 700,
+	'Extra Bold': 800,
+	'Black': 900,
+	'Extra Black': 950,
 );
 // Base function to fetch a font size and line height for a specific text size at a specific breakpoint
-@mixin getFont($breakpoint, $size) {
-  @if $breakpoint == "xs" {
-    font-size: nth(map-get($Foundations_Font_xs, $size), 1);
-    line-height: nth(map-get($Foundations_Font_xs, $size), 2);
-  }
+@mixin get-font($breakpoint, $size) {
+	@if $breakpoint == 'xs' {
+		font-size: nth(map-get($Foundations_Font_xs, $size), 1);
+		line-height: nth(map-get($Foundations_Font_xs, $size), 2);
+	}
 
-  @if $breakpoint == "s" {
-    font-size: nth(map-get($Foundations_Font_s, $size), 1);
-    line-height: nth(map-get($Foundations_Font_s, $size), 2);
-  }
+	@if $breakpoint == 's' {
+		font-size: nth(map-get($Foundations_Font_s, $size), 1);
+		line-height: nth(map-get($Foundations_Font_s, $size), 2);
+	}
 
-  @if $breakpoint == "m" {
-    font-size: nth(map-get($Foundations_Font_m, $size), 1);
-    line-height: nth(map-get($Foundations_Font_m, $size), 2);
-  }
+	@if $breakpoint == 'm' {
+		font-size: nth(map-get($Foundations_Font_m, $size), 1);
+		line-height: nth(map-get($Foundations_Font_m, $size), 2);
+	}
 
-  @if $breakpoint == "l" {
-    font-size: nth(map-get($Foundations_Font_l, $size), 1);
-    line-height: nth(map-get($Foundations_Font_l, $size), 2);
-  }
+	@if $breakpoint == 'l' {
+		font-size: nth(map-get($Foundations_Font_l, $size), 1);
+		line-height: nth(map-get($Foundations_Font_l, $size), 2);
+	}
 
-  @if $breakpoint == "xl" {
-    font-size: nth(map-get($Foundations_Font_xl, $size), 1);
-    line-height: nth(map-get($Foundations_Font_xl, $size), 2);
-  }
+	@if $breakpoint == 'xl' {
+		font-size: nth(map-get($Foundations_Font_xl, $size), 1);
+		line-height: nth(map-get($Foundations_Font_xl, $size), 2);
+	}
 }
 // Base function to fetch a line height for a specific text size at a specific breakpoint
-@mixin getLineHeight($breakpoint, $size) {
-  @if $breakpoint == "xs" {
-    line-height: nth(map-get($Foundations_Font_xs, $size), 2);
-  }
+@mixin get-line-height($breakpoint, $size) {
+	@if $breakpoint == 'xs' {
+		line-height: nth(map-get($Foundations_Font_xs, $size), 2);
+	}
 
-  @if $breakpoint == "s" {
-    line-height: nth(map-get($Foundations_Font_s, $size), 2);
-  }
+	@if $breakpoint == 's' {
+		line-height: nth(map-get($Foundations_Font_s, $size), 2);
+	}
 
-  @if $breakpoint == "m" {
-    line-height: nth(map-get($Foundations_Font_m, $size), 2);
-  }
+	@if $breakpoint == 'm' {
+		line-height: nth(map-get($Foundations_Font_m, $size), 2);
+	}
 
-  @if $breakpoint == "l" {
-    line-height: nth(map-get($Foundations_Font_l, $size), 2);
-  }
+	@if $breakpoint == 'l' {
+		line-height: nth(map-get($Foundations_Font_l, $size), 2);
+	}
 
-  @if $breakpoint == "xl" {
-    line-height: nth(map-get($Foundations_Font_xl, $size), 2);
-  }
+	@if $breakpoint == 'xl' {
+		line-height: nth(map-get($Foundations_Font_xl, $size), 2);
+	}
 }
-@function getPHeight($breakpoint, $size) {
-  @if $breakpoint == "xs" {
-    @return nth(map-get($Foundations_Font_xs, $size), 3);
-  }
 
-  @if $breakpoint == "s" {
-    @return nth(map-get($Foundations_Font_s, $size), 3);
-  }
+@function get-p-height($breakpoint, $size) {
+	@if $breakpoint == 'xs' {
+		@return nth(map-get($Foundations_Font_xs, $size), 3);
+	}
 
-  @if $breakpoint == "m" {
-    @return nth(map-get($Foundations_Font_m, $size), 3);
-  }
+	@if $breakpoint == 's' {
+		@return nth(map-get($Foundations_Font_s, $size), 3);
+	}
 
-  @if $breakpoint == "l" {
-    @return nth(map-get($Foundations_Font_l, $size), 3);
-  }
+	@if $breakpoint == 'm' {
+		@return nth(map-get($Foundations_Font_m, $size), 3);
+	}
 
-  @if $breakpoint == "xl" {
-    @return nth(map-get($Foundations_Font_xl, $size), 3);
-  }
+	@if $breakpoint == 'l' {
+		@return nth(map-get($Foundations_Font_l, $size), 3);
+	}
+
+	@if $breakpoint == 'xl' {
+		@return nth(map-get($Foundations_Font_xl, $size), 3);
+	}
 }
 // Function used to set a specific font size for each breakpoint
-@mixin getFontScaled($xsFont, $sFont, $mFont, $lFont, $xlFont) {
-  @include breakpointOnly("xs") {
-    font-size: nth(map-get($Foundations_Font_xs, $mFont), 1);
-    line-height: nth(map-get($Foundations_Font_xs, $mFont), 2);
-  }
-  @include breakpointOnly("s") {
-    font-size: nth(map-get($Foundations_Font_s, $mFont), 1);
-    line-height: nth(map-get($Foundations_Font_s, $mFont), 2);
-  }
-  @include breakpointOnly("m") {
-    font-size: nth(map-get($Foundations_Font_m, $mFont), 1);
-    line-height: nth(map-get($Foundations_Font_m, $mFont), 2);
-  }
-  @include breakpointOnly("l") {
-    font-size: nth(map-get($Foundations_Font_l, $lFont), 1);
-    line-height: nth(map-get($Foundations_Font_l, $lFont), 2);
-  }
-  @include breakpointUp("xl") {
-    font-size: nth(map-get($Foundations_Font_l, $lFont), 1);
-    line-height: nth(map-get($Foundations_Font_l, $lFont), 2);
-  }
+@mixin get-font-scaled($xsFont, $sFont, $mFont, $lFont, $xlFont) {
+	@include breakpointOnly('xs') {
+		font-size: nth(map-get($Foundations_Font_xs, $mFont), 1);
+		line-height: nth(map-get($Foundations_Font_xs, $mFont), 2);
+	}
+
+	@include breakpointOnly('s') {
+		font-size: nth(map-get($Foundations_Font_s, $mFont), 1);
+		line-height: nth(map-get($Foundations_Font_s, $mFont), 2);
+	}
+
+	@include breakpointOnly('m') {
+		font-size: nth(map-get($Foundations_Font_m, $mFont), 1);
+		line-height: nth(map-get($Foundations_Font_m, $mFont), 2);
+	}
+
+	@include breakpointOnly('l') {
+		font-size: nth(map-get($Foundations_Font_l, $lFont), 1);
+		line-height: nth(map-get($Foundations_Font_l, $lFont), 2);
+	}
+
+	@include breakpointUp('xl') {
+		font-size: nth(map-get($Foundations_Font_l, $lFont), 1);
+		line-height: nth(map-get($Foundations_Font_l, $lFont), 2);
+	}
 }
 // Function used to a single font size across breakpoints
-@mixin getFontResponsive($size) {
-  @include breakpointOnly("xs") {
-    @include getFont("xs", $size);
-  }
-  @include breakpointOnly("s") {
-    @include getFont("s", $size);
-  }
-  @include breakpointOnly("m") {
-    @include getFont("m", $size);
-  }
-  @include breakpointOnly("l") {
-    @include getFont("l", $size);
-  }
-  @include breakpointUp("xl") {
-    @include getFont("xl", $size);
-  }
+@mixin get-font-responsive($size) {
+	@include breakpointOnly('xs') {
+		@include get-font('xs', $size);
+	}
+
+	@include breakpointOnly('s') {
+		@include get-font('s', $size);
+	}
+
+	@include breakpointOnly('m') {
+		@include get-font('m', $size);
+	}
+
+	@include breakpointOnly('l') {
+		@include get-font('l', $size);
+	}
+
+	@include breakpointUp('xl') {
+		@include get-font('xl', $size);
+	}
 }
 // Function used to a single line height across breakpoints
-@mixin getLineHeightResponsive($size) {
-  @include breakpointOnly("xs") {
-    @include getLineHeight("xs", $size);
-  }
-  @include breakpointOnly("s") {
-    @include getLineHeight("s", $size);
-  }
-  @include breakpointOnly("m") {
-    @include getLineHeight("m", $size);
-  }
-  @include breakpointOnly("l") {
-    @include getLineHeight("l", $size);
-  }
-  @include breakpointUp("xl") {
-    @include getLineHeight("xl", $size);
-  }
+@mixin get-line-height-responsive($size) {
+	@include breakpointOnly('xs') {
+		@include get-line-height('xs', $size);
+	}
+
+	@include breakpointOnly('s') {
+		@include get-line-height('s', $size);
+	}
+
+	@include breakpointOnly('m') {
+		@include get-line-height('m', $size);
+	}
+
+	@include breakpointOnly('l') {
+		@include get-line-height('l', $size);
+	}
+
+	@include breakpointUp('xl') {
+		@include get-line-height('xl', $size);
+	}
 }

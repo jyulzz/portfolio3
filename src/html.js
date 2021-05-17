@@ -40,7 +40,7 @@ export default function HTML(props) {
           your browser or device.
         </noscript>
         <div
-          key={`body`}
+          key={"body"}
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />

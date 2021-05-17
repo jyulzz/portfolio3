@@ -22,7 +22,7 @@ npm audit fix
 echo "\n\033[1;35m5. Clean:\033[0m\n"
 sudo gatsby clean
 echo "\n\033[1;35m6. Prettier:\033[0m\n"
-sudo prettier --write "**/*.{js,jsx,json,scss,yml}"
+sudo prettier --write "**/*.{js,jsx,json,yml}"
 echo "\n\033[1;35m7. Build:\033[0m\n"
 sudo gatsby build
 echo "\n\033[1;35mBuild: DONE\033[0m\n"
