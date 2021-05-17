@@ -66,107 +66,97 @@ export const query = graphql`
         }
       }
     }
-    previousProject: allContentfulProject(
-      filter: { slug: { eq: $previousProjectSlug } }
-    ) {
-      nodes {
-        imagePreview {
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid_withWebp
-          }
+    previousProject: contentfulProject(slug: { eq: $previousProjectSlug }) {
+      imagePreview {
+        fluid(maxWidth: 800) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
-    nextProject: allContentfulProject(
-      filter: { slug: { eq: $nextProjectSlug } }
-    ) {
-      nodes {
-        imagePreview {
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid_withWebp
-          }
+    nextProject: contentfulProject(slug: { eq: $nextProjectSlug }) {
+      imagePreview {
+        fluid(maxWidth: 800) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
-    project: allContentfulProject(filter: { slug: { eq: $slug } }) {
-      nodes {
+    project: contentfulProject(slug: { eq: $slug }) {
+      id
+      slug
+      title
+      description {
+        description
+      }
+      subtitle
+      organizations {
+        name
+      }
+      tags {
+        name
+      }
+      imagePreview {
         id
-        slug
-        title
-        description {
-          description
+        file {
+          url
         }
-        subtitle
-        organizations {
-          name
+        fluid(maxWidth: 800) {
+          ...GatsbyContentfulFluid_withWebp
         }
-        tags {
-          name
+      }
+      animation {
+        file {
+          url
         }
-        imagePreview {
-          id
-          file {
-            url
-          }
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid_withWebp
-          }
+      }
+      animationBackground {
+        file {
+          url
         }
-        animation {
-          file {
-            url
-          }
+        fluid(maxWidth: 800) {
+          ...GatsbyContentfulFluid_withWebp
         }
-        animationBackground {
-          file {
-            url
-          }
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
-        content {
-          raw
-          references {
-            ... on ContentfulAsset {
-              contentful_id
-              __typename
-              title
-              gatsbyImageData
-              id
-              file {
-                url
-                fileName
-                contentType
-              }
-              description
-              fixed(width: 1600) {
-                src
-              }
-            }
-            ... on ContentfulIFrame {
-              __typename
-              contentful_id
-              id
-              name
+      }
+      content {
+        raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            title
+            gatsbyImageData
+            id
+            file {
               url
-              sys {
-                contentType {
-                  sys {
-                    id
-                    type
-                    linkType
-                  }
+              fileName
+              contentType
+            }
+            description
+            fixed(width: 1600) {
+              src
+            }
+          }
+          ... on ContentfulIFrame {
+            __typename
+            contentful_id
+            id
+            name
+            url
+            sys {
+              contentType {
+                sys {
+                  id
+                  type
+                  linkType
                 }
               }
             }
           }
         }
-        inProgress
-        released
-        releaseDate(formatString: "MMMM DD, YYYY")
-        readingTime
       }
+      inProgress
+      released
+      releaseDate(formatString: "MMMM DD, YYYY")
+      readingTime
     }
   }
 `;
@@ -186,23 +176,24 @@ const ProjectPage = ({
   organizationsArray = [],
   projectData = {},
 }) => {
-  projectData = data.project.nodes[0];
+  projectData = data.project;
+  tagsArray = [];
+  organizationsArray = [];
 
-  if (data.previousProject.nodes[0]) {
+  if (data.previousProject) {
     previousProject.slug = pageContext.previousProjectSlug;
     previousProject.title = pageContext.previousProjectTitle;
-    previousProject.imagePreview =
-      data.previousProject.nodes[0].imagePreview.fluid;
+    previousProject.imagePreview = data.previousProject.imagePreview.fluid;
   } else {
     previousProject.slug = data.lastProject.nodes[0].slug;
     previousProject.title = data.lastProject.nodes[0].title;
     previousProject.imagePreview = data.lastProject.nodes[0].imagePreview.fluid;
   }
 
-  if (data.nextProject.nodes[0]) {
+  if (data.nextProject) {
     nextProject.slug = pageContext.nextProjectSlug;
     nextProject.title = pageContext.nextProjectTitle;
-    nextProject.imagePreview = data.nextProject.nodes[0].imagePreview.fluid;
+    nextProject.imagePreview = data.nextProject.imagePreview.fluid;
   } else {
     previousProject.slug = data.firstProject.nodes[0].slug;
     previousProject.title = data.firstProject.nodes[0].title;
@@ -242,7 +233,7 @@ const ProjectPage = ({
                           </div>
                         );
                       })
-                    : null}
+                    : ""}
 
                   {organizationsArray.length > 1 ? (
                     <div className="tag organization">
@@ -275,12 +266,14 @@ const ProjectPage = ({
                           <div className="tag generic">{tag.name}</div>
                         );
                       })
-                    : null}
+                    : ""}
                   {projectData.released === true ? (
                     <div className="tag readingTime">
                       {projectData.readingTime} mins read
                     </div>
-                  ) : null}
+                  ) : (
+                    ""
+                  )}
                   {tagsArray}
                 </>
               </div>
@@ -325,9 +318,9 @@ ProjectPage.propTypes = {
   pageContext: PropTypes.object.isRequired,
   previousProject: PropTypes.object.isRequired,
   nextProject: PropTypes.object.isRequired,
+  projectData: PropTypes.object.isRequired,
   tagsArray: PropTypes.array.isRequired,
   organizationsArray: PropTypes.array.isRequired,
-  projectData: PropTypes.object.isRequired,
 };
 
 ProjectPage.defaultProps = {
@@ -335,9 +328,9 @@ ProjectPage.defaultProps = {
   pageContext: [],
   previousProject: {},
   nextProject: {},
+  projectData: {},
   tagsArray: [],
   organizationsArray: [],
-  projectData: {},
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
