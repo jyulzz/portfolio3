@@ -325,9 +325,9 @@ ProjectPage.propTypes = {
   pageContext: PropTypes.object.isRequired,
   previousProject: PropTypes.object.isRequired,
   nextProject: PropTypes.object.isRequired,
-  tagsArray: PropTypes.array.isRequired,
-  organizationsArray: PropTypes.array.isRequired,
   projectData: PropTypes.object.isRequired,
+  tagsArray: PropTypes.array.isRequired,
+  organizationsArray: PropTypes.array.isRequired
 };
 
 ProjectPage.defaultProps = {
@@ -335,9 +335,9 @@ ProjectPage.defaultProps = {
   pageContext: [],
   previousProject: {},
   nextProject: {},
-  tagsArray: [],
-  organizationsArray: [],
   projectData: {},
+  tagsArray: [],
+  organizationsArray: []
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
