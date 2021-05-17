@@ -1,10 +1,11 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/sections/technologies.js
+src/components/ui-kit/badges.js
 
 DESCRIPTION
-Displays icons linked to sites of technologies used in this project.
+Displays badges linked to people who's work is credited or sites of technologies
+used in this project.
 
 *---------------------------------------------------------------------------- */
 
@@ -13,8 +14,8 @@ Displays icons linked to sites of technologies used in this project.
 *---------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Badges from "../ui-kit/badges.js";
+import Link from "components/ui-kit/link/link";
+import Img from "gatsby-image/withIEPolyfill";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -22,29 +23,52 @@ import Badges from "../ui-kit/badges.js";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Technologies = ({ technologiesData = {} }) => {
-  technologiesData = useStaticQuery(graphql`
-    {
-      contentfulList(slug: { eq: "technologies" }) {
-        id
-        items {
-          ... on ContentfulItem {
-            id
-            name
-            link
-            icon {
-              file {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
 
-  return <Badges data={technologiesData} id="technologies" />;
+const Badge = ({ title = "", children = {} }) => {
+  return (
+    <span className={"badge"} role="img" title={title}>
+      {children}
+    </span>
+  );
 };
+
+const Badges = ({ id = "", data = {}, items = [] }) => {
+  data.contentfulList.items.forEach((item) => {
+    if (item.photo) {
+      items.push(
+        <Link href={item.link} key={item.id} target="_blank">
+          <Badge title={item.name}>
+            <Img
+              fluid={item.photo.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+            />
+          </Badge>
+        </Link>
+      );
+    } else if (item.icon) {
+      items.push(
+        <Link href={item.link} key={item.id} target="_blank">
+          <Badge title={item.name}>
+            <img
+              src={item.icon.file.url}
+              alt={item.name}
+              height="100%"
+              width="100%"
+            />
+          </Badge>
+        </Link>
+      );
+    }
+  });
+
+  return (
+    <div className="badges" key={id} id={id}>
+      {items}
+    </div>
+  );
+};
+
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
 *---------------------------------------------------------------------------- */
@@ -52,11 +76,13 @@ const Technologies = ({ technologiesData = {} }) => {
 /* ----------------------------------------------------------------------------*
   PROPS
 *---------------------------------------------------------------------------- */
-Technologies.propTypes = {
-  technologiesData: PropTypes.object.isRequired,
+Badge.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
 };
-Technologies.defaultProps = {
-  technologiesData: {},
+Badge.defaultProps = {
+  title: "",
+  children: [],
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
@@ -65,7 +91,7 @@ Technologies.defaultProps = {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Technologies;
+export default Badges;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

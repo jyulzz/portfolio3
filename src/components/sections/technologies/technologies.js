@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/ui-kit/thumbnail.js
+src/components/sections/technologies.js
 
 DESCRIPTION
-Thumbnail component used in Work and Versions cards
+Displays icons linked to sites of technologies used in this project.
 
 *---------------------------------------------------------------------------- */
 
@@ -13,8 +13,8 @@ Thumbnail component used in Work and Versions cards
 *---------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-import Animation from "./animation";
-import Img from "gatsby-image/withIEPolyfill";
+import { useStaticQuery, graphql } from "gatsby";
+import Badges from "components/ui-kit/badges/badges";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -22,32 +22,28 @@ import Img from "gatsby-image/withIEPolyfill";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Thumbnail = ({
-  animation = {},
-  animationBackground = {},
-  imagePreview = {},
-  id = "",
-  title = "",
-}) => {
-  return (
-    <span className="thumbnail">
-      {animation !== null && animationBackground !== null ? (
-        <Animation
-          id={id}
-          src={animation.file.url}
-          background={animationBackground.fluid}
-        />
-      ) : (
-        <Img
-          fluid={imagePreview.fluid}
-          objectFit="cover"
-          objectPosition="50% 50%"
-          alt={title}
-          style={{ height: "100%" }}
-        />
-      )}
-    </span>
-  );
+const Technologies = ({ technologiesData = {} }) => {
+  technologiesData = useStaticQuery(graphql`
+    {
+      contentfulList(slug: { eq: "technologies" }) {
+        id
+        items {
+          ... on ContentfulItem {
+            id
+            name
+            link
+            icon {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return <Badges data={technologiesData} id="technologies" />;
 };
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
@@ -56,19 +52,11 @@ const Thumbnail = ({
 /* ----------------------------------------------------------------------------*
   PROPS
 *---------------------------------------------------------------------------- */
-Thumbnail.propTypes = {
-  animation: PropTypes.object.isRequired,
-  animationBackground: PropTypes.object.isRequired,
-  imagePreview: PropTypes.object.isRequired,
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+Technologies.propTypes = {
+  technologiesData: PropTypes.object.isRequired,
 };
-Thumbnail.defaultProps = {
-  animation: {},
-  animationBackground: {},
-  imagePreview: {},
-  id: "",
-  title: "",
+Technologies.defaultProps = {
+  technologiesData: {},
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
@@ -77,7 +65,7 @@ Thumbnail.defaultProps = {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Thumbnail;
+export default Technologies;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

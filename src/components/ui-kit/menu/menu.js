@@ -12,8 +12,8 @@ Builds the main navigation menu.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import MenuItems from "./items";
-import MenuToggle from "./toggle";
+import MenuItems from "components/ui-kit/menu/items";
+import MenuToggle from "components/ui-kit/menu/toggle";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";

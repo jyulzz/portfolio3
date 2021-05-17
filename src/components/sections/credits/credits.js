@@ -14,7 +14,7 @@ Displays photos linked to profiles of people who inspired the author.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Badges from "../ui-kit/badges";
+import Badges from "components/ui-kit/badges/badges";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */

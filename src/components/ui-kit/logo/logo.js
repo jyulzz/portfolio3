@@ -12,7 +12,7 @@ Logo component used in the main navigation header.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import Link from "./link";
+import Link from "components/ui-kit/link/link";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */

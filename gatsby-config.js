@@ -12,6 +12,8 @@ https://www.gatsbyjs.org/docs/api-files-gatsby-config/
 
 *----------------------------------------------------------------------------- */
 
+const path = require("path");
+
 module.exports = {
   flags: {
     FAST_DEV: true,
@@ -90,6 +92,18 @@ module.exports = {
         accessToken: "H0HnqTsu7-sLQd3kNghCBeKyVIlNSiYP8i0R6MZc31I",
         host: "preview.contentful.com",
         forceFullSync: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        src: path.join(__dirname, "src"),
+        conf: path.join(__dirname, "conf"),
+        pages: path.join(__dirname, "src/pages"),
+        assets: path.join(__dirname, "src/assets"),
+        components: path.join(__dirname, "src/components"),
+        options: path.join(__dirname, "src/options"),
+        styles: path.join(__dirname, "src/styles"),
       },
     },
   ],

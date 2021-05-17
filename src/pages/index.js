@@ -14,15 +14,15 @@ Page template for the Index page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Seo from "../components/misc/seo";
-import Header from "./template/header";
-import Main from "./template/main";
-import Footer from "./template/footer";
-import Hero from "../components/sections/hero";
-import Work from "../components/sections/work/work";
-import Versions from "../components/sections/versions/versions";
+import Seo from "components/misc/seo/seo";
+import Header from "pages/template/header";
+import Main from "pages/template/main";
+import Footer from "pages/template/footer";
+import Hero from "components/sections/hero/hero";
+import Work from "components/sections/work/work";
+import Versions from "components/sections/versions/versions";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../styles/pages/index.scss";
+import "styles/pages/index.scss";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */

@@ -13,7 +13,7 @@ Render options for the page template for the About page.
 *---------------------------------------------------------------------------- */
 import React from "react";
 import { BLOCKS } from "@contentful/rich-text-types";
-import Conf from "../../conf.yml";
+import Conf from "conf/conf.yml";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
