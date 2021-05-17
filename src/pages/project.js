@@ -335,8 +335,8 @@ ProjectPage.defaultProps = {
   pageContext: [],
   previousProject: {},
   nextProject: {},
-  tags: [],
-  organizations: [],
+  tagsArray: [],
+  organizationsArray: [],
   projectData: {},
 };
 /* ----------------------------------------------------------------------------*
