@@ -111,7 +111,7 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         ignore: {
-          patterns: [`**/*.options.(js|ts)?(x)`],
+          patterns: [`**/options.(js|ts)?(x)`],
         },
       },
     },

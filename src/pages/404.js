@@ -14,8 +14,8 @@ Page template for the 404 page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Seo from "components/misc/seo/seo";
-import { Container } from "components/ui-kit/view/view";
+import Seo from "components/misc/seo";
+import { Container } from "components/ui-kit/view";
 import Header from "pages/template/header";
 import Main from "pages/template/main";
 import Footer from "pages/template/footer";

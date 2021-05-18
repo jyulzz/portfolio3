@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/sections/credits.js
+src/components/ui-kit/thumbnail.js
 
 DESCRIPTION
-Displays photos linked to profiles of people who inspired the author.
+Thumbnail component used in Work and Versions cards
 
 *---------------------------------------------------------------------------- */
 
@@ -13,8 +13,8 @@ Displays photos linked to profiles of people who inspired the author.
 *---------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Badges from "components/ui-kit/badges/badges";
+import Animation from "components/ui-kit/animation";
+import Img from "gatsby-image/withIEPolyfill";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -22,31 +22,33 @@ import Badges from "components/ui-kit/badges/badges";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Credits = ({ creditsData = {} }) => {
-  creditsData = useStaticQuery(graphql`
-    {
-      contentfulList(slug: { eq: "credits" }) {
-        id
-        items {
-          ... on ContentfulPerson {
-            id
-            name
-            link
-            photo {
-              id
-              fluid(maxWidth: 80) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  return <Badges data={creditsData} id="credits" />;
+const Thumbnail = ({
+  animation = {},
+  animationBackground = {},
+  imagePreview = {},
+  id = "",
+  title = "",
+}) => {
+  return (
+    <span className="thumbnail">
+      {animation !== null && animationBackground !== null ? (
+        <Animation
+          id={id}
+          src={animation.file.url}
+          background={animationBackground.fluid}
+        />
+      ) : (
+        <Img
+          fluid={imagePreview.fluid}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          alt={title}
+          style={{ height: "100%" }}
+        />
+      )}
+    </span>
+  );
 };
-
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
 *---------------------------------------------------------------------------- */
@@ -54,11 +56,19 @@ const Credits = ({ creditsData = {} }) => {
 /* ----------------------------------------------------------------------------*
   PROPS
 *---------------------------------------------------------------------------- */
-Credits.propTypes = {
-  creditsData: PropTypes.object.isRequired,
+Thumbnail.propTypes = {
+  animation: PropTypes.object.isRequired,
+  animationBackground: PropTypes.object.isRequired,
+  imagePreview: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
-Credits.defaultProps = {
-  creditsData: {},
+Thumbnail.defaultProps = {
+  animation: {},
+  animationBackground: {},
+  imagePreview: {},
+  id: "",
+  title: "",
 };
 /* ----------------------------------------------------------------------------*
   /PROPS
@@ -67,7 +77,7 @@ Credits.defaultProps = {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Credits;
+export default Thumbnail;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

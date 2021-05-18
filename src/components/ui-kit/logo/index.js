@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/pages/template/main.js
+src/components/ui-kit/logo.js
 
 DESCRIPTION
-Contains the base setup for setting the <main/> tag and its contents within the general grid system.
+Logo component used in the main navigation header.
 
 *---------------------------------------------------------------------------- */
 
@@ -12,8 +12,7 @@ Contains the base setup for setting the <main/> tag and its contents within the 
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import PropTypes from "prop-types";
-import { View, Grid, Container } from "components/ui-kit/view";
+import Link from "components/ui-kit/link";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -21,15 +20,17 @@ import { View, Grid, Container } from "components/ui-kit/view";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Main = ({ children = {}, type = "", className = "" }) => {
+const Logo = () => {
   return (
-    <main className={className}>
-      <View>
-        <Grid>
-          <Container>{children}</Container>
-        </Grid>
-      </View>
-    </main>
+    <Link
+      href="/"
+      level=""
+      title="Go to Index Page"
+      tabIndex="0"
+      className="logo"
+    >
+      JT
+    </Link>
   );
 };
 /* ----------------------------------------------------------------------------*
@@ -37,26 +38,9 @@ const Main = ({ children = {}, type = "", className = "" }) => {
 *---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------*
-  PROPS
-*---------------------------------------------------------------------------- */
-Main.propTypes = {
-  children: PropTypes.node.isRequired,
-  type: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-};
-Main.defaultProps = {
-  type: "",
-  children: [],
-  className: "",
-};
-/* ----------------------------------------------------------------------------*
-  /PROPS
-*---------------------------------------------------------------------------- */
-
-/* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Main;
+export default Logo;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

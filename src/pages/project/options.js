@@ -13,7 +13,7 @@ Render options for the template for the Project pages created through code in /g
 *---------------------------------------------------------------------------- */
 import React from "react";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import Link from "components/ui-kit/link/link";
+import Link from "components/ui-kit/link";
 import Conf from "conf/conf.yml";
 import defaultRenderingOptions from "components/misc/rendering-options";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -126,10 +126,7 @@ const specificOptions = {
   },
 };
 
-const Options = Object.assign(
-  defaultOptions,
-  specificOptions
-);
+const Options = Object.assign(defaultOptions, specificOptions);
 /* ----------------------------------------------------------------------------*
   /OPTIONS
 *---------------------------------------------------------------------------- */

@@ -14,14 +14,14 @@ Page template for the About page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Options from "./about.options.js";
+import Options from "./options.js";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Seo from "components/misc/seo/seo";
+import Seo from "components/misc/seo";
 import Header from "pages/template/header";
 import Main from "pages/template/main";
 import Footer from "pages/template/footer";
-import Link from "components/ui-kit/link/link";
+import Link from "components/ui-kit/link";
 import "styles/pages/about.scss";
 import "styles/pages/project.scss";
 /* ----------------------------------------------------------------------------*

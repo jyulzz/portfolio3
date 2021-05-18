@@ -14,7 +14,7 @@ used in this project.
 *---------------------------------------------------------------------------- */
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "components/ui-kit/link/link";
+import Link from "components/ui-kit/link";
 import Img from "gatsby-image/withIEPolyfill";
 /* ----------------------------------------------------------------------------*
   /IMPORTS

@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/sections/work/work.js
+src/components/sections/credits.js
 
 DESCRIPTION
-Builds the Work section used on the Index page.
+Displays photos linked to profiles of people who inspired the author.
 
 *---------------------------------------------------------------------------- */
 
@@ -12,10 +12,9 @@ Builds the Work section used on the Index page.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import { Container } from "components/ui-kit/view/view";
-import Title from "components/ui-kit/title/title";
-import Section from "components/ui-kit/section/section";
-import WorkItems from "components/sections/work/items";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import Badges from "components/ui-kit/badges";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -23,26 +22,52 @@ import WorkItems from "components/sections/work/items";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Work = () => {
-  return (
-    <Container>
-      <Section id="work">
-        <Title level="1">
-          <div>Work</div>
-        </Title>
-        <WorkItems />
-      </Section>
-    </Container>
-  );
+const Credits = ({ creditsData = {} }) => {
+  creditsData = useStaticQuery(graphql`
+    {
+      contentfulList(slug: { eq: "credits" }) {
+        id
+        items {
+          ... on ContentfulPerson {
+            id
+            name
+            link
+            photo {
+              id
+              fluid(maxWidth: 80) {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return <Badges data={creditsData} id="credits" />;
 };
+
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
 *---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------*
+  PROPS
+*---------------------------------------------------------------------------- */
+Credits.propTypes = {
+  creditsData: PropTypes.object.isRequired,
+};
+Credits.defaultProps = {
+  creditsData: {},
+};
+/* ----------------------------------------------------------------------------*
+  /PROPS
+*---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Work;
+export default Credits;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

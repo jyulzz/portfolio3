@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/ui-kit/logo.js
+src/components/sections/work/work.js
 
 DESCRIPTION
-Logo component used in the main navigation header.
+Builds the Work section used on the Index page.
 
 *---------------------------------------------------------------------------- */
 
@@ -12,7 +12,10 @@ Logo component used in the main navigation header.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import Link from "components/ui-kit/link/link";
+import { Container } from "components/ui-kit/view";
+import Title from "components/ui-kit/title";
+import Section from "components/ui-kit/section";
+import WorkItems from "components/sections/work/items";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -20,17 +23,16 @@ import Link from "components/ui-kit/link/link";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Logo = () => {
+const Work = () => {
   return (
-    <Link
-      href="/"
-      level=""
-      title="Go to Index Page"
-      tabIndex="0"
-      className="logo"
-    >
-      JT
-    </Link>
+    <Container>
+      <Section id="work">
+        <Title level="1">
+          <div>Work</div>
+        </Title>
+        <WorkItems />
+      </Section>
+    </Container>
   );
 };
 /* ----------------------------------------------------------------------------*
@@ -40,7 +42,7 @@ const Logo = () => {
 /* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Logo;
+export default Work;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */
