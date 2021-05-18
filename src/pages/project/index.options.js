@@ -126,13 +126,10 @@ const specificOptions = {
   },
 };
 
-const renderNode = Object.assign(
-  defaultOptions.renderNode,
-  specificOptions.renderNode
+const Options = Object.assign(
+  defaultOptions,
+  specificOptions
 );
-
-const Options = renderNode;
-
 /* ----------------------------------------------------------------------------*
   /OPTIONS
 *---------------------------------------------------------------------------- */
