@@ -14,7 +14,7 @@ Page template for the About page.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Options from "options/about.options.js";
+import Options from "./about.options.js";
 import Img from "gatsby-image/withIEPolyfill";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Seo from "components/misc/seo/seo";

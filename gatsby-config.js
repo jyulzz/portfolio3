@@ -106,5 +106,14 @@ module.exports = {
         styles: path.join(__dirname, "src/styles"),
       },
     },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: {
+          patterns: [`**/*.options.(js|ts)?(x)`],
+        },
+      },
+    },
   ],
 };

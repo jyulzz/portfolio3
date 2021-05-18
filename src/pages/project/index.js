@@ -14,7 +14,7 @@ Template for the Project pages created through code in /gatsby-node.js
 import React from "react";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import Options from "options/project.options.js";
+import Options from "./index.options.js";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Seo from "components/misc/seo/seo";
 import Header from "pages/template/header";

@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
     createPage({
       path: `/work/${edge.node.slug}/`,
-      component: path.resolve("./src/pages/project.js"),
+      component: path.resolve("./src/pages/project/index.js"),
       context: {
         slug: edge.node.slug,
         previousProjectSlug: edge.previous.slug,
