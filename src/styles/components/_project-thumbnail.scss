@@ -102,6 +102,12 @@ body {
 				border-radius: 4px;
 				width: max-content;
 				display: inline-block;
+				margin-right: 8px;
+				margin-bottom: 8px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+				padding-left: 8px;
+				padding-right: 8px;
 
 				&::before {
 					margin-left: 0;
@@ -120,8 +126,9 @@ body {
 				&.date,
 				&.inProgress {
 					margin-top: 0 !important;
-					padding-top: 0 !important;
-					padding-bottom: 0 !important;
+					padding: 0 !important;
+					margin-right: 0 !important;
+					margin-bottom: 0 !important;
 
 					@include get-font-responsive('M');
 					font-weight: map-get($Foundations_Fontweights, 'Normal');
@@ -171,9 +178,6 @@ body {
 					margin-right: 8px;
 					color: map-get($Foundations_Colors_Primary, 'accent');
 					background: rgba(map-get($Foundations_Colors_Primary, 'accent'), 0.1);
-					padding-left: 6px;
-					padding-right: 6px;
-					margin-bottom: 8px;
 
 					&::before {
 						content: fa-content($fa-var-clock);
@@ -182,13 +186,9 @@ body {
 
 				&.generic {
 					@include get-font-responsive('XS');
-					margin-right: 8px;
+
 					background: map-get($Foundations_Colors_Neutral, 'grey-light');
 					color: map-get($UI_Named_Colors, 'text-dim');
-
-					padding-left: 6px;
-					padding-right: 6px;
-					margin-bottom: 8px;
 
 					&::before {
 						content: fa-content($fa-var-tag);
@@ -348,7 +348,7 @@ body {
 								$lightness: -0%
 							);
 						box-shadow:
-							0 1px 2px 0px
+							0 1px 2px 0
 							scale-color(
 								rgba(map-get($UI_Named_Colors--dark, 'link-text'), 1),
 								$lightness: -80%
