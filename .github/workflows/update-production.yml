@@ -1,7 +1,7 @@
 # /*-----------------------------------------------------------------------------*
 
 # FILE
-# .github/workflows/merge-to-production.yml
+# .github/workflows/update-production.yml
 
 # DESCRIPTION
 # Configuration file for AutoTag + Release Github workflow.
