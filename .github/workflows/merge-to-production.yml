@@ -29,6 +29,7 @@ jobs:
           ref: master
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 20
+          running-workflow-name: update-production
       - name: Get production
         if: steps.waitforstatuschecks.outputs.status == 'success'
         uses: actions/checkout@v2
