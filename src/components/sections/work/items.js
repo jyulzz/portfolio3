@@ -73,11 +73,10 @@ const WorkItems = ({ workItems = [], data = {} }) => {
             content {
               raw
             }
-            releaseDate(formatString: "MMMM DD, YYYY")
+            releaseDate(formatString: "MMM DD, YYYY")
             released
             inProgress
             readingTime
-            updatedAt(formatString: "MMM.DD.YYYY")
           }
         }
       }
@@ -115,9 +114,9 @@ const WorkItems = ({ workItems = [], data = {} }) => {
 
           {organizationsArray.length > 1 ? (
             <div className="tag organization">Multiple Organizations</div>
-          ) : (
+          ) : organizationsArray.length === 1 ? (
             <div className="tag organization">{organizationsArray}</div>
-          )}
+          ) : ("")}
 
           {item.released === false ? (
             <div className="tag releaseDate">Coming {item.releaseDate}</div>
