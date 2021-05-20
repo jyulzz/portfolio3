@@ -116,7 +116,9 @@ const WorkItems = ({ workItems = [], data = {} }) => {
             <div className="tag organization">Multiple Organizations</div>
           ) : organizationsArray.length === 1 ? (
             <div className="tag organization">{organizationsArray}</div>
-          ) : ("")}
+          ) : (
+            ""
+          )}
 
           {item.released === false ? (
             <div className="tag releaseDate">Coming {item.releaseDate}</div>

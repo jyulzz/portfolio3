@@ -29,8 +29,6 @@ body {
 				}
 
 				&#about-and-contact {
-					display: grid;
-
 					@include breakpointFromTo('xs', 's') {
 						grid-template-columns: repeat(6, 1fr);
 						grid-column-gap: 8px;
@@ -71,8 +69,16 @@ body {
 			}
 		}
 
+		#credits,
+		#technologies {
+			a {
+				display: inline-flex;
+			}
+		}
+
 		section {
 			@include breakpointFromTo('xs', 's') {
+
 				margin-bottom: 32px;
 
 				&:nth-child(1) {

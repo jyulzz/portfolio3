@@ -21,7 +21,7 @@ module.exports = {
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
     FUNCTIONS: true,
-    DEV_SSR: true
+    DEV_SSR: true,
   },
   plugins: [
     {
