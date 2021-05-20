@@ -4,7 +4,7 @@
 # .github/workflows/auto-tag-and-release.yml
 
 # DESCRIPTION
-# Configuration file for AutoTag + Release Github workflow.
+# Action file for AutoTag + Release Github workflow.
 
 # *-----------------------------------------------------------------------------*/
 
@@ -23,7 +23,7 @@ jobs:
   auto-tag-release:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout"
+      - name: "Checkout Branch"
         id: "checkout"
         uses: actions/checkout@v2
       - name: "Auto Tag"

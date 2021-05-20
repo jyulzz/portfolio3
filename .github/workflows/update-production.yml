@@ -4,7 +4,7 @@
 # .github/workflows/update-production.yml
 
 # DESCRIPTION
-# Configuration file for AutoTag + Release Github workflow.
+# Action file for Update Production Github workflow.
 
 # *-----------------------------------------------------------------------------*/
 
@@ -23,21 +23,21 @@ jobs:
   update-production:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait on checks
+      - name: "Wait on Checks"
         uses: lewagon/wait-on-check-action@v0.2
         with:
           ref: master
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 20
           running-workflow-name: update-production
-      - name: Get production
+      - name: "Checkout Production Branch"
         if: steps.waitforstatuschecks.outputs.status == 'success'
         uses: actions/checkout@v2
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Update Production
+      - name: "Create PR to Catchup Production Branch"
         uses: shubhsherl/create-catchup-pr@v0.1.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
