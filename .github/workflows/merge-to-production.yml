@@ -1,0 +1,42 @@
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .github/workflows/merge-to-production.yml
+
+# DESCRIPTION
+# Configuration file for AutoTag + Release Github workflow.
+
+# *-----------------------------------------------------------------------------*/
+
+name: "Update Production"
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Wait for status checks"
+        id: waitforstatuschecks
+        uses: "WyriHaximus/github-action-wait-for-status@v2"
+        with:
+          ignoreActions: automerge
+          checkInterval: 60
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Get master branch"
+        uses: actions/checkout@master
+      - name: "Update production"
+        uses: Embraser01/update-git-branch-action@v1.0.0
+        if: github.ref == 'refs/heads/master'
+        with:
+          branch: production
+          force: 1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
