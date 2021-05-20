@@ -23,12 +23,12 @@ jobs:
   update-production:
     runs-on: ubuntu-latest
     steps:
-     - name: Wait on tests
+      - name: Wait on checks
         uses: lewagon/wait-on-check-action@v0.2
         with:
-          ref: master # can be commit SHA or tag too
+          ref: master
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 20 # seconds
+          wait-interval: 20
       - name: Get production
         if: steps.waitforstatuschecks.outputs.status == 'success'
         uses: actions/checkout@v2
