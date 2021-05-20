@@ -23,14 +23,13 @@ jobs:
   update-production:
     runs-on: ubuntu-latest
     steps:
-      - name: "Wait for status checks"
-        id: waitforstatuschecks
-        uses: WyriHaximus/github-action-wait-for-status@0.1.0
+     - name: Wait on tests
+        # or lewagon/wait-on-check-action@master, but master is not guaranteed to be stable ATM
+        uses: lewagon/wait-on-check-action@v0.2
         with:
-          ignoreActions: automerge
-          checkInterval: 60
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ref: master # can be commit SHA or tag too
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 20 # seconds
       - name: Get production
         if: steps.waitforstatuschecks.outputs.status == 'success'
         uses: actions/checkout@v2
