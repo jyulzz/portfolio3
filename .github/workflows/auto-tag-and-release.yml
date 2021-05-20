@@ -20,7 +20,7 @@ on:
       - master
 
 jobs:
-  auto-tag+release:
+  auto-tag-release:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
