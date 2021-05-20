@@ -10,17 +10,21 @@ Styles for Badges and Badge components.
 
 body {
 	.badges {
-		.badge {
-			overflow: hidden;
-			box-sizing: border-box;
-			display: inline-block;
-			width: 40px;
-			height: 40px;
-			border: 2px solid rgba(map-get($Foundations_Colors_Neutral, 'white'), 1);
-			border-radius: 40px;
-			background: map-get($UI_Named_Colors, 'card-background');
-			margin-top: 6px;
-			margin-right: 12px;
+		a {
+			border: none !important;
+
+			.badge {
+				overflow: hidden;
+				box-sizing: border-box;
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				border: 2px solid rgba(map-get($Foundations_Colors_Neutral, 'white'), 1);
+				border-radius: 40px;
+				background: map-get($UI_Named_Colors, 'card-background');
+				margin-top: 6px;
+				margin-right: 12px;
+			}
 		}
 	}
 }
