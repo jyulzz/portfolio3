@@ -14,14 +14,14 @@ Template for the Project pages created through code in /gatsby-node.js
 import React from "react";
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import Options from "./index.options.js";
+import Options from "./options.js";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import Seo from "components/misc/seo/seo";
+import Seo from "components/misc/seo";
 import Header from "pages/template/header";
 import Main from "pages/template/main";
 import Footer from "pages/template/footer";
-import Pagination from "components/ui-kit/pagination/pagination";
-import Thumbnail from "components/ui-kit/thumbnail/thumbnail";
+import Pagination from "components/ui-kit/pagination";
+import Thumbnail from "components/ui-kit/thumbnail";
 import "styles/pages/project.scss";
 /* ----------------------------------------------------------------------------*
   /IMPORTS

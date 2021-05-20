@@ -31,7 +31,8 @@ body {
 					margin-right: 8px;
 					background: map-get($Foundations_Colors_Neutral, 'grey-light');
 					color: map-get($UI_Named_Colors, 'text-dim');
-
+					padding-top: 4px;
+					padding-bottom: 4px;
 					padding-left: 12px;
 					padding-right: 12px;
 					margin-bottom: 8px;

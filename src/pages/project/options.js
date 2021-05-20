@@ -13,7 +13,7 @@ Render options for the template for the Project pages created through code in /g
 *---------------------------------------------------------------------------- */
 import React from "react";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
-import Link from "components/ui-kit/link/link";
+import Link from "components/ui-kit/link";
 import Conf from "conf/conf.yml";
 import defaultRenderingOptions from "components/misc/rendering-options";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,43 +40,28 @@ const defaultOptions = defaultRenderingOptions;
 const specificOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      if (node.data.target.gatsbyImageData) {
-        return (
-          <figure>
+      return (
+        <figure>
+          {node.data.target.gatsbyImageData ? (
             <img
               srcSet={node.data.target.gatsbyImageData.images.sources[0].srcSet}
               alt={node.data.target.description}
             />
-            <figcaption>
-              {" "}
-              <span className="description">
-                {node.data.target.description}
-              </span>
-              <Link href={node.data.target.file.url} target="_blank" level="">
-                Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
-              </Link>
-            </figcaption>
-          </figure>
-        );
-      } else {
-        return (
-          <figure>
+          ) : (
             <img
               src={node.data.target.file.url}
               alt={node.data.target.description}
             />
-            <figcaption>
-              {" "}
-              <span className="description">
-                {node.data.target.description}
-              </span>
-              <Link href={node.data.target.file.url} target="_blank" level="">
-                Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
-              </Link>
-            </figcaption>
-          </figure>
-        );
-      }
+          )}
+          <figcaption>
+            {" "}
+            <span className="description">{node.data.target.description}</span>
+            <Link href={node.data.target.file.url} target="_blank" level="">
+              Open In New Window <FontAwesomeIcon icon={faLongArrowRight} />
+            </Link>
+          </figcaption>
+        </figure>
+      );
     },
 
     [INLINES.EMBEDDED_ENTRY]: (node) => {
@@ -126,10 +111,7 @@ const specificOptions = {
   },
 };
 
-const Options = Object.assign(
-  defaultOptions,
-  specificOptions
-);
+const Options = Object.assign(defaultOptions, specificOptions);
 /* ----------------------------------------------------------------------------*
   /OPTIONS
 *---------------------------------------------------------------------------- */

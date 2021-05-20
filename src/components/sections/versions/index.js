@@ -1,10 +1,10 @@
 /* ----------------------------------------------------------------------------*
 
 FILE
-src/components/sections/technologies.js
+src/components/sections/versions/versions.js
 
 DESCRIPTION
-Displays icons linked to sites of technologies used in this project.
+Builds the Versions section used on the Index page.
 
 *---------------------------------------------------------------------------- */
 
@@ -12,9 +12,10 @@ Displays icons linked to sites of technologies used in this project.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Badges from "components/ui-kit/badges/badges";
+import { Container } from "components/ui-kit/view";
+import Title from "components/ui-kit/title";
+import Section from "components/ui-kit/section";
+import VersionsItems from "components/sections/versions/items";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
 *---------------------------------------------------------------------------- */
@@ -22,50 +23,26 @@ import Badges from "components/ui-kit/badges/badges";
 /* ----------------------------------------------------------------------------*
   COMPONENTS
 *---------------------------------------------------------------------------- */
-const Technologies = ({ technologiesData = {} }) => {
-  technologiesData = useStaticQuery(graphql`
-    {
-      contentfulList(slug: { eq: "technologies" }) {
-        id
-        items {
-          ... on ContentfulItem {
-            id
-            name
-            link
-            icon {
-              file {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  return <Badges data={technologiesData} id="technologies" />;
+const Versions = () => {
+  return (
+    <Container>
+      <Section id="versions">
+        <Title level="1">
+          <div>Versions</div>
+        </Title>
+        <VersionsItems />
+      </Section>
+    </Container>
+  );
 };
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
 *---------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------*
-  PROPS
-*---------------------------------------------------------------------------- */
-Technologies.propTypes = {
-  technologiesData: PropTypes.object.isRequired,
-};
-Technologies.defaultProps = {
-  technologiesData: {},
-};
-/* ----------------------------------------------------------------------------*
-  /PROPS
-*---------------------------------------------------------------------------- */
-
-/* ----------------------------------------------------------------------------*
   EXPORTS
 *---------------------------------------------------------------------------- */
-export default Technologies;
+export default Versions;
 /* ----------------------------------------------------------------------------*
   /EXPORTS
 *---------------------------------------------------------------------------- */

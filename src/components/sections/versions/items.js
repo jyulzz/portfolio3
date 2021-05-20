@@ -14,9 +14,9 @@ Builds a block showing previews of Versions pulled from Contentful.
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Title from "components/ui-kit/title/title";
-import Link from "components/ui-kit/link/link";
-import Thumbnail from "components/ui-kit/thumbnail/thumbnail";
+import Title from "components/ui-kit/title";
+import Link from "components/ui-kit/link";
+import Thumbnail from "components/ui-kit/thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { faLongArrowRight } from "@fortawesome/pro-regular-svg-icons";

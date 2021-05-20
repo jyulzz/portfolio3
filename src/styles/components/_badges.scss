@@ -10,8 +10,6 @@ Styles for Badges and Badge components.
 
 body {
 	.badges {
-		margin-top: 0;
-
 		.badge {
 			overflow: hidden;
 			box-sizing: border-box;
@@ -22,7 +20,6 @@ body {
 			border-radius: 40px;
 			background: map-get($UI_Named_Colors, 'card-background');
 			margin-top: 6px;
-			margin-bottom: 6px;
 			margin-right: 12px;
 		}
 	}
