@@ -1,7 +1,7 @@
 # /*-----------------------------------------------------------------------------*
 
 # FILE
-# .github/workflows/main.yml
+# .github/workflows/auto-tag-and-release.yml
 
 # DESCRIPTION
 # Configuration file for AutoTag + Release Github workflow.
@@ -20,7 +20,7 @@ on:
       - master
 
 jobs:
-  build:
+  auto-tag-release:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"

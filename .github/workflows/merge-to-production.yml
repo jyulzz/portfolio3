@@ -1,0 +1,46 @@
+# /*-----------------------------------------------------------------------------*
+
+# FILE
+# .github/workflows/merge-to-production.yml
+
+# DESCRIPTION
+# Configuration file for AutoTag + Release Github workflow.
+
+# *-----------------------------------------------------------------------------*/
+
+name: "Update Production"
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  update-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait on checks
+        uses: lewagon/wait-on-check-action@v0.2
+        with:
+          ref: master
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 20
+          running-workflow-name: update-production
+      - name: Get production
+        if: steps.waitforstatuschecks.outputs.status == 'success'
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Update Production
+        uses: shubhsherl/create-catchup-pr@v0.1.0
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_REPO: ${{github.repository}}
+          SOURCE_BRANCH: "master"
+          TARGET_BRANCH: "production"
