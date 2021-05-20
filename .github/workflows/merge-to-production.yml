@@ -31,12 +31,17 @@ jobs:
           checkInterval: 60
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: "Get master branch"
-        uses: actions/checkout@master
-      - name: "Update production"
-        uses: Embraser01/update-git-branch-action@v1.0.0
-        if: github.ref == 'refs/heads/master'
+        - name: Get production
+        if: steps.waitforstatuschecks.outputs.status == 'success'
+        uses: actions/checkout@v2
+        - name: Set up Node
+        uses: actions/setup-node@v1
         with:
-          branch: production
-          force: 1
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+        node-version: 12
+        - name: Update Production
+        uses: shubhsherl/create-catchup-pr@v0.1.0
+        with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_REPO: ${{github.repository}}
+        SOURCE_BRANCH: "master"
+        TARGET_BRANCH: "production"
