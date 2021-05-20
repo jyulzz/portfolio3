@@ -50,6 +50,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/*`],
+      },
+    },
+    {
       resolve: "gatsby-plugin-next-seo",
       options: {
         language: "en",
