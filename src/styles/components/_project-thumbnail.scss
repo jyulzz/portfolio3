@@ -151,6 +151,8 @@ body {
 					color: map-get($Foundations_Colors_Primary, 'success');
 					line-height: 100%;
 					font-weight: map-get($Foundations_Fontweights, 'Medium');
+					padding-left: 0;
+					margin-bottom: 0;
 
 					&::before {
 						margin-left: 0;
