@@ -37,7 +37,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-        node-version: 12
+          node-version: 12
       - name: Update Production
         uses: shubhsherl/create-catchup-pr@v0.1.0
         with:
