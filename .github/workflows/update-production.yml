@@ -28,7 +28,7 @@ jobs:
         with:
           ref: master
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 20
+          wait-interval: 1
           running-workflow-name: update-production
       - name: "Checkout Production Branch"
         if: steps.waitforstatuschecks.outputs.status == 'success'
