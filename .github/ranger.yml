@@ -14,7 +14,7 @@ labels:
   dependencies: merge
   catchup: merge
 
-commits:
+comments:
   - action: label
     pattern: /Catchup/i
     labels:
