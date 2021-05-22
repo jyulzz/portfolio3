@@ -44,9 +44,3 @@ jobs:
           GITHUB_REPO: ${{github.repository}}
           SOURCE_BRANCH: "master"
           TARGET_BRANCH: "production"
-      - name: Add labels based on PR title
-        uses: TDAK1509/set-label-based-on-pr-title@v1
-        with:
-          words: Catchup
-          labels: merge
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
