@@ -130,7 +130,7 @@ body {
 		button#themeToggler {
 			order: 0;
 
-			svg {
+			span.icon {
 				transform: rotate(0deg);
 				transition-property: transform;
 				transition-duration: 800ms;
@@ -194,7 +194,7 @@ body {
 				}
 
 				&#themeToggler {
-					svg {
+					span.icon {
 						transform: rotate(180deg);
 					}
 				}
