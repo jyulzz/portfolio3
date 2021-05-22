@@ -12,3 +12,10 @@ labels:
   # All PRs labeled merge get automatically merged
   merge: merge
   dependencies: merge
+  catchup: merge
+
+commits:
+  - action: label
+    pattern: /Catchup/i
+    labels:
+      - catchup
