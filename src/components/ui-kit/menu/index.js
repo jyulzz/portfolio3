@@ -78,7 +78,7 @@ class Menu extends React.Component {
               title="Switch Theme"
               onClick={(e) => toggleTheme(this.switchTheme())}
             >
-              <span className='icon'>
+              <span className="icon">
                 <FontAwesomeIcon icon={faAdjust} />
               </span>
             </button>
