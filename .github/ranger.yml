@@ -13,9 +13,3 @@ labels:
   merge: merge
   dependencies: merge
   catchup: merge
-
-comments:
-  - action: label
-    pattern: /Catchup/i
-    labels:
-      - catchup
