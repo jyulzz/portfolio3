@@ -63,11 +63,7 @@ class Menu extends React.Component {
     return (
       <nav id="main">
         <MenuToggle isToggleOn={false} action={this.toggleOverlaidMenu} />
-
-        <div className="list">
-          <MenuItems />
-        </div>
-
+        <MenuItems />
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
             <button
