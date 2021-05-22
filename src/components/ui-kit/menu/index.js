@@ -63,7 +63,11 @@ class Menu extends React.Component {
     return (
       <nav id="main">
         <MenuToggle isToggleOn={false} action={this.toggleOverlaidMenu} />
-        <MenuItems />
+
+        <div className="list">
+          <MenuItems />
+        </div>
+
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
             <button
@@ -72,9 +76,7 @@ class Menu extends React.Component {
               title="Switch Theme"
               onClick={(e) => toggleTheme(this.switchTheme())}
             >
-              <span className="icon">
-                <FontAwesomeIcon icon={faAdjust} />
-              </span>
+              <FontAwesomeIcon icon={faAdjust} />
             </button>
           )}
         </ThemeToggler>
