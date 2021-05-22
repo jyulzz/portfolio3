@@ -110,11 +110,7 @@ function MenuItems({ menuItems, data = {} }) {
       </div>
     );
   });
-  return (
-    <div className="list">
-      {menuItems}
-    </div>
-  )
+  return menuItems;
 }
 /* ----------------------------------------------------------------------------*
   /COMPONENTS
