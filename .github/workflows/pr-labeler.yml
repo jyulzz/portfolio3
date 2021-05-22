@@ -1,3 +1,5 @@
+name: "PR Labeler"
+
 on:
   workflow_run:
     workflows: ["Update Production"]
@@ -8,6 +10,7 @@ jobs:
   labeler:
     runs-on: ubuntu-latest
     steps:
-    - uses: srvaroa/labeler@master
+    - name: "Label PRs"
+      uses: srvaroa/labeler@master
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
