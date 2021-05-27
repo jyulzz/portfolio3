@@ -4,7 +4,7 @@ This is the repository for my portfolio <https://julesthivent.com>.
 
 ## 🤖 Version 3
 
-My portfolio is currently in [![version](https://img.shields.io/github/package-json/v/jyulzz/portfolio3?label=version)](#).
+My portfolio is currently in [![version](https://img.shields.io/github/package-json/v/jyulzz/portfolio3?label=%20&style=flat-square)](#).
 
 [Get latest release 📦](https://github.com/jyulzz/portfolio3/releases/latest).
 
