@@ -9,8 +9,7 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
-      time: "10:00"
+      interval: live
     open-pull-requests-limit: 99
     ignore:
       - dependency-name: gatsby
