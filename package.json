@@ -25,7 +25,7 @@
     "gatsby-plugin-google-analytics": "^3.6.0",
     "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-manifest": "^3.6.0",
-    "gatsby-plugin-netlify": "^3.6.0",
+    "gatsby-plugin-netlify": "^3.6.1",
     "gatsby-plugin-next-seo": "^1.7.0",
     "gatsby-plugin-offline": "^4.6.0",
     "gatsby-plugin-readingtime-contentful": "^1.0.0",
