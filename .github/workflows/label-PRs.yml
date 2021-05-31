@@ -11,10 +11,11 @@
 name: "Label PRs"
 
 on:
-  issues:
-    types: [opened, edited, milestoned]
-  pull_request_target:
-    types: [opened]
+  workflow_run:
+    workflows: ["Update Production"]
+    branches: [master]
+    types:
+      - completed
 
 jobs:
 
