@@ -11,11 +11,7 @@
 name: "Label PRs"
 
 on:
-  workflow_run:
-    workflows: ["Update Production"]
-    branches: [master]
-    types:
-      - completed
+  pull_request_target:
 
 jobs:
 
