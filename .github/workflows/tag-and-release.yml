@@ -8,7 +8,7 @@
 
 # *-----------------------------------------------------------------------------*/
 
-name: "Auto Tag + Release"
+name: "Tag + Release"
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
