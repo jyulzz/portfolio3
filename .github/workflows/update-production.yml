@@ -44,3 +44,7 @@ jobs:
           GITHUB_REPO: ${{github.repository}}
           SOURCE_BRANCH: "master"
           TARGET_BRANCH: "production"
+      - name: Check Labels
+        uses: jimschubert/labeler-action@v2
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
