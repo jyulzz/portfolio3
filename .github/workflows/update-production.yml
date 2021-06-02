@@ -38,10 +38,9 @@ jobs:
         with:
           node-version: 12
       - name: "Create PR to Catchup Production Branch"
-        uses: jyulzz/create-catchup-pr@0.1.6
+        uses: jyulzz/create-catchup-pr@0.1.8
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_REPO: ${{github.repository}}
           SOURCE_BRANCH: "master"
           TARGET_BRANCH: "production"
-          LABELS: "catchup"
