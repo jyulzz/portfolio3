@@ -44,4 +44,4 @@ jobs:
           GITHUB_REPO: ${{github.repository}}
           SOURCE_BRANCH: "master"
           TARGET_BRANCH: "production"
-          LABELS: ["catchup"]
+          LABELS: [catchup]
