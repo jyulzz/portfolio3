@@ -16,7 +16,7 @@ body .view {
 		display: grid;
 		align-items: center;
 		justify-content: center;
-		grid-template-columns: auto minmax(0, 888px) auto;
+		grid-template-columns: auto minmax(0, 88%) auto;
 
 		.container {
 			grid-column-end: 2;
@@ -65,54 +65,6 @@ body .view {
 			margin-right: 136px;
 			grid-template-columns: repeat(12, 1fr);
 			grid-column-gap: 16px;
-		}
-	}
-}
-
-.container {
-	&.standard {
-		@include breakpointFromTo('xs', 's') {
-			grid-column-start: 1;
-			grid-column-end: 7;
-		}
-
-		@include breakpointOnly('m') {
-			grid-column-start: 2;
-			grid-column-end: 12;
-		}
-
-		@include breakpointOnly('l') {
-			grid-column-start: 2;
-			grid-column-end: 12;
-		}
-
-		@include breakpointUp('xl') {
-			grid-column-start: 2;
-			grid-column-end: 12;
-		}
-	}
-}
-
-@mixin gridPlacementPreset($preset) {
-	@if ($preset == 'standard') {
-		@include breakpointFromTo('xs', 's') {
-			grid-column-start: 1;
-			grid-column-end: 7;
-		}
-
-		@include breakpointOnly('m') {
-			grid-column-start: 2;
-			grid-column-end: 12;
-		}
-
-		@include breakpointOnly('l') {
-			grid-column-start: 2;
-			grid-column-end: 12;
-		}
-
-		@include breakpointUp('xl') {
-			grid-column-start: 2;
-			grid-column-end: 12;
 		}
 	}
 }

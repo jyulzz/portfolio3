@@ -16,7 +16,6 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Options from "./options.js";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Container } from "components/ui-kit/view";
 import Section from "components/ui-kit/section";
 /* ----------------------------------------------------------------------------*
   /IMPORTS
@@ -40,14 +39,12 @@ const Hero = ({ data = {}, options = {} }) => {
     }
   `);
   return (
-    <Container>
-      <Section id="hero">
-        {documentToReactComponents(
-          JSON.parse(data.contentfulSite.hero.raw),
-          options
-        )}
-      </Section>
-    </Container>
+    <Section id="hero">
+      {documentToReactComponents(
+        JSON.parse(data.contentfulSite.hero.raw),
+        options
+      )}
+    </Section>
   );
 };
 /* ----------------------------------------------------------------------------*
