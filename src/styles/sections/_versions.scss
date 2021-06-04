@@ -9,8 +9,6 @@ Versions section styles.
 *---------------------------------------------------------------------------- */
 
 section#versions {
-	@include gridPlacementPreset('standard');
-
 	.version-thumbnail {
 		@extend .project-thumbnail;
 
