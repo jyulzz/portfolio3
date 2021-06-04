@@ -12,7 +12,6 @@ Builds the Work section used on the Index page.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import { Container } from "components/ui-kit/view";
 import Title from "components/ui-kit/title";
 import Section from "components/ui-kit/section";
 import WorkItems from "components/sections/work/items";
@@ -25,14 +24,12 @@ import WorkItems from "components/sections/work/items";
 *---------------------------------------------------------------------------- */
 const Work = () => {
   return (
-    <Container>
-      <Section id="work">
-        <Title level="1">
-          <div>Work</div>
-        </Title>
-        <WorkItems />
-      </Section>
-    </Container>
+    <Section id="work">
+      <Title level="1">
+        <div>Work</div>
+      </Title>
+      <WorkItems />
+    </Section>
   );
 };
 /* ----------------------------------------------------------------------------*

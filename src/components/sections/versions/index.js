@@ -12,7 +12,6 @@ Builds the Versions section used on the Index page.
   IMPORTS
 *---------------------------------------------------------------------------- */
 import React from "react";
-import { Container } from "components/ui-kit/view";
 import Title from "components/ui-kit/title";
 import Section from "components/ui-kit/section";
 import VersionsItems from "components/sections/versions/items";
@@ -25,14 +24,12 @@ import VersionsItems from "components/sections/versions/items";
 *---------------------------------------------------------------------------- */
 const Versions = () => {
   return (
-    <Container>
-      <Section id="versions">
-        <Title level="1">
-          <div>Versions</div>
-        </Title>
-        <VersionsItems />
-      </Section>
-    </Container>
+    <Section id="versions">
+      <Title level="1">
+        <div>Versions</div>
+      </Title>
+      <VersionsItems />
+    </Section>
   );
 };
 /* ----------------------------------------------------------------------------*
