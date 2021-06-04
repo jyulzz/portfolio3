@@ -37,7 +37,7 @@
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-transformer-remark": "^4.3.0",
     "gatsby-transformer-sharp": "^3.6.0",
-    "lottie-web": "^5.7.9",
+    "lottie-web": "^5.7.10",
     "node-sass": "^6.0.0",
     "postcss": "^8.3.0",
     "prop-types": "^15.7.2",
