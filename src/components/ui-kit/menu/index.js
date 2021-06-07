@@ -83,7 +83,6 @@ class Menu extends React.Component {
           )}
         </ThemeToggler>
 
-        {/* This part of the menu is the menu within an overlay displayed on small screens. The menu items are simply duplicated to simplify logic. */}
         <div
           className={
             "overlay " + (this.state.isOpen === true ? "open" : "closed")
