@@ -103,12 +103,6 @@ body {
 				width: 36px;
 				line-height: 36px;
 			}
-
-			span {
-				display: inline-flex;
-				width: 20px;
-				height: 20px;
-			}
 		}
 
 		@include breakpointFromTo('xs', 's') {
@@ -130,8 +124,10 @@ body {
 
 		button#themeToggler {
 			order: 0;
+			vertical-align: middle;
 
 			span {
+				display: inline-flex;
 				transform: rotate(0deg);
 				transition-property: transform;
 				transition-duration: 800ms;
