@@ -59,6 +59,25 @@ class Menu extends React.Component {
     }
   }
 
+  themeToggler() {
+    return (
+      <ThemeToggler>
+        {({ theme, toggleTheme }) => (
+          <button
+            id="themeToggler"
+            aria-label="Theme Toggler"
+            title="Switch Theme"
+            onClick={(e) => toggleTheme(this.switchTheme())}
+          >
+            <span>
+              <FontAwesomeIcon icon={faAdjust} />
+            </span>
+          </button>
+        )}
+      </ThemeToggler>
+    );
+  }
+
   render() {
     return (
       <nav id="main">
@@ -68,20 +87,7 @@ class Menu extends React.Component {
           <MenuItems />
         </div>
 
-        <ThemeToggler>
-          {({ theme, toggleTheme }) => (
-            <button
-              id="themeToggler"
-              aria-label="Theme Toggler"
-              title="Switch Theme"
-              onClick={(e) => toggleTheme(this.switchTheme())}
-            >
-              <span>
-                <FontAwesomeIcon icon={faAdjust} />
-              </span>
-            </button>
-          )}
-        </ThemeToggler>
+        {this.themeToggler()}
 
         <div
           className={
