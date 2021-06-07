@@ -59,7 +59,7 @@
     "@fortawesome/fontawesome-pro": "^5.15.3",
     "gatsby-plugin-root-import": "^2.0.6",
     "npm-check-updates": "^11.6.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.1"
   },
   "keywords": [
     "jules",
