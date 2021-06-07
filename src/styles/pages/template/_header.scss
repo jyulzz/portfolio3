@@ -33,10 +33,11 @@ body {
 		}
 
 		.container {
-			display: flex;
-			flex-direction: row;
+			display: grid;
+			grid-template-columns: 1fr auto;
 
 			.logo {
+				display: inline-block;
 				box-sizing: content-box;
 				transition: all 240ms ease-out 80ms, box-shadow 0s;
 				font-weight: map-get($Foundations_Fontweights, 'Bold');

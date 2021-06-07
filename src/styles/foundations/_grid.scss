@@ -16,7 +16,7 @@ body .view {
 		display: grid;
 		align-items: center;
 		justify-content: center;
-		grid-template-columns: auto minmax(0, 88%) auto;
+		grid-template-columns: auto minmax(0, 888px) auto;
 
 		.container {
 			grid-column-end: 2;

@@ -104,7 +104,8 @@ body {
 				line-height: 36px;
 			}
 
-			svg {
+			span {
+				display: inline-flex;
 				width: 20px;
 				height: 20px;
 			}
@@ -130,7 +131,7 @@ body {
 		button#themeToggler {
 			order: 0;
 
-			svg {
+			span {
 				transform: rotate(0deg);
 				transition-property: transform;
 				transition-duration: 800ms;
@@ -194,7 +195,7 @@ body {
 				}
 
 				&#themeToggler {
-					svg {
+					span {
 						transform: rotate(180deg);
 					}
 				}
