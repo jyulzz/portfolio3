@@ -24,16 +24,19 @@ body {
 	min-height: 100vh;
 
 	header {
+		width: 100%;
 		flex-grow: 0;
 		flex-shrink: 1;
 	}
 
 	main {
+		width: 100%;
 		flex-grow: 1;
 		flex-shrink: 0;
 	}
 
 	footer {
+		width: 100%;
 		flex-grow: 0;
 		flex-shrink: 1;
 	}
