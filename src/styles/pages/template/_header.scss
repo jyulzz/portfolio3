@@ -36,9 +36,7 @@ body {
 			@extend .grid;
 
 			.logo {
-				height: 40px;
-				width: 40px;
-				display: block;
+
 				box-sizing: content-box;
 				transition: all 240ms ease-out 80ms, box-shadow 0s;
 				font-weight: map-get($Foundations_Fontweights, 'Bold');
@@ -57,9 +55,13 @@ body {
 				text-transform: lowercase;
 				text-align: center;
 
-				@include breakpointFromTo('xs', 's') {
-
+				@include breakpointUp('xs') {
 					line-height: 40px;
+					height: 40px;
+					width: 40px;
+				}
+
+				@include breakpointFromTo('xs', 's') {
 					grid-column-start: 1;
 					grid-column-end: 2;
 				}
