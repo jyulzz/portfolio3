@@ -29,7 +29,7 @@ body {
 						}
 
 						a {
-							color: inherit !important;
+							color: inherit;
 
 							&:active,
 							&:focus,
@@ -38,7 +38,7 @@ body {
 									map-get(
 										$Foundations_Colors_Neutral,
 										'white'
-									) !important;
+									);
 							}
 						}
 					}
@@ -50,6 +50,9 @@ body {
 						}
 
 						section {
+
+							margin-bottom: 16px;
+
 							&:nth-of-type(1),
 							&:nth-of-type(2) {
 								grid-column-start: 1;
@@ -76,10 +79,10 @@ body {
 							}
 						}
 					}
-				}
 
-				&:nth-of-type(even) {
-					margin-top: 32px;
+					&:nth-of-type(even) {
+						margin-top: 32px;
+					}
 				}
 			}
 		}
