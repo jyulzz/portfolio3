@@ -29,7 +29,7 @@ body {
 						}
 
 						a {
-							color: inherit !important;
+							color: inherit;
 
 							&:active,
 							&:focus,
@@ -38,7 +38,7 @@ body {
 									map-get(
 										$Foundations_Colors_Neutral,
 										'white'
-									) !important;
+									);
 							}
 						}
 					}
