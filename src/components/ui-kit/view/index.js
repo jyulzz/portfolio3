@@ -26,9 +26,9 @@ const View = ({ children = {} }) => {
 const Grid = ({ children = {} }) => {
   return <div className="grid">{children}</div>;
 };
-const Container = ({ id = "", children = {} }) => {
+const Container = ({ id = "", className = "", children = {} }) => {
   return (
-    <div className={"container "} id={id}>
+    <div className={"container " + className} id={id}>
       {children}
     </div>
   );
@@ -58,11 +58,13 @@ Grid.defaultProps = {
 
 Container.propTypes = {
   id: PropTypes.string.isRequired,
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
 Container.defaultProps = {
   id: "",
+  className: "",
   children: [],
 };
 /* ----------------------------------------------------------------------------*
