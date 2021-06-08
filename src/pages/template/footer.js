@@ -89,7 +89,7 @@ const Footer = ({ children = {} }) => {
     <footer>
       <View>
         <Grid>
-          <Container id="about-and-contact">
+          <Container className="split">
             <Section id="about">
               <Title level="1">About</Title>
               <ul>
@@ -161,7 +161,9 @@ const Footer = ({ children = {} }) => {
               </ul>
             </Section>
           </Container>
-          <Container>
+        </Grid>
+        <Grid>
+          <Container className="split">
             <Title level="1">Credits</Title>
             <Section>
               <Title level="2">License</Title>
@@ -182,7 +184,8 @@ const Footer = ({ children = {} }) => {
                 GitHub <FontAwesomeIcon icon={faLongArrowRight} />
               </Link>
             </Section>
-
+          </Container>
+          <Container className="split">
             <Section>
               <Title level="2">Inspiration</Title>
               <Emoji symbol="🙏" label="Person With Folded Hands Emoji" /> Many

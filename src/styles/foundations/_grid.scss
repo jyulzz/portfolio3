@@ -9,7 +9,6 @@ Grid (part of Foundations).
 *---------------------------------------------------------------------------- */
 
 body .view {
-	width: 100vw;
 	min-width: 320px;
 
 	.grid {
@@ -27,9 +26,10 @@ body .view {
 
 @include breakpointFromTo('xs', 's') {
 	.view {
+		padding-left: 32px;
+		padding-right: 32px;
+
 		.grid {
-			margin-left: 32px;
-			margin-right: 32px;
 			grid-template-columns: repeat(6, 1fr);
 			grid-column-gap: 8px;
 		}
@@ -38,9 +38,10 @@ body .view {
 
 @include breakpointOnly('m') {
 	.view {
+		padding-left: 48px;
+		padding-right: 48px;
+
 		.grid {
-			margin-left: 48px;
-			margin-right: 48px;
 			grid-template-columns: repeat(12, 1fr);
 			grid-column-gap: 16px;
 		}
@@ -49,9 +50,10 @@ body .view {
 
 @include breakpointOnly('l') {
 	.view {
+		padding-left: 136px;
+		padding-right: 136px;
+
 		.grid {
-			margin-left: 136px;
-			margin-right: 136px;
 			grid-template-columns: repeat(12, 1fr);
 			grid-column-gap: 16px;
 		}
@@ -60,9 +62,10 @@ body .view {
 
 @include breakpointUp('xl') {
 	.view {
+		padding-left: 136px;
+		padding-right: 136px;
+
 		.grid {
-			margin-left: 136px;
-			margin-right: 136px;
 			grid-template-columns: repeat(12, 1fr);
 			grid-column-gap: 16px;
 		}

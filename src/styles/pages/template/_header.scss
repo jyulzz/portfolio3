@@ -33,11 +33,12 @@ body {
 		}
 
 		.container {
-			display: grid;
-			grid-template-columns: 1fr auto;
+			@extend .grid;
 
 			.logo {
-				display: inline-block;
+				height: 40px;
+				width: 40px;
+				display: block;
 				box-sizing: content-box;
 				transition: all 240ms ease-out 80ms, box-shadow 0s;
 				font-weight: map-get($Foundations_Fontweights, 'Bold');
@@ -56,16 +57,16 @@ body {
 				text-transform: lowercase;
 				text-align: center;
 
-				@include breakpointFromTo('xs', 'm') {
-					height: 40px;
-					width: 40px;
+				@include breakpointFromTo('xs', 's') {
+
 					line-height: 40px;
+					grid-column-start: 1;
+					grid-column-end: 2;
 				}
 
-				@include breakpointUp('l') {
-					height: 40px;
-					width: 40px;
-					line-height: 40px;
+				@include breakpointUp('m') {
+					grid-column-start: 1;
+					grid-column-end: 2;
 				}
 
 				&:active,
@@ -75,6 +76,18 @@ body {
 					background: transparent;
 					color: map-get($UI_Named_Colors, 'link-text');
 					border: 2px solid map-get($UI_Named_Colors, 'link-text');
+				}
+			}
+
+			nav {
+				@include breakpointFromTo('xs', 's') {
+					grid-column-start: 2;
+					grid-column-end: 7;
+				}
+
+				@include breakpointUp('m') {
+					grid-column-start: 2;
+					grid-column-end: 13;
 				}
 			}
 		}

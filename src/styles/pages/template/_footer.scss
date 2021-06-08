@@ -16,137 +16,70 @@ body {
 
 		.view .grid {
 			.container {
-				display: grid;
+				@extend .grid;
+				align-items: baseline;
 
-				@include breakpointFromTo('xs', 's') {
-					grid-template-columns: repeat(6, 1fr);
-					grid-column-gap: 8px;
-				}
+				&.split {
+					section {
+						&:nth-of-type(1),
+						&:nth-of-type(2) {
+							ul li {
+								margin-bottom: 16px;
+							}
+						}
 
-				@include breakpointUp('m') {
-					grid-template-columns: repeat(10, 1fr);
-					grid-column-gap: 16px;
-				}
+						a {
+							color: inherit !important;
 
-				&#about-and-contact {
-					@include breakpointFromTo('xs', 's') {
-						grid-template-columns: repeat(6, 1fr);
-						grid-column-gap: 8px;
-					}
-
-					@include breakpointUp('m') {
-						grid-template-columns: repeat(10, 1fr);
-						grid-column-gap: 16px;
-					}
-
-					section#about,
-					section#contact {
-						ul li {
-							margin-bottom: 16px;
+							&:active,
+							&:focus,
+							&:hover {
+								border-bottom-color:
+									map-get(
+										$Foundations_Colors_Neutral,
+										'white'
+									) !important;
+							}
 						}
 					}
 
 					@include breakpointFromTo('xs', 's') {
-						section#about,
-						section#contact {
+						.title.level1 {
 							grid-column-start: 1;
 							grid-column-end: 7;
 						}
+
+						section {
+							&:nth-of-type(1),
+							&:nth-of-type(2) {
+								grid-column-start: 1;
+								grid-column-end: 7;
+							}
+						}
 					}
 
 					@include breakpointUp('m') {
-						section#about {
+						.title.level1 {
 							grid-column-start: 1;
-							grid-column-end: 5;
+							grid-column-end: 13;
 						}
 
-						section#contact {
-							grid-column-start: 5;
-							grid-column-end: 11;
+						section {
+							&:nth-of-type(1) {
+								grid-column-start: 1;
+								grid-column-end: 6;
+							}
+
+							&:nth-of-type(2) {
+								grid-column-start: 6;
+								grid-column-end: 13;
+							}
 						}
 					}
 				}
-			}
-		}
 
-		#credits,
-		#technologies {
-			a {
-				display: inline-flex;
-			}
-		}
-
-		section {
-			@include breakpointFromTo('xs', 's') {
-
-				margin-bottom: 32px;
-
-				&:nth-child(1) {
-					grid-column-start: 1;
-					grid-column-end: 7;
-				}
-
-				&:nth-child(2) {
-					grid-column-start: 1;
-					grid-column-end: 7;
-				}
-
-				&:nth-child(3) {
-					grid-column-start: 1;
-					grid-column-end: 7;
-				}
-
-				&:nth-child(4) {
-					grid-column-start: 1;
-					grid-column-end: 7;
-				}
-
-				&:nth-child(5) {
-					grid-column-start: 1;
-					grid-column-end: 7;
-				}
-			}
-
-			@include breakpointUp('m') {
-				margin-bottom: 32px;
-
-				&:nth-child(1) {
-					grid-column-start: 1;
-					grid-column-end: 11;
-				}
-
-				&:nth-child(2) {
-					grid-column-start: 1;
-					grid-column-end: 5;
-				}
-
-				&:nth-child(3) {
-					grid-column-start: 5;
-					grid-column-end: 11;
-				}
-
-				&:nth-child(4) {
-					grid-column-start: 1;
-					grid-column-end: 5;
-				}
-
-				&:nth-child(5) {
-					grid-column-start: 5;
-					grid-column-end: 11;
-				}
-			}
-
-			a {
-				color: inherit !important;
-
-				&:active,
-				&:focus,
-				&:hover {
-					border-bottom-color:
-						map-get(
-							$Foundations_Colors_Neutral,
-							'white'
-						) !important;
+				&:nth-of-type(even) {
+					margin-top: 32px;
 				}
 			}
 		}

@@ -201,7 +201,7 @@ body {
 
 		@include breakpointFromTo('xs', 's') {
 			grid-template-columns: repeat(6, 1fr);
-			grid-column-gap: 16px;
+			grid-column-gap: 8px;
 			margin-bottom: 48px;
 			border-radius: 8px;
 
@@ -246,7 +246,7 @@ body {
 		}
 
 		@include breakpointUp('m') {
-			grid-template-columns: repeat(10, 1fr);
+			grid-template-columns: repeat(12, 1fr);
 			grid-column-gap: 16px;
 			grid-template-rows: 1fr;
 			grid-row-gap: 0;
@@ -257,7 +257,7 @@ body {
 			border-radius: 8px;
 
 			.information {
-				grid-area: 1 / 1 / 2 / 5;
+				grid-area: 1 / 1 / 2 / 6;
 				padding: 24px 8px 24px 24px;
 			}
 
@@ -266,7 +266,7 @@ body {
 				min-height: 40vw;
 				max-height: 52vw;
 				height: 100%;
-				grid-area: 1 / 5 / 2 / 11;
+				grid-area: 1 / 6 / 2 / 13;
 				border-top-right-radius: 8px;
 				border-bottom-right-radius: 8px;
 
