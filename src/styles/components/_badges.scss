@@ -10,9 +10,6 @@ Styles for Badges and Badge components.
 
 body {
 	.badges {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, 52px);
-
 		a {
 			border: none !important;
 
