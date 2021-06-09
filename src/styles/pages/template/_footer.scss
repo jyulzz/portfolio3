@@ -84,6 +84,11 @@ body {
 						margin-top: 32px;
 					}
 				}
+
+				.badges {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, 52px);
+				}
 			}
 		}
 	}
