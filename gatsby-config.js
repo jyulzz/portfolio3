@@ -104,7 +104,7 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId: "i6guo7zsdt38",
-        accessToken: "H0HnqTsu7-sLQd3kNghCBeKyVIlNSiYP8i0R6MZc31I",
+        accessToken: "M59L5uFxDXfUOZICpmdrExkB0yGf5Tz6KDOFh8NYvVY",
         host: "preview.contentful.com",
         forceFullSync: true,
       },
