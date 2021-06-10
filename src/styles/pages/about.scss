@@ -14,8 +14,6 @@ About Page styles.
 //Templates
 main.about {
 	.contentful-rich-text-types {
-		display: grid;
-
 		@extend .grid;
 
 		.portrait {
@@ -150,6 +148,7 @@ main.about {
 		}
 
 		@include breakpointUp('m') {
+			display: grid;
 			align-items: top;
 			justify-content: center;
 
