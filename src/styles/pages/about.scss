@@ -16,6 +16,8 @@ main.about {
 	.contentful-rich-text-types {
 		display: grid;
 
+		@extend .grid;
+
 		.portrait {
 			h1,
 			h2,
@@ -148,8 +150,6 @@ main.about {
 		}
 
 		@include breakpointUp('m') {
-			grid-template-columns: repeat(5, 1fr);
-			grid-column-gap: 16px;
 			align-items: top;
 			justify-content: center;
 
@@ -160,12 +160,12 @@ main.about {
 					margin-bottom: 16px;
 				}
 				grid-column-start: 1;
-				grid-column-end: 3;
+				grid-column-end: 6;
 			}
 
 			.text {
-				grid-column-start: 3;
-				grid-column-end: 7;
+				grid-column-start: 6;
+				grid-column-end: 13;
 
 				.block {
 					margin-bottom: 44px;
