@@ -39,6 +39,6 @@ $UI_Named_Colors--dark: (
 	'overlay-background':
 	rgba(map-get($Foundations_Colors_Neutral--dark, 'black'), 0.9),
 	'card-background':
-	rgba(map-get($Foundations_Colors_Neutral--dark, 'black-light'), 0.48),
+	rgba(map-get($Foundations_Colors_Neutral--dark, 'grey-medium-darker'), 1),
 	'mark': map-get($Foundations_Colors_Primary--dark, 'error'),
 );
