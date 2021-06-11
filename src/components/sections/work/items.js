@@ -121,7 +121,7 @@ const WorkItems = ({ workItems = [], data = {} }) => {
           )}
 
           {item.released === false ? (
-            <div className="tag releaseDate">Coming {item.releaseDate}</div>
+            <div className="tag releaseDate">Coming soon</div>
           ) : null}
           {item.released === true && item.inProgress === false ? (
             <div className="tag date">

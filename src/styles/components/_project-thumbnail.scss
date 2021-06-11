@@ -334,13 +334,13 @@ body {
 					background:
 						scale-color(
 							rgba(map-get($UI_Named_Colors--dark, 'link-text'), 0.5),
-							$lightness: -46%
+							$lightness: -26%
 						);
 					box-shadow:
 						0 1px 2px
 						scale-color(
 							rgba(map-get($UI_Named_Colors--dark, 'link-text'), 0.25),
-							$lightness: -80%
+							$lightness: -60%
 						);
 
 					.linkWrapper.in {
@@ -353,7 +353,7 @@ body {
 							0 1px 2px 0
 							scale-color(
 								rgba(map-get($UI_Named_Colors--dark, 'link-text'), 1),
-								$lightness: -80%
+								$lightness: -42%
 							);
 
 						.link {
@@ -373,11 +373,11 @@ body {
 					}
 
 					&.readingTime {
-						color: map-get($Foundations_Colors_Primary--dark, 'accent');
+						color: scale-color(rgba(map-get($Foundations_Colors_Primary--dark, 'accent'), 1), $lightness: 0%);
 						background:
 							scale-color(
 								rgba(map-get($Foundations_Colors_Primary--dark, 'accent'), 1),
-								$lightness: -67.5%
+								$lightness: -80%
 							);
 					}
 
@@ -390,7 +390,7 @@ body {
 						background:
 							map-get(
 								$Foundations_Colors_Neutral--dark,
-								'grey-medium-darker'
+								'grey-dark'
 							);
 						color: map-get($UI_Named_Colors--dark, 'text-dim');
 					}
