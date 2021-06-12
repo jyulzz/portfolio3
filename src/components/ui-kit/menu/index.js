@@ -66,7 +66,7 @@ class Menu extends React.Component {
           <button
             id="themeToggler"
             aria-label="Theme Toggler"
-            title="Switch Theme"
+            title= {document.body.classList.contains("dark") ? "Switch to Light Mode" : "Switch to Dark Mode"}
             onClick={(e) => toggleTheme(this.switchTheme())}
           >
             <span>
