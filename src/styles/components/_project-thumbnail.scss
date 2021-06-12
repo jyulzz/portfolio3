@@ -375,9 +375,9 @@ body {
 					&.readingTime {
 						color: scale-color(rgba(map-get($Foundations_Colors_Primary--dark, 'accent'), 1), $lightness: 0%);
 						background:
-							scale-color(
-								rgba(map-get($Foundations_Colors_Primary--dark, 'accent'), 1),
-								$lightness: -80%
+							map-get(
+								$Foundations_Colors_Neutral--dark,
+								'grey-dark'
 							);
 					}
 
