@@ -31,7 +31,7 @@
     "gatsby-plugin-offline": "^4.7.1",
     "gatsby-plugin-readingtime-contentful": "^1.0.0",
     "gatsby-plugin-sass": "^4.7.1",
-    "gatsby-plugin-sharp": "^3.7.1",
+    "gatsby-plugin-sharp": "^3.8.0",
     "gatsby-plugin-styled-jsx": "^4.7.1",
     "gatsby-react-router-scroll": "^4.7.1",
     "gatsby-source-contentful": "^5.7.1",
