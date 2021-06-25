@@ -18,7 +18,7 @@
     "acorn": "^8.4.0",
     "acorn-dynamic-import": "^4.0.0",
     "axios": "^0.21.1",
-    "chokidar": "^3.5.1",
+    "chokidar": "^3.5.2",
     "gatsby": "^3.7.1",
     "gatsby-image": "^3.7.1",
     "gatsby-plugin-dark-mode": "^1.1.2",
