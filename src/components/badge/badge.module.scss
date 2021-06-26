@@ -1,0 +1,21 @@
+@use 'sass:math';
+@use 'reset-css/sass/reset' as *;
+@use 'styles/utilities/functions';
+@use 'styles/utilities/variables';
+@use 'styles/foundations/colors';
+@use 'styles/foundations/breakpoints';
+@use 'styles/foundations/grid';
+@use 'styles/foundations/typography';
+
+.badge {
+	overflow: hidden;
+	box-sizing: border-box;
+	display: inline-block;
+	width: functions.px-to-rem($f*7);
+	height: functions.px-to-rem($f*7);
+	border: functions.px-to-rem($f*0.25) solid var(--ui-border);
+	border-radius: functions.px-to-rem($f*10);
+	background: var(--ui-card-background);
+	margin-top: 0;
+	margin-right: 0;
+}

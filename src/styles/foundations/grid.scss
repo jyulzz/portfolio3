@@ -1,0 +1,89 @@
+@use 'styles/utilities/variables' as *;
+@use 'styles/utilities/functions';
+@use 'styles/foundations/breakpoints';
+
+.view {
+	min-width: functions.px-to-rem($f * 80);
+
+	.grid {
+		display: grid;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@include breakpoints.from-to('xs', 's') {
+	.view {
+		padding-left: functions.px-to-rem($f * 8);
+		padding-right: functions.px-to-rem($f * 8);
+
+		.grid {
+			grid-template-columns: repeat(6, 1fr);
+			grid-column-gap: functions.px-to-rem($f * 1);
+		}
+
+		.container {
+			&.standard {
+				grid-column-start: 1;
+				grid-column-end: 7;
+			}
+		}
+	}
+}
+
+@include breakpoints.on('m') {
+	.view {
+		padding-left: functions.px-to-rem($f * 12);
+		padding-right: functions.px-to-rem($f * 12);
+
+		.grid {
+			grid-template-columns: repeat(12, 1fr);
+			grid-column-gap: functions.px-to-rem($f * 4);
+		}
+
+		.container {
+			&.standard {
+				grid-column-start: 1;
+				grid-column-end: 13;
+			}
+		}
+	}
+}
+
+@include breakpoints.on('l') {
+	.view {
+		padding-left: functions.px-to-rem($f * 34);
+		padding-right: functions.px-to-rem($f * 34);
+
+		.grid {
+			grid-template-columns: repeat(12, 1fr);
+			grid-column-gap: functions.px-to-rem($f * 4);
+
+			.container {
+				&.standard {
+					grid-column-start: 1;
+					grid-column-end: 13;
+				}
+			}
+		}
+	}
+}
+
+@include breakpoints.up('xl') {
+	.view {
+		padding-left: functions.px-to-rem($f * 34);
+		padding-right: functions.px-to-rem($f * 34);
+
+		.grid {
+			grid-template-columns: repeat(12, 1fr);
+			grid-column-gap: functions.px-to-rem($f * 4);
+
+			.container {
+				&.standard {
+					grid-column-start: 1;
+					grid-column-end: 13;
+				}
+			}
+		}
+	}
+}

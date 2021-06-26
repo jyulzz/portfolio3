@@ -1,0 +1,15 @@
+@mixin standard {
+	transition-property:
+		background,
+		background-color,
+		padding,
+		box-shadow,
+		border-color,
+		border,
+		border-bottom-color,
+		border-bottom,
+		color;
+	transition-duration: 240ms;
+	transition-delay: 80ms;
+	transition-timing-function: cubic-bezier(0.82, 0.1, 0.14, 1.12);
+}

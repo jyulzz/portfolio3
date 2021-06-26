@@ -1,0 +1,58 @@
+@use 'sass:math';
+@use 'sass:color';
+@use 'reset-css/sass/reset' as *;
+@use 'styles/utilities/variables' as *;
+@use 'styles/utilities/functions';
+@use 'styles/utilities/transitions';
+@use 'styles/foundations/colors';
+@use 'styles/foundations/breakpoints';
+@use 'styles/foundations/grid';
+@use 'styles/foundations/typography';
+
+.header {
+	@include transitions.standard;
+	width: 100%;
+	position: fixed;
+	z-index: 12;
+	top: 0;
+	background: var(--ui-menu-bar-background);
+	padding: functions.px-to-rem($f*4) 0;
+
+	&.scrolled {
+		backdrop-filter: blur(functions.px-to-rem($f*2));
+		box-shadow:
+			0 functions.px-to-rem($f) functions.px-to-rem($f*3)
+			rgba(var(--ui-header-shadow), 0.2);
+		background: rgba(var(--ui-menu-bar-background), 0.9);
+		border-bottom: thin solid transparent;
+	}
+
+	.container {
+		&:nth-of-type(1) {
+			@include breakpoints.from-to('xs', 's') {
+				grid-column-start: 1;
+				grid-column-end: 4;
+			}
+
+			@include breakpoints.up('m') {
+				grid-column-start: 1;
+				grid-column-end: 7;
+			}
+		}
+
+		&:nth-of-type(2) {
+			display: grid;
+			justify-content: flex-end;
+
+			@include breakpoints.from-to('xs', 's') {
+				grid-column-start: 4;
+				grid-column-end: 7;
+			}
+
+			@include breakpoints.up('m') {
+				grid-column-start: 7;
+				grid-column-end: 13;
+			}
+		}
+	}
+}

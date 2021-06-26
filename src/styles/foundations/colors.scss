@@ -1,0 +1,51 @@
+
+body.light {
+	--neutral-black: 0, 0, 0;
+	--neutral-black-light: 32, 32, 32;
+	--neutral-grey-dark: 84, 84, 84;
+	--neutral-grey-medium-dark: 108, 108, 108;
+	--neutral-grey-medium: 196, 196, 196;
+	--neutral-grey-light: 236, 236, 236;
+	--neutral-white-dark: 248, 248, 248;
+	--neutral-white: 255, 255, 255;
+	--primary-primary: 33, 51, 181;
+	--primary-success: 17, 116, 45;
+	--primary-accent: 136, 0, 178;
+	--primary-error: 255, 0, 0;
+	--ui-text: var(--neutral-black-light);
+	--ui-text-dim: var(--neutral-grey-dark);
+	--ui-text-sub: var(--neutral-grey-medium);
+	--ui-link-text: var(--primary-primary);
+	--ui-background: var(--neutral-white);
+	--ui-menu-bar-background: var(--neutral-white);
+	--ui-header-shadow: var(--neutral-black);
+	--ui-footer-background: var(--primary-primary);
+	--ui-border: var(--neutral-grey-light);
+	--ui-overlay-background: var(--neutral-black);
+	--ui-card-background: var(--neutral-white);
+}
+
+body.dark {
+	--neutral-black: 0, 0, 0;
+	--neutral-black-light: 20, 20, 20;
+	--neutral-grey-dark: 28, 28, 28;
+	--neutral-grey-medium-dark: 40, 40, 40;
+	--neutral-grey-medium: 148, 148, 148;
+	--neutral-grey-light: 236, 236, 236;
+	--neutral-white-dark: 248, 248, 248;
+	--neutral-white: 255, 255, 255;
+	--primary-primary: 0, 175, 255;
+	--primary-success: 0, 224, 60;
+	--primary-accent: 199, 0, 255;
+	--primary-error: 255, 0, 0;
+	--ui-text: var(--neutral-grey-light);
+	--ui-text-dim: var(--neutral-grey-medium);
+	--ui-text-sub: var(--neutral-grey-medium-dark);
+	--ui-link-text: var(--primary-primary);
+	--ui-background: var(--neutral-grey-dark);
+	--ui-menu-bar-background: var(--neutral-grey-dark);
+	--ui-footer-background: var(--neutral-black-light);
+	--ui-border: var(--neutral-grey-medium-dark);
+	--ui-overlay-background: var(--neutral-black);
+	--ui-card-background: var(--neutral-black-light);
+}

@@ -1,23 +1,3 @@
-/*-----------------------------------------------------------------------------*
-
-FILE
-/gatsby-browser.js
-
-DESCRIPTION
-The file gatsby-browser.js lets you respond to actions within the browser,
-and wrap your site in additional components.
-The Gatsby Browser API gives you many options for interacting with the
-client-side of Gatsby.
-
-READ MORE
-https://www.gatsbyjs.org/docs/api-files-gatsby-browser/
-
-*-----------------------------------------------------------------------------*/
-
-/*
-FOUC prevention
-*/
-
 /*
 Function that removes 'no-js' from body classes.
 */

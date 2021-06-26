@@ -1,26 +1,12 @@
-/* -----------------------------------------------------------------------------*
-
-FILE
-/gatsby-config.js
-
-DESCRIPTION
-The file gatsby-config.js defines your site’s metadata, plugins, and other
-general configuration. This file should be in the root of your Gatsby site.
-
-READ MORE
-https://www.gatsbyjs.org/docs/api-files-gatsby-config/
-
-*----------------------------------------------------------------------------- */
-
 const path = require("path");
 
 module.exports = {
   flags: {
-    FAST_DEV: true,
     PRESERVE_WEBPACK_CACHE: true,
+    FAST_DEV: true,
+    DEV_SSR: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
-    DEV_SSR: true,
   },
   plugins: [
     {
@@ -50,21 +36,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [
-          `/index.html`,
-          `/404`,
-          `/about`,
-          `/work/design-systems`,
-          `/work/esgn`,
-          `/work/ov-chipkaart`,
-          `/work/autosgn`,
-          `/work/housinganywhere`,
-        ],
-      },
-    },
-    {
       resolve: "gatsby-plugin-next-seo",
       options: {
         language: "en",
@@ -82,8 +53,17 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sass",
       options: {
+        cssLoaderOptions: {
+          modules: {
+            compileType: "module",
+          },
+        },
         sassOptions: {
-          includePaths: [require("path").resolve(__dirname, "node_modules")],
+          includePaths: [
+            require("path").resolve(__dirname, "node_modules"),
+            require("path").resolve(__dirname, "src/styles"),
+          ],
+          implementation: require("sass"),
         },
       },
     },
@@ -98,36 +78,21 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-netlify",
-    },
-    {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId: "i6guo7zsdt38",
         accessToken: "M59L5uFxDXfUOZICpmdrExkB0yGf5Tz6KDOFh8NYvVY",
         host: "preview.contentful.com",
         forceFullSync: true,
+        environment: "next",
       },
     },
     {
       resolve: "gatsby-plugin-root-import",
       options: {
-        src: path.join(__dirname, "src"),
-        conf: path.join(__dirname, "conf"),
-        pages: path.join(__dirname, "src/pages"),
-        assets: path.join(__dirname, "src/assets"),
-        components: path.join(__dirname, "src/components"),
-        options: path.join(__dirname, "src/options"),
         styles: path.join(__dirname, "src/styles"),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        ignore: {
-          patterns: [`**/options.(js|ts)?(x)`],
-        },
+        components: path.join(__dirname, "src/components"),
+        functions: path.join(__dirname, "src/functions"),
       },
     },
   ],

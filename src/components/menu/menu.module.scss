@@ -1,0 +1,36 @@
+@use 'sass:math';
+@use 'reset-css/sass/reset' as *;
+@use 'styles/utilities/variables' as *;
+@use 'styles/utilities/functions';
+@use 'styles/foundations/colors';
+@use 'styles/foundations/breakpoints';
+@use 'styles/foundations/grid';
+@use 'styles/foundations/typography';
+
+.menu {
+	display: flex;
+	flex-direction: row;
+
+	.list {
+		display: flex;
+		flex-direction: row;
+
+		@include breakpoints.from-to('xs', 's') {
+			display: none;
+		}
+	}
+
+	.overlay {
+		@include breakpoints.up('m') {
+			display: none;
+		}
+
+		@extend .list;
+	}
+
+	.menuToggle {
+		@include breakpoints.up('m') {
+			display: none;
+		}
+	}
+}

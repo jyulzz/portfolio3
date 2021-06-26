@@ -1,0 +1,15 @@
+@use 'sass:math';
+@use 'reset-css/sass/reset' as *;
+@use 'styles/utilities/variables' as *;
+@use 'styles/utilities/functions';
+@use 'styles/foundations/colors';
+@use 'styles/foundations/breakpoints';
+@use 'styles/foundations/grid';
+@use 'styles/foundations/typography';
+
+.layout {
+	&.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, functions.px-to-rem($f*13));
+	}
+}

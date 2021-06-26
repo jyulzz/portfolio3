@@ -1,0 +1,46 @@
+@use 'sass:math';
+@use 'reset-css/sass/reset' as *;
+@use 'styles/utilities/variables' as *;
+@use 'styles/utilities/functions';
+@use 'styles/foundations/colors';
+@use 'styles/foundations/breakpoints';
+@use 'styles/foundations/grid';
+@use 'styles/foundations/typography';
+@use 'styles/utilities/transitions';
+
+.link {
+	@include transitions.standard;
+	cursor: pointer;
+	color: var(--ui-link-text);
+	white-space: nowrap;
+	word-break: keep-all;
+	display: inline-flex;
+	vertical-align: top;
+	align-items: center;
+	line-height: 120%;
+
+	&.primary {
+		font-weight: map-get(typography.$weights, 'semibold');
+	}
+
+	&.inactive {
+		color: var(--ui-text-dim);
+		border-bottom: none;
+		cursor: default;
+	}
+
+	svg {
+		margin-right: functions.px-to-rem($f*2);
+		width: functions.px-to-rem($f*4) !important;
+		height: functions.px-to-rem($f*4.8) !important;
+	}
+
+	&.inverted {
+		flex-direction: row-reverse;
+
+		svg {
+			margin-right: 0;
+			margin-left: functions.px-to-rem($f*2);
+		}
+	}
+}
