@@ -22,7 +22,7 @@
     "gatsby": "^3.7.1",
     "gatsby-image": "^3.7.1",
     "gatsby-plugin-dark-mode": "^1.1.2",
-    "gatsby-plugin-gatsby-cloud": "^2.7.1",
+    "gatsby-plugin-gatsby-cloud": "^2.8.1",
     "gatsby-plugin-google-analytics": "^3.7.1",
     "gatsby-plugin-image": "^1.7.1",
     "gatsby-plugin-manifest": "^3.7.1",
